@@ -1,7 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.angels.infra.codegroup.CodeGroupDao">
+<mapper namespace="com.angels.module.codegroup.CodeGroupDao">
 
-	  
+<resultMap id="resultMapObj" type="com.angels.module.codegroup.CodeGroupDto"></resultMap>
+	
+  	<select id="selectList" resultMap="resultMapObj">
+		select
+			cgSeq,
+			cgUse,
+			cgdelNy,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate,
+		    cgCheck,
+		    cgTotal
+		from
+			codegroup
+		where 1=1
+		order by cgSeq desc
+	</select>
+	
+	 <select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			cgSeq,
+		    cgName,
+		    cgTotal	    
+		FROM
+			codegroup
+		where 1=1
+			AND seq = #{seq}
+		order by cgSeq desc
+	</select>
+	
+		<insert id= "insert">
+		INSERT INTO codegroup (
+			cgUse,
+		    cgName,
+		    cgCount,
+		    cgOrder
+		    
+			) values (
+				#{cgUse},
+				#{cgName},
+				#{cgCount},
+				#{cgOrder}
+			)
+		<selectKey resultType= "String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
 </mapper>
