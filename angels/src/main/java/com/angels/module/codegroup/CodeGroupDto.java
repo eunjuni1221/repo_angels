@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class CodeGroupDto {
 	
-	private String seq;
+	private String cgSeq;
 	private String cgUse;
 	private String cgdelNy;
 	private String cgCode;
@@ -17,16 +17,18 @@ public class CodeGroupDto {
 	private String cgTotal;
 	
 	//----------------
+	
+	public String getCgSeq() {
+		return cgSeq;
+	}
+	public void setCgSeq(String cgSeq) {
+		this.cgSeq = cgSeq;
+	}
 
-	public String getSeq() {
-		return seq;
-	}
-	public void setSeq(String seq) {
-		this.seq = seq;
-	}
 	public String getCgdelNy() {
 		return cgdelNy;
 	}
+
 	public void setCgdelNy(String cgdelNy) {
 		this.cgdelNy = cgdelNy;
 	}

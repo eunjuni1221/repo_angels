@@ -9,32 +9,18 @@
 		select
 			cgSeq,
 			cgUse,
-			cgdelNy,
 		    cgCode,
 		    cgName,
 		    cgCount,
 		    cgOrder,
 		    cgRegDate,
-		    cgEdDate,
-		    cgCheck,
-		    cgTotal
+		    cgEdDate
 		from
 			codegroup
 		where 1=1
 		order by cgSeq desc
 	</select>
 	
-	 <select id="selectOne" resultMap="resultMapObj">
-		SELECT
-			cgSeq,
-		    cgName,
-		    cgTotal	    
-		FROM
-			codegroup
-		where 1=1
-			AND seq = #{seq}
-		order by cgSeq desc
-	</select>
 	
 		<insert id= "insert">
 		INSERT INTO codegroup (
@@ -49,7 +35,7 @@
 				#{cgCount},
 				#{cgOrder}
 			)
-		<selectKey resultType= "String" keyProperty="seq" order="AFTER">
+		<selectKey resultType= "String" keyProperty="cgSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>

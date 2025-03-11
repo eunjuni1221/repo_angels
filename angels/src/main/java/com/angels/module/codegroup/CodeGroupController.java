@@ -24,12 +24,12 @@ public class CodeGroupController {
 	return "xdm/codegroup/CodeGroupXdmForm"; 
 	}
 	
-//	@RequestMapping(value = "/codegroup/CodeGroupXdmInst")
-//	public String codegroupXdmInst(CodeGroupDto codeGroupDto) {
-//		
-//		codeGroupService.insert(codeGroupDto);
-//	return "redirect:/xdm/codegroup/CodeGroupXdmList"; 
-//	}
+	@RequestMapping(value = "/codegroup/CodeGroupXdmInst")
+	public String codegroupXdmInst(CodeGroupDto codeGroupDto) {
+		
+		codeGroupService.insert(codeGroupDto);
+	return "redirect:CodeGroupXdmList"; 
+	}
 	
 	
 	
