@@ -16,9 +16,12 @@
 		    cgRegDate,
 		    cgEdDate
 		from
-			codegroup
-		where 1=1
+			codegroup 
+			
+		where 1=1 
 		order by cgSeq desc
+		limit #{rowNumToShow} offset #{startRnumForMysql}
+		
 	</select>
 	
 	
@@ -39,5 +42,12 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
+	<select id="selectOneCount" resultType="Integer">
+	
+	Select count(*)
+	from codegroup
+	
+	</select>
 	
 </mapper>
