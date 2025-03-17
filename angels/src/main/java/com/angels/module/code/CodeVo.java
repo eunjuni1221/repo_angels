@@ -1,8 +1,7 @@
-package com.angels.module.codegroup;
+package com.angels.module.code;
 
-public class CodeGroupVo {
+public class CodeVo {
 	
-//	paging
 	private int thisPage = 1;									// 현재 페이지
 	private int rowNumToShow = 5;								// 화면에 보여줄 데이터 줄 갯수
 	private int pageNumToShow = 5;								// 화면에 보여줄 페이징 번호 갯수
@@ -12,9 +11,8 @@ public class CodeGroupVo {
 	private int startPage;										// 시작 페이지 번호
 	private int endPage;										// 마지막 페이지 번호
 
-	private int startRnumForMysql = 0;							// 쿼리 시작 row
+	private int startRnumForMysql = 0;
 
-//	-----
 	public void setParamsPaging(int totalRows) {
 //		setThisPage(1);
 
@@ -59,6 +57,7 @@ public class CodeGroupVo {
 		
 	}
 
+	
 	public int getThisPage() {
 		return thisPage;
 	}
@@ -122,10 +121,7 @@ public class CodeGroupVo {
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
 	}
-
 	
-
-
 	
 
 }

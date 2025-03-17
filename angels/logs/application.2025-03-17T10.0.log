@@ -1,0 +1,917 @@
+2025-03-17T10:33:24.252 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 15380 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-17T10:33:24.255 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-17T10:33:24.346 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2025-03-17T10:33:24.347 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2025-03-17T10:33:26.209 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-17T10:33:26.230 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-17T10:33:26.235 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-17T10:33:26.236 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-17T10:33:26.312 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-17T10:33:26.314 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1966 ms 
+2025-03-17T10:33:27.160 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-17T10:33:27.182 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-17T10:33:27.217 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-17T10:33:27.230 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 3.789 seconds (process running for 6.445) 
+2025-03-17T10:33:27.899 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-17T10:33:27.900 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-17T10:33:27.902 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 2 ms 
+2025-03-17T10:33:39.126 [http-nio-8080-exec-2] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2025-03-17T10:33:39.577 [http-nio-8080-exec-2] INFO c.z.h.p.HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6aed829a 
+2025-03-17T10:33:39.581 [http-nio-8080-exec-2] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2025-03-17T10:33:39.616 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 11 msec} 
+2025-03-17T10:33:39.631 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:33:39.648 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-17T10:33:39.653 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:47:37.515 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 4 msec} 
+2025-03-17T10:47:37.516 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:47:37.519 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:47:37.523 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:48:42.241 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-17T10:48:42.242 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:48:42.245 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-17T10:48:42.248 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:11.574 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 4 msec} 
+2025-03-17T10:49:11.575 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:11.578 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:49:11.581 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:13.183 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 2 msec} 
+2025-03-17T10:49:13.184 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:13.187 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:49:13.190 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:14.409 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 2 msec} 
+2025-03-17T10:49:14.410 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:14.416 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 4 msec} 
+2025-03-17T10:49:14.422 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:15.147 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 2 msec} 
+2025-03-17T10:49:15.149 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:15.152 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-17T10:49:15.155 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:15.622 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-17T10:49:15.624 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:15.626 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-17T10:49:15.628 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:16.156 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 4 msec} 
+2025-03-17T10:49:16.156 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:16.158 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-17T10:49:16.161 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:17.151 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-17T10:49:17.151 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:17.154 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:49:17.156 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:17.396 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 2 msec} 
+2025-03-17T10:49:17.397 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:17.400 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:49:17.401 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:17.863 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 2 msec} 
+2025-03-17T10:49:17.863 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:17.865 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-17T10:49:17.866 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:18.248 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 4 msec} 
+2025-03-17T10:49:18.248 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:18.251 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-17T10:49:18.254 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:49:33.162 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-17T10:49:33.163 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:49:33.165 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-17T10:49:33.167 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:14.292 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 4 msec} 
+2025-03-17T10:56:14.293 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:14.297 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:56:14.299 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:17.067 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 2 msec} 
+2025-03-17T10:56:17.067 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:17.070 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:56:17.072 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:19.902 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-17T10:56:19.903 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:19.906 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:56:19.908 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:21.233 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 5 msec} 
+2025-03-17T10:56:21.234 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:21.237 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:56:21.240 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:21.787 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-17T10:56:21.788 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:21.791 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-17T10:56:21.793 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:22.517 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 4 msec} 
+2025-03-17T10:56:22.517 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:22.520 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-17T10:56:22.521 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:23.003 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 4 msec} 
+2025-03-17T10:56:23.005 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:23.008 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:56:23.009 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:23.434 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-17T10:56:23.434 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:23.439 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:56:23.441 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 
+2025-03-17T10:56:23.749 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-17T10:56:23.750 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-17T10:56:23.753 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-17T10:56:23.755 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|------|-------|--------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname  |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|--------|--------|--------|----------|---------|
+|42    |1     |null   |ㅓㅗㅓㅗ    |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ    |null    |89      |null      |null     |
+|40    |0     |null   |ㄴㄴㅁㅋ    |null    |5       |null      |null     |
+|39    |0     |null   |gsdgdga |null    |22      |null      |null     |
+|38    |0     |null   |sdsa    |null    |2       |null      |null     |
+|------|------|-------|--------|--------|--------|----------|---------|
+ 

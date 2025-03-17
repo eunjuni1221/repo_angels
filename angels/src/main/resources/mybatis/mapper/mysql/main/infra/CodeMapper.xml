@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angels.module.code.CodeDao">
+
+<resultMap id="resultMapObj" type="com.angels.module.code.CodeDto"></resultMap>
+	
+  	<select id="selectList" resultMap="resultMapObj">
+		select
+			cdSeq
+			cdDelNy,
+			cdUse,
+		    cdCode,
+		    cdName,
+		    cdCount,
+		    cdOrder,
+		    cdRegDate,
+		    cdEdDate,
+		    cdCheck,
+		    cdUse,
+		    codeGroup_cgSeq
+		from
+			code 
+			
+		where 1=1 
+		order by cdSeq desc
+		<!-- limit #{rowNumToShow} offset #{startRnumForMysql} -->
+		
+	</select>
+	
+	<insert id="insert">
+	INSERT INTO code (
+		cdUse,
+		cdName,
+		cdOrder,
+		codeGroup_cgSeq
+	) values (
+		#{cdUse},
+		#{cdName},
+		#{cdOrder},
+		#{codeGroup_cgSeq}
+	)
+	
+	<selectKey resultType="String" keyProperty="cdSeq" order="AFTER">
+		SELECT last_insert_id()
+	</selectKey>
+	</insert>
+	
+	<select id="selectOneCount" resultType="Integer">
+	
+	Select count(*)
+	from code
+	</select>
+</mapper>

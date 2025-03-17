@@ -14,6 +14,8 @@ public class CodeGroupController {
 	
 	@RequestMapping(value = "/codegroup/codeGroupXdmList")
 	public String codegroupXdmList(Model model, CodeGroupVo vo) {
+		System.out.println(vo.getThisPage());
+		
 		vo.setParamsPaging(codeGroupService.selectOneCount());
 		model.addAttribute("list", codeGroupService.selectList(vo));
 		model.addAttribute("vo", vo);

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	
+	<div th:replace="~{xdm/include/head :: head}"></div>
+	<form name="formList" id="formList" method="post" autocomplete="off">
+	  	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
+	  	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6"><h3 class="mb-0">Code</h3></div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Code</li>
+                </ol>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid p-0">
+            <!-- Timelime example  -->
+            <div class="row">
+              <div class="col-12">
+                <!-- The icons -->
+                <div class="col-12">
+                  <div class="card card-primary card-outline" style="display: inline-block; width: 100%;">
+                    <div class="card-header"><h3 class="card-title">Code</h3></div>
+                    <div class="card-body"> 
+                      <div class="container-fluid">
+                        <div class="row row-cols-5 g-2">
+                          <div class="col">
+                            <select class="form-select form-select-sm" style="width: 100%;">
+                              <option selected>N</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+                          <div class="col">
+                            <select class="form-select form-select-sm" style="width: 100%;">
+                              <option selected>Y</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+                          <div class="col">
+                            <select class="form-select form-select-sm" style="width: 100%;">
+                              <option selected>날짜</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control form-control-sm" placeholder="날짜">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control form-control-sm" placeholder="날짜">
+                          </div> 
+                          <div class="col">
+                            <select class="form-select form-select-sm" style="width: 100%;">
+                              <option selected>검색구분</option>
+                              <option value="1">코드그룹 코드</option>
+                              <option value="2">코드그룹 이름</option>
+                              <option value="3">코드</option>
+                              <option value="4">대체 코드</option>
+                              <option value="5">코드 이름</option>
+                              <option value="6">코드 이름(영문)</option>
+                            </select>
+                          </div> 
+                          <div class="col">
+                            <input type="text" class="form-control form-control-sm" placeholder="검색어">
+                          </div>
+                          <div class="d-flex gap-2">
+                            <button class="btn btn-light btn-sm">
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>                          
+                            <button class="btn btn-light btn-sm">
+                              <i class="fa-solid fa-rotate-right"></i>
+                            </button>
+                          </div>                                           
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!--end::Container-->
+        </div>
+              <!-- 📌 테이블 추가 -->
+              <div class="border p-3 rounded shadow-sm bg-white mt-3" style="display: inline-block; width: 100%;">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="mb-0">Total: 162</h4>
+                  
+                  <!-- 선택 박스 (기존 코드에 추가) -->
+                  <select class="form-select form-select-md" style="width: 200px;">
+                    <option selected>5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+              
+                <table class="table table-bordered mt-2" style="width: 100%;">
+                  <thead class="table-light">
+                    <tr>
+                      <th><input type="checkbox" id="selectAll"></th>
+                      <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">사용 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">코드 그룹 코드 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">코드 그룹 이름 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">코드 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">대체 코드 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">코드 이름 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">코드 이동(영문) <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">순서 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+					<tr th:if="${#lists.isEmpty(list)}">
+						<td colspan="12">
+							<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
+						</td>
+					</tr>
+					<tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
+					  <td><input type="checkbox" class="row-checkbox"></td>
+					  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
+					  <td th:text="${list.cdUse == '1' ? 'Y' : 'N'}"></td>
+					  <td th:text="${list.codeGroup_cgSeq}"></td>
+					  <td th:text="${list.cdName}"></td>
+					  <td th:text="${list.cdSeq}"></td>			  
+					  <td></td>
+					  <td></td>
+					  <td></td>
+					  <td th:text="${list.cdOrder}"></td>
+					  <td th:text="${list.cdRegDate}"></td>
+					  <td th:text="${list.cdEdDate}"></td>
+					</tr>
+                  </tbody>
+                </table>
+        
+                <!-- 페이지네이션 & 버튼 -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div class="d-flex gap-1">
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                  </div>
+                  
+				  <nav aria-label="Page navigation example">
+				    <ul class="pagination">
+				      <li th:if="${vo.startPage gt vo.pageNumToShow}" style="cursor: pointer;" class="page-item">
+				        <a class="page-link"href="javascript:goList(${vo.startPage - 1})" th:attr="onclick=|goList('${vo.startPage - 1}')|" aria-label="Previous">
+				          <span aria-hidden="true">&laquo;</span>
+				        </a>
+				      </li>
+				      <li th:each="num: ${#numbers.sequence(vo.startPage, vo.endPage)}" th:classappend="${num eq vo.thisPage} ? active : ''" class="page-item"  style="cursor: pointer;">
+				  	<a class="page-link" th:attr="onclick=|goList('${num}')|" th:text="${num}"><!--${i.index} --></a></li>
+				      <li th:if="${vo.endPage ne vo.totalPages}" class="page-item" style="cursor: pointer;">
+				        <a class="page-link" th:attr="onclick=|goList('${vo.endPage + 1}')|" aria-label="Next">
+				          <span aria-hidden="true">&raquo;</span>
+				        </a>
+				      </li>
+				    </ul>
+				  </nav>
+        
+                  <div class="d-flex gap-1">
+                    <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
+                    <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
+					<a href="CodeXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>                  </div>
+                </div>
+        
+              </div>
+              <!-- 📌 테이블 끝 -->
+        
+            </div>
+          </div>
+        </div>
+        <!--end::App Content-->
+      </main>
+	</form>
+      <!--end::App Main-->
+      <!--begin::Footer-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
+      integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ="
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="../../../dist/js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (sidebarWrapper && typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== 'undefined') {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+  document.getElementById("selectAll").addEventListener("change", function () {
+    let checkboxes = document.querySelectorAll(".row-checkbox");
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = this.checked;
+    });
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".sortable").forEach(header => {
+      header.addEventListener("click", function () {
+        const table = header.closest("table");
+        const tbody = table.querySelector("tbody");
+        const index = Array.from(header.parentNode.children).indexOf(header);
+        const order = header.dataset.order = -(header.dataset.order || -1);
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        
+        rows.sort((rowA, rowB) => {
+          const cellA = rowA.children[index].textContent.trim();
+          const cellB = rowB.children[index].textContent.trim();
+          return order * (isNaN(cellA - cellB) ? cellA.localeCompare(cellB) : cellA - cellB);
+        });
+        
+        tbody.append(...rows);
+        
+        table.querySelectorAll(".sortable i").forEach(icon => {
+          icon.className = "fa-solid fa-sort";
+        });
+        
+        const icon = header.querySelector("i");
+        icon.className = order === 1 ? "fa-solid fa-sort-up" : "fa-solid fa-sort-down";
+      });
+    });
+  });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+    <!--end::Script-->
+<div th:replace="~{xdm/include/footer :: footer}"></div>
+
