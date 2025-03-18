@@ -5,38 +5,44 @@
 
 <resultMap id="resultMapObj" type="com.angels.module.codegroup.CodeGroupDto"></resultMap>
 	
+	<sql id="selectCommon">
+			from
+			codegroup as a 		
+			where 1=1 
+	</sql>
+	
   	<select id="selectList" resultMap="resultMapObj">
 		select
-			cgSeq,
-			cgUse,
-		    cgCode,
-		    cgName,
-		    cgCount,
-		    cgOrder,
-		    cgRegDate,
-		    cgEdDate
-		from
-			codegroup 
-			
-		where 1=1 
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+<include refid="selectCommon"/>
 		order by cgSeq desc
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 		
 	</select>
 	
 	
-		<insert id= "insert">
+		<insert id= "insert" parameterType="com.angels.module.codegroup.CodeGroupDto">
 		INSERT INTO codegroup (
 			cgUse,
 		    cgName,
-		    cgCount,
-		    cgOrder
+		    cgNameEng,
+		    cgOrder,
+		    cgRegDate
 		    
 			) values (
 				#{cgUse},
 				#{cgName},
-				#{cgCount},
-				#{cgOrder}
+				#{cgNameEng},
+				#{cgOrder},
+				NOW()				
 			)
 		<selectKey resultType= "String" keyProperty="cgSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -46,7 +52,7 @@
 	<select id="selectOneCount" resultType="Integer">
 	
 	Select count(*)
-	from codegroup
+<include refid="selectCommon"/>
 	
 	</select>
 	

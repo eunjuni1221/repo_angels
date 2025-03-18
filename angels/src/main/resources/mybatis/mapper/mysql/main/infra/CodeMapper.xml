@@ -4,41 +4,63 @@
 <mapper namespace="com.angels.module.code.CodeDao">
 
 <resultMap id="resultMapObj" type="com.angels.module.code.CodeDto"></resultMap>
+
+	<sql id="selectCommon">
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+	</sql>
 	
   	<select id="selectList" resultMap="resultMapObj">
-		select
-			cdSeq
-			cdDelNy,
-			cdUse,
-		    cdCode,
-		    cdName,
-		    cdCount,
-		    cdOrder,
-		    cdRegDate,
-		    cdEdDate,
-		    cdCheck,
-		    cdUse,
-		    codeGroup_cgSeq
-		from
-			code 
-			
-		where 1=1 
-		order by cdSeq desc
-		<!-- limit #{rowNumToShow} offset #{startRnumForMysql} -->
+		SELECT
+			c.cdUse,
+		    c.codeGroup_cgSeq,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdDelNy,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+		    
+<include refid="selectCommon"></include>
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit #{rowNumToShow} offset #{startRnumForMysql}
 		
 	</select>
 	
+	<select id="listCodeGroup" resultMap="resultMapObj">
+		SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+	</select>
+	
+
 	<insert id="insert">
 	INSERT INTO code (
 		cdUse,
 		cdName,
+		cdNameEng,
 		cdOrder,
-		codeGroup_cgSeq
+		codeGroup_cgSeq,	
+		cdRegDate
+		
+		
 	) values (
 		#{cdUse},
 		#{cdName},
+		#{cdNameEng},
 		#{cdOrder},
-		#{codeGroup_cgSeq}
+		#{codeGroup_cgSeq},
+		NOW()
 	)
 	
 	<selectKey resultType="String" keyProperty="cdSeq" order="AFTER">
@@ -49,6 +71,8 @@
 	<select id="selectOneCount" resultType="Integer">
 	
 	Select count(*)
-	from code
+<include refid="selectCommon"></include>
+
 	</select>
+	
 </mapper>

@@ -23,4 +23,8 @@ public class CodeService {
 		return codeDao.selectOneCount();
 	}
 	
+	public List<CodeDto> listCodeGroup(CodeVo codeVo) {
+		return codeDao.listCodeGroup(codeVo);
+	}
+	
 }

@@ -104,7 +104,7 @@
 	              <!-- 📌 테이블 추가 -->
 	              <div class="border p-3 rounded shadow-sm bg-white mt-3" style="display: inline-block; width: 100%;">
 	                <div class="d-flex justify-content-between align-items-center">
-	                  <h4 class="mb-0">Total: 162</h4>
+	                  <h4 class="mb-0">Total: [[${vo.totalRows}]]</h4>
 	                  
 	                  <!-- 선택 박스 (기존 코드에 추가) -->
 	                  <select class="form-select form-select-md" style="width: 200px;">
@@ -142,10 +142,9 @@
 						  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
 						  <td th:text="${list.cgUse == '1' ? 'Y' : 'N'}"></td>
 						  <td th:text="${list.cgSeq}"></td>
-	                      <td th:text="${list.cgCode}"></td>
-	                      <td th:text="${list.cgName}"></td>
-	                      <td></td>
-	                      <td th:text="${list.cgCount}"></td>
+						  <td th:text="${list.cgName}"></td>
+	                      <td th:text="${list.cgNameEng}"></td>	                      
+	                      <td th:text="${list.cdSeqCount}"></td>
 	                      <td th:text="${list.cgOrder}"></td>
 	                      <td th:text="${list.cgRegDate}"></td>
 	                      <td th:text="${list.cgEdDate}"></td>

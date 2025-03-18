@@ -20,13 +20,14 @@ public class CodeController {
 	}
 	
 	@RequestMapping(value="/code/CodeXdmForm")
-	public String codeXdmForm() {
+	public String codeXdmForm(Model model, CodeVo vo) {
+		model.addAttribute("listCodeGroup",codeService.listCodeGroup(vo));
 		return "xdm/code/CodeXdmForm";
 	}
 	
 	@RequestMapping(value="/code/CodeXdmInst")
 	public String codeXdmInst(CodeDto codeDto) {
 		codeService.insert(codeDto);
-		return "redirect:codeXdmList";
+		return "redirect:CodeXdmList";
 	}
 }

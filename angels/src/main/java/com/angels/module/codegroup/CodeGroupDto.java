@@ -1,6 +1,7 @@
 package com.angels.module.codegroup;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class CodeGroupDto {
 	
@@ -9,12 +10,14 @@ public class CodeGroupDto {
 	private String cgdelNy;
 	private String cgCode;
 	private String cgName;
+	private String cgNameEng;
 	private String cgCount;
 	private String cgOrder;
-	private Date cgRegDate;
-	private Date cgEdDate;
+	private LocalDateTime cgRegDate;
+	private LocalDateTime cgEdDate;
 	private String cgCheck;
 	private String cgTotal;
+	private String cdSeqCount;
 	
 	//----------------
 	
@@ -75,18 +78,33 @@ public class CodeGroupDto {
 	public void setCgUse(String cgUse) {
 		this.cgUse = cgUse;
 	}
-	public Date getCgRegDate() {
+	public LocalDateTime getCgRegDate() {
 		return cgRegDate;
 	}
-	public void setCgRegDate(Date cgRegDate) {
+	public void setCgRegDate(LocalDateTime cgRegDate) {
 		this.cgRegDate = cgRegDate;
 	}
-	public Date getCgEdDate() {
+	public LocalDateTime getCgEdDate() {
 		return cgEdDate;
 	}
-	public void setCgEdDate(Date cgEdDate) {
+	public void setCgEdDate(LocalDateTime cgEdDate) {
 		this.cgEdDate = cgEdDate;
 	}
+	public String getCgNameEng() {
+		return cgNameEng;
+	}
+	public void setCgNameEng(String cgNameEng) {
+		this.cgNameEng = cgNameEng;
+	}
+	public String getCdSeqCount() {
+		return cdSeqCount;
+	}
+	public void setCdSeqCount(String cdSeqCount) {
+		this.cdSeqCount = cdSeqCount;
+	}
+
+	
+
 
 	
 	

@@ -1,0 +1,174 @@
+2025-03-18T09:37:42.762 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10276 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-18T09:37:42.763 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-18T09:37:42.804 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2025-03-18T09:37:42.804 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2025-03-18T09:37:44.307 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-18T09:37:44.320 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-18T09:37:44.321 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-18T09:37:44.323 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-18T09:37:44.381 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-18T09:37:44.381 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1577 ms 
+2025-03-18T09:37:45.069 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-18T09:37:45.085 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-18T09:37:45.112 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-18T09:37:45.120 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 2.784 seconds (process running for 3.895) 
+2025-03-18T09:38:04.848 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-18T09:38:04.848 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-18T09:38:04.850 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 2 ms 
+2025-03-18T09:38:04.919 [http-nio-8080-exec-1] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2025-03-18T09:38:05.293 [http-nio-8080-exec-1] INFO c.z.h.p.HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2c180182 
+2025-03-18T09:38:05.295 [http-nio-8080-exec-1] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2025-03-18T09:38:05.332 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from code
+ {executed in 18 msec} 
+2025-03-18T09:38:05.346 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-03-18T09:38:05.360 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cdSeq
+			cdDelNy,
+			cdUse,
+		    cdCode,
+		    cdName,
+		    cdCount,
+		    cdOrder,
+		    cdRegDate,
+		    cdEdDate,
+		    cdCheck,
+		    cdUse,
+		    codeGroup_cgSeq
+		from
+			code 
+
+		where 1=1 
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-03-18T09:38:05.361 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|-------|-------|--------|--------|----------|---------|--------|------|----------------|
+|cdseq |cduse |cdcode |cdname |cdcount |cdorder |cdregdate |cdeddate |cdcheck |cduse |codegroup_cgseq |
+|------|------|-------|-------|--------|--------|----------|---------|--------|------|----------------|
+|------|------|-------|-------|--------|--------|----------|---------|--------|------|----------------|
+ 
+2025-03-18T09:57:06.862 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 6 msec} 
+2025-03-18T09:57:06.864 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|20       |
+|---------|
+ 
+2025-03-18T09:57:06.882 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-18T09:57:06.894 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|-------|-------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|-------|--------|--------|----------|---------|
+|45    |null  |null   |null   |null    |1       |null      |null     |
+|44    |0     |null   |ssss   |null    |1       |null      |null     |
+|43    |1     |null   |dfsaz  |null    |11      |null      |null     |
+|42    |1     |null   |ㅓㅗㅓㅗ   |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ   |null    |89      |null      |null     |
+|------|------|-------|-------|--------|--------|----------|---------|
+ 
+2025-03-18T09:58:47.282 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 3 msec} 
+2025-03-18T09:58:47.284 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|20       |
+|---------|
+ 
+2025-03-18T09:58:47.293 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-18T09:58:47.297 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|------|-------|-------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|-------|--------|--------|----------|---------|
+|45    |null  |null   |null   |null    |1       |null      |null     |
+|44    |0     |null   |ssss   |null    |1       |null      |null     |
+|43    |1     |null   |dfsaz  |null    |11      |null      |null     |
+|42    |1     |null   |ㅓㅗㅓㅗ   |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ   |null    |89      |null      |null     |
+|------|------|-------|-------|--------|--------|----------|---------|
+ 
+2025-03-18T09:59:11.646 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. Select count(*)
+	from codegroup
+ {executed in 5 msec} 
+2025-03-18T09:59:11.647 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|20       |
+|---------|
+ 
+2025-03-18T09:59:11.654 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select
+			cgSeq,
+			cgUse,
+		    cgCode,
+		    cgName,
+		    cgCount,
+		    cgOrder,
+		    cgRegDate,
+		    cgEdDate
+		from
+			codegroup 
+
+		where 1=1 
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-18T09:59:11.659 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|------|-------|-------|--------|--------|----------|---------|
+|cgseq |cguse |cgcode |cgname |cgcount |cgorder |cgregdate |cgeddate |
+|------|------|-------|-------|--------|--------|----------|---------|
+|45    |null  |null   |null   |null    |1       |null      |null     |
+|44    |0     |null   |ssss   |null    |1       |null      |null     |
+|43    |1     |null   |dfsaz  |null    |11      |null      |null     |
+|42    |1     |null   |ㅓㅗㅓㅗ   |null    |33      |null      |null     |
+|41    |0     |null   |ㅠㅠㅠㅠ   |null    |89      |null      |null     |
+|------|------|-------|-------|--------|--------|----------|---------|
+ 

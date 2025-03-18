@@ -1,47 +1,34 @@
 package com.angels.module.code;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class CodeDto {
 	
 	private String cdSeq;
-	private String cdDelNy;
-	private String cdCode;
-	private String cdName;
-	private String cdCount;
-	private String cdOrder;
-	private Date cdRegDate;
-	private Date cdEdDate;
-	private String cdCheck;
+	private Integer cdDelNy;
 	private String cdUse;
+	private String cdName;
+	private String cdNameEng;
+	private String cdOrder;
+	private LocalDateTime cdRegDate;
+	private LocalDateTime cdEdDate;
+	private Integer cdCheck;
 	private String codeGroup_cgSeq;
-
+	private String cgName;
+	private String cgSeq;
 	
 	
-	
-	public String getCdUse() {
-		return cdUse;
-	}
-	public void setCdUse(String cdUse) {
-		this.cdUse = cdUse;
-	}
 	public String getCdSeq() {
 		return cdSeq;
 	}
 	public void setCdSeq(String cdSeq) {
 		this.cdSeq = cdSeq;
 	}
-	public String getCdDelNy() {
+	public Integer getCdDelNy() {
 		return cdDelNy;
 	}
-	public void setCdDelNy(String cdDelNy) {
+	public void setCdDelNy(Integer cdDelNy) {
 		this.cdDelNy = cdDelNy;
-	}
-	public String getCdCode() {
-		return cdCode;
-	}
-	public void setCdCode(String cdCode) {
-		this.cdCode = cdCode;
 	}
 	public String getCdName() {
 		return cdName;
@@ -49,11 +36,11 @@ public class CodeDto {
 	public void setCdName(String cdName) {
 		this.cdName = cdName;
 	}
-	public String getCdCount() {
-		return cdCount;
+	public String getCdNameEng() {
+		return cdNameEng;
 	}
-	public void setCdCount(String cdCount) {
-		this.cdCount = cdCount;
+	public void setCdNameEng(String cdNameEng) {
+		this.cdNameEng = cdNameEng;
 	}
 	public String getCdOrder() {
 		return cdOrder;
@@ -61,22 +48,22 @@ public class CodeDto {
 	public void setCdOrder(String cdOrder) {
 		this.cdOrder = cdOrder;
 	}
-	public Date getCdRegDate() {
+	public LocalDateTime getCdRegDate() {
 		return cdRegDate;
 	}
-	public void setCdRegDate(Date cdRegDate) {
+	public void setCdRegDate(LocalDateTime cdRegDate) {
 		this.cdRegDate = cdRegDate;
 	}
-	public Date getCdEdDate() {
+	public LocalDateTime getCdEdDate() {
 		return cdEdDate;
 	}
-	public void setCdEdDate(Date cdEdDate) {
+	public void setCdEdDate(LocalDateTime cdEdDate) {
 		this.cdEdDate = cdEdDate;
 	}
-	public String getCdCheck() {
+	public Integer getCdCheck() {
 		return cdCheck;
 	}
-	public void setCdCheck(String cdCheck) {
+	public void setCdCheck(Integer cdCheck) {
 		this.cdCheck = cdCheck;
 	}
 	public String getCodeGroup_cgSeq() {
@@ -85,6 +72,26 @@ public class CodeDto {
 	public void setCodeGroup_cgSeq(String codeGroup_cgSeq) {
 		this.codeGroup_cgSeq = codeGroup_cgSeq;
 	}
-	
+	public String getCdUse() {
+		return cdUse;
+	}
+	public void setCdUse(String cdUse) {
+		this.cdUse = cdUse;
+	}
+	public String getCgName() {
+		return cgName;
+	}
+	public void setCgName(String cgName) {
+		this.cgName = cgName;
+	}
+	public String getCgSeq() {
+		return cgSeq;
+	}
+	public void setCgSeq(String cgSeq) {
+		this.cgSeq = cgSeq;
+	}
 
+	
+	
+	
 }
