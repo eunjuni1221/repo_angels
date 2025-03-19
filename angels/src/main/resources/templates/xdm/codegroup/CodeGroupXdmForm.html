@@ -95,6 +95,23 @@
               </div>
           <!--end::Container-->
         </div>
+		<div class="modal" tabindex="-1">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">경고!</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		        <p>잘 입력해주세요</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
         <!--end::App Content-->
       </main>
       <!--end::App Main-->
@@ -140,12 +157,44 @@
 	    });
 	  </script>
       <script type="text/javascript">
+<!--	let cgName = document.getElementById("cgName");		
+		let myModal = document.getElementById('myModal')
+		let myInput = document.getElementById('myInput')
+		
         document.getElementById("btnSave").onclick= function () {
+			
+			if(cgName.value.trim() == null || cgName.value.trim() == "") {
+				myModal.addEventListener('shown.bs.modal', function () {
+				  myInput.focus()
+				})
+				return false;
+			}
+			
           document.getElementById("form").submit();
         }
+		-->
+		document.addEventListener("DOMContentLoaded", function () {
+		    let cgName = document.getElementById("cgName");
+		    let cgOrder = document.getElementById("cgOrder");
+		    let myModal = document.querySelector(".modal");
+		    let btnSave = document.getElementById("btnSave");
+		    let form = document.getElementById("form");
+
+		    btnSave.onclick = function () {
+		        if (cgName.value.trim() === "") {
+		            bootstrap.Modal.getOrCreateInstance(myModal).show();
+		            return false;
+		        }
+		        
+				form.submit();
+		    };
+		});
+		
         
       //	document.getElementById("companyName").onclick= function () {
       //		alert("name")
       //	}   
       </script>
+	  
+
 	  <div th:replace="~{xdm/include/footer :: footer}"></div>
