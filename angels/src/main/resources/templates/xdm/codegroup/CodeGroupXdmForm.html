@@ -95,19 +95,20 @@
               </div>
           <!--end::Container-->
         </div>
-		<div class="modal" tabindex="-1">
+       </div>
+      </div>
+		<div id="myModal" class="modal" tabindex="-1">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title">경고!</h5>
-		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		        <button id="btnClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		        <p>잘 입력해주세요</p>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
+		        <button id="btnConfirm" type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
 		      </div>
 		    </div>
 		  </div>
@@ -156,39 +157,38 @@
 	      }
 	    });
 	  </script>
-      <script type="text/javascript">
-<!--	let cgName = document.getElementById("cgName");		
-		let myModal = document.getElementById('myModal')
-		let myInput = document.getElementById('myInput')
+      <script type="text/javascript">	
 		
-        document.getElementById("btnSave").onclick= function () {
-			
-			if(cgName.value.trim() == null || cgName.value.trim() == "") {
-				myModal.addEventListener('shown.bs.modal', function () {
-				  myInput.focus()
-				})
-				return false;
-			}
-			
-          document.getElementById("form").submit();
-        }
-		-->
 		document.addEventListener("DOMContentLoaded", function () {
 		    let cgName = document.getElementById("cgName");
-		    let cgOrder = document.getElementById("cgOrder");
-		    let myModal = document.querySelector(".modal");
+		    let myModal = document.getElementById("myModal");
 		    let btnSave = document.getElementById("btnSave");
 		    let form = document.getElementById("form");
+		    let btnClose = document.getElementById("btnClose");
+		    let btnConfirm = document.getElementById("btnConfirm");
+
+		    let modalInstance = new bootstrap.Modal(myModal);
 
 		    btnSave.onclick = function () {
 		        if (cgName.value.trim() === "") {
-		            bootstrap.Modal.getOrCreateInstance(myModal).show();
-		            return false;
+		            modalInstance.show();
+		            return false; 
 		        }
-		        
-				form.submit();
+		        form.submit();
+		    };
+
+		    // X 버튼 클릭 시 모달 닫기
+		    btnClose.onclick = function () {
+		        modalInstance.hide();
+		    };
+
+		    // 확인 버튼 클릭 시 모달 닫기
+		    btnConfirm.onclick = function () {
+		        modalInstance.hide();
 		    };
 		});
+	
+		
 		
         
       //	document.getElementById("companyName").onclick= function () {

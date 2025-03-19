@@ -39,12 +39,12 @@
                           <div class="col-md-3">
 							<form action="/code/CodeXdmInst" method="post" enctype="multipart/form-data" id="form">
                             <label class="form-label" for="ifcgSeq">코드그룹 <span class="text-danger">*</span></label>
-                            <select class="form-select" id="codeGroup_cgSeq" name="codeGroup_cgSeq">
+                            <select class="form-select" id="codeGroup_cgSeq" name="codeGroup_cgSeq" required>
                               <option value="" selected>선택</option>
 							  <option th:each="list : ${listCodeGroup}" th:value="${list.cgSeq}" th:text="${list.cgName}">
 							  </option>
 							</select>
-							<div class="invalid-feedback" id="ifcgSeqFeedback"></div>
+							<div class="invalid-feedback">올바르지 않은 형식</div>
                           </div>
                         </div>
                         
@@ -59,7 +59,8 @@
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">코드이름<span class="text-danger"> *</span></label>
-                            <input type="text" name="cdName" id="cdName" class="form-control" placeholder="한글, 영대소문자, 숫자">
+                            <input type="text" name="cdName" id="cdName" class="form-control" placeholder="한글, 영대소문자, 숫자" required>
+							<div class="invalid-feedback">올바르지 않은 형식</div>
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">코드 이름(영문)<span class="text-danger"> *</span></label>
@@ -77,8 +78,9 @@
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">순서<span class="text-danger"> *</span></label>
-                            <input type="text" name="cdOrder" id="cdOrder" class="form-control" placeholder="">
-                          </div>
+                            <input type="text" name="cdOrder" id="cdOrder" class="form-control" placeholder="" required>
+							<div id="cdOrderFeedback" class="invalid-feedback">올바르지 않은 형식</div>
+						  </div>
                         </div>
                         <div class="row g-3 mt-1">
                           <div class="col-md-6">
@@ -150,9 +152,49 @@
       });
     </script>
 	<script type="text/javascript">
-	  document.getElementById("btnSave").onclick= function () {
+/*	  document.getElementById("btnSave").onclick= function () {
 	    document.getElementById("form").submit();
 	  }
+*/
+		document.getElementById("btnSave").onclick = function () {
+		    var form = document.getElementById("form");
+		    var isValid = true;
+		
+		    // 코드그룹 선택 확인
+		    var codeGroup = document.getElementById("codeGroup_cgSeq");
+		    if (codeGroup.value.trim() === "") {
+		        codeGroup.classList.add("is-invalid");
+		        isValid = false;
+		    } else {
+		        codeGroup.classList.remove("is-invalid");
+		    }
+		
+		    // 코드 이름 입력 확인
+		    var cdName = document.getElementById("cdName");
+		    if (cdName.value.trim() === "") {
+		        cdName.classList.add("is-invalid");
+		        isValid = false;
+		    } else {
+		        cdName.classList.remove("is-invalid");
+		    }
+		
+		    // 순서 입력 확인 (공백 불가 + 숫자만 허용)
+		    var cdOrder = document.getElementById("cdOrder");
+		    var orderValue = cdOrder.value.trim();
+		    var orderRegex = /^[0-9]+$/; // 숫자만 허용
+		
+		    if (orderValue === "" || !orderRegex.test(orderValue)) {
+		        cdOrder.classList.add("is-invalid");
+		        isValid = false;
+		    } else {
+		        cdOrder.classList.remove("is-invalid");
+		    }
+		
+		    // 유효성 검사 통과 시 폼 제출
+		    if (isValid) {
+		        form.submit();
+		    }
+		};
 
 	</script>
 	<div th:replace="~{xdm/include/footer :: footer}"></div>
