@@ -15,11 +15,11 @@
 	
   	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-			c.cdUse,
+		
 		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
 			cg.cgName,
 		    c.cdSeq,
-		    c.cdDelNy,
 		    c.cdName,
 		    c.cdNameEng,
 		    c.cdOrder,
@@ -46,7 +46,7 @@
 
 	<insert id="insert">
 	INSERT INTO code (
-		cdUse,
+		cdDelNy,
 		cdName,
 		cdNameEng,
 		cdOrder,
@@ -55,7 +55,7 @@
 		
 		
 	) values (
-		#{cdUse},
+		#{cdDelNy},
 		#{cdName},
 		#{cdNameEng},
 		#{cdOrder},

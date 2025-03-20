@@ -144,7 +144,7 @@
 					<tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
 					  <td><input type="checkbox" class="row-checkbox"></td>
 					  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
-					  <td th:text="${list.cdUse == '1' ? 'Y' : 'N'}"></td>
+					  <td th:text="${list.cdDelNy == 0 ? 'Y' : 'N'}"></td>
 					  <td th:text="${list.codeGroup_cgSeq}"></td>
 					  <td th:text="${list.cgName}"></td>
 					  <td th:text="${list.cdSeq}"></td>			  

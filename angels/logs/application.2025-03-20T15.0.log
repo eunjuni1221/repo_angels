@@ -1,0 +1,193 @@
+2025-03-20T15:04:20.751 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 6 msec} 
+2025-03-20T15:04:20.757 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|8        |
+|---------|
+ 
+2025-03-20T15:04:20.777 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT
+			c.cdUse,
+		    c.codeGroup_cgSeq,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdDelNy,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 4 msec} 
+2025-03-20T15:04:20.794 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|----------------|-------|------|--------|----------|----------|--------|--------------------|---------|--------|
+|cduse |codegroup_cgseq |cgname |cdseq |cddelny |cdname    |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|------|----------------|-------|------|--------|----------|----------|--------|--------------------|---------|--------|
+|null  |2               |성별     |8     |0       |여자        |woman     |1       |2025-03-18T16:12:35 |[null]   |[null]  |
+|null  |2               |성별     |7     |0       |남자        |man       |1       |2025-03-18T16:12:23 |[null]   |[null]  |
+|null  |1               |통신사    |6     |0       |LG U+ 알뜰폰 |LG U+ 알뜰폰 |1       |2025-03-18T16:12:10 |[null]   |[null]  |
+|null  |1               |통신사    |5     |0       |SKT 알뜰폰   |SKT 알뜰폰   |1       |2025-03-18T16:11:56 |[null]   |[null]  |
+|null  |1               |통신사    |4     |0       |KT 알뜰폰    |KT 알뜰폰    |1       |2025-03-18T16:11:37 |[null]   |[null]  |
+|------|----------------|-------|------|--------|----------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-20T15:04:28.988 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-20T15:04:28.989 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|8        |
+|---------|
+ 
+2025-03-20T15:04:28.992 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT
+			c.cdUse,
+		    c.codeGroup_cgSeq,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdDelNy,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 5
+ {executed in 1 msec} 
+2025-03-20T15:04:28.996 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|----------------|-------|------|--------|-------|----------|--------|--------------------|---------|--------|
+|cduse |codegroup_cgseq |cgname |cdseq |cddelny |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|------|----------------|-------|------|--------|-------|----------|--------|--------------------|---------|--------|
+|null  |1               |통신사    |3     |0       |LG U+  |LG U+     |1       |2025-03-18T16:11:17 |[null]   |[null]  |
+|null  |1               |통신사    |2     |0       |KT     |KT        |1       |2025-03-18T16:10:42 |[null]   |[null]  |
+|null  |1               |통신사    |1     |0       |SKT    |SKT       |1       |2025-03-18T16:10:31 |[null]   |[null]  |
+|------|----------------|-------|------|--------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-20T15:24:20.058 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+		FROM
+		team
+	where 1=1
+ {executed in 3 msec} 
+2025-03-20T15:24:20.059 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|4        |
+|---------|
+ 
+2025-03-20T15:24:20.061 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+		tmSeq,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+	FROM
+		team
+	where 1=1
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-20T15:24:20.063 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|-----------|-------|---------|--------------|----------|-------|---------|-------|--------------------|----------|
+|tmseq |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv  |tmregtime           |tmmodtime |
+|------|-----------|-------|---------|--------------|----------|-------|---------|-------|--------------------|----------|
+|4     |           |       |         |              |          |[null] |0        |1      |2025-03-20T14:48:52 |[null]    |
+|3     |           |       |         |              |          |[null] |[null]   |[null] |2025-03-20T14:39:36 |[null]    |
+|2     |           |       |         |              |          |[null] |[null]   |[null] |2025-03-20T14:39:05 |[null]    |
+|1     |Chicago    |Cubs   |CHC      |시카고           |컵스        |[null] |[null]   |[null] |[null]              |[null]    |
+|------|-----------|-------|---------|--------------|----------|-------|---------|-------|--------------------|----------|
+ 
+2025-03-20T15:38:12.020 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 4 msec} 
+2025-03-20T15:38:12.022 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|8        |
+|---------|
+ 
+2025-03-20T15:38:12.030 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+			c.cdUse,
+		    c.codeGroup_cgSeq,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdDelNy,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-20T15:38:12.039 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|----------------|-------|------|--------|----------|----------|--------|--------------------|---------|--------|
+|cduse |codegroup_cgseq |cgname |cdseq |cddelny |cdname    |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|------|----------------|-------|------|--------|----------|----------|--------|--------------------|---------|--------|
+|null  |2               |성별     |8     |0       |여자        |woman     |1       |2025-03-18T16:12:35 |[null]   |[null]  |
+|null  |2               |성별     |7     |0       |남자        |man       |1       |2025-03-18T16:12:23 |[null]   |[null]  |
+|null  |1               |통신사    |6     |0       |LG U+ 알뜰폰 |LG U+ 알뜰폰 |1       |2025-03-18T16:12:10 |[null]   |[null]  |
+|null  |1               |통신사    |5     |0       |SKT 알뜰폰   |SKT 알뜰폰   |1       |2025-03-18T16:11:56 |[null]   |[null]  |
+|null  |1               |통신사    |4     |0       |KT 알뜰폰    |KT 알뜰폰    |1       |2025-03-18T16:11:37 |[null]   |[null]  |
+|------|----------------|-------|------|--------|----------|----------|--------|--------------------|---------|--------|
+ 

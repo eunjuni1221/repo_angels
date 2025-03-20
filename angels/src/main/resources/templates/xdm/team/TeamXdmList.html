@@ -12,11 +12,11 @@
           <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">Code</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">TEAM</h3></div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Code</li>
+                  <li class="breadcrumb-item active" aria-current="page">Team</li>
                 </ol>
               </div>
             </div>
@@ -35,24 +35,23 @@
                 <!-- The icons -->
                 <div class="col-12">
                   <div class="card card-primary card-outline" style="display: inline-block; width: 100%;">
-                    <div class="card-header"><h3 class="card-title">Code</h3></div>
+                    <div class="card-header"><h3 class="card-title">Team</h3></div>
                     <div class="card-body"> 
                       <div class="container-fluid">
                         <div class="row row-cols-5 g-2">
                           <div class="col">
                             <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>N</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                              <option selected>리그</option>
+                              <option value="1">AL</option>
+                              <option value="2">NL</option>
                             </select>
                           </div>
                           <div class="col">
                             <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>Y</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
+                              <option selected>소속</option>
+                              <option value="1">WEST</option>
+                              <option value="2">CENTRAL</option>
+                              <option value="3">EAST</option>
                             </select>
                           </div>
                           <div class="col">
@@ -123,14 +122,14 @@
                     <tr>
                       <th><input type="checkbox" id="selectAll"></th>
                       <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">사용 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">코드 그룹 코드 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">코드 그룹 이름 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">코드 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">대체 코드 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">코드 이름 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">코드 이동(영문) <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">순서 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">코드 번호 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">리그 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">소속 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀 이름(연고지, 영문) <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀 이름(구단명, 영문) <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀 이름(연고지, 한글)<i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀 이름(구단명, 한글) <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀 약어 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
                     </tr>
@@ -144,16 +143,16 @@
 					<tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
 					  <td><input type="checkbox" class="row-checkbox"></td>
 					  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
-					  <td th:text="${list.cdUse == '1' ? 'Y' : 'N'}"></td>
-					  <td th:text="${list.codeGroup_cgSeq}"></td>
-					  <td th:text="${list.cgName}"></td>
-					  <td th:text="${list.cdSeq}"></td>			  
-					  <td></td>
-					  <td th:text="${list.cdName}"></td>
-					  <td th:text="${list.cdNameEng}"></td>
-					  <td th:text="${list.cdOrder}"></td>
-					  <td th:text="${list.cdRegDate}"></td>
-					  <td th:text="${list.cdEdDate}"></td>
+					  <td th:text="${list.tmSeq}"></td>
+					  <td th:text="${list.tmLeague == 0 ? 'AL' : (list.tmLeague == 1 ? 'NL' : '')}"></td>
+					  <td th:text="${list.tmDiv == 0 ? 'West' : (list.tmDiv == 1 ? 'Central' : (list.tmDiv == 2 ? 'East' : ''))}"></td>
+					  <td th:text="${list.tmHomeName}"></td>
+					  <td th:text="${list.tmName}"></td>			  
+					  <td th:text="${list.tmHomeNameKor}"></td>
+					  <td th:text="${list.tmNameKor}"></td>
+					  <td th:text="${list.tmNameAb}"></td>
+					  <td th:text="${list.tmRegTime}"></td>
+					  <td th:text="${list.tmModTime}"></td>
 					</tr>
                   </tbody>
                 </table>
@@ -185,7 +184,7 @@
                   <div class="d-flex gap-1">
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-					<a href="CodeXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>                  </div>
+					<a href="TeamXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>                  </div>
                 </div>
         
               </div>

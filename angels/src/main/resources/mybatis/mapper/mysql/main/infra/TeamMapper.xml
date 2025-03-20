@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angels.module.team.TeamDao">
+
+<resultMap id="resultMapObj" type="com.angels.module.team.TeamDto"></resultMap>
+
+  	<select id="selectList" resultMap="resultMapObj">
+	SELECT
+		tmSeq,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+	FROM
+		team
+	where 1=1
+	order by tmSeq desc
+	limit #{rowNumToShow} offset #{startRnumForMysql}
+	</select>
+	
+	<insert id="insert" parameterType="com.angels.module.team.TeamDto">
+	INSERT INTO team (
+		tmLeague,
+		tmDiv,
+		tmHomeName,
+	    tmName,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmNameAb,
+	    tmRegTime
+	) values (
+		#{tmLeague},
+		#{tmDiv},
+		#{tmHomeName},
+		#{tmName},
+		#{tmHomeNameKor},
+		#{tmNameKor},
+		#{tmNameAb},
+		NOW()
+	)
+		<selectKey resultType= "String" keyProperty="tmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+
+
+	<select id="selectOneCount" resultType="Integer">
+	
+	Select count(*)
+		FROM
+		team
+	where 1=1
+	
+	</select>
+</mapper>

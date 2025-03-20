@@ -7,7 +7,7 @@ public class CodeGroupDto {
 	
 	private String cgSeq;
 	private String cgUse;
-	private String cgdelNy;
+	private Integer cgdelNy;
 	private String cgCode;
 	private String cgName;
 	private String cgNameEng;
@@ -28,11 +28,10 @@ public class CodeGroupDto {
 		this.cgSeq = cgSeq;
 	}
 
-	public String getCgdelNy() {
+	public Integer getCgdelNy() {
 		return cgdelNy;
 	}
-
-	public void setCgdelNy(String cgdelNy) {
+	public void setCgdelNy(Integer cgdelNy) {
 		this.cgdelNy = cgdelNy;
 	}
 	public String getCgCode() {
