@@ -49,18 +49,17 @@
 							  <label class="form-label">리그 <span class="text-danger"> *</span></label>
 							  <select class="form-select"  name="tmLeague" id="tmLeague">
 								<option selected value="">리그 선택</option>
-							    <option value="0">AL</option>
-							    <option value="1">NL</option>
+							    <!--<option th:each="list:${league}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
+								<option th:each="list : ${@codeService.selectListCachedCode(3)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
 							  </select>
 							</div>
 							<div class="col-md-3">
 							  <label class="form-label">소속 <span class="text-danger"> *</span></label>
 							  <select class="form-select" name="tmDiv" id="tmDiv">
 								 <option selected value="">소속 선택</option>
-								 <option value="0">West</option>
-								 <option value="1">Central</option>
-								 <option value="2">East</option>
-							  </select>
+								 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
+								 <option th:each="list : ${@codeService.selectListCachedCode(4)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+							 </select>
 							</div>                       
                         
                         <div class="row g-3 mt-1">
@@ -147,7 +146,7 @@
 	    crossorigin="anonymous"
 	  ></script>
 	  <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-	  <script src="../../../dist/js/adminlte.js"></script>
+	  <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
 	  <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
 	  <script>
 	    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';

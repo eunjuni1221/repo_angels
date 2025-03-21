@@ -1,12 +1,14 @@
 package com.angels.module.code;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CodeDto {
 	
 	private String cdSeq;
 	private Integer cdDelNy;
-	private String cdUse;
+	private Integer cdUse;
 	private String cdName;
 	private String cdNameEng;
 	private String cdOrder;
@@ -72,10 +74,10 @@ public class CodeDto {
 	public void setCodeGroup_cgSeq(String codeGroup_cgSeq) {
 		this.codeGroup_cgSeq = codeGroup_cgSeq;
 	}
-	public String getCdUse() {
+	public Integer getCdUse() {
 		return cdUse;
 	}
-	public void setCdUse(String cdUse) {
+	public void setCdUse(Integer cdUse) {
 		this.cdUse = cdUse;
 	}
 	public String getCgName() {
@@ -91,6 +93,17 @@ public class CodeDto {
 		this.cgSeq = cgSeq;
 	}
 
+//	for cache
+	public static List<CodeDto> cachedCodeArrayList = new ArrayList<CodeDto>();
+
+
+	public static List<CodeDto> getCachedCodeArrayList() {
+		return cachedCodeArrayList;
+	}
+	public static void setCachedCodeArrayList(List<CodeDto> cachedCodeArrayList) {
+		CodeDto.cachedCodeArrayList = cachedCodeArrayList;
+	}
+	
 	
 	
 	

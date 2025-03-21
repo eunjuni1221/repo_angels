@@ -16,6 +16,10 @@ public class TeamDto {
 	private LocalDateTime tmRegTime;
 	private LocalDateTime tmModTime;
 	
+	private String cdName;
+	private String cdSeq;
+	
+	
 	public String getTmSeq() {
 		return tmSeq;
 	}
@@ -82,6 +86,19 @@ public class TeamDto {
 	public void setTmHomeNameKor(String tmHomeNameKor) {
 		this.tmHomeNameKor = tmHomeNameKor;
 	}
+	public String getCdName() {
+		return cdName;
+	}
+	public void setCdName(String cdName) {
+		this.cdName = cdName;
+	}
+	public String getCdSeq() {
+		return cdSeq;
+	}
+	public void setCdSeq(String cdSeq) {
+		this.cdSeq = cdSeq;
+	}
+	
 	
 	
 	

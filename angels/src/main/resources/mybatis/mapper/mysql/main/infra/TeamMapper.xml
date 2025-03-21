@@ -25,6 +25,29 @@
 	limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	
+	<select id="league" resultMap="resultMapObj">
+	select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+	
+	</select>
+	
+	<select id="division" resultMap="resultMapObj">
+	select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+	</select>
+	
 	<insert id="insert" parameterType="com.angels.module.team.TeamDto">
 	INSERT INTO team (
 		tmLeague,

@@ -5,11 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.angels.module.code.CodeService;
+
 @Controller
 public class TeamController {
 	
 	@Autowired
 	TeamService teamService;
+	CodeService codeService;
 	
 	@RequestMapping(value="/team/TeamXdmList")
 	public String teamXdmList(Model model, TeamVo vo) {
@@ -20,8 +23,9 @@ public class TeamController {
 	}
 	
 	@RequestMapping(value = "/team/TeamXdmForm")
-	public String teamXdmForm() {
-		
+	public String teamXdmForm(Model model) {
+		model.addAttribute("league",teamService.league());
+		model.addAttribute("division",teamService.division());
 	return "xdm/team/TeamXdmForm"; 
 	}
 	

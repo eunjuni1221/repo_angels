@@ -14,11 +14,11 @@
           <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">CodeGroup</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">Stadium</h3></div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Code</li>
+                  <li class="breadcrumb-item active" aria-current="page">Stadium</li>
                 </ol>
               </div>
             </div>
@@ -41,37 +41,31 @@
                       <div class="card-body">
                         <div class="row g-3">
                             <div class="col-md-3">
-						<form action="/codegroup/CodeGroupXdmInst" method="post" enctype="multipart/form-data" id="form">	
-							 <label class="form-label">코드그룹 코드<span class="text-danger"> *</span></label>
-							<input type="text" name="cgSeq" id="cgSeq" class="form-control" placeholder="자동생성" disabled>
+						<form action="/stadium/StadiumXdmInst" method="post" enctype="multipart/form-data" id="form">	
+							 <label class="form-label">코드 번호<span class="text-danger"> *</span></label>
+							<input type="text" name="stSeq" id="stSeq" class="form-control" placeholder="자동생성" disabled>
                             </div>
-                            <div class="col-md-3">
-                                <label class="form-label">코드그룹 코드(ANOTHER)<span class="text-danger"></span></label>
-                                <input type="text" class="form-control" placeholder="영대소문자, 숫자" disabled>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">코드그룹 이름<span class="text-danger"> *</span></label>
-                                <input type="text" name="cgName" id="cgName" class="form-control" placeholder="영대소문자, 숫자">
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">코드그룹 이름(영문)<span class="text-danger"></span></label>
-                                <input type="text" name="cgNameEng" id="cgNameEng" class="form-control" placeholder="영대소문자, 숫자">
-                            </div>
-                          </div>
-                          
+							<div class="col-md-3">
+							  <label class="form-label">팀 <span class="text-danger"> *</span></label>
+							  <select class="form-select"  name="team_tmSeq" id="team_tmSeq">
+								<option selected value="">팀 선택</option>
+							    <option th:each="list:${selectTeam}" th:text="${list.tmNameAb}" th:value="${list.tmSeq}"></option>
+							  </select>
+							</div>                  
                         
                         <div class="row g-3 mt-1">
+							<div class="col-md-3">
+							  <label class="form-label">야구장(영문)<span class="text-danger"> *</span></label>
+							  <input type="text" name="stName" id="stName" class="form-control" placeholder="영어">
+							</div>
                           <div class="col-md-3">
-                            <label class="form-label">사용여부 <span class="text-danger"> *</span></label>
-                            <select class="form-select"  name="cgUse" id="cgUse">
-                              <option selected value="0">사용</option>
-							  <option value="1">미사용</option>
-                            </select>
+                            <label class="form-label">야구장(한글)<span class="text-danger"> *</span></label>
+                            <input type="text" name="stNameKor" id="stNameKor" class="form-control" placeholder="한글">
                           </div>
-                          <div class="col-md-3">
-                            <label class="form-label">순서<span class="text-danger"> *</span></label>
-                            <input type="text" name="cgOrder" id="cgOrder" class="form-control" placeholder="">
-                          </div>
+						  <div class="col-md-3">
+						    <label class="form-label">주소<span class="text-danger"> *</span></label>
+						    <input type="text" name="stAdress" id="stAdress" class="form-control" placeholder="영어">
+						  </div>
                         </div>
                         <div class="row g-3 mt-1">
                           <div class="col-md-6">
@@ -135,7 +129,7 @@
 	    crossorigin="anonymous"
 	  ></script>
 	  <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-	  <script src="../../../dist/js/adminlte.js"></script>
+	  <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
 	  <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
 	  <script>
 	    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
@@ -159,6 +153,11 @@
 	  </script>
       <script type="text/javascript">	
 		
+		  document.getElementById("btnSave").onclick= function () {
+		    document.getElementById("form").submit();
+		  }
+
+/*		
 		document.addEventListener("DOMContentLoaded", function () {
 		    let cgName = document.getElementById("cgName");
 		    let myModal = document.getElementById("myModal");
@@ -189,7 +188,7 @@
 		});
 	
 		
-		
+*/		
         
       //	document.getElementById("companyName").onclick= function () {
       //		alert("name")

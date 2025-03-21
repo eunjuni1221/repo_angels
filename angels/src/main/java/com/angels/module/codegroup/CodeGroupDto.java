@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class CodeGroupDto {
 	
 	private String cgSeq;
-	private String cgUse;
+	private Integer cgUse;
 	private Integer cgdelNy;
 	private String cgCode;
 	private String cgName;
@@ -71,10 +71,10 @@ public class CodeGroupDto {
 	public void setCgTotal(String cgTotal) {
 		this.cgTotal = cgTotal;
 	}
-	public String getCgUse() {
+	public Integer getCgUse() {
 		return cgUse;
 	}
-	public void setCgUse(String cgUse) {
+	public void setCgUse(Integer cgUse) {
 		this.cgUse = cgUse;
 	}
 	public LocalDateTime getCgRegDate() {

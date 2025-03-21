@@ -7,5 +7,8 @@ public interface TeamDao {
 	public List<TeamDto> selectList(TeamVo teamVo);
 	public int selectOneCount();
 	public int insert(TeamDto teamDto);
+	public List<TeamDto> league();
+	public List<TeamDto> division();
+	public List<TeamDto> selectListCachedCodeArrayList();
 
 }

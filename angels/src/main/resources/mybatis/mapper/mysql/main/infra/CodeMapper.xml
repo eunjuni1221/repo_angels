@@ -17,7 +17,7 @@
 		SELECT
 		
 		    c.codeGroup_cgSeq,
-		    c.cdDelNy,
+		    c.cdUse,
 			cg.cgName,
 		    c.cdSeq,
 		    c.cdName,
@@ -46,21 +46,23 @@
 
 	<insert id="insert">
 	INSERT INTO code (
-		cdDelNy,
+		cdUse,
 		cdName,
 		cdNameEng,
 		cdOrder,
 		codeGroup_cgSeq,	
-		cdRegDate
+		cdRegDate,
+		cdDelNy
 		
 		
 	) values (
-		#{cdDelNy},
+		#{cdUse},
 		#{cdName},
 		#{cdNameEng},
 		#{cdOrder},
 		#{codeGroup_cgSeq},
-		NOW()
+		NOW(),
+		0
 	)
 	
 	<selectKey resultType="String" keyProperty="cdSeq" order="AFTER">
@@ -74,5 +76,16 @@
 <include refid="selectCommon"></include>
 
 	</select>
+		<select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+		SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+   </select>
+	
 	
 </mapper>

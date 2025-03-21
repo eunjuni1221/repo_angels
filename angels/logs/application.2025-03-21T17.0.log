@@ -1,0 +1,3922 @@
+2025-03-21T17:00:09.014 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-21T17:00:09.016 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-21T17:00:09.018 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-21T17:00:09.048 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+228. Select count(*)
+		FROM
+		team
+	where 1=1
+ {executed in 21 msec} 
+2025-03-21T17:00:09.050 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-21T17:00:09.061 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+228. SELECT
+		tmSeq,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+	FROM
+		team
+	where 1=1
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-21T17:00:09.064 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|tmseq |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime |
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|30    |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-20T22:43:31 |[null]    |
+|29    |Tampa Bay  |Rays      |TB       |탬파베이          |레이스       |[null] |9        |11    |2025-03-20T22:43:02 |[null]    |
+|28    |New York   |Yankees   |NYY      |뉴욕            |양키스       |[null] |9        |11    |2025-03-20T22:42:37 |[null]    |
+|27    |Boston     |Red Sox   |BOS      |보스턴           |레드삭스      |[null] |9        |11    |2025-03-20T22:42:13 |[null]    |
+|26    |Baltimore  |Orioles   |BAL      |볼티모어          |오리올스      |[null] |9        |11    |2025-03-20T22:41:48 |[null]    |
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+ 
+2025-03-21T17:00:12.736 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+228. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 2 msec} 
+2025-03-21T17:00:12.736 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:00:12.741 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+228. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:00:12.743 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cddelny |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0       |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0       |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0       |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0       |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0       |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:00:59.171 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-21T17:00:59.173 [Thread-140] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-21T17:00:59.174 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:00:59.191 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-21T17:00:59.191 [Thread-140] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:00:59.193 [Thread-140] INFO c.z.h.HikariDataSource - HikariPool-21 - Shutdown initiated... 
+2025-03-21T17:00:59.199 [Thread-140] INFO c.z.h.HikariDataSource - HikariPool-21 - Shutdown completed. 
+2025-03-21T17:00:59.308 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 22784 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-21T17:00:59.310 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-21T17:00:59.674 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-21T17:00:59.675 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:00:59.675 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-21T17:00:59.676 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-21T17:00:59.698 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-21T17:00:59.698 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 385 ms 
+2025-03-21T17:00:59.779 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-22 - Starting... 
+2025-03-21T17:00:59.802 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-22 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5b1d8700 
+2025-03-21T17:00:59.802 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-22 - Start completed. 
+2025-03-21T17:00:59.805 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-21T17:00:59.806 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|------|----------|----------------|
+ 
+2025-03-21T17:01:00.036 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-21T17:01:00.054 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:01:00.060 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-21T17:01:00.066 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.808 seconds (process running for 27645.359) 
+2025-03-21T17:01:00.069 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-21T17:09:26.417 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-21T17:09:26.417 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-21T17:09:26.418 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-21T17:09:26.426 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:09:26.427 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:09:26.433 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:09:26.435 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cddelny |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0       |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0       |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0       |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0       |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0       |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:09:27.588 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:09:27.588 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:09:27.590 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:09:27.592 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cddelny |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0       |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0       |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0       |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0       |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0       |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:10:18.201 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:10:18.201 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:10:18.205 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:10:18.205 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cddelny |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0       |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0       |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0       |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0       |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0       |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:10:19.127 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:10:19.127 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:10:19.129 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:10:19.130 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cddelny |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0       |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0       |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0       |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0       |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0       |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:11:04.207 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:11:04.207 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:11:04.211 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:11:04.212 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cddelny |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0       |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0       |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0       |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0       |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0       |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:13:03.377 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:13:03.378 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:13:03.380 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+238. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:13:03.381 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cddelny |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0       |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0       |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0       |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0       |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0       |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:13:48.188 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-21T17:13:48.189 [Thread-144] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-21T17:13:48.189 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:13:48.203 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-21T17:13:48.204 [Thread-144] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:13:48.207 [Thread-144] INFO c.z.h.HikariDataSource - HikariPool-22 - Shutdown initiated... 
+2025-03-21T17:13:48.217 [Thread-144] INFO c.z.h.HikariDataSource - HikariPool-22 - Shutdown completed. 
+2025-03-21T17:13:48.354 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 22784 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-21T17:13:48.354 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-21T17:13:48.717 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-21T17:13:48.718 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:13:48.719 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-21T17:13:48.719 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-21T17:13:48.744 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-21T17:13:48.744 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 387 ms 
+2025-03-21T17:13:48.860 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-23 - Starting... 
+2025-03-21T17:13:48.892 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-23 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6972ecde 
+2025-03-21T17:13:48.892 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-23 - Start completed. 
+2025-03-21T17:13:48.902 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+248. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 10 msec} 
+2025-03-21T17:13:48.903 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|------|----------|----------------|
+ 
+2025-03-21T17:13:49.075 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-21T17:13:49.085 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:13:49.092 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-21T17:13:49.098 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.822 seconds (process running for 28414.392) 
+2025-03-21T17:13:49.100 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-21T17:13:58.124 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-21T17:13:58.125 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-21T17:13:58.126 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-21T17:13:58.130 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+248. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:13:58.131 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:13:58.134 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+248. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdDelNy,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:13:58.136 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cddelny |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0       |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0       |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0       |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0       |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0       |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|--------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:13:58.155 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-21T17:13:58.157 [Thread-148] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-21T17:13:58.158 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:13:58.183 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-21T17:13:58.184 [Thread-148] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:13:58.187 [Thread-148] INFO c.z.h.HikariDataSource - HikariPool-23 - Shutdown initiated... 
+2025-03-21T17:13:58.203 [Thread-148] INFO c.z.h.HikariDataSource - HikariPool-23 - Shutdown completed. 
+2025-03-21T17:13:58.369 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 22784 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-21T17:13:58.369 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-21T17:13:58.674 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-21T17:13:58.676 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:13:58.676 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-21T17:13:58.676 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-21T17:13:58.701 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-21T17:13:58.701 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 328 ms 
+2025-03-21T17:13:58.787 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-24 - Starting... 
+2025-03-21T17:13:58.813 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-24 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7b7657b5 
+2025-03-21T17:13:58.813 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-24 - Start completed. 
+2025-03-21T17:13:58.814 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-21T17:13:58.815 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|------|----------|----------------|
+ 
+2025-03-21T17:13:58.922 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-21T17:13:58.938 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:13:58.947 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-21T17:13:58.954 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.674 seconds (process running for 28424.247) 
+2025-03-21T17:13:58.956 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-21T17:13:59.049 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-21T17:13:59.049 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-21T17:13:59.055 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 6 ms 
+2025-03-21T17:14:09.860 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:14:09.861 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:14:09.865 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:14:09.865 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0     |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0     |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:14:19.951 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:14:19.952 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:14:19.954 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:14:19.955 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0     |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0     |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:14:46.415 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:14:46.415 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:14:46.418 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:14:46.420 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0     |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0     |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:15:07.104 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:15:07.105 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:15:07.107 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 10
+ {executed in 2 msec} 
+2025-03-21T17:15:07.107 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|1               |0     |통신사    |3     |LG U+  |LG U+     |1       |2025-03-20T17:15:07 |[null]   |[null]  |
+|1               |0     |통신사    |2     |KT     |KT        |1       |2025-03-20T17:14:57 |[null]   |[null]  |
+|1               |0     |통신사    |1     |SKT    |SKT       |1       |2025-03-20T16:51:08 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:15:08.086 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 2 msec} 
+2025-03-21T17:15:08.086 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:15:08.088 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 5
+ {executed in 1 msec} 
+2025-03-21T17:15:08.092 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|----------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname    |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|----------|----------|--------|--------------------|---------|--------|
+|2               |0     |성별     |8     |여자        |woman     |1       |2025-03-20T17:16:18 |[null]   |[null]  |
+|2               |0     |성별     |7     |남자        |man       |1       |2025-03-20T17:16:04 |[null]   |[null]  |
+|1               |0     |통신사    |6     |LG U+ 알뜰폰 |          |1       |2025-03-20T17:15:50 |[null]   |[null]  |
+|1               |0     |통신사    |5     |KT 알뜰폰    |          |1       |2025-03-20T17:15:28 |[null]   |[null]  |
+|1               |0     |통신사    |4     |SKT 알뜰폰   |          |1       |2025-03-20T17:15:18 |[null]   |[null]  |
+|----------------|------|-------|------|----------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:15:08.763 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:15:08.764 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:15:08.766 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:15:08.767 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0     |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0     |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:15:32.370 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:15:32.371 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:15:32.373 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+258. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:15:32.375 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0     |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0     |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:16:02.080 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-21T17:16:02.083 [Thread-152] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-21T17:16:02.084 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:16:02.101 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-21T17:16:02.102 [Thread-152] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:16:02.104 [Thread-152] INFO c.z.h.HikariDataSource - HikariPool-24 - Shutdown initiated... 
+2025-03-21T17:16:02.112 [Thread-152] INFO c.z.h.HikariDataSource - HikariPool-24 - Shutdown completed. 
+2025-03-21T17:16:02.221 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 22784 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-21T17:16:02.221 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-21T17:16:02.584 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-21T17:16:02.585 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:16:02.586 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-21T17:16:02.586 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-21T17:16:02.610 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-21T17:16:02.610 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 386 ms 
+2025-03-21T17:16:02.673 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-25 - Starting... 
+2025-03-21T17:16:02.700 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-25 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1539ea06 
+2025-03-21T17:16:02.701 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-25 - Start completed. 
+2025-03-21T17:16:02.702 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+268. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-21T17:16:02.704 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|------|----------|----------------|
+ 
+2025-03-21T17:16:02.938 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-21T17:16:02.947 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:16:02.953 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-21T17:16:02.957 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.792 seconds (process running for 28548.251) 
+2025-03-21T17:16:02.961 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-21T17:16:21.254 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-21T17:16:21.254 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-21T17:16:21.255 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-21T17:16:21.261 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+268. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:16:21.262 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:16:21.267 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+268. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:16:21.268 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|4               |0     |리그서브   |13    |West   |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:16:21.273 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.mybatis.spring.MyBatisSystemException: 
+### Error querying database.  Cause: org.apache.ibatis.reflection.ReflectionException: Could not set property 'cdUse' of 'class com.angels.module.code.CodeDto' with value '0' Cause: java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from String to Integer
+
+### The error may exist in file [C:\factory\ws_sts4_4270\repo_angels\angels\bin\main\mybatis\mapper\mysql\main\infra\CodeMapper.xml]
+### The error may involve com.angels.module.code.CodeDao.selectList
+### The error occurred while handling results
+### SQL: SELECT          c.codeGroup_cgSeq,       c.cdUse,    cg.cgName,       c.cdSeq,       c.cdName,       c.cdNameEng,       c.cdOrder,       c.cdRegDate,       c.cdEdDate,       c.cdCheck             FROM       code c   left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq   WHERE       1=1      ORDER BY       c.cdSeq DESC         limit ? offset ?
+### Cause: org.apache.ibatis.reflection.ReflectionException: Could not set property 'cdUse' of 'class com.angels.module.code.CodeDto' with value '0' Cause: java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from String to Integer
+] with root cause 
+java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from String to Integer
+
+	at com.angels.module.code.CodeDto.setCdUse(CodeDto.java:81)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.reflection.invoker.MethodInvoker.invoke(MethodInvoker.java:44)
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.setBeanProperty(BeanWrapper.java:175)
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.set(BeanWrapper.java:61)
+	at org.apache.ibatis.reflection.MetaObject.setValue(MetaObject.java:119)
+	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.applyAutomaticMappings(DefaultResultSetHandler.java:592)
+	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.getRowValue(DefaultResultSetHandler.java:416)
+	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleRowValuesForSimpleResultMap(DefaultResultSetHandler.java:366)
+	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleRowValues(DefaultResultSetHandler.java:337)
+	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleResultSet(DefaultResultSetHandler.java:310)
+	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleResultSets(DefaultResultSetHandler.java:202)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:66)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:194)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy47/jdk.proxy47.$Proxy323.selectList(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy47/jdk.proxy47.$Proxy324.selectList(Unknown Source)
+	at com.angels.module.code.CodeService.selectList(CodeService.java:18)
+	at com.angels.module.code.CodeController.codeXdmList(CodeController.java:17)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-21T17:16:23.000 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-21T17:16:23.002 [Thread-156] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-21T17:16:23.002 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:16:23.018 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-21T17:16:23.018 [Thread-156] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:16:23.019 [Thread-156] INFO c.z.h.HikariDataSource - HikariPool-25 - Shutdown initiated... 
+2025-03-21T17:16:23.025 [Thread-156] INFO c.z.h.HikariDataSource - HikariPool-25 - Shutdown completed. 
+2025-03-21T17:16:23.117 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 22784 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-21T17:16:23.117 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-21T17:16:23.407 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-21T17:16:23.408 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:16:23.408 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-21T17:16:23.408 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-21T17:16:23.428 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-21T17:16:23.428 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 309 ms 
+2025-03-21T17:16:23.474 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-26 - Starting... 
+2025-03-21T17:16:23.487 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-26 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3ffc93a1 
+2025-03-21T17:16:23.487 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-26 - Start completed. 
+2025-03-21T17:16:23.488 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+278. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-21T17:16:23.489 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|------|----------|----------------|
+ 
+2025-03-21T17:16:23.728 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-21T17:16:23.736 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:16:23.742 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-21T17:16:23.748 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.67 seconds (process running for 28569.042) 
+2025-03-21T17:16:23.751 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-21T17:16:24.483 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-21T17:16:24.483 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-21T17:16:24.484 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-21T17:16:24.490 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+278. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:16:24.492 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:16:24.497 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+278. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:16:24.498 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0     |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0     |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:16:49.950 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+278. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 3 msec} 
+2025-03-21T17:16:49.950 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|4        |
+|---------|
+ 
+2025-03-21T17:16:49.953 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+278. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:16:49.958 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng  |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|4     |0       |null  |리그서브   |LeagueSub  |3          |1       |2025-03-20T16:46:16 |[null]   |
+|3     |0       |null  |리그메인   |LeagueMain |2          |1       |2025-03-20T16:46:10 |[null]   |
+|2     |0       |null  |성별     |gender     |2          |1       |2025-03-20T16:46:02 |[null]   |
+|1     |0       |null  |통신사    |Telecom    |6          |1       |2025-03-20T16:45:56 |[null]   |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+ 
+2025-03-21T17:18:22.124 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-21T17:18:22.129 [Thread-160] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-21T17:18:22.130 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:18:22.151 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-21T17:18:22.152 [Thread-160] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:18:22.153 [Thread-160] INFO c.z.h.HikariDataSource - HikariPool-26 - Shutdown initiated... 
+2025-03-21T17:18:22.158 [Thread-160] INFO c.z.h.HikariDataSource - HikariPool-26 - Shutdown completed. 
+2025-03-21T17:18:22.265 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 22784 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-21T17:18:22.265 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-21T17:18:22.672 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-21T17:18:22.673 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:18:22.674 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-21T17:18:22.674 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-21T17:18:22.701 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-21T17:18:22.701 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 432 ms 
+2025-03-21T17:18:22.832 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-27 - Starting... 
+2025-03-21T17:18:22.852 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-27 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1563315c 
+2025-03-21T17:18:22.852 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-27 - Start completed. 
+2025-03-21T17:18:22.853 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+288. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-21T17:18:22.854 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|------|----------|----------------|
+ 
+2025-03-21T17:18:23.035 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-21T17:18:23.045 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:18:23.051 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-21T17:18:23.060 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.848 seconds (process running for 28688.353) 
+2025-03-21T17:18:23.063 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-21T17:18:37.723 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-21T17:18:37.724 [Thread-164] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-21T17:18:37.726 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:18:37.741 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-21T17:18:37.741 [Thread-164] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:18:37.743 [Thread-164] INFO c.z.h.HikariDataSource - HikariPool-27 - Shutdown initiated... 
+2025-03-21T17:18:37.772 [Thread-164] INFO c.z.h.HikariDataSource - HikariPool-27 - Shutdown completed. 
+2025-03-21T17:18:37.955 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 22784 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-21T17:18:37.955 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-21T17:18:38.231 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-21T17:18:38.231 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:18:38.231 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-21T17:18:38.231 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-21T17:18:38.252 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-21T17:18:38.252 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 292 ms 
+2025-03-21T17:18:38.325 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-28 - Starting... 
+2025-03-21T17:18:38.352 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-28 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6416c415 
+2025-03-21T17:18:38.352 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-28 - Start completed. 
+2025-03-21T17:18:38.354 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-21T17:18:38.355 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|------|----------|----------------|
+ 
+2025-03-21T17:18:38.462 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-21T17:18:38.471 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-21T17:18:38.476 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-21T17:18:38.480 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.64 seconds (process running for 28703.773) 
+2025-03-21T17:18:38.481 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-21T17:18:39.413 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-21T17:18:39.413 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-21T17:18:39.415 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 2 ms 
+2025-03-21T17:18:39.428 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 9 msec} 
+2025-03-21T17:18:39.429 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|4        |
+|---------|
+ 
+2025-03-21T17:18:39.432 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:18:39.437 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|--------|-------|-------|-----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse  |cgname |cgnameeng  |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|-------|-------|-----------|-----------|--------|--------------------|---------|
+|4     |0       |[null] |리그서브   |LeagueSub  |3          |1       |2025-03-20T16:46:16 |[null]   |
+|3     |0       |[null] |리그메인   |LeagueMain |2          |1       |2025-03-20T16:46:10 |[null]   |
+|2     |0       |[null] |성별     |gender     |2          |1       |2025-03-20T16:46:02 |[null]   |
+|1     |0       |[null] |통신사    |Telecom    |6          |1       |2025-03-20T16:45:56 |[null]   |
+|------|--------|-------|-------|-----------|-----------|--------|--------------------|---------|
+ 
+2025-03-21T17:19:25.467 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 6 msec} 
+2025-03-21T17:19:25.468 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|4        |
+|---------|
+ 
+2025-03-21T17:19:25.471 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-21T17:19:25.473 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng  |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|4     |0       |0     |리그서브   |LeagueSub  |3          |1       |2025-03-20T16:46:16 |[null]   |
+|3     |0       |0     |리그메인   |LeagueMain |2          |1       |2025-03-20T16:46:10 |[null]   |
+|2     |0       |0     |성별     |gender     |2          |1       |2025-03-20T16:46:02 |[null]   |
+|1     |0       |0     |통신사    |Telecom    |6          |1       |2025-03-20T16:45:56 |[null]   |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+ 
+2025-03-21T17:19:44.832 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:19:44.832 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|13       |
+|---------|
+ 
+2025-03-21T17:19:44.834 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-21T17:19:44.836 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0     |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|3               |0     |리그메인   |9     |AL      |AL        |1       |2025-03-20T17:16:29 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:24:04.982 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO codegroup (
+			cgUse,
+		    cgName,
+		    cgNameEng,
+		    cgOrder,
+		    cgRegDate,
+		    cgdelNy
+
+			) values (
+				0,
+				'포지션',
+				'Position',
+				'1',
+				NOW(),
+				0				
+			)
+ {executed in 7 msec} 
+2025-03-21T17:24:04.984 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:24:04.985 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|5                |
+|-----------------|
+ 
+2025-03-21T17:24:05.003 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 4 msec} 
+2025-03-21T17:24:05.003 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|5        |
+|---------|
+ 
+2025-03-21T17:24:05.005 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:24:05.007 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng  |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|5     |0       |0     |포지션    |Position   |0          |1       |2025-03-21T17:24:04 |[null]   |
+|4     |0       |0     |리그서브   |LeagueSub  |3          |1       |2025-03-20T16:46:16 |[null]   |
+|3     |0       |0     |리그메인   |LeagueMain |2          |1       |2025-03-20T16:46:10 |[null]   |
+|2     |0       |0     |성별     |gender     |2          |1       |2025-03-20T16:46:02 |[null]   |
+|1     |0       |0     |통신사    |Telecom    |6          |1       |2025-03-20T16:45:56 |[null]   |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+ 
+2025-03-21T17:25:49.783 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 4 msec} 
+2025-03-21T17:25:49.784 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|5        |
+|---------|
+ 
+2025-03-21T17:25:49.787 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:25:49.788 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng  |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|5     |0       |0     |포지션    |Position   |0          |1       |2025-03-21T17:24:04 |[null]   |
+|4     |0       |0     |리그서브   |LeagueSub  |3          |1       |2025-03-20T16:46:16 |[null]   |
+|3     |0       |0     |리그메인   |LeagueMain |2          |1       |2025-03-20T16:46:10 |[null]   |
+|2     |0       |0     |성별     |gender     |2          |1       |2025-03-20T16:46:02 |[null]   |
+|1     |0       |0     |통신사    |Telecom    |6          |1       |2025-03-20T16:45:56 |[null]   |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+ 
+2025-03-21T17:26:35.691 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO codegroup (
+			cgUse,
+		    cgName,
+		    cgNameEng,
+		    cgOrder,
+		    cgRegDate,
+		    cgdelNy
+
+			) values (
+				0,
+				'투',
+				'Throw',
+				'1',
+				NOW(),
+				0				
+			)
+ {executed in 7 msec} 
+2025-03-21T17:26:35.694 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:26:35.695 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|6                |
+|-----------------|
+ 
+2025-03-21T17:26:35.703 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 2 msec} 
+2025-03-21T17:26:35.704 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|6        |
+|---------|
+ 
+2025-03-21T17:26:35.706 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:26:35.707 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng  |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|6     |0       |0     |투      |Throw      |0          |1       |2025-03-21T17:26:35 |[null]   |
+|5     |0       |0     |포지션    |Position   |0          |1       |2025-03-21T17:24:04 |[null]   |
+|4     |0       |0     |리그서브   |LeagueSub  |3          |1       |2025-03-20T16:46:16 |[null]   |
+|3     |0       |0     |리그메인   |LeagueMain |2          |1       |2025-03-20T16:46:10 |[null]   |
+|2     |0       |0     |성별     |gender     |2          |1       |2025-03-20T16:46:02 |[null]   |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+ 
+2025-03-21T17:26:47.063 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO codegroup (
+			cgUse,
+		    cgName,
+		    cgNameEng,
+		    cgOrder,
+		    cgRegDate,
+		    cgdelNy
+
+			) values (
+				0,
+				'타',
+				'Bat',
+				'1',
+				NOW(),
+				0				
+			)
+ {executed in 6 msec} 
+2025-03-21T17:26:47.064 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:26:47.064 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|7                |
+|-----------------|
+ 
+2025-03-21T17:26:47.075 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 3 msec} 
+2025-03-21T17:26:47.075 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|7        |
+|---------|
+ 
+2025-03-21T17:26:47.079 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:26:47.080 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng  |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+|7     |0       |0     |타      |Bat        |0          |1       |2025-03-21T17:26:47 |[null]   |
+|6     |0       |0     |투      |Throw      |0          |1       |2025-03-21T17:26:35 |[null]   |
+|5     |0       |0     |포지션    |Position   |0          |1       |2025-03-21T17:24:04 |[null]   |
+|4     |0       |0     |리그서브   |LeagueSub  |3          |1       |2025-03-20T16:46:16 |[null]   |
+|3     |0       |0     |리그메인   |LeagueMain |2          |1       |2025-03-20T16:46:10 |[null]   |
+|------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
+ 
+2025-03-21T17:26:53.553 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 2 msec} 
+2025-03-21T17:26:53.554 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:27:52.049 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'투수',
+		'P',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 4 msec} 
+2025-03-21T17:27:52.050 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:27:52.050 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|14               |
+|-----------------|
+ 
+2025-03-21T17:27:52.063 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:27:52.063 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|14       |
+|---------|
+ 
+2025-03-21T17:27:52.065 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:27:52.066 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |14    |투수      |P         |1       |2025-03-21T17:27:52 |[null]   |[null]  |
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|3               |0     |리그메인   |10    |NL      |NL        |1       |2025-03-20T17:16:37 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:28:18.342 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:28:18.343 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:28:34.569 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'1루수',
+		'1B',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-21T17:28:34.570 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:28:34.570 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|15               |
+|-----------------|
+ 
+2025-03-21T17:28:34.581 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:28:34.582 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|15       |
+|---------|
+ 
+2025-03-21T17:28:34.583 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:28:34.585 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |15    |1루수     |1B        |1       |2025-03-21T17:28:34 |[null]   |[null]  |
+|5               |0     |포지션    |14    |투수      |P         |1       |2025-03-21T17:27:52 |[null]   |[null]  |
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|4               |0     |리그서브   |11    |East    |East      |1       |2025-03-20T17:16:50 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:28:36.292 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:28:36.293 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:28:50.070 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'2루수',
+		'2B',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 5 msec} 
+2025-03-21T17:28:50.070 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:28:50.070 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|16               |
+|-----------------|
+ 
+2025-03-21T17:28:50.088 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:28:50.089 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|16       |
+|---------|
+ 
+2025-03-21T17:28:50.091 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:28:50.093 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |16    |2루수     |2B        |1       |2025-03-21T17:28:50 |[null]   |[null]  |
+|5               |0     |포지션    |15    |1루수     |1B        |1       |2025-03-21T17:28:34 |[null]   |[null]  |
+|5               |0     |포지션    |14    |투수      |P         |1       |2025-03-21T17:27:52 |[null]   |[null]  |
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:28:59.679 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 0 msec} 
+2025-03-21T17:28:59.679 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:29:16.920 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'3루수',
+		'3B',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-21T17:29:16.921 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:29:16.922 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|17               |
+|-----------------|
+ 
+2025-03-21T17:29:16.933 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:29:16.933 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|17       |
+|---------|
+ 
+2025-03-21T17:29:16.934 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:29:16.935 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |17    |3루수    |3B        |1       |2025-03-21T17:29:16 |[null]   |[null]  |
+|5               |0     |포지션    |16    |2루수    |2B        |1       |2025-03-21T17:28:50 |[null]   |[null]  |
+|5               |0     |포지션    |15    |1루수    |1B        |1       |2025-03-21T17:28:34 |[null]   |[null]  |
+|5               |0     |포지션    |14    |투수     |P         |1       |2025-03-21T17:27:52 |[null]   |[null]  |
+|4               |0     |리그서브   |13    |West   |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:31:08.453 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:31:08.454 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:31:21.795 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'유격수',
+		'SS',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-21T17:31:21.796 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:31:21.797 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|18               |
+|-----------------|
+ 
+2025-03-21T17:31:21.809 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:31:21.809 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|18       |
+|---------|
+ 
+2025-03-21T17:31:21.811 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:31:21.813 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |18    |유격수    |SS        |1       |2025-03-21T17:31:21 |[null]   |[null]  |
+|5               |0     |포지션    |17    |3루수    |3B        |1       |2025-03-21T17:29:16 |[null]   |[null]  |
+|5               |0     |포지션    |16    |2루수    |2B        |1       |2025-03-21T17:28:50 |[null]   |[null]  |
+|5               |0     |포지션    |15    |1루수    |1B        |1       |2025-03-21T17:28:34 |[null]   |[null]  |
+|5               |0     |포지션    |14    |투수     |P         |1       |2025-03-21T17:27:52 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:33:02.244 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 0 msec} 
+2025-03-21T17:33:02.244 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:33:16.830 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'좌익수',
+		'LF',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-21T17:33:16.831 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:33:16.832 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|19               |
+|-----------------|
+ 
+2025-03-21T17:33:16.840 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:33:16.840 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|19       |
+|---------|
+ 
+2025-03-21T17:33:16.844 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:33:16.847 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |19    |좌익수    |LF        |1       |2025-03-21T17:33:16 |[null]   |[null]  |
+|5               |0     |포지션    |18    |유격수    |SS        |1       |2025-03-21T17:31:21 |[null]   |[null]  |
+|5               |0     |포지션    |17    |3루수    |3B        |1       |2025-03-21T17:29:16 |[null]   |[null]  |
+|5               |0     |포지션    |16    |2루수    |2B        |1       |2025-03-21T17:28:50 |[null]   |[null]  |
+|5               |0     |포지션    |15    |1루수    |1B        |1       |2025-03-21T17:28:34 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:33:31.016 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 2 msec} 
+2025-03-21T17:33:31.018 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:33:59.823 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'중견수',
+		'CF',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 5 msec} 
+2025-03-21T17:33:59.824 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:33:59.825 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|20               |
+|-----------------|
+ 
+2025-03-21T17:33:59.835 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:33:59.836 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|20       |
+|---------|
+ 
+2025-03-21T17:33:59.838 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:33:59.839 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |20    |중견수    |CF        |1       |2025-03-21T17:33:59 |[null]   |[null]  |
+|5               |0     |포지션    |19    |좌익수    |LF        |1       |2025-03-21T17:33:16 |[null]   |[null]  |
+|5               |0     |포지션    |18    |유격수    |SS        |1       |2025-03-21T17:31:21 |[null]   |[null]  |
+|5               |0     |포지션    |17    |3루수    |3B        |1       |2025-03-21T17:29:16 |[null]   |[null]  |
+|5               |0     |포지션    |16    |2루수    |2B        |1       |2025-03-21T17:28:50 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:34:03.792 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:34:03.794 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:34:15.313 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'우익수',
+		'RF',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-21T17:34:15.314 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:34:15.314 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|21               |
+|-----------------|
+ 
+2025-03-21T17:34:15.324 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:34:15.325 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-21T17:34:15.327 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:34:15.328 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |21    |우익수    |RF        |1       |2025-03-21T17:34:15 |[null]   |[null]  |
+|5               |0     |포지션    |20    |중견수    |CF        |1       |2025-03-21T17:33:59 |[null]   |[null]  |
+|5               |0     |포지션    |19    |좌익수    |LF        |1       |2025-03-21T17:33:16 |[null]   |[null]  |
+|5               |0     |포지션    |18    |유격수    |SS        |1       |2025-03-21T17:31:21 |[null]   |[null]  |
+|5               |0     |포지션    |17    |3루수    |3B        |1       |2025-03-21T17:29:16 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:34:22.332 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:34:22.332 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-21T17:34:22.335 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 5
+ {executed in 2 msec} 
+2025-03-21T17:34:22.335 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |16    |2루수     |2B        |1       |2025-03-21T17:28:50 |[null]   |[null]  |
+|5               |0     |포지션    |15    |1루수     |1B        |1       |2025-03-21T17:28:34 |[null]   |[null]  |
+|5               |0     |포지션    |14    |투수      |P         |1       |2025-03-21T17:27:52 |[null]   |[null]  |
+|4               |0     |리그서브   |13    |West    |West      |1       |2025-03-20T17:17:17 |[null]   |[null]  |
+|4               |0     |리그서브   |12    |Central |Central   |1       |2025-03-20T17:17:07 |[null]   |[null]  |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:34:28.898 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:34:28.898 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-21T17:34:28.900 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:34:28.900 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |21    |우익수    |RF        |1       |2025-03-21T17:34:15 |[null]   |[null]  |
+|5               |0     |포지션    |20    |중견수    |CF        |1       |2025-03-21T17:33:59 |[null]   |[null]  |
+|5               |0     |포지션    |19    |좌익수    |LF        |1       |2025-03-21T17:33:16 |[null]   |[null]  |
+|5               |0     |포지션    |18    |유격수    |SS        |1       |2025-03-21T17:31:21 |[null]   |[null]  |
+|5               |0     |포지션    |17    |3루수    |3B        |1       |2025-03-21T17:29:16 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:34:30.842 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 0 msec} 
+2025-03-21T17:34:30.844 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:34:43.123 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'포수',
+		'C',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 4 msec} 
+2025-03-21T17:34:43.124 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:34:43.124 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|22               |
+|-----------------|
+ 
+2025-03-21T17:34:43.138 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:34:43.138 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|22       |
+|---------|
+ 
+2025-03-21T17:34:43.140 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:34:43.142 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |22    |포수     |C         |1       |2025-03-21T17:34:43 |[null]   |[null]  |
+|5               |0     |포지션    |21    |우익수    |RF        |1       |2025-03-21T17:34:15 |[null]   |[null]  |
+|5               |0     |포지션    |20    |중견수    |CF        |1       |2025-03-21T17:33:59 |[null]   |[null]  |
+|5               |0     |포지션    |19    |좌익수    |LF        |1       |2025-03-21T17:33:16 |[null]   |[null]  |
+|5               |0     |포지션    |18    |유격수    |SS        |1       |2025-03-21T17:31:21 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:34:46.624 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:34:46.626 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:35:05.269 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'지명타자',
+		'DH',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-21T17:35:05.271 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:35:05.271 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|23               |
+|-----------------|
+ 
+2025-03-21T17:35:05.280 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:35:05.280 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|23       |
+|---------|
+ 
+2025-03-21T17:35:05.283 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:35:05.284 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |23    |지명타자   |DH        |1       |2025-03-21T17:35:05 |[null]   |[null]  |
+|5               |0     |포지션    |22    |포수     |C         |1       |2025-03-21T17:34:43 |[null]   |[null]  |
+|5               |0     |포지션    |21    |우익수    |RF        |1       |2025-03-21T17:34:15 |[null]   |[null]  |
+|5               |0     |포지션    |20    |중견수    |CF        |1       |2025-03-21T17:33:59 |[null]   |[null]  |
+|5               |0     |포지션    |19    |좌익수    |LF        |1       |2025-03-21T17:33:16 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:35:20.349 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:35:20.349 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:35:40.702 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'대타',
+		' PH',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 5 msec} 
+2025-03-21T17:35:40.704 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:35:40.704 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|24               |
+|-----------------|
+ 
+2025-03-21T17:35:40.716 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:35:40.716 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|24       |
+|---------|
+ 
+2025-03-21T17:35:40.717 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-21T17:35:40.718 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |24    |대타     | PH       |1       |2025-03-21T17:35:40 |[null]   |[null]  |
+|5               |0     |포지션    |23    |지명타자   |DH        |1       |2025-03-21T17:35:05 |[null]   |[null]  |
+|5               |0     |포지션    |22    |포수     |C         |1       |2025-03-21T17:34:43 |[null]   |[null]  |
+|5               |0     |포지션    |21    |우익수    |RF        |1       |2025-03-21T17:34:15 |[null]   |[null]  |
+|5               |0     |포지션    |20    |중견수    |CF        |1       |2025-03-21T17:33:59 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:35:42.731 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:35:42.731 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:36:13.673 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'대주자',
+		'PR',
+		'1',
+		'5',
+		NOW(),
+		0
+	)
+ {executed in 5 msec} 
+2025-03-21T17:36:13.674 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:36:13.674 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|25               |
+|-----------------|
+ 
+2025-03-21T17:36:13.683 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 2 msec} 
+2025-03-21T17:36:13.684 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|25       |
+|---------|
+ 
+2025-03-21T17:36:13.685 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:36:13.686 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|5               |0     |포지션    |25    |대주자    |PR        |1       |2025-03-21T17:36:13 |[null]   |[null]  |
+|5               |0     |포지션    |24    |대타     | PH       |1       |2025-03-21T17:35:40 |[null]   |[null]  |
+|5               |0     |포지션    |23    |지명타자   |DH        |1       |2025-03-21T17:35:05 |[null]   |[null]  |
+|5               |0     |포지션    |22    |포수     |C         |1       |2025-03-21T17:34:43 |[null]   |[null]  |
+|5               |0     |포지션    |21    |우익수    |RF        |1       |2025-03-21T17:34:15 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:36:32.455 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:36:32.455 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:39:49.064 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'좌투',
+		'L',
+		'1',
+		'6',
+		NOW(),
+		0
+	)
+ {executed in 7 msec} 
+2025-03-21T17:39:49.065 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:39:49.066 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|26               |
+|-----------------|
+ 
+2025-03-21T17:39:49.078 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:39:49.078 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|26       |
+|---------|
+ 
+2025-03-21T17:39:49.080 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-21T17:39:49.080 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|6               |0     |투      |26    |좌투     |L         |1       |2025-03-21T17:39:49 |[null]   |[null]  |
+|5               |0     |포지션    |25    |대주자    |PR        |1       |2025-03-21T17:36:13 |[null]   |[null]  |
+|5               |0     |포지션    |24    |대타     | PH       |1       |2025-03-21T17:35:40 |[null]   |[null]  |
+|5               |0     |포지션    |23    |지명타자   |DH        |1       |2025-03-21T17:35:05 |[null]   |[null]  |
+|5               |0     |포지션    |22    |포수     |C         |1       |2025-03-21T17:34:43 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:39:51.179 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 2 msec} 
+2025-03-21T17:39:51.179 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:40:03.750 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'우투',
+		'R',
+		'1',
+		'6',
+		NOW(),
+		0
+	)
+ {executed in 5 msec} 
+2025-03-21T17:40:03.752 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:40:03.752 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|27               |
+|-----------------|
+ 
+2025-03-21T17:40:03.761 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:40:03.761 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|27       |
+|---------|
+ 
+2025-03-21T17:40:03.762 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:40:03.764 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|6               |0     |투      |27    |우투     |R         |1       |2025-03-21T17:40:03 |[null]   |[null]  |
+|6               |0     |투      |26    |좌투     |L         |1       |2025-03-21T17:39:49 |[null]   |[null]  |
+|5               |0     |포지션    |25    |대주자    |PR        |1       |2025-03-21T17:36:13 |[null]   |[null]  |
+|5               |0     |포지션    |24    |대타     | PH       |1       |2025-03-21T17:35:40 |[null]   |[null]  |
+|5               |0     |포지션    |23    |지명타자   |DH        |1       |2025-03-21T17:35:05 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:40:07.123 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:40:07.123 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:40:20.286 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'양투',
+		'S',
+		'1',
+		'6',
+		NOW(),
+		0
+	)
+ {executed in 7 msec} 
+2025-03-21T17:40:20.287 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:40:20.287 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|28               |
+|-----------------|
+ 
+2025-03-21T17:40:20.298 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:40:20.298 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|28       |
+|---------|
+ 
+2025-03-21T17:40:20.301 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:40:20.302 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|6               |0     |투      |28    |양투     |S         |1       |2025-03-21T17:40:20 |[null]   |[null]  |
+|6               |0     |투      |27    |우투     |R         |1       |2025-03-21T17:40:03 |[null]   |[null]  |
+|6               |0     |투      |26    |좌투     |L         |1       |2025-03-21T17:39:49 |[null]   |[null]  |
+|5               |0     |포지션    |25    |대주자    |PR        |1       |2025-03-21T17:36:13 |[null]   |[null]  |
+|5               |0     |포지션    |24    |대타     | PH       |1       |2025-03-21T17:35:40 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:40:24.503 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:40:24.504 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:40:44.846 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'좌타',
+		'L',
+		'1',
+		'7',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-21T17:40:44.848 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-21T17:40:44.848 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|29               |
+|-----------------|
+ 
+2025-03-21T17:40:44.854 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 0 msec} 
+2025-03-21T17:40:44.855 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|29       |
+|---------|
+ 
+2025-03-21T17:40:44.857 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-21T17:40:44.857 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|7               |0     |타      |29    |좌타     |L         |1       |2025-03-21T17:40:44 |[null]   |[null]  |
+|6               |0     |투      |28    |양투     |S         |1       |2025-03-21T17:40:20 |[null]   |[null]  |
+|6               |0     |투      |27    |우투     |R         |1       |2025-03-21T17:40:03 |[null]   |[null]  |
+|6               |0     |투      |26    |좌투     |L         |1       |2025-03-21T17:39:49 |[null]   |[null]  |
+|5               |0     |포지션    |25    |대주자    |PR        |1       |2025-03-21T17:36:13 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:40:47.069 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 0 msec} 
+2025-03-21T17:40:47.069 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:40:59.394 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'우타',
+		'R',
+		'1',
+		'7',
+		NOW(),
+		0
+	)
+ {executed in 10 msec} 
+2025-03-21T17:40:59.396 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:40:59.397 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|30               |
+|-----------------|
+ 
+2025-03-21T17:40:59.404 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:40:59.404 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-21T17:40:59.405 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:40:59.406 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|7               |0     |타      |30    |우타     |R         |1       |2025-03-21T17:40:59 |[null]   |[null]  |
+|7               |0     |타      |29    |좌타     |L         |1       |2025-03-21T17:40:44 |[null]   |[null]  |
+|6               |0     |투      |28    |양투     |S         |1       |2025-03-21T17:40:20 |[null]   |[null]  |
+|6               |0     |투      |27    |우투     |R         |1       |2025-03-21T17:40:03 |[null]   |[null]  |
+|6               |0     |투      |26    |좌투     |L         |1       |2025-03-21T17:39:49 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:41:15.260 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 0 msec} 
+2025-03-21T17:41:15.261 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:41:27.719 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'양타',
+		'S',
+		'1',
+		'7',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-21T17:41:27.720 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-21T17:41:27.720 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|31               |
+|-----------------|
+ 
+2025-03-21T17:41:27.730 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-21T17:41:27.730 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|31       |
+|---------|
+ 
+2025-03-21T17:41:27.731 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+298. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:41:27.733 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|7               |0     |타      |31    |양타     |S         |1       |2025-03-21T17:41:27 |[null]   |[null]  |
+|7               |0     |타      |30    |우타     |R         |1       |2025-03-21T17:40:59 |[null]   |[null]  |
+|7               |0     |타      |29    |좌타     |L         |1       |2025-03-21T17:40:44 |[null]   |[null]  |
+|6               |0     |투      |28    |양투     |S         |1       |2025-03-21T17:40:20 |[null]   |[null]  |
+|6               |0     |투      |27    |우투     |R         |1       |2025-03-21T17:40:03 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-21T17:57:46.342 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+308. Select count(*)
+		FROM
+		team
+	where 1=1
+ {executed in 4 msec} 
+2025-03-21T17:57:46.343 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-21T17:57:46.350 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+308. SELECT
+		tmSeq,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+	FROM
+		team
+	where 1=1
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-21T17:57:46.354 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|tmseq |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime |
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|30    |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-20T22:43:31 |[null]    |
+|29    |Tampa Bay  |Rays      |TB       |탬파베이          |레이스       |[null] |9        |11    |2025-03-20T22:43:02 |[null]    |
+|28    |New York   |Yankees   |NYY      |뉴욕            |양키스       |[null] |9        |11    |2025-03-20T22:42:37 |[null]    |
+|27    |Boston     |Red Sox   |BOS      |보스턴           |레드삭스      |[null] |9        |11    |2025-03-20T22:42:13 |[null]    |
+|26    |Baltimore  |Orioles   |BAL      |볼티모어          |오리올스      |[null] |9        |11    |2025-03-20T22:41:48 |[null]    |
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+ 
+2025-03-21T17:57:48.038 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+308. Select count(*)
+		FROM
+		team
+	where 1=1
+ {executed in 5 msec} 
+2025-03-21T17:57:48.038 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-21T17:57:48.040 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+308. SELECT
+		tmSeq,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+	FROM
+		team
+	where 1=1
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-21T17:57:48.041 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|tmseq |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime |
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|30    |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-20T22:43:31 |[null]    |
+|29    |Tampa Bay  |Rays      |TB       |탬파베이          |레이스       |[null] |9        |11    |2025-03-20T22:43:02 |[null]    |
+|28    |New York   |Yankees   |NYY      |뉴욕            |양키스       |[null] |9        |11    |2025-03-20T22:42:37 |[null]    |
+|27    |Boston     |Red Sox   |BOS      |보스턴           |레드삭스      |[null] |9        |11    |2025-03-20T22:42:13 |[null]    |
+|26    |Baltimore  |Orioles   |BAL      |볼티모어          |오리올스      |[null] |9        |11    |2025-03-20T22:41:48 |[null]    |
+|------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+ 
+2025-03-21T17:59:07.601 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+308. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-21T17:59:07.601 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:59:22.575 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+308. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 3 msec} 
+2025-03-21T17:59:22.576 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 
+2025-03-21T17:59:32.131 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+308. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 0 msec} 
+2025-03-21T17:59:32.132 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|------|-------|
+ 

@@ -20,5 +20,11 @@ public class TeamService {
 	public int insert(TeamDto teamdto) {
 		return teamDao.insert(teamdto);
 	}
+	public List<TeamDto> league(){
+		return teamDao.league();
+	}
+	public List<TeamDto> division() {
+		return teamDao.division();
+	}
 
 }

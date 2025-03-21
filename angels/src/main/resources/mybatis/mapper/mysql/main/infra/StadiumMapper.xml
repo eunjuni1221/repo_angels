@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angels.module.stadium.StadiumDao">
+
+<resultMap id="resultMapObj" type="com.angels.module.stadium.StadiumDto"></resultMap>
+
+	<select id="selectList" resultMap="resultMapObj">
+	SELECT	
+		tm.tmNameAb,
+	    s.stSeq,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+	from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1 ORDER BY s.stSeq DESC	
+		limit #{rowNumToShow} offset #{startRnumForMysql}	
+	</select>
+	
+	<select id="selectTeam" resultMap="resultMapObj">
+	
+		select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+		
+	</select>
+	
+		<insert id="insert">
+	INSERT INTO stadium (
+		stName,
+		stNameKor,
+		stAdress,	
+		team_tmSeq,
+		stRegTime
+		
+		
+	) values (
+		#{stName},
+		#{stNameKor},
+		#{stAdress},
+		#{team_tmSeq},
+		NOW()
+	)
+	
+	<selectKey resultType="String" keyProperty="stSeq" order="AFTER">
+		SELECT last_insert_id()
+	</selectKey>
+	</insert>
+	
+	<select id="selectOneCount" resultType="Integer">
+	
+	Select count(*)
+			from
+				stadium
+			where 1=1
+	</select>
+</mapper>

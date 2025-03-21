@@ -1327,3 +1327,45 @@
 |1     |0       |null  |통신사    |Telecom    |6          |1       |2025-03-20T16:45:56 |[null]   |
 |------|--------|------|-------|-----------|-----------|--------|--------------------|---------|
  
+2025-03-20T17:50:46.002 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. Select count(*)
+		FROM
+		team
+	where 1=1
+ {executed in 5 msec} 
+2025-03-20T17:50:46.004 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|4        |
+|---------|
+ 
+2025-03-20T17:50:46.008 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. SELECT
+		tmSeq,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+	FROM
+		team
+	where 1=1
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-20T17:50:46.009 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|-----------|-------|---------|--------------|----------|-------|---------|-------|--------------------|----------|
+|tmseq |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv  |tmregtime           |tmmodtime |
+|------|-----------|-------|---------|--------------|----------|-------|---------|-------|--------------------|----------|
+|4     |           |       |         |              |          |[null] |0        |1      |2025-03-20T14:48:52 |[null]    |
+|3     |           |       |         |              |          |[null] |[null]   |[null] |2025-03-20T14:39:36 |[null]    |
+|2     |           |       |         |              |          |[null] |[null]   |[null] |2025-03-20T14:39:05 |[null]    |
+|1     |Chicago    |Cubs   |CHC      |시카고           |컵스        |[null] |[null]   |[null] |[null]              |[null]    |
+|------|-----------|-------|---------|--------------|----------|-------|---------|-------|--------------------|----------|
+ 

@@ -31,18 +31,20 @@
 	
 		<insert id= "insert" parameterType="com.angels.module.codegroup.CodeGroupDto">
 		INSERT INTO codegroup (
-			cgdelNy,
+			cgUse,
 		    cgName,
 		    cgNameEng,
 		    cgOrder,
-		    cgRegDate
+		    cgRegDate,
+		    cgdelNy
 		    
 			) values (
-				#{cgdelNy},
+				#{cgUse},
 				#{cgName},
 				#{cgNameEng},
 				#{cgOrder},
-				NOW()				
+				NOW(),
+				0				
 			)
 		<selectKey resultType= "String" keyProperty="cgSeq" order="AFTER">
 			SELECT last_insert_id()
