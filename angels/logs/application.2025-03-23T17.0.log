@@ -1,0 +1,1444 @@
+2025-03-23T17:08:07.859 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-23T17:08:07.861 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-23T17:08:07.862 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-23T17:08:07.879 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 12 msec} 
+2025-03-23T17:08:07.885 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|9        |
+|---------|
+ 
+2025-03-23T17:08:07.893 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-23T17:08:07.903 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng   |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|9     |0       |0     |이닝     |Inning      |40         |1       |2025-03-22T13:33:54 |[null]   |
+|8     |0       |0     |국적     |Nationality |21         |1       |2025-03-22T10:51:18 |[null]   |
+|7     |0       |0     |타      |Bat         |3          |1       |2025-03-21T17:26:47 |[null]   |
+|6     |0       |0     |투      |Throw       |3          |1       |2025-03-21T17:26:35 |[null]   |
+|5     |0       |0     |포지션    |Position    |12         |1       |2025-03-21T17:24:04 |[null]   |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+ 
+2025-03-23T17:08:37.364 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. INSERT INTO codegroup (
+			cgUse,
+		    cgName,
+		    cgNameEng,
+		    cgOrder,
+		    cgRegDate,
+		    cgdelNy
+
+			) values (
+				0,
+				'status',
+				'status',
+				'1',
+				NOW(),
+				0				
+			)
+ {executed in 10 msec} 
+2025-03-23T17:08:37.365 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-23T17:08:37.366 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|10               |
+|-----------------|
+ 
+2025-03-23T17:08:37.384 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+ {executed in 2 msec} 
+2025-03-23T17:08:37.385 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|10       |
+|---------|
+ 
+2025-03-23T17:08:37.387 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-23T17:08:37.389 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng   |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|10    |0       |0     |status |status      |0          |1       |2025-03-23T17:08:37 |[null]   |
+|9     |0       |0     |이닝     |Inning      |40         |1       |2025-03-22T13:33:54 |[null]   |
+|8     |0       |0     |국적     |Nationality |21         |1       |2025-03-22T10:51:18 |[null]   |
+|7     |0       |0     |타      |Bat         |3          |1       |2025-03-21T17:26:47 |[null]   |
+|6     |0       |0     |투      |Throw       |3          |1       |2025-03-21T17:26:35 |[null]   |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+ 
+2025-03-23T17:08:48.118 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-23T17:08:48.120 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|92       |
+|---------|
+ 
+2025-03-23T17:08:48.123 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-23T17:08:48.126 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|9               |0     |이닝     |92    |20회말   |BOT 20    |1       |2025-03-22T14:12:40 |[null]   |[null]  |
+|9               |0     |이닝     |91    |20회초   |TOP 20    |1       |2025-03-22T14:12:16 |[null]   |[null]  |
+|9               |0     |이닝     |90    |19회말   |BOT 19    |1       |2025-03-22T14:11:45 |[null]   |[null]  |
+|9               |0     |이닝     |89    |19회초   |TOP 19    |1       |2025-03-22T14:11:01 |[null]   |[null]  |
+|9               |0     |이닝     |88    |18회말   |BOT 18    |1       |2025-03-22T14:10:22 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-23T17:08:49.889 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 2 msec} 
+2025-03-23T17:08:49.890 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|8     |국적     |
+|9     |이닝     |
+|10    |status |
+|------|-------|
+ 
+2025-03-23T17:13:41.433 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'현역',
+		'active',
+		'1',
+		'10',
+		NOW(),
+		0
+	)
+ {executed in 4 msec} 
+2025-03-23T17:13:41.434 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-03-23T17:13:41.435 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|93               |
+|-----------------|
+ 
+2025-03-23T17:13:41.448 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-23T17:13:41.448 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|93       |
+|---------|
+ 
+2025-03-23T17:13:41.450 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-23T17:13:41.451 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|10              |0     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]   |[null]  |
+|9               |0     |이닝     |92    |20회말   |BOT 20    |1       |2025-03-22T14:12:40 |[null]   |[null]  |
+|9               |0     |이닝     |91    |20회초   |TOP 20    |1       |2025-03-22T14:12:16 |[null]   |[null]  |
+|9               |0     |이닝     |90    |19회말   |BOT 19    |1       |2025-03-22T14:11:45 |[null]   |[null]  |
+|9               |0     |이닝     |89    |19회초   |TOP 19    |1       |2025-03-22T14:11:01 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-23T17:13:43.069 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-23T17:13:43.070 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|-------|
+|cgseq |cgname |
+|------|-------|
+|1     |통신사    |
+|2     |성별     |
+|3     |리그메인   |
+|4     |리그서브   |
+|5     |포지션    |
+|6     |투      |
+|7     |타      |
+|8     |국적     |
+|9     |이닝     |
+|10    |status |
+|------|-------|
+ 
+2025-03-23T17:13:52.773 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. INSERT INTO code (
+		cdUse,
+		cdName,
+		cdNameEng,
+		cdOrder,
+		codeGroup_cgSeq,	
+		cdRegDate,
+		cdDelNy
+
+	) values (
+		0,
+		'은퇴',
+		'retire',
+		'1',
+		'10',
+		NOW(),
+		0
+	)
+ {executed in 6 msec} 
+2025-03-23T17:13:52.776 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-03-23T17:13:52.776 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|94               |
+|-----------------|
+ 
+2025-03-23T17:13:52.783 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+ {executed in 1 msec} 
+2025-03-23T17:13:52.784 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|94       |
+|---------|
+ 
+2025-03-23T17:13:52.785 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-23T17:13:52.789 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+|10              |0     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |
+|10              |0     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]   |[null]  |
+|9               |0     |이닝     |92    |20회말   |BOT 20    |1       |2025-03-22T14:12:40 |[null]   |[null]  |
+|9               |0     |이닝     |91    |20회초   |TOP 20    |1       |2025-03-22T14:12:16 |[null]   |[null]  |
+|9               |0     |이닝     |90    |19회말   |BOT 19    |1       |2025-03-22T14:11:45 |[null]   |[null]  |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|
+ 
+2025-03-23T17:23:43.119 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 10 msec} 
+2025-03-23T17:23:43.121 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:26:16.456 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:26:16.457 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:30:10.459 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 2 msec} 
+2025-03-23T17:30:10.460 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:32:01.499 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 2 msec} 
+2025-03-23T17:32:01.501 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:37:19.529 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:37:19.531 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:38:36.140 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 2 msec} 
+2025-03-23T17:38:36.142 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:44:30.575 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 2 msec} 
+2025-03-23T17:44:30.577 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:47:06.979 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:47:06.980 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:47:48.084 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:47:48.085 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:47:54.540 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:47:54.541 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:49:06.836 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:49:06.837 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:49:13.493 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:49:13.494 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:49:21.296 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:49:21.297 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:49:26.392 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 2 msec} 
+2025-03-23T17:49:26.392 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:49:53.363 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 2 msec} 
+2025-03-23T17:49:53.364 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:50:47.044 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:50:47.045 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:50:55.429 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:50:55.429 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:52:15.327 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:52:15.328 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:52:22.202 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:52:22.203 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:54:09.949 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:54:09.950 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:54:18.738 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:54:18.739 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:55:54.559 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:55:54.560 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:56:21.745 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:56:21.745 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:57:06.528 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+44. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:57:06.529 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:57:25.173 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 3 msec} 
+2025-03-23T17:57:25.174 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:58:13.851 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:58:13.852 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:58:23.364 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 2 msec} 
+2025-03-23T17:58:23.365 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-23T17:58:58.039 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT
+			team_tmSeq,
+			pyDelNy,
+			pySeq,
+		    pyGivenName,
+		    pyFamilyName,
+		    pyOriName,
+		    pyFamliyNameKor,
+		    pyGivenNameKor,
+		    pyOriNameKor,
+			nickName,
+		    birthday,
+		    homeTown,
+		    nationality,
+			throwHand,
+		    batHand,
+		    jerseyNumber,
+		    heightCm,
+		    heightFt,
+		    weightKg,
+		    weightLb,
+		    finalSchoolHistory,
+		    debut,
+		    Draft,
+		    status,
+		    pyRegTime,
+		    pyModTime,
+		    pyDelNy
+		from player
+		where 1=1 order by pySeq desc
+ {executed in 1 msec} 
+2025-03-23T17:58:58.040 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|team_tmseq |pydelny |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|-----------|--------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 

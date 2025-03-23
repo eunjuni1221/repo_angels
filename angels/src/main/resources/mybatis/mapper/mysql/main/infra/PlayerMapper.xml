@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angels.module.player.PlayerDao">
+
+<resultMap id="resultMapObj" type="com.angels.module.player.PlayerDto"></resultMap>
+
+  	<select id="selectList" resultMap="resultMapObj">
+  		SELECT
+			tm.tmNameAb,
+			p.pyDelNy,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy
+		from player p left join team tm ON p.team_tmSeq = tm.tmSeq
+		where 1=1 order by pySeq desc
+		limit #{rowNumToShow} offset #{startRnumForMysql}	
+ 	</select>
+ 	
+ 	<select id="selectTeam" resultMap="resultMapObj">
+		select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1	
+ 	</select>
+ 	
+ 	<select id="selectPosition" resultMap="resultMapObj">
+		select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=5
+		order by cdSeq desc  	
+ 	
+ 	</select>
+ 	
+ 	 <select id="selectThrowHand" resultMap="resultMapObj">
+		select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=6
+		order by cdSeq desc  	
+ 	
+ 	</select>
+ 	
+ 	 <select id="selectBatHand" resultMap="resultMapObj">
+		select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=7
+		order by cdSeq desc  	
+ 	
+ 	</select>
+ 	
+  	 <select id="selectNationality" resultMap="resultMapObj">
+		select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=8
+		order by cdSeq desc  	
+ 	
+ 	</select>
+ 	
+  	 <select id="selectStatus" resultMap="resultMapObj">
+		select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=10
+		order by cdSeq desc  	
+ 	
+ 	</select>
+ 	
+<insert id="insert" parameterType="com.angels.module.player.PlayerDto">
+	INSERT INTO player (
+		team_tmSeq,
+		pyDelNy,
+		pySeq,
+	    pyGivenName,
+	    pyFamilyName,
+	    pyOriName,
+	    pyFamliyNameKor,
+	    pyGivenNameKor,
+	    pyOriNameKor,
+		nickName,
+	    birthday,
+	    homeTown,
+	    nationality,
+	    position,
+		throwHand,
+	    batHand,
+	    jerseyNumber,
+	    heightCm,
+	    heightFt,
+	    weightKg,
+	    weightLb,
+	    finalSchoolHistory,
+	    debut,
+	    Draft,
+	    status,
+	    pyRegTime
+	) values (
+		#{team_tmSeq},
+		0,
+		#{pySeq},
+		#{pyGivenName},
+		#{pyFamilyName},
+		#{pyOriName},
+		#{pyFamliyNameKor},
+		#{pyGivenNameKor},
+		#{pyOriNameKor},
+		#{nickName},
+		#{birthday},
+		#{homeTown},
+		#{nationality},
+		#{position},
+		#{throwHand},
+		#{batHand},
+		#{jerseyNumber},
+		#{heightCm},
+		#{heightFt},
+		#{weightKg},
+		#{weightLb},
+		#{finalSchoolHistory},
+		#{debut},
+		#{Draft},
+		#{status},
+		NOW()
+	)
+		<selectKey resultType= "String" keyProperty="pySeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+
+
+	<select id="selectOneCount" resultType="Integer">
+	
+	Select count(*)
+		FROM
+		player
+	where 1=1
+	
+	</select>
+ </mapper>
+ 
