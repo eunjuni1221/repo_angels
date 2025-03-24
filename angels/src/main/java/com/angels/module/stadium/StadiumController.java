@@ -15,9 +15,15 @@ public class StadiumController {
 	StadiumService stadiumService;
 	
 	@RequestMapping(value="/stadium/StadiumXdmList")
-	public String stadiumXdmList(Model model, StadiumVo vo) {
-		vo.setParamsPaging(stadiumService.selectOneCount());
+	public String stadiumXdmList(Model model, StadiumVo vo) throws Exception {
+		System.out.println(vo.getThisPage());
+		vo.setParamsPaging(stadiumService.selectOneCount(vo));
+		model.addAttribute("selectTeam",stadiumService.selectTeam());
+
+		
+		if(vo.getTotalRows() > 0) {
 		model.addAttribute("list", stadiumService.selectList(vo));
+		}
 		model.addAttribute("vo", vo);
 		return "xdm/stadium/StadiumXdmList";
 	}

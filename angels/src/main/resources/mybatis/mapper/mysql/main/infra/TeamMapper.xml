@@ -21,9 +21,16 @@
 -->				
         <choose>
             <when test="shOption == 1">AND tmSeq = #{shValue}</when>
-            <when test="shOption == 2">AND tmName LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 3">AND tmNameEng LIKE CONCAT('%',#{shValue},'%')</when>
-        </choose> 
+            <when test="shOption == 2">AND tmHomeName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND tmName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND tmHomeNameKor LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 5">AND tmNameKor LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 6">AND tmNameAb LIKE CONCAT('%',#{shValue},'%')</when>
+        </choose>
+        
+			<if test="shLeagueOption != null and !shLeagueOption.equals('')">AND tmLeague =#{shLeagueOption}</if>
+			<if test="shLeagueOption != null and !shLeagueOption.equals('')">AND tmDiv =#{shDivOption}</if>       
+
 	</sql>
 
   	<select id="selectList" resultMap="resultMapObj">

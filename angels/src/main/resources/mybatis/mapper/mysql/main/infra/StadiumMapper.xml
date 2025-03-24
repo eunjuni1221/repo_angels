@@ -5,18 +5,46 @@
 
 <resultMap id="resultMapObj" type="com.angels.module.stadium.StadiumDto"></resultMap>
 
+	<sql id="selectCommon">
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		    
+		<if test="shUseNy != null and !shUseNy.equals('')">AND s.stUse = #{shUseNy}</if>
+        <if test="shDelNy != null and !shDelNy.equals('')">AND s.stDelNy = #{shDelNy}</if>
+<!-- 				
+			<choose>
+				<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+-->				
+        <choose>
+            <when test="shOption == 1">AND s.stSeq = #{shValue}</when>
+            <when test="shOption == 2">AND s.stName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND s.stNameKor LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND s.stAdress LIKE CONCAT('%',#{shValue},'%')</when>
+        </choose>
+        
+        <if test="shTeamOption != null and !shTeamOption.equals('')">AND tmSeq = #{shTeamOption}</if>
+        
+        
+         
+	</sql>
+
 	<select id="selectList" resultMap="resultMapObj">
 	SELECT	
 		tm.tmNameAb,
 	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
 	    s.stName,
 	    s.stNameKor,
 	    s.stAdress,
 	    s.stRegTime,
 	    s.stModTime
-	from
-	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
-		WHERE 1=1 ORDER BY s.stSeq DESC	
+	
+<include refid="selectCommon"></include>
+		ORDER BY s.stSeq DESC	
 		limit #{rowNumToShow} offset #{startRnumForMysql}	
 	</select>
 	
@@ -33,6 +61,8 @@
 	
 		<insert id="insert">
 	INSERT INTO stadium (
+		stDelNy,
+		stUse,
 		stName,
 		stNameKor,
 		stAdress,	
@@ -41,6 +71,8 @@
 		
 		
 	) values (
+		0,
+		#{stUse},
 		#{stName},
 		#{stNameKor},
 		#{stAdress},
@@ -56,8 +88,7 @@
 	<select id="selectOneCount" resultType="Integer">
 	
 	Select count(*)
-			from
-				stadium
-			where 1=1
+<include refid="selectCommon"></include>
+
 	</select>
 </mapper>

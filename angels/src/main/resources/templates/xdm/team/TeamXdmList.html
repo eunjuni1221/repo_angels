@@ -69,14 +69,26 @@
                           <div class="col">
 							<select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
 								<option value="" th:selected="${vo.shOption == null}">검색구분</option>
-								<option value="1" th:selected="${vo.shOption == 1}">코드그룹 코드</option>
-								<option value="2" th:selected="${vo.shOption == 2}">코드그룹 이름</option>
-								<option value="3" th:selected="${vo.shOption == 3}">코드그룹 이름 (영문)</option>
-								<option value="4" th:selected="${vo.shOption == 4}">대체 코드</option>
-								<option value="5" th:selected="${vo.shOption == 5}">코드그룹 이름</option>
-								<option value="5" th:selected="${vo.shOption == 6}">코드 이름(영문)</option>
+								<option value="1" th:selected="${vo.shOption == 1}">코드 번호</option>
+								<option value="2" th:selected="${vo.shOption == 2}">팀 이름(연고지, 영문)</option>
+								<option value="3" th:selected="${vo.shOption == 3}">팀 이름(구단명, 영문)</option>
+								<option value="4" th:selected="${vo.shOption == 4}">팀 이름(연고지, 한글)</option>
+								<option value="5" th:selected="${vo.shOption == 5}">팀 이름(구단명, 한글)</option>
+								<option value="6" th:selected="${vo.shOption == 6}">팀 약어</option>
 							</select>
-                          </div> 
+                          </div>
+						  <div class="col">
+							<select id="shLeagueOption" name="shLeagueOption" class="form-select form-select-sm">  
+							<option value="">리그 선택</option>
+							<option th:selected="${list.cdSeq} ==${vo.shLeagueOption}" th:each="list : ${@codeService.selectListCachedCode(3)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+							</select>
+						  </div>
+						  <div class="col">
+							  <select id="shDivOption" name="shDivOption" class="form-select form-select-sm">  
+							  <option value="">리그 선택</option>
+							  <option th:selected="${list.cdSeq} ==${vo.shDivOption}" th:each="list : ${@codeService.selectListCachedCode(4)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+							  </select>
+						  </div>    
                           <div class="col">
                             <input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" class="form-control form-control-sm" placeholder="검색어">
                           </div>

@@ -15,7 +15,7 @@ public class PlayerVo {
 	private int endPage;										// 마지막 페이지 번호
 
 	private int startRnumForMysql = 0;
-z
+
 	public void setParamsPaging(int totalRows) {
 //		setThisPage(1);
 

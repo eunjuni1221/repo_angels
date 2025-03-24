@@ -25,7 +25,31 @@ public class TeamVo {
 	private String shDateEnd;
 	private Integer shOption;									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private String shValue;
+	private Integer shLeagueOption;
+	private Integer shDivOption;			
 	
+	
+	
+
+	public Integer getShLeagueOption() {
+		return shLeagueOption;
+	}
+
+
+	public void setShLeagueOption(Integer shLeagueOption) {
+		this.shLeagueOption = shLeagueOption;
+	}
+
+
+	public Integer getShDivOption() {
+		return shDivOption;
+	}
+
+
+	public void setShDivOption(Integer shDivOption) {
+		this.shDivOption = shDivOption;
+	}
+
 
 	public String getIfbnSeq() {
 		return ifbnSeq;

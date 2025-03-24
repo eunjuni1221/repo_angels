@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 public class StadiumDto {
 	
 	private String stSeq;
+	private int stUse;
+	private int stDelNy;
 	private String stName;
 	private String stNameKor;
 	private String stAdress;
@@ -21,6 +23,23 @@ public class StadiumDto {
 
 	public void setStSeq(String stSeq) {
 		this.stSeq = stSeq;
+	}
+	
+
+	public int getStUse() {
+		return stUse;
+	}
+
+	public void setStUse(int stUse) {
+		this.stUse = stUse;
+	}
+
+	public int getStDelNy() {
+		return stDelNy;
+	}
+
+	public void setStDelNy(int stDelNy) {
+		this.stDelNy = stDelNy;
 	}
 
 	public String getStName() {

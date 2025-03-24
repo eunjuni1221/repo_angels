@@ -14,8 +14,8 @@ public class StadiumService {
 	public List<StadiumDto> selectList(StadiumVo stadiumVo) {
 		return stadiumDao.selectList(stadiumVo);
 	}
-	public int selectOneCount() {
-		return stadiumDao.selectOneCount();
+	public int selectOneCount(StadiumVo stadiumVo) {
+		return stadiumDao.selectOneCount(stadiumVo);
 	}
 	public int insert(StadiumDto stadiumdto) {
 		return stadiumDao.insert(stadiumdto);
