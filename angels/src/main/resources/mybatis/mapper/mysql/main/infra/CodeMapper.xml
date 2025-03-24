@@ -11,6 +11,20 @@
 		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
 		WHERE
 		    1=1
+		    
+		<if test="shUseNy != null and !shUseNy.equals('')">AND c.cdUse = #{shUseNy}</if>
+        <if test="shDelNy != null and !shDelNy.equals('')">AND c.cdDelNy = #{shDelNy}</if>
+<!-- 				
+			<choose>
+				<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+-->				
+        <choose>
+            <when test="shOption == 1">AND c.cdSeq = #{shValue}</when>
+            <when test="shOption == 2">AND c.cdName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND c.cdNameEng LIKE CONCAT('%',#{shValue},'%')</when>
+        </choose> 
 	</sql>
 	
   	<select id="selectList" resultMap="resultMapObj">
@@ -25,7 +39,8 @@
 		    c.cdOrder,
 		    c.cdRegDate,
 		    c.cdEdDate,
-		    c.cdCheck
+		    c.cdCheck,
+		    c.cdDelNy
 		    
 <include refid="selectCommon"></include>
 		ORDER BY

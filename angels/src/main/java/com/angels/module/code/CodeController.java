@@ -12,9 +12,14 @@ public class CodeController {
 	CodeService codeService;
 	
 	@RequestMapping(value="/code/CodeXdmList")
-	public String codeXdmList(Model model, CodeVo vo) {
-		vo.setParamsPaging(codeService.selectOneCount());
+	public String codeXdmList(Model model, CodeVo vo) throws Exception {
+		System.out.println(vo.getThisPage());
+		vo.setParamsPaging(codeService.selectOneCount(vo));
+		
+		if(vo.getTotalRows() > 0) {
 		model.addAttribute("list", codeService.selectList(vo));
+		}
+		
 		model.addAttribute("vo", vo);
 		return "xdm/code/CodeXdmList";
 	}

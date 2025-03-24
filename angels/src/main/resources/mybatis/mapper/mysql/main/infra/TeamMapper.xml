@@ -5,9 +5,32 @@
 
 <resultMap id="resultMapObj" type="com.angels.module.team.TeamDto"></resultMap>
 
+		<sql id="selectCommon">
+			FROM
+		    team
+		WHERE
+		    1=1
+		    
+		<if test="shUseNy != null and !shUseNy.equals('')">AND tmUse = #{shUseNy}</if>
+        <if test="shDelNy != null and !shDelNy.equals('')">AND tmDelNy = #{shDelNy}</if>
+<!-- 				
+			<choose>
+				<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+-->				
+        <choose>
+            <when test="shOption == 1">AND tmSeq = #{shValue}</when>
+            <when test="shOption == 2">AND tmName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND tmNameEng LIKE CONCAT('%',#{shValue},'%')</when>
+        </choose> 
+	</sql>
+
   	<select id="selectList" resultMap="resultMapObj">
 	SELECT
 		tmSeq,
+		tmUse,
+		tmDelNy,
 		tmHomeName,
 	    tmName,
 	    tmNameAb,
@@ -18,9 +41,7 @@
 	    tmDiv,
 	    tmRegTime,
 	    tmModTime    
-	FROM
-		team
-	where 1=1
+<include refid="selectCommon"></include>
 	order by tmSeq desc
 	limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
@@ -50,6 +71,8 @@
 	
 	<insert id="insert" parameterType="com.angels.module.team.TeamDto">
 	INSERT INTO team (
+		tmUse,
+		tmDelNy,
 		tmLeague,
 		tmDiv,
 		tmHomeName,
@@ -59,6 +82,8 @@
 	    tmNameAb,
 	    tmRegTime
 	) values (
+		#{tmUse},
+		0,
 		#{tmLeague},
 		#{tmDiv},
 		#{tmHomeName},
@@ -77,9 +102,7 @@
 	<select id="selectOneCount" resultType="Integer">
 	
 	Select count(*)
-		FROM
-		team
-	where 1=1
+<include refid="selectCommon"></include>
 	
 	</select>
 </mapper>

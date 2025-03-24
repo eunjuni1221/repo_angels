@@ -14,8 +14,8 @@ public class TeamService {
 	public List<TeamDto> selectList(TeamVo teamVo) {
 		return teamDao.selectList(teamVo);
 	}
-	public int selectOneCount() {
-		return teamDao.selectOneCount();
+	public int selectOneCount(TeamVo teamVo) {
+		return teamDao.selectOneCount(teamVo);
 	}
 	public int insert(TeamDto teamdto) {
 		return teamDao.insert(teamdto);

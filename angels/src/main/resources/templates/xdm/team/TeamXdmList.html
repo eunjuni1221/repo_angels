@@ -40,47 +40,45 @@
                       <div class="container-fluid">
                         <div class="row row-cols-5 g-2">
                           <div class="col">
-                            <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>리그</option>
-                              <option value="1">AL</option>
-                              <option value="2">NL</option>
-                            </select>
+							<select id="shDelNy" name="shDelNy" class="form-select form-select-sm" style="width: 100%;">
+							  <option value="" th:selected="${vo.shDelNy == null}">삭제여부</option>
+							  <option value="1" th:selected="${vo.shDelNy == 1}">Y</option>
+							  <option value="0" th:selected="${vo.shDelNy == 0}">N</option>   
+							</select>
                           </div>
                           <div class="col">
-                            <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>소속</option>
-                              <option value="1">WEST</option>
-                              <option value="2">CENTRAL</option>
-                              <option value="3">EAST</option>
-                            </select>
+							<select name="shUseNy" id="shUseNy" class="form-select form-select-sm" style="width: 100%;">
+								<option value="" th:selected="${vo.shUseNy == null}">사용여부</option>
+								<option value="1" th:selected="${vo.shUseNy == 1}">Y</option>
+								<option value="0" th:selected="${vo.shUseNy == 0}">N</option>
+							</select>
                           </div>
                           <div class="col">
-                            <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>날짜</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
+							<select id="shOptionDate" name="shOptionDate" class="form-select form-select-sm" style="width: 100%;">
+								<option value="" th:selected="${vo.shOptionDate == null}">날짜</option>
+								<option value="1" th:selected="${vo.shOptionDate == 1}">등록일</option>
+								<option value="2" th:selected="${vo.shOptionDate == 2}">수정일</option>
+							</select>
                           </div>
                           <div class="col">
-                            <input type="text" class="form-control form-control-sm" placeholder="날짜">
+                            <input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
                           </div>
                           <div class="col">
-                            <input type="text" class="form-control form-control-sm" placeholder="날짜">
+                            <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
                           </div> 
                           <div class="col">
-                            <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>검색구분</option>
-                              <option value="1">코드그룹 코드</option>
-                              <option value="2">코드그룹 이름</option>
-                              <option value="3">코드</option>
-                              <option value="4">대체 코드</option>
-                              <option value="5">코드 이름</option>
-                              <option value="6">코드 이름(영문)</option>
-                            </select>
+							<select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
+								<option value="" th:selected="${vo.shOption == null}">검색구분</option>
+								<option value="1" th:selected="${vo.shOption == 1}">코드그룹 코드</option>
+								<option value="2" th:selected="${vo.shOption == 2}">코드그룹 이름</option>
+								<option value="3" th:selected="${vo.shOption == 3}">코드그룹 이름 (영문)</option>
+								<option value="4" th:selected="${vo.shOption == 4}">대체 코드</option>
+								<option value="5" th:selected="${vo.shOption == 5}">코드그룹 이름</option>
+								<option value="5" th:selected="${vo.shOption == 6}">코드 이름(영문)</option>
+							</select>
                           </div> 
                           <div class="col">
-                            <input type="text" class="form-control form-control-sm" placeholder="검색어">
+                            <input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" class="form-control form-control-sm" placeholder="검색어">
                           </div>
                           <div class="d-flex gap-2">
                             <button class="btn btn-light btn-sm">
@@ -104,17 +102,18 @@
         </div>
               <!-- 📌 테이블 추가 -->
               <div class="border p-3 rounded shadow-sm bg-white mt-3" style="display: inline-block; width: 100%;">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h4 class="mb-0">Total: [[${vo.totalRows}]]</h4>
+				<div class="d-flex justify-content-between align-items-center" th:fragment="totalAndRowNum">
+				  <h4 class="mb-0" th:text="'Total: '+${vo.totalRows}"></h4>
                   
                   <!-- 선택 박스 (기존 코드에 추가) -->
-                  <select class="form-select form-select-md" style="width: 200px;">
-                    <option selected>5</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                  </select>
+				  <select class="form-select form-select-md" style="width: 200px;" id="changeRowNum" name="changeRowNum">
+				    <option value="5" th:selected="${vo.rowNumToShow eq 5}">5</option>
+				    <option value="10" th:selected="${vo.rowNumToShow eq 10}">10</option>
+				    <option value="30" th:selected="${vo.rowNumToShow eq 30}">30</option>
+				    <option value="50" th:selected="${vo.rowNumToShow eq 50}">50</option>
+				    <option value="80" th:selected="${vo.rowNumToShow eq 80}">80</option>
+				  <option value="100" th:selected="${vo.rowNumToShow eq 100}">100</option>
+				  </select>
                 </div>
               
                 <table class="table table-bordered mt-2" style="width: 100%;">
@@ -122,6 +121,7 @@
                     <tr>
                       <th><input type="checkbox" id="selectAll"></th>
                       <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">사용 <i class="fa-solid fa-sort"></i></th>
 					  <th class="sortable">코드 번호 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">리그 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">소속 <i class="fa-solid fa-sort"></i></th>
@@ -143,6 +143,7 @@
 					<tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
 					  <td><input type="checkbox" class="row-checkbox"></td>
 					  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
+					  <td th:text="${list.tmUse == 1 ? 'Y' : 'N'}"></td>
 					  <td th:text="${list.tmSeq}"></td>
 					  <td th:text="${@codeService.selectOneCachedCode(list.tmLeague)}"></td>
 					  <td th:text="${@codeService.selectOneCachedCode(list.tmDiv)}"></td>
@@ -184,7 +185,8 @@
                   <div class="d-flex gap-1">
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-					<a href="TeamXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>                  </div>
+					<a href="TeamXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>                  
+				  </div>
                 </div>
         
               </div>
@@ -277,6 +279,21 @@
 		    form.action = "/team/TeamXdmList";
 		    form.submit();
 		}
+	</script>
+	
+	<script>
+		document.getElementById("btnSearch").onclick = function () {
+		    form.action = "/team/TeamXdmList";
+		    form.submit();
+		};
+	</script>
+
+	<script>
+		document.getElementById("changeRowNum").onchange = function () {
+		    document.getElementById("rowNumToShow").value = document.getElementById("changeRowNum").value;
+		    form.action = "/team/TeamXdmList";
+		    form.submit();
+		}			
 	</script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

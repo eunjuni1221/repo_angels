@@ -15,9 +15,14 @@ public class TeamController {
 	CodeService codeService;
 	
 	@RequestMapping(value="/team/TeamXdmList")
-	public String teamXdmList(Model model, TeamVo vo) {
-		vo.setParamsPaging(teamService.selectOneCount());
+	public String teamXdmList(Model model, TeamVo vo) throws Exception {
+		System.out.println(vo.getThisPage());
+		vo.setParamsPaging(teamService.selectOneCount(vo));
+		
+		if(vo.getTotalRows() > 0) {
 		model.addAttribute("list", teamService.selectList(vo));
+		}
+		
 		model.addAttribute("vo", vo);
 		return "xdm/team/TeamXdmList";
 	}

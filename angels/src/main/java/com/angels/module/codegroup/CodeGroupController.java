@@ -3,6 +3,7 @@ package com.angels.module.codegroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -13,11 +14,14 @@ public class CodeGroupController {
 	CodeGroupService codeGroupService;
 	
 	@RequestMapping(value = "/codegroup/codeGroupXdmList")
-	public String codegroupXdmList(Model model, CodeGroupVo vo) {
+	public String codegroupXdmList(Model model, CodeGroupVo vo) throws Exception{
 		System.out.println(vo.getThisPage());
+		vo.setParamsPaging(codeGroupService.selectOneCount(vo));
 		
-		vo.setParamsPaging(codeGroupService.selectOneCount());
+		if (vo.getTotalRows() > 0) {
 		model.addAttribute("list", codeGroupService.selectList(vo));
+		}
+		
 		model.addAttribute("vo", vo);
 	return "xdm/codegroup/CodeGroupXdmList"; 
 	}

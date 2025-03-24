@@ -22,8 +22,8 @@ public class CodeGroupService {
 	public int insert (CodeGroupDto codeGroupDto) {
 		return codeGroupDao.insert(codeGroupDto);
 	}
-	public int selectOneCount() {
-		return codeGroupDao.selectOneCount();
+	public int selectOneCount(CodeGroupVo codeGroupVo) {
+		return codeGroupDao.selectOneCount(codeGroupVo);
 	}
 
 }

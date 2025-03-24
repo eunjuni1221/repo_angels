@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 public class TeamDto {
 	
 	private String tmSeq;
+	private int tmUse;
+	private int tmDelNy;
 	private String tmHomeName;
 	private String tmName;
 	private String tmNameAb;
@@ -25,6 +27,18 @@ public class TeamDto {
 	}
 	public void setTmSeq(String tmSeq) {
 		this.tmSeq = tmSeq;
+	}
+	public int getTmUse() {
+		return tmUse;
+	}
+	public void setTmUse(int tmUse) {
+		this.tmUse = tmUse;
+	}
+	public int getTmDelNy() {
+		return tmDelNy;
+	}
+	public void setTmDelNy(int tmDelNy) {
+		this.tmDelNy = tmDelNy;
 	}
 	public String getTmName() {
 		return tmName;
