@@ -19,8 +19,8 @@ public class PlayerService {
 	public List<PlayerDto> selectTeam() {
 		return playerDao.selectTeam();
 	}
-	public int selectOneCount() {
-		return playerDao.selectOneCount();
+	public int selectOneCount(PlayerVo playerVo) {
+		return playerDao.selectOneCount(playerVo);
 	}
 	public int insert(PlayerDto playerDto) {
 		return playerDao.insert(playerDto);

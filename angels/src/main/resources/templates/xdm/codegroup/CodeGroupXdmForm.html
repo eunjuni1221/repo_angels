@@ -2,11 +2,14 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	
 <div th:replace="~{xdm/include/head :: head}"></div>
+<div th:replace="~{xdm/codegroup/CodeGroupXdmVo :: vo}"></div>
+
 
         <!--end::Sidebar Wrapper-->
       </aside>
       <!--end::Sidebar-->
       <!--begin::App Main-->
+	  <input type="text" id="cgSeq" name="cgSeq" th:value="${item?.cgSeq}" maxlength="20" placeholder="자동생성" disabled class="form-control"/>
       <main class="app-main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
@@ -41,21 +44,21 @@
                       <div class="card-body">
                         <div class="row g-3">
                             <div class="col-md-3">
-						<form action="/codegroup/CodeGroupXdmInst" method="post" enctype="multipart/form-data" id="form">	
-							 <label class="form-label">코드그룹 코드<span class="text-danger"> *</span></label>
-							<input type="text" name="cgSeq" id="cgSeq" class="form-control" placeholder="자동생성" disabled>
+						<form action="/codegroup/CodeGroupXdmInst" method="post" enctype="multipart/form-data" id="form">								
+							<label class="form-label">코드그룹 코드<span class="text-danger"> *</span></label>
+							<input type="text" name="cgSeq" id="cgSeq" th:value="${item?.cgSeq}" class="form-control" placeholder="자동생성" disabled>
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">코드그룹 코드(ANOTHER)<span class="text-danger"></span></label>
-                                <input type="text" class="form-control" placeholder="영대소문자, 숫자" disabled>
+                                <input type="text" class="form-control" placeholder="영대소문자, 숫자" >
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">코드그룹 이름<span class="text-danger"> *</span></label>
-                                <input type="text" name="cgName" id="cgName" class="form-control" placeholder="영대소문자, 숫자">
+                                <input type="text" name="cgName" id="cgName" th:value="${item?.cgName}" class="form-control" placeholder="영대소문자, 숫자">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">코드그룹 이름(영문)<span class="text-danger"></span></label>
-                                <input type="text" name="cgNameEng" id="cgNameEng" class="form-control" placeholder="영대소문자, 숫자">
+                                <input type="text" name="cgNameEng" id="cgNameEng" th:value="${item?.cgNameEng}" class="form-control" placeholder="영대소문자, 숫자">
                             </div>
                           </div>
                           
@@ -63,14 +66,14 @@
                         <div class="row g-3 mt-1">
                           <div class="col-md-3">
                             <label class="form-label">사용여부 <span class="text-danger"> *</span></label>
-                            <select class="form-select"  name="cgUse" id="cgUse">
+                            <select class="form-select"  name="cgUse" id="cgUse" th:value="${item?.cgUse}">
                               <option selected value="1">사용</option>
 							  <option value="0">미사용</option>
                             </select>
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">순서<span class="text-danger"> *</span></label>
-                            <input type="text" name="cgOrder" id="cgOrder" class="form-control" placeholder="">
+                            <input type="text" name="cgOrder" id="cgOrder" th:value="${item?.cgOrder}" class="form-control" placeholder="">
                           </div>
                         </div>
                         <div class="row g-3 mt-1">
@@ -157,44 +160,21 @@
 	      }
 	    });
 	  </script>
-      <script type="text/javascript">	
+      <script type="text/javascript">
 		
-		document.addEventListener("DOMContentLoaded", function () {
-		    let cgName = document.getElementById("cgName");
-		    let myModal = document.getElementById("myModal");
-		    let btnSave = document.getElementById("btnSave");
-		    let form = document.getElementById("form");
-		    let btnClose = document.getElementById("btnClose");
-		    let btnConfirm = document.getElementById("btnConfirm");
-
-		    let modalInstance = new bootstrap.Modal(myModal);
-
-		    btnSave.onclick = function () {
-		        if (cgName.value.trim() === "") {
-		            modalInstance.show();
-		            return false; 
-		        }
-		        form.submit();
-		    };
-
-		    // X 버튼 클릭 시 모달 닫기
-		    btnClose.onclick = function () {
-		        modalInstance.hide();
-		    };
-
-		    // 확인 버튼 클릭 시 모달 닫기
-		    btnConfirm.onclick = function () {
-		        modalInstance.hide();
-		    };
-		});
-	
+		let cgSeq = document.querySelector("input[name=cgSeq]");	
 		
-		
-        
-      //	document.getElementById("companyName").onclick= function () {
-      //		alert("name")
-      //	}   
+		document.getElementById("btnSave").onclick = function () {
+			if(cgSeq.value == "0" || cgSeq.value == "") {
+				form.action = CodeGroupXdmInst;
+				form.submit();
+			} else {
+				alert("j");
+				form.action = CodeGroupXdmUpdt;
+				form.submit();
+			}
+		}
+
       </script>
 	  
-
 	  <div th:replace="~{xdm/include/footer :: footer}"></div>

@@ -5,10 +5,52 @@
 
 <resultMap id="resultMapObj" type="com.angels.module.player.PlayerDto"></resultMap>
 
+	<sql id="selectCommon">
+
+	
+		<if test="shUseNy != null and !shUseNy.equals('')">AND p.pyUse = #{shUseNy}</if>
+        <if test="shDelNy != null and !shDelNy.equals('')">AND p.pyDelNy = #{shDelNy}</if>
+        <if test="shTeamOption != null and !shTeamOption.equals('')">AND tmSeq = #{shTeamOption}</if>
+        <if test="shPosition != null and !shPosition.equals('')">AND p.position = #{shPosition}</if>
+        <if test="shStatus != null and !shStatus.equals('')">AND p.status = #{shStatus}</if>
+        <if test="shThrow != null and !shThrow.equals('')">AND p.throwHand = #{shThrow}</if>
+        <if test="shBat != null and !shBat.equals('')">AND p.batHand = #{shBat}</if>
+        <if test="shNation != null and !shNation.equals('')">AND p.nationality = #{shNation}</if>
+        
+        
+<!-- 				
+			<choose>
+				<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+-->				
+
+<!-- 생일, 데뷔일 keep -->
+         <choose>
+            <when test="shOption == 1">AND p.pySeq = #{shValue}</when>
+            <when test="shOption == 2">AND p.pyGivenName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND p.pyFamilyName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND p.pyOriName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 5">AND p.pyFamliyNameKor LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 6">AND p.pyGivenNameKor LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 7">AND p.pyOriNameKor LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 8">AND p.nickName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 9">AND p.homeTown LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 10">AND p.jerseyNumber LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 11">AND p.heightCm LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 12">AND p.heightFt LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 13">AND p.weightKg LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 14">AND p.weightLb LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 15">AND p.finalSchoolHistory LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 16">AND p.Draft LIKE CONCAT('%',#{shValue},'%')</when>
+        </choose>
+        
+	</sql>
+
   	<select id="selectList" resultMap="resultMapObj">
   		SELECT
 			tm.tmNameAb,
-			p.pyDelNy,
+			p.pyUse,
 			p.pySeq,
 		    p.pyGivenName,
 		    p.pyFamilyName,
@@ -35,8 +77,12 @@
 		    p.pyRegTime,
 		    p.pyModTime,
 		    p.pyDelNy
-		from player p left join team tm ON p.team_tmSeq = tm.tmSeq
-		where 1=1 order by pySeq desc
+		 
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1		
+	<include refid="selectCommon"></include>
+		 order by p.pySeq desc
 		limit #{rowNumToShow} offset #{startRnumForMysql}	
  	</select>
  	
@@ -112,6 +158,7 @@
 <insert id="insert" parameterType="com.angels.module.player.PlayerDto">
 	INSERT INTO player (
 		team_tmSeq,
+		pyUse,
 		pyDelNy,
 		pySeq,
 	    pyGivenName,
@@ -139,6 +186,7 @@
 	    pyRegTime
 	) values (
 		#{team_tmSeq},
+		#{pyUse},
 		0,
 		#{pySeq},
 		#{pyGivenName},
@@ -174,9 +222,10 @@
 	<select id="selectOneCount" resultType="Integer">
 	
 	Select count(*)
-		FROM
-		player
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
 	where 1=1
+
 	
 	</select>
  </mapper>

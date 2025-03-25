@@ -15,9 +15,15 @@ public class PlayerController {
 	PlayerService playerService;
 	
 	@RequestMapping(value="/player/PlayerXdmList")
-	public String playerXdmList(Model model, PlayerVo vo) {
-		vo.setParamsPaging(playerService.selectOneCount());
+	public String playerXdmList(Model model, PlayerVo vo) throws Exception {
+		vo.setParamsPaging(playerService.selectOneCount(vo));
+		model.addAttribute("selectTeam",playerService.selectTeam());
+		
+		if(vo.getTotalRows() > 0) {
+			System.out.println(vo.getShUseNy() + "@@@@@@@@@@@@@@@@@@@@@@");
 		model.addAttribute("list", playerService.selectList(vo));
+		}
+		
 		model.addAttribute("vo", vo);
 		return "xdm/player/PlayerXdmList";
 	}

@@ -7,6 +7,7 @@
 	  <form name="formList" id="formList" method="post" autocomplete="off">
 	  	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
 	  	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+		<input type="hidden" name="cgSeq"/>
 	      <main class="app-main">
 	        <!--begin::App Content Header-->
 	        <div class="app-content-header">
@@ -141,7 +142,7 @@
 						  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
 						  <td th:text="${list.cgUse == 1 ? 'Y' : 'N'}"></td>
 						  <td th:text="${list.cgSeq}"></td>
-						  <td th:text="${list.cgName}"></td>
+						  <td class="cgName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.cgName}" th:attr="onclick=|goForm('${list.cgSeq}')|"></a></td>
 	                      <td th:text="${list.cgNameEng}"></td>	                      
 	                      <td th:text="${list.cdSeqCount}"></td>
 	                      <td th:text="${list.cgOrder}"></td>
@@ -178,7 +179,7 @@
 	                  <div class="d-flex gap-1">
 	                    <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
 	                    <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-	                    <a href="CodeGroupXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+	                    <button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>
 	                  </div>
 	                </div>
 	        
@@ -285,6 +286,22 @@
 			    form.action = "/codegroup/codeGroupXdmList";
 			    form.submit();
 			}			
+		</script>
+		
+		<script>
+			let seq = document.querySelector("input[name=cgSeq]");
+			
+			document.getElementById("btnForm").onclick = function () {
+			    goForm(0);
+			}
+
+
+			goForm = function (keyValue) {
+			    seq.value = keyValue;
+			    form.action = "/codegroup/CodeGroupXdmForm";
+			    form.submit();
+			}
+			
 		</script>
       <!--end::App Main-->
       <!--begin::Footer-->

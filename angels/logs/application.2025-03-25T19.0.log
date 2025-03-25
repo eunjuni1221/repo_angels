@@ -1,0 +1,2572 @@
+2025-03-25T19:04:13.860 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+961. Select count(*)
+
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1
+ {executed in 2 msec} 
+2025-03-25T19:04:13.862 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-03-25T19:04:13.864 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+961. SELECT
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy
+
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1
+
+		 AND p.pyUse = 1 
+         AND p.pyDelNy = 0 
+
+		 order by pySeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-25T19:04:13.867 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|tmnameab |pyuse |pyseq |pygivenname |pyfamilyname |pyoriname |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday |hometown |position |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory |debut |draft |status |pyregtime |pymodtime |pydelny |
+|---------|------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+|---------|------|------|------------|-------------|----------|----------------|---------------|-------------|---------|---------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-------------------|------|------|-------|----------|----------|--------|
+ 
+2025-03-25T19:07:38.641 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:07:38.642 [Thread-352] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:07:38.643 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:07:38.659 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:07:38.659 [Thread-352] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:07:38.661 [Thread-352] INFO c.z.h.HikariDataSource - HikariPool-86 - Shutdown initiated... 
+2025-03-25T19:07:38.667 [Thread-352] INFO c.z.h.HikariDataSource - HikariPool-86 - Shutdown completed. 
+2025-03-25T19:07:38.769 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:07:38.769 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:07:39.047 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:07:39.049 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:07:39.049 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:07:39.050 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:07:39.071 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:07:39.071 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 300 ms 
+2025-03-25T19:07:39.142 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-87 - Starting... 
+2025-03-25T19:07:39.186 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-87 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@df5c4bc 
+2025-03-25T19:07:39.186 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-87 - Start completed. 
+2025-03-25T19:07:39.187 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+971. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:07:39.192 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:07:39.331 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:07:39.342 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:07:39.347 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:07:39.357 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.632 seconds (process running for 35616.779) 
+2025-03-25T19:07:39.359 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:08:00.873 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications) 
+2025-03-25T19:08:00.874 [Thread-356] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:08:00.875 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:08:00.891 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:08:00.891 [Thread-356] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:08:00.893 [Thread-356] INFO c.z.h.HikariDataSource - HikariPool-87 - Shutdown initiated... 
+2025-03-25T19:08:00.897 [Thread-356] INFO c.z.h.HikariDataSource - HikariPool-87 - Shutdown completed. 
+2025-03-25T19:08:00.981 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:08:00.981 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:08:01.213 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:08:01.213 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:08:01.213 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:08:01.213 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:08:01.231 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:08:01.231 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 249 ms 
+2025-03-25T19:08:01.287 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-88 - Starting... 
+2025-03-25T19:08:01.301 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-88 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6733aa7e 
+2025-03-25T19:08:01.301 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-88 - Start completed. 
+2025-03-25T19:08:01.303 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+981. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:08:01.305 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:08:01.401 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:08:01.409 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:08:01.414 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:08:01.420 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.468 seconds (process running for 35638.843) 
+2025-03-25T19:08:01.421 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:08:10.333 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications) 
+2025-03-25T19:08:10.336 [Thread-360] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:08:10.337 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:08:10.354 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:08:10.354 [Thread-360] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:08:10.356 [Thread-360] INFO c.z.h.HikariDataSource - HikariPool-88 - Shutdown initiated... 
+2025-03-25T19:08:10.360 [Thread-360] INFO c.z.h.HikariDataSource - HikariPool-88 - Shutdown completed. 
+2025-03-25T19:08:10.441 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:08:10.442 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:08:10.653 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:08:10.653 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:08:10.653 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:08:10.653 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:08:10.672 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:08:10.672 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 229 ms 
+2025-03-25T19:08:10.726 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-89 - Starting... 
+2025-03-25T19:08:10.745 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-89 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@9fc8a7b 
+2025-03-25T19:08:10.745 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-89 - Start completed. 
+2025-03-25T19:08:10.747 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+991. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:08:10.751 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:08:10.837 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:08:10.845 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:08:10.849 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:08:10.853 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.441 seconds (process running for 35648.276) 
+2025-03-25T19:08:10.856 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:08:14.184 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-25T19:08:14.184 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-25T19:08:14.185 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-25T19:08:14.193 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+991. Select count(*)
+
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1
+
+		 AND p.pyUse = 1 
+         AND p.pyDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:08:14.194 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-03-25T19:12:28.398 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:12:28.399 [Thread-364] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:12:28.399 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:12:28.415 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:12:28.415 [Thread-364] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:12:28.418 [Thread-364] INFO c.z.h.HikariDataSource - HikariPool-89 - Shutdown initiated... 
+2025-03-25T19:12:28.422 [Thread-364] INFO c.z.h.HikariDataSource - HikariPool-89 - Shutdown completed. 
+2025-03-25T19:12:28.519 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:12:28.519 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:12:28.819 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:12:28.821 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:12:28.821 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:12:28.821 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:12:28.840 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:12:28.840 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 318 ms 
+2025-03-25T19:12:28.915 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-90 - Starting... 
+2025-03-25T19:12:28.944 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-90 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@8f0f426 
+2025-03-25T19:12:28.945 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-90 - Start completed. 
+2025-03-25T19:12:28.948 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1001. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 2 msec} 
+2025-03-25T19:12:28.953 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:12:29.107 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:12:29.115 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:12:29.120 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:12:29.123 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.644 seconds (process running for 35906.545) 
+2025-03-25T19:12:29.125 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:14:35.039 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:14:35.040 [Thread-368] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:14:35.040 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:14:35.055 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:14:35.056 [Thread-368] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:14:35.057 [Thread-368] INFO c.z.h.HikariDataSource - HikariPool-90 - Shutdown initiated... 
+2025-03-25T19:14:35.061 [Thread-368] INFO c.z.h.HikariDataSource - HikariPool-90 - Shutdown completed. 
+2025-03-25T19:14:35.159 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:14:35.159 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:14:35.407 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:14:35.409 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:14:35.409 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:14:35.409 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:14:35.428 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:14:35.428 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 267 ms 
+2025-03-25T19:14:35.487 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-91 - Starting... 
+2025-03-25T19:14:35.509 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-91 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@30b3bcd 
+2025-03-25T19:14:35.509 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-91 - Start completed. 
+2025-03-25T19:14:35.511 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1011. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:14:35.513 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:14:35.627 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:14:35.634 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:14:35.640 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:14:35.645 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.521 seconds (process running for 36033.067) 
+2025-03-25T19:14:35.646 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:15:04.437 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:15:04.438 [Thread-372] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:15:04.439 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:15:04.455 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:15:04.455 [Thread-372] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:15:04.457 [Thread-372] INFO c.z.h.HikariDataSource - HikariPool-91 - Shutdown initiated... 
+2025-03-25T19:15:04.460 [Thread-372] INFO c.z.h.HikariDataSource - HikariPool-91 - Shutdown completed. 
+2025-03-25T19:15:04.544 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:15:04.545 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:15:04.784 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:15:04.785 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:15:04.785 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:15:04.785 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:15:04.807 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:15:04.807 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 261 ms 
+2025-03-25T19:15:04.867 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-92 - Starting... 
+2025-03-25T19:15:04.888 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-92 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7bdb1243 
+2025-03-25T19:15:04.888 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-92 - Start completed. 
+2025-03-25T19:15:04.889 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1021. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:15:04.891 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:15:04.986 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:15:04.993 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:15:04.997 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:15:05.002 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.486 seconds (process running for 36062.423) 
+2025-03-25T19:15:05.003 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:15:25.402 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:15:25.403 [Thread-376] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:15:25.403 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:15:25.420 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:15:25.420 [Thread-376] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:15:25.421 [Thread-376] INFO c.z.h.HikariDataSource - HikariPool-92 - Shutdown initiated... 
+2025-03-25T19:15:25.426 [Thread-376] INFO c.z.h.HikariDataSource - HikariPool-92 - Shutdown completed. 
+2025-03-25T19:15:25.511 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:15:25.512 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:15:25.778 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:15:25.779 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:15:25.779 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:15:25.779 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:15:25.799 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:15:25.799 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 286 ms 
+2025-03-25T19:15:25.862 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-93 - Starting... 
+2025-03-25T19:15:25.884 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-93 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5b345a2e 
+2025-03-25T19:15:25.884 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-93 - Start completed. 
+2025-03-25T19:15:25.886 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1031. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:15:25.888 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:15:25.984 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:15:25.994 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:15:25.998 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:15:26.004 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.523 seconds (process running for 36083.427) 
+2025-03-25T19:15:26.006 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:17:10.826 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:17:10.828 [Thread-380] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:17:10.829 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:17:10.848 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:17:10.848 [Thread-380] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:17:10.849 [Thread-380] INFO c.z.h.HikariDataSource - HikariPool-93 - Shutdown initiated... 
+2025-03-25T19:17:10.855 [Thread-380] INFO c.z.h.HikariDataSource - HikariPool-93 - Shutdown completed. 
+2025-03-25T19:17:10.945 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:17:10.945 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:17:11.168 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:17:11.169 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:17:11.169 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:17:11.169 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:17:11.195 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:17:11.195 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 248 ms 
+2025-03-25T19:17:11.258 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-94 - Starting... 
+2025-03-25T19:17:11.287 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-94 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@492e6b11 
+2025-03-25T19:17:11.287 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-94 - Start completed. 
+2025-03-25T19:17:11.289 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1041. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:17:11.291 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:17:11.393 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:17:11.401 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:17:11.405 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:17:11.409 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.499 seconds (process running for 36188.832) 
+2025-03-25T19:17:11.411 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:17:21.987 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-25T19:17:21.987 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-25T19:17:21.988 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-25T19:17:22.001 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1041. Select count(*)
+
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1
+
+		 AND p.pyUse = 1 
+         AND p.pyDelNy = 0 
+         AND p.status = NULL
+ {executed in 1 msec} 
+2025-03-25T19:17:22.003 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-03-25T19:17:22.069 [http-nio-8080-exec-1] ERROR o.t.TemplateEngine - [THYMELEAF][http-nio-8080-exec-1] Exception processing template "xdm/player/PlayerXdmList": An error happened during template parsing (template: "class path resource [templates/xdm/player/PlayerXdmList.html]" - line 98, col 82) 
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/xdm/player/PlayerXdmList.html]" - line 98, col 82)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.attoparser.ParseException: (Line = 98, Column = 82) Malformed markup: Attribute "id" appears more than once in element
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549)
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+2025-03-25T19:17:22.069 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/xdm/player/PlayerXdmList.html]" - line 98, col 82)] with root cause 
+org.attoparser.ParseException: (Line = 98, Column = 82) Malformed markup: Attribute "id" appears more than once in element
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549)
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-25T19:17:22.089 [http-nio-8080-exec-1] ERROR o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView - Cannot render error page for request [/player/PlayerXdmList] and exception [An error happened during template parsing (template: "class path resource [templates/xdm/player/PlayerXdmList.html]" - line 98, col 82)] as the response has already been committed. As a result, the response may have the wrong status code. 
+2025-03-25T19:35:53.398 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:35:53.401 [Thread-384] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:35:53.402 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:35:53.420 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:35:53.420 [Thread-384] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:35:53.422 [Thread-384] INFO c.z.h.HikariDataSource - HikariPool-94 - Shutdown initiated... 
+2025-03-25T19:35:53.427 [Thread-384] INFO c.z.h.HikariDataSource - HikariPool-94 - Shutdown completed. 
+2025-03-25T19:35:53.529 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:35:53.529 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:35:53.873 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:35:53.875 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:35:53.875 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:35:53.875 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:35:53.898 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:35:53.898 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 366 ms 
+2025-03-25T19:35:53.947 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-95 - Starting... 
+2025-03-25T19:35:53.962 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-95 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1f5f5501 
+2025-03-25T19:35:53.962 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-95 - Start completed. 
+2025-03-25T19:35:53.963 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1051. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:35:53.965 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:35:54.136 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:35:54.147 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:35:54.151 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:35:54.158 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.678 seconds (process running for 37311.58) 
+2025-03-25T19:35:54.159 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:36:47.470 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-25T19:36:47.470 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-25T19:36:47.472 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 2 ms 
+2025-03-25T19:36:47.480 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1051. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:36:47.481 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|10       |
+|---------|
+ 
+2025-03-25T19:36:47.487 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1051. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-25T19:36:47.489 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng   |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|10    |0       |1     |status |status      |2          |1       |2025-03-23T17:08:37 |[null]   |
+|9     |0       |1     |이닝     |Inning      |40         |1       |2025-03-22T13:33:54 |[null]   |
+|8     |0       |1     |국적     |Nationality |21         |1       |2025-03-22T10:51:18 |[null]   |
+|7     |0       |1     |타      |Bat         |3          |1       |2025-03-21T17:26:47 |[null]   |
+|6     |0       |1     |투      |Throw       |3          |1       |2025-03-21T17:26:35 |[null]   |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+ 
+2025-03-25T19:36:49.210 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1051. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '8'
+ {executed in 1 msec} 
+2025-03-25T19:36:49.212 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng   |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|8     |0       |1     |국적     |Nationality |21         |1       |2025-03-22T10:51:18 |[null]   |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+ 
+2025-03-25T19:50:12.637 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:50:12.639 [Thread-388] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:50:12.640 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:50:12.656 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:50:12.657 [Thread-388] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:50:12.659 [Thread-388] INFO c.z.h.HikariDataSource - HikariPool-95 - Shutdown initiated... 
+2025-03-25T19:50:12.665 [Thread-388] INFO c.z.h.HikariDataSource - HikariPool-95 - Shutdown completed. 
+2025-03-25T19:50:12.776 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:50:12.777 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:50:13.124 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:50:13.126 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:50:13.126 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:50:13.126 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:50:13.149 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:50:13.149 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 370 ms 
+2025-03-25T19:50:13.280 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-96 - Starting... 
+2025-03-25T19:50:13.295 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-96 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4278288a 
+2025-03-25T19:50:13.295 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-96 - Start completed. 
+2025-03-25T19:50:13.298 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1061. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 2 msec} 
+2025-03-25T19:50:13.300 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:50:13.416 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:50:13.424 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:50:13.430 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:50:13.434 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.713 seconds (process running for 38170.856) 
+2025-03-25T19:50:13.435 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:57:33.770 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:57:33.772 [Thread-392] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:57:33.772 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:33.786 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:57:33.787 [Thread-392] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:33.789 [Thread-392] INFO c.z.h.HikariDataSource - HikariPool-96 - Shutdown initiated... 
+2025-03-25T19:57:33.794 [Thread-392] INFO c.z.h.HikariDataSource - HikariPool-96 - Shutdown completed. 
+2025-03-25T19:57:33.885 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:57:33.885 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:57:34.156 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:57:34.158 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:34.158 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:57:34.158 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:57:34.179 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:57:34.179 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 291 ms 
+2025-03-25T19:57:34.253 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-97 - Starting... 
+2025-03-25T19:57:34.283 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-97 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@415d8cc8 
+2025-03-25T19:57:34.284 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-97 - Start completed. 
+2025-03-25T19:57:34.287 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1071. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 2 msec} 
+2025-03-25T19:57:34.290 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:57:34.468 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:57:34.476 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:34.480 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:57:34.486 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.644 seconds (process running for 38611.908) 
+2025-03-25T19:57:34.487 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:57:44.430 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:57:44.431 [Thread-396] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:57:44.432 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:44.447 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:57:44.447 [Thread-396] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:44.448 [Thread-396] INFO c.z.h.HikariDataSource - HikariPool-97 - Shutdown initiated... 
+2025-03-25T19:57:44.453 [Thread-396] INFO c.z.h.HikariDataSource - HikariPool-97 - Shutdown completed. 
+2025-03-25T19:57:44.534 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:57:44.534 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:57:44.890 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:57:44.890 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:44.891 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:57:44.891 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:57:44.912 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:57:44.912 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 376 ms 
+2025-03-25T19:57:44.970 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-98 - Starting... 
+2025-03-25T19:57:44.982 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-98 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5cd71745 
+2025-03-25T19:57:44.982 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-98 - Start completed. 
+2025-03-25T19:57:44.986 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1081. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 4 msec} 
+2025-03-25T19:57:44.989 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:57:45.108 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:57:45.118 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:45.122 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:57:45.127 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.624 seconds (process running for 38622.549) 
+2025-03-25T19:57:45.128 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:57:46.600 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:57:46.603 [Thread-400] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:57:46.604 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:46.622 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:57:46.622 [Thread-400] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:46.625 [Thread-400] INFO c.z.h.HikariDataSource - HikariPool-98 - Shutdown initiated... 
+2025-03-25T19:57:46.633 [Thread-400] INFO c.z.h.HikariDataSource - HikariPool-98 - Shutdown completed. 
+2025-03-25T19:57:46.740 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:57:46.740 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:57:47.044 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:57:47.044 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:47.045 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:57:47.045 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:57:47.065 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:57:47.065 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 321 ms 
+2025-03-25T19:57:47.148 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-99 - Starting... 
+2025-03-25T19:57:47.165 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-99 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6146d7c2 
+2025-03-25T19:57:47.171 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-99 - Start completed. 
+2025-03-25T19:57:47.172 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1091. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:57:47.174 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:57:47.267 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:57:47.278 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:57:47.282 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:57:47.288 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.602 seconds (process running for 38624.71) 
+2025-03-25T19:57:47.289 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:58:04.465 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:58:04.466 [Thread-404] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:58:04.467 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:58:04.484 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:58:04.484 [Thread-404] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:58:04.486 [Thread-404] INFO c.z.h.HikariDataSource - HikariPool-99 - Shutdown initiated... 
+2025-03-25T19:58:04.491 [Thread-404] INFO c.z.h.HikariDataSource - HikariPool-99 - Shutdown completed. 
+2025-03-25T19:58:04.579 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:58:04.579 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:58:04.821 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:58:04.822 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:58:04.822 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:58:04.822 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:58:04.842 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:58:04.842 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 261 ms 
+2025-03-25T19:58:04.917 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-100 - Starting... 
+2025-03-25T19:58:04.933 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-100 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@267d9d5d 
+2025-03-25T19:58:04.933 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-100 - Start completed. 
+2025-03-25T19:58:04.939 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1101. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 5 msec} 
+2025-03-25T19:58:04.941 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:58:05.038 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:58:05.048 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:58:05.053 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:58:05.056 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.512 seconds (process running for 38642.478) 
+2025-03-25T19:58:05.057 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:58:33.916 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:58:33.917 [Thread-408] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:58:33.917 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:58:33.934 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:58:33.935 [Thread-408] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:58:33.936 [Thread-408] INFO c.z.h.HikariDataSource - HikariPool-100 - Shutdown initiated... 
+2025-03-25T19:58:33.941 [Thread-408] INFO c.z.h.HikariDataSource - HikariPool-100 - Shutdown completed. 
+2025-03-25T19:58:34.041 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:58:34.041 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:58:34.309 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:58:34.310 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:58:34.310 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:58:34.310 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:58:34.330 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:58:34.331 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 288 ms 
+2025-03-25T19:58:34.409 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-101 - Starting... 
+2025-03-25T19:58:34.424 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-101 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@200a4c5e 
+2025-03-25T19:58:34.424 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-101 - Start completed. 
+2025-03-25T19:58:34.437 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1111. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 3 msec} 
+2025-03-25T19:58:34.442 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:58:34.563 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:58:34.569 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:58:34.573 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:58:34.579 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.575 seconds (process running for 38672.001) 
+2025-03-25T19:58:34.580 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:59:32.148 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:59:32.149 [Thread-412] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:59:32.149 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:59:32.165 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:59:32.166 [Thread-412] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:59:32.167 [Thread-412] INFO c.z.h.HikariDataSource - HikariPool-101 - Shutdown initiated... 
+2025-03-25T19:59:32.171 [Thread-412] INFO c.z.h.HikariDataSource - HikariPool-101 - Shutdown completed. 
+2025-03-25T19:59:32.265 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:59:32.265 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:59:32.502 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:59:32.502 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:59:32.502 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:59:32.503 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:59:32.521 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:59:32.521 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 255 ms 
+2025-03-25T19:59:32.580 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-102 - Starting... 
+2025-03-25T19:59:32.607 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-102 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@688b35f5 
+2025-03-25T19:59:32.607 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-102 - Start completed. 
+2025-03-25T19:59:32.609 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1121. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:59:32.613 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:59:32.724 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:59:32.732 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:59:32.736 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:59:32.741 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.512 seconds (process running for 38730.163) 
+2025-03-25T19:59:32.742 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-25T19:59:44.826 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-25T19:59:44.827 [Thread-416] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-25T19:59:44.828 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:59:44.842 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-25T19:59:44.843 [Thread-416] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:59:44.844 [Thread-416] INFO c.z.h.HikariDataSource - HikariPool-102 - Shutdown initiated... 
+2025-03-25T19:59:44.848 [Thread-416] INFO c.z.h.HikariDataSource - HikariPool-102 - Shutdown completed. 
+2025-03-25T19:59:44.934 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 10984 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-25T19:59:44.934 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-25T19:59:45.148 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-25T19:59:45.148 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:59:45.148 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-25T19:59:45.148 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-25T19:59:45.166 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-25T19:59:45.166 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 230 ms 
+2025-03-25T19:59:45.225 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-103 - Starting... 
+2025-03-25T19:59:45.237 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-103 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@89e0bab 
+2025-03-25T19:59:45.237 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-103 - Start completed. 
+2025-03-25T19:59:45.239 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1131. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-25T19:59:45.241 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|------|----------|----------------|
+ 
+2025-03-25T19:59:45.344 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-25T19:59:45.352 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-25T19:59:45.356 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-25T19:59:45.359 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.457 seconds (process running for 38742.782) 
+2025-03-25T19:59:45.362 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 

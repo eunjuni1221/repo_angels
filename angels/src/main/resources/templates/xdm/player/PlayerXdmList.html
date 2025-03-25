@@ -40,53 +40,97 @@
                       <div class="container-fluid">
                         <div class="row row-cols-5 g-2">
                           <div class="col">
-                            <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>리그</option>
-                              <option value="1">AL</option>
-                              <option value="2">NL</option>
-                            </select>
+							<select id="shDelNy" name="shDelNy" class="form-select form-select-sm" style="width: 100%;">
+							  <option value="" th:selected="${vo.shDelNy == null}">삭제여부</option>
+							  <option value="1" th:selected="${vo.shDelNy == 1}">Y</option>
+							  <option value="0" th:selected="${vo.shDelNy == 0}">N</option>   
+							</select>
                           </div>
+						  <div class="col">
+						  <select name="shUseNy" id="shUseNy" class="form-select form-select-sm" style="width: 100%;">
+						  	<option value="" th:selected="${vo.shUseNy == null}">사용여부</option>
+						  	<option value="1" th:selected="${vo.shUseNy == 1}">Y</option>
+						  	<option value="0" th:selected="${vo.shUseNy == 0}">N</option>
+						  </select>
+						  </div>
+						  <div class="col">
+						  <select id="shOptionDate" name="shOptionDate" class="form-select form-select-sm" style="width: 100%;">
+						  	<option value="" th:selected="${vo.shOptionDate == null}">날짜</option>
+						  	<option value="1" th:selected="${vo.shOptionDate == 1}">등록일</option>
+						  	<option value="2" th:selected="${vo.shOptionDate == 2}">수정일</option>
+						  </select>
+						  </div>
+						  <div class="col">
+						    <input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
+						  </div>
+						  <div class="col">
+						    <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
+						  </div> 
                           <div class="col">
-                            <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>소속</option>
-                              <option value="1">WEST</option>
-                              <option value="2">CENTRAL</option>
-                              <option value="3">EAST</option>
-                            </select>
+							<select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
+								<option value="" th:selected="${vo.shOption == null}">검색구분</option>
+								<option value="1" th:selected="${vo.shOption == 1}">코드 번호</option>
+								<option value="2" th:selected="${vo.shOption == 2}">성(영문)</option>
+								<option value="3" th:selected="${vo.shOption == 3}">이름(영문)</option>
+								<option value="4" th:selected="${vo.shOption == 4}">본명(영문)</option>
+								<option value="5" th:selected="${vo.shOption == 5}">성(한글)</option>
+								<option value="6" th:selected="${vo.shOption == 6}">이름(한글)</option>
+								<option value="7" th:selected="${vo.shOption == 7}">본명(한글)</option>
+								<option value="8" th:selected="${vo.shOption == 8}">별명</option>
+								<option value="11" th:selected="${vo.shOption == 9}">출생지</option>
+								<option value="12" th:selected="${vo.shOption == 10}">등번호</option>
+								<option value="13" th:selected="${vo.shOption == 11}">키(cm)</option>
+								<option value="14" th:selected="${vo.shOption == 12}">키(ft)</option>
+								<option value="15" th:selected="${vo.shOption == 13}">몸무게(kg)</option>
+								<option value="16" th:selected="${vo.shOption == 14}">몸무게(lb)</option>
+								<option value="17" th:selected="${vo.shOption == 15}">출신교</option>
+								<option value="18" th:selected="${vo.shOption == 16}">드래프트</option>
+							</select>
                           </div>
-                          <div class="col">
-                            <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>날짜</option>
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                          </div>
-                          <div class="col">
-                            <input type="text" class="form-control form-control-sm" placeholder="날짜">
-                          </div>
-                          <div class="col">
-                            <input type="text" class="form-control form-control-sm" placeholder="날짜">
-                          </div> 
-                          <div class="col">
-                            <select class="form-select form-select-sm" style="width: 100%;">
-                              <option selected>검색구분</option>
-                              <option value="1">코드그룹 코드</option>
-                              <option value="2">코드그룹 이름</option>
-                              <option value="3">코드</option>
-                              <option value="4">대체 코드</option>
-                              <option value="5">코드 이름</option>
-                              <option value="6">코드 이름(영문)</option>
-                            </select>
-                          </div> 
-                          <div class="col">
-                            <input type="text" class="form-control form-control-sm" placeholder="검색어">
-                          </div>
+						  <div class="col">
+						  <select class="form-select form-select-sm" id="shTeamOption" name="shTeamOption">
+						  <option selected value="">팀 선택</option>
+						    <option th:selected="${list.tmSeq} ==${vo.shTeamOption}" th:each="list:${selectTeam}" th:text="${list.tmNameAb}" th:value="${list.tmSeq}"></option>
+						  </select>
+						  </div>
+						  <div class="col">
+						    <select id="shPosition" name="shPosition" class="form-select form-select-sm">  
+						    <option value="">포지션 선택</option>
+						    <option th:selected="${list.cdSeq} ==${vo.shPosition}" th:each="list : ${@codeService.selectListCachedCode(5)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+						    </select>
+						  </div>
+						  <div class="col">
+						    <select id="shStatus" name="shStatus" class="form-select form-select-sm">  
+						    <option value="">현역 여부</option>
+						    <option th:selected="${list.cdSeq} ==${vo.shStatus}" th:each="list : ${@codeService.selectListCachedCode(10)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+						    </select>
+						  </div>
+						  <div class="col">
+						    <select id="shThrow" name="shThrow" class="form-select form-select-sm">  
+						    <option value="">투</option>
+						    <option th:selected="${list.cdSeq} ==${vo.shThrow}" th:each="list : ${@codeService.selectListCachedCode(6)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+						    </select>
+						  </div>
+						  <div class="col">
+						    <select id="shBat" name="shBat" class="form-select form-select-sm">  
+						    <option value="">타</option>
+						    <option th:selected="${list.cdSeq} ==${vo.shBat}" th:each="list : ${@codeService.selectListCachedCode(7)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+						    </select>
+						  </div>
+						  <div class="col">
+						    <select id="shNation" name="shNation" class="form-select form-select-sm">  
+						    <option value="">국적</option>
+						    <option th:selected="${list.cdSeq} ==${vo.shNation}" th:each="list : ${@codeService.selectListCachedCode(8)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+						    </select>
+						  </div>     
+						  <div class="col">
+						    <input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" class="form-control form-control-sm" placeholder="검색어">
+						  </div>
                           <div class="d-flex gap-2">
-                            <button class="btn btn-light btn-sm">
+                            <button id="btnSearch" class="btn btn-light btn-sm" >
                               <i class="fa-solid fa-magnifying-glass"></i>
                             </button>                          
-                            <button class="btn btn-light btn-sm">
+                            <button id="btnReset" class="btn btn-light btn-sm" >
                               <i class="fa-solid fa-rotate-right"></i>
                             </button>
                           </div>                                           
@@ -104,16 +148,17 @@
         </div>
               <!-- 📌 테이블 추가 -->
 			  <div class="border p-3 rounded shadow-sm bg-white mt-3" style="display: inline-block; width: 100%; overflow-x: hidden;">
-			    <div class="d-flex justify-content-between align-items-center">
-			      <h4 class="mb-0">Total: [[${vo.totalRows}]]</h4>
+				<div class="d-flex justify-content-between align-items-center" th:fragment="totalAndRowNum">
+				  <h4 class="mb-0" th:text="'Total: '+${vo.totalRows}"></h4>
 			      
-			      <select class="form-select form-select-md" style="width: 200px;">
-			        <option selected>5</option>
-			        <option value="10">10</option>
-			        <option value="20">20</option>
-			        <option value="50">50</option>
-			        <option value="100">100</option>
-			      </select>
+				  <select class="form-select form-select-md" style="width: 200px;" id="changeRowNum" name="changeRowNum">
+				    <option value="5" th:selected="${vo.rowNumToShow eq 5}">5</option>
+				    <option value="10" th:selected="${vo.rowNumToShow eq 10}">10</option>
+				    <option value="30" th:selected="${vo.rowNumToShow eq 30}">30</option>
+				    <option value="50" th:selected="${vo.rowNumToShow eq 50}">50</option>
+				    <option value="80" th:selected="${vo.rowNumToShow eq 80}">80</option>
+				  <option value="100" th:selected="${vo.rowNumToShow eq 100}">100</option>
+				  </select>
 			    </div>
 
 			    <!-- ✅ 테이블을 감싸는 div 추가 (가로 스크롤 적용) -->
@@ -123,6 +168,7 @@
 			          <tr>
 			            <th><input type="checkbox" id="selectAll"></th>
 			            <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">사용 <i class="fa-solid fa-sort"></i></th>
 			            <th class="sortable">팀 <i class="fa-solid fa-sort"></i></th>
 			            <th class="sortable">코드 번호 <i class="fa-solid fa-sort"></i></th>
 			            <th class="sortable">이름(영문) <i class="fa-solid fa-sort"></i></th>
@@ -154,13 +200,14 @@
 			        </thead>
 			        <tbody>
 			          <tr th:if="${#lists.isEmpty(list)}">
-			            <td colspan="28">
+			            <td colspan="30">
 			              <p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
 			            </td>
 			          </tr>
 			          <tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
 			            <td><input type="checkbox" class="row-checkbox"></td>
 			            <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
+						<td th:text="${list.pyUse == 1 ? 'Y' : 'N'}"></td>
 			            <td th:text="${list.tmNameAb}"></td>
 			            <td th:text="${list.pySeq}"></td>
 			            <td th:text="${list.pyGivenName}"></td>
@@ -313,6 +360,14 @@
 		    form.action = "/player/PlayerXdmList";
 		    form.submit();
 		}
+	</script>
+	
+	<script>
+		document.getElementById("btnSearch").onclick = function () {
+		    form.action = PlayerXdmList;
+		    form.submit();
+		};
+		
 	</script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

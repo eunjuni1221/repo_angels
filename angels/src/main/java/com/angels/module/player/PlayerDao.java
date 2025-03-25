@@ -8,7 +8,7 @@ public interface PlayerDao {
 
 	public List<PlayerDto> selectList(PlayerVo playerVo);
 	public List<PlayerDto> selectTeam();
-	public int selectOneCount();
+	public int selectOneCount(PlayerVo playerVo);
 	public int insert(PlayerDto playerDto);
 	public List<PlayerDto> selectPosition();
 	public List<PlayerDto> selectThrowHand();

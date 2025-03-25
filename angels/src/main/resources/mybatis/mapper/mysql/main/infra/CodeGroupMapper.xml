@@ -41,6 +41,24 @@
 		
 	</select>
 	
+	  	<select id="selectOne" resultMap="resultMapObj">
+		select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = #{cgSeq}
+				
+	</select>
+	
 	
 		<insert id= "insert" parameterType="com.angels.module.codegroup.CodeGroupDto">
 		INSERT INTO codegroup (
@@ -70,6 +88,16 @@
 <include refid="selectCommon"/>
 	
 	</select>
+	
+		<update id="update">
+	update codegroup set
+		cgUse = #{cgUse},
+		cgName = #{cgName},
+		cgNameEng = #{cgNameEng},
+		cgOrder = #{cgOrder}
+	where
+		cgSeq = #{cgSeq}
+	</update>
 	
 
 </mapper>

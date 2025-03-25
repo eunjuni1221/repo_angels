@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class CodeGroupService {
 	
@@ -24,6 +25,9 @@ public class CodeGroupService {
 	}
 	public int selectOneCount(CodeGroupVo codeGroupVo) {
 		return codeGroupDao.selectOneCount(codeGroupVo);
+	}
+	public int update (CodeGroupDto codeGroupDto) {
+		return codeGroupDao.update(codeGroupDto);
 	}
 
 }
