@@ -18,8 +18,8 @@ public class CodeGroupController {
 	@Autowired
 	CodeService codeService;
 	
-	@RequestMapping(value = "/codegroup/codeGroupXdmList")
-	public String codegroupXdmList(Model model, CodeGroupVo vo) throws Exception{
+	@RequestMapping(value = "/codegroup/CodeGroupXdmList")
+	public String codegroupXdmList(Model model, CodeGroupVo vo, CodeGroupDto dto) throws Exception{
 		System.out.println(vo.getThisPage());
 		vo.setParamsPaging(codeGroupService.selectOneCount(vo));
 		
@@ -48,15 +48,22 @@ public class CodeGroupController {
 	public String codegroupXdmInst(CodeGroupDto codeGroupDto) {
 		
 		codeGroupService.insert(codeGroupDto);
-	return "redirect:codeGroupXdmList"; 
+	return "redirect:CodeGroupXdmList"; 
 	}
 	
 	@RequestMapping(value = "/codegroup/CodeGroupXdmUpdt")
 	public String codegroupXdmUpdt(CodeGroupDto codeGroupDto) {
+		System.out.println(codeGroupDto.getCgSeq());
 		codeGroupService.update(codeGroupDto);
-		return "redirect:/codegroup/CodeGroupXdmList"; 
+		return "redirect:CodeGroupXdmList"; 
 	}
 	
+	@RequestMapping(value = "/codegroup/CodeGroupXdmUele")
+	public String codegroupXdmUele(CodeGroupDto codeGroupDto) {
+		System.out.println(codeGroupDto.getCgSeq());
+		codeGroupService.uelete(codeGroupDto);
+		return "redirect:CodeGroupXdmList"; 
+	}
 	
 	
 	

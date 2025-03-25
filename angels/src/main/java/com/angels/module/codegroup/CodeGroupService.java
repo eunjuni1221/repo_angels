@@ -29,5 +29,8 @@ public class CodeGroupService {
 	public int update (CodeGroupDto codeGroupDto) {
 		return codeGroupDao.update(codeGroupDto);
 	}
+	public int uelete(CodeGroupDto codeGroupDto) {
+		return codeGroupDao.uelete(codeGroupDto);
+	}
 
 }

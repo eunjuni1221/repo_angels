@@ -9,7 +9,6 @@
       </aside>
       <!--end::Sidebar-->
       <!--begin::App Main-->
-	  <input type="text" id="cgSeq" name="cgSeq" th:value="${item?.cgSeq}" maxlength="20" placeholder="자동생성" disabled class="form-control"/>
       <main class="app-main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
@@ -46,7 +45,8 @@
                             <div class="col-md-3">
 						<form action="/codegroup/CodeGroupXdmInst" method="post" enctype="multipart/form-data" id="form">								
 							<label class="form-label">코드그룹 코드<span class="text-danger"> *</span></label>
-							<input type="text" name="cgSeq" id="cgSeq" th:value="${item?.cgSeq}" class="form-control" placeholder="자동생성" disabled>
+							<input type="hidden" id="cgSeq" name="cgSeq" th:value="${item?.cgSeq}" maxlength="20" placeholder="자동생성" disabled class="form-control"/>
+							<input type="text" name="cgSeq" id="cgSeq" th:value="${item?.cgSeq}" class="form-control" placeholder="자동생성" readonly style="background-color: grey;">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">코드그룹 코드(ANOTHER)<span class="text-danger"></span></label>
@@ -87,6 +87,8 @@
                         <button type="button" class="btn btn-light" onclick="window.location.href='codeGroupXdmList';">
 							<i class="fa-solid fa-list"></i>
 						</button>
+						<button class="btn btn-danger"><i class="fa fa-times"></i></button>
+						<button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         <button type="button" id="btnSave" class="btn btn-primary ms-auto"><i class="fa-solid fa-database"></i></button>
                       </div>
 					  </form>
@@ -162,14 +164,15 @@
 	  </script>
       <script type="text/javascript">
 		
-		let cgSeq = document.querySelector("input[name=cgSeq]");	
+		let cgSeq = document.querySelector("input[name=cgSeq]");
+		let CodeGroupXdmInst = "/codegroup/CodeGroupXdmInst";
+		let CodeGroupXdmUpdt = "/codegroup/CodeGroupXdmUpdt";		
 		
 		document.getElementById("btnSave").onclick = function () {
 			if(cgSeq.value == "0" || cgSeq.value == "") {
 				form.action = CodeGroupXdmInst;
 				form.submit();
 			} else {
-				alert("j");
 				form.action = CodeGroupXdmUpdt;
 				form.submit();
 			}
