@@ -83,14 +83,19 @@
                         </div>
                       </div>
                       
-                      <div class="mt-3 d-flex">
-                        <button type="button" class="btn btn-light" onclick="window.location.href='codeGroupXdmList';">
-							<i class="fa-solid fa-list"></i>
-						</button>
-						<button class="btn btn-danger"><i class="fa fa-times"></i></button>
-						<button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                        <button type="button" id="btnSave" class="btn btn-primary ms-auto"><i class="fa-solid fa-database"></i></button>
-                      </div>
+					  <div class="mt-3 d-flex">
+					      <button type="button" class="btn btn-light" onclick="window.location.href='CodeGroupXdmList';">
+					          <i class="fa-solid fa-list"></i>
+					      </button>
+
+					      <div class="ms-auto d-flex gap-1">
+					          <button type="button" id="btnDelete" class="btn btn-danger"><i class="fa fa-times"></i></button>
+					          <button type="button" id="btnUelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+					          <button type="button" id="btnSave" class="btn btn-primary">
+					              <i class="fa-solid fa-database"></i>
+					          </button>
+					      </div>
+					  </div>
 					  </form>
 					 </div>
                     </div>
@@ -99,10 +104,10 @@
             <!-- /.row -->
               </div>
           <!--end::Container-->
-        </div>
-       </div>
-      </div>
-		<div id="myModal" class="modal" tabindex="-1">
+	        </div>
+	       </div>
+	      </div>
+<!--		<div id="myModal" class="modal" tabindex="-1">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -117,10 +122,11 @@
 		      </div>
 		    </div>
 		  </div>
-		</div>
+		</div>-->	
         <!--end::App Content-->
       </main>
       <!--end::App Main-->
+		<div th:replace="~{xdm/include/modal :: modal}"></div>
       <!--begin::Footer-->
 	  <script
 	    src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
@@ -142,6 +148,7 @@
 	  <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
 	  <script src="../../../dist/js/adminlte.js"></script>
 	  <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	  <script>
 	    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
 	    const Default = {
@@ -180,4 +187,46 @@
 
       </script>
 	  
+	 <script>
+	let form = document.getElementById("form");
+	let CodeGroupXdmUele = "/codegroup/CodeGroupXdmUele"
+	let CodeGroupXdmDele = "/codegroup/CodeGroupXdmDele"	
+		
+	  if(document.getElementById("btnUelete")){
+	  	document.getElementById("btnUelete").onclick = function () {
+	  		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	  		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	  		document.querySelector("#btnModalUelete").style.display = '';
+	  		document.querySelector("#btnModalDelete").style.display = 'none';
+	  		$("#modalConfirm").modal("show");	     	
+	  	}
+	  }
+
+
+	  document.getElementById("btnModalUelete").onclick = function () {
+	  	form.action = CodeGroupXdmUele;
+	  	form.submit();
+	  }
+	  </script>
+	   <script>
+	  	
+	    if(document.getElementById("btnDelete")){
+	    	document.getElementById("btnDelete").onclick = function () {
+	    		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	    		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	    		document.querySelector("#btnModalUelete").style.display = 'none';
+	    		document.querySelector("#btnModalDelete").style.display = '';
+	    		$("#modalConfirm").modal("show");	     	
+	    	}
+	    }
+
+
+	    document.getElementById("btnModalDelete").onclick = function () {
+	    	form.action = CodeGroupXdmDele;
+	    	form.submit();
+	    }
+	    </script>
+	  
 	  <div th:replace="~{xdm/include/footer :: footer}"></div>
+	  
+</html>

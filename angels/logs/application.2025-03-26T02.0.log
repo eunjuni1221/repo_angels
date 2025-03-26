@@ -186,4 +186,139 @@
 2025-03-26T02:28:43.278 [http-nio-8080-exec-9] INFO j.resultsettable - 
 |------|--------|------|--------|----------|-----------|--------|--------------------|---------|
 |cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
-|------|--------|------|--------|----------|-----------|--------|-----------------
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|16    |0       |1     |80802rD |hihi      |0          |44      |2025-03-25T23:47:38 |[null]   |
+|15    |0       |1     |4545    |4545      |0          |454     |2025-03-25T23:43:44 |[null]   |
+|14    |0       |1     |55      |55        |0          |55      |2025-03-25T23:43:21 |[null]   |
+|13    |0       |1     |22      |12        |0          |1       |2025-03-25T23:42:06 |[null]   |
+|11    |0       |1     |하이      |status    |0          |1       |2025-03-25T23:17:10 |[null]   |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+ 
+2025-03-26T02:30:31.723 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 0 msec} 
+2025-03-26T02:30:31.723 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|15       |
+|---------|
+ 
+2025-03-26T02:30:31.727 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-26T02:30:31.728 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|16    |0       |1     |80802rD |hihi      |0          |44      |2025-03-25T23:47:38 |[null]   |
+|15    |0       |1     |4545    |4545      |0          |454     |2025-03-25T23:43:44 |[null]   |
+|14    |0       |1     |55      |55        |0          |55      |2025-03-25T23:43:21 |[null]   |
+|13    |0       |1     |22      |12        |0          |1       |2025-03-25T23:42:06 |[null]   |
+|11    |0       |1     |하이      |status    |0          |1       |2025-03-25T23:17:10 |[null]   |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+ 
+2025-03-26T02:33:15.941 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '15'
+ {executed in 1 msec} 
+2025-03-26T02:33:15.943 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+|15    |0       |1     |4545   |4545      |0          |454     |2025-03-25T23:43:44 |[null]   |
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+ 
+2025-03-26T02:33:18.736 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. update codegroup set
+		cgUse = 1,
+		cgName = '4545ss',
+		cgNameEng = '4545',
+		cgOrder = '454'
+	where
+		cgSeq = '15'
+ {executed in 6 msec} 
+2025-03-26T02:33:18.744 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 0 msec} 
+2025-03-26T02:33:18.744 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|15       |
+|---------|
+ 
+2025-03-26T02:33:18.746 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+141. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-26T02:33:18.747 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|16    |0       |1     |80802rD |hihi      |0          |44      |2025-03-25T23:47:38 |[null]   |
+|15    |0       |1     |4545ss  |4545      |0          |454     |2025-03-25T23:43:44 |[null]   |
+|14    |0       |1     |55      |55        |0          |55      |2025-03-25T23:43:21 |[null]   |
+|13    |0       |1     |22      |12        |0          |1       |2025-03-25T23:42:06 |[null]   |
+|11    |0       |1     |하이      |status    |0          |1       |2025-03-25T23:17:10 |[null]   |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+ 

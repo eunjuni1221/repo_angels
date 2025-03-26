@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<th:block th:fragment="modal">
+
+	<div class="modal fade" id="modalConfirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1 class="modal-title fs-5" id="modalConfirmTitle">Modal title</h1>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body" id="modalConfirmBody">
+	        ...
+	      </div>
+	      <div class="modal-footer">
+			<button type="button" data-bs-dismiss="modal" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i></button>
+			<button type="button" id="btnModalDelete" class="btn btn-danger"><i class="fa fa-times"></i></button>
+			<button type="button" id="btnModalUelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+	      </div>
+	    </div>
+	  </div>
+	</div>		
+</html>
+</th:block>

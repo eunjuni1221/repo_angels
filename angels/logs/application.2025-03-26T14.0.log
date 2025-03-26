@@ -1,0 +1,24 @@
+2025-03-26T14:10:00.240 [HikariPool-5 housekeeper] WARN c.z.h.p.HikariPool - HikariPool-5 - Thread starvation or clock leap detected (housekeeper delta=1h4s228ms219µs700ns). 
+2025-03-26T14:43:34.176 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+121. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '29'
+ {executed in 4 msec} 
+2025-03-26T14:43:34.189 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+|29    |0       |1     |ㄴ      |hihi      |0          |44      |2025-03-26T10:57:52 |[null]   |
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+ 

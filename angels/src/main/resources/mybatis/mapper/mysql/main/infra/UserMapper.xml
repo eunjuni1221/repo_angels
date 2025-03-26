@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angels.module.user.UserDao">
+
+<resultMap id="resultMapObj" type="com.angels.module.user.UserDto"></resultMap>
+
+		<sql id="selectCommon">
+		    
+		<if test="shUseNy != null and !shUseNy.equals('')">AND urUse = #{shUseNy}</if>
+        <if test="shDelNy != null and !shDelNy.equals('')">AND urDelNy = #{shDelNy}</if>
+<!-- 				
+			<choose>
+				<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+-->				
+        <choose>
+            <when test="shOption == 1">AND urSeq = #{shValue}</when>
+            <when test="shOption == 2">AND urName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND phoneNumber LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND urID LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 5">AND urPassword LIKE CONCAT('%',#{shValue},'%')</when>
+        </choose>
+        
+			<if test="shTelecom != null and !shTelecom.equals('')">AND telecom =#{shTelecom}</if>
+			<if test="shGender != null and !shGender.equals('')">AND urGender =#{shGender}</if>       
+
+	</sql>
+
+	
+	<select id="selectList" resultMap="resultMapObj">
+		select 
+			urSeq,
+		    urUse,
+		    urDelNy,
+		    urName,
+		    urGender,
+		    telecom,
+		    phoneNumber,
+		    urBirth,
+		    urID,
+		    urPassword,
+		    urRegTime,
+		    urModTime
+		from user
+		where 1=1 
+		<include refid="selectCommon"></include>
+		order by urSeq desc
+		limit #{rowNumToShow} offset #{startRnumForMysql}
+	</select>
+	
+		<select id="sex" resultMap="resultMapObj">
+	select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+	
+	</select>
+	
+	<select id="telecom" resultMap="resultMapObj">
+	select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+			
+		order by cdSeq desc
+	</select>
+	
+		<insert id="insert" parameterType="com.angels.module.user.UserDto">
+	INSERT INTO team (
+		    urUse,
+		    urDelNy,
+		    urName,
+		    urGender,
+		    telecom,
+		    phoneNumber,
+		    urBirth,
+		    urID,
+		    urPassword,
+		    urRegTime
+	) values (
+		#{urUse},
+		0,
+		#{urName},
+		#{tmDiv},
+		#{urGender},
+		#{telecom},
+		#{phoneNumber},
+		#{urBirth},
+		#{urID},
+		#{urPassword},
+		NOW()
+	)
+		<selectKey resultType= "String" keyProperty="tmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	<select id="selectOneCount" resultType="Integer">
+	
+	Select count(*)
+	from 
+	user
+	where 1=1
+	
+	</select>	
+	
+
+</mapper>

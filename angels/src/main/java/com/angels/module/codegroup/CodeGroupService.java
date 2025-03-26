@@ -32,5 +32,8 @@ public class CodeGroupService {
 	public int uelete(CodeGroupDto codeGroupDto) {
 		return codeGroupDao.uelete(codeGroupDto);
 	}
+	public int delete(CodeGroupDto codeGroupDto) {
+		return codeGroupDao.delete(codeGroupDto);
+	}
 
 }

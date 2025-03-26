@@ -60,11 +60,17 @@ public class CodeGroupController {
 	
 	@RequestMapping(value = "/codegroup/CodeGroupXdmUele")
 	public String codegroupXdmUele(CodeGroupDto codeGroupDto) {
-		System.out.println(codeGroupDto.getCgSeq());
+
 		codeGroupService.uelete(codeGroupDto);
 		return "redirect:CodeGroupXdmList"; 
 	}
 	
+	@RequestMapping(value = "/codegroup/CodeGroupXdmDele")
+	public String codegroupXdmDele(CodeGroupDto codeGroupDto) {
+
+		codeGroupService.delete(codeGroupDto);
+		return "redirect:CodeGroupXdmList"; 
+	}
 	
 	
 
