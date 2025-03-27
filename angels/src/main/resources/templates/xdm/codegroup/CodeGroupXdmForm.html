@@ -43,9 +43,9 @@
                       <div class="card-body">
                         <div class="row g-3">
                             <div class="col-md-3">
-						<form action="/codegroup/CodeGroupXdmInst" method="post" enctype="multipart/form-data" id="form">								
+						<form action="/codegroup/CodeGroupXdmInst" method="post" enctype="multipart/form-data" id="form" class="needs-validation" novalidate onsubmit="return validation()">								
 							<label class="form-label">코드그룹 코드<span class="text-danger"> *</span></label>
-							<input type="hidden" id="cgSeq" name="cgSeq" th:value="${item?.cgSeq}" maxlength="20" placeholder="자동생성" disabled class="form-control"/>
+							<input type="hidden" id="cgSeq" name="cgSeq" th:value="${item?.cgSeq}" maxlength="20" placeholder="자동생성" disabled class="form-control" />
 							<input type="text" name="cgSeq" id="cgSeq" th:value="${item?.cgSeq}" class="form-control" placeholder="자동생성" readonly style="background-color: grey;">
                             </div>
                             <div class="col-md-3">
@@ -54,8 +54,9 @@
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">코드그룹 이름<span class="text-danger"> *</span></label>
-                                <input type="text" name="cgName" id="cgName" th:value="${item?.cgName}" class="form-control" placeholder="영대소문자, 숫자">
-                            </div>
+                                <input type="text" name="cgName" id="cgName" th:value="${item?.cgName}" class="form-control" placeholder="영대소문자, 숫자" required>
+								<div id="nameError" class="invalid-feedback"></div>
+							</div>
                             <div class="col-md-3">
                                 <label class="form-label">코드그룹 이름(영문)<span class="text-danger"></span></label>
                                 <input type="text" name="cgNameEng" id="cgNameEng" th:value="${item?.cgNameEng}" class="form-control" placeholder="영대소문자, 숫자">
@@ -73,8 +74,9 @@
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">순서<span class="text-danger"> *</span></label>
-                            <input type="text" name="cgOrder" id="cgOrder" th:value="${item?.cgOrder}" class="form-control" placeholder="">
-                          </div>
+                            <input type="text" name="cgOrder" id="cgOrder" th:value="${item?.cgOrder}" class="form-control" placeholder="" required>
+							<div id="orderError" class="invalid-feedback"></div>
+						</div>
                         </div>
                         <div class="row g-3 mt-1">
                           <div class="col-md-6">
@@ -176,15 +178,55 @@
 		let CodeGroupXdmUpdt = "/codegroup/CodeGroupXdmUpdt";		
 		
 		document.getElementById("btnSave").onclick = function () {
-			if(cgSeq.value == "0" || cgSeq.value == "") {
-				form.action = CodeGroupXdmInst;
-				form.submit();
-			} else {
-				form.action = CodeGroupXdmUpdt;
-				form.submit();
-			}
-		}
+			
+			    function validation() {
+			        let isValid = true;
 
+			        // 코드그룹 이름이 비어있는지 확인
+			        const cgName = document.getElementById('cgName');
+			        const cgNameError = document.getElementById('nameError');
+			        if (cgName.value.trim() === "") {
+			            cgNameError.textContent = "코드그룹 이름을 입력하세요.";
+			            cgName.classList.add("is-invalid");
+			            isValid = false;
+			        } else {
+			            cgNameError.textContent = "";
+			            cgName.classList.remove("is-invalid");
+			        }
+
+			        // 순서 필드가 빈 공백이거나 숫자가 아닌 경우
+			        const cgOrder = document.getElementById('cgOrder');
+			        const orderError = document.getElementById('orderError');
+			        if (cgOrder.value.trim() === "" || isNaN(cgOrder.value.trim())) {
+			            orderError.textContent = "순서는 숫자만 입력할 수 있습니다.";
+			            cgOrder.classList.add("is-invalid");
+			            isValid = false;
+			        } else {
+			            orderError.textContent = "";
+			            cgOrder.classList.remove("is-invalid");
+			        }
+
+			        return isValid; // 유효성 검사 결과 반환
+			    }
+
+			    // 유효성 검사 실행
+			    if (!validation()) {
+			        return; // 유효성 검사 실패 시 폼 제출 중단
+			    }
+
+			    // 폼 제출
+			    const form = document.querySelector("form"); // 폼 객체 가져오기
+			    const cgSeq = document.getElementById("cgSeq");
+
+			    if (cgSeq.value === "0" || cgSeq.value === "") {
+			        form.action = "/codegroup/CodeGroupXdmInst"; // 새로운 코드그룹 생성
+			    } else {
+			        form.action = "/codegroup/CodeGroupXdmUpdt"; // 기존 코드그룹 업데이트
+			    }
+
+			    // 폼 제출
+			    form.submit();
+			};
       </script>
 	  
 	 <script>
@@ -208,6 +250,7 @@
 	  	form.submit();
 	  }
 	  </script>
+	  
 	   <script>
 	  	
 	    if(document.getElementById("btnDelete")){

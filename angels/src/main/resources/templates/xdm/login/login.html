@@ -56,33 +56,36 @@
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">Sign in to start your session</p>
-          <form action="../index3.html" method="post">
-            <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email" />
-              <div class="input-group-text"><span class="bi bi-envelope"></span></div>
-            </div>
-            <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Password" />
-              <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
-            </div>
-            <!--begin::Row-->
-            <div class="row">
-              <div class="col-8">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                  <label class="form-check-label" for="flexCheckDefault"> Remember Me </label>
-                </div>
-              </div>
-              <!-- /.col -->
-              <div class="col-4">
-                <div class="d-grid gap-2">
-                  <button type="submit" class="btn btn-primary">Sign In</button>
-                </div>
-              </div>
-              <!-- /.col -->
-            </div>
-            <!--end::Row-->
-          </form>
+		  <form action="/codegroup/CodeGroupXdmList" method="post" class="needs-validation" novalidate onsubmit="return validation()">
+		      <div class="input-group mb-3">
+		          <input type="email" id="urID" name="urID" 
+		              class="form-control" placeholder="ID" required/>
+		          <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+		          <div id="idError" class="invalid-feedback"></div> <!-- 에러 메시지 추가 -->
+		      </div>
+
+		      <div class="input-group mb-3">
+		          <input type="password" id="urPassword" name="urPassword" 
+		              class="form-control" placeholder="Password" required maxlength="20" />
+		          <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+		          <div id="passwordError" class="invalid-feedback"></div> <!-- 에러 메시지 추가 -->
+		      </div>
+
+		      <div class="row">
+		          <div class="col-8">
+		              <div class="form-check">
+		                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+		                  <label class="form-check-label" for="flexCheckDefault"> Remember Me </label>
+		              </div>
+		          </div>
+		          <div class="col-4">
+		              <div class="d-grid gap-2">
+		                  <button type="button" class="btn btn-primary" id="buttonSignIn">Sign In</button> <!-- type="submit" 수정 -->
+		              </div>
+		          </div>
+		      </div>
+		  </form>
+
           <div class="social-auth-links text-center mb-3 d-grid gap-2">
             <p>- OR -</p>
             <a href="#" class="btn btn-primary">
@@ -101,6 +104,7 @@
         <!-- /.login-card-body -->
       </div>
     </div>
+	<div th:replace="~{xdm/include/modal :: modal}"></div>
     <!-- /.login-box -->
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
@@ -143,8 +147,92 @@
         }
       });
     </script>
-	<script src="/xdm/v1/jquery/jquery-3.7.1.min.js"></script>
+	<script src="/xdm/jquery/jquery-3.7.1.min.js"></script>
     <!--end::OverlayScrollbars Configure-->
+	<script>	
+	document.getElementById("buttonSignIn").onclick = function() {
+			loginLogic();			
+			}
+			
+			function validation() {
+			    let idInput = document.getElementById("urID");
+			    let passwordInput = document.getElementById("urPassword");
+			    let idValue = idInput.value.trim();
+			    let passwordValue = passwordInput.value.trim();
+			    let idPattern = /^[a-zA-Z0-9]+$/;  
+			    let isValid = true;
+
+			    let idError = document.getElementById("idError");
+			    let passwordError = document.getElementById("passwordError");
+
+			    
+			    idError.style.display = "none";
+			    passwordError.style.display = "none";
+			    idInput.classList.remove("is-invalid");
+			    passwordInput.classList.remove("is-invalid");
+
+			    
+			    if (idValue === "") {
+			        idInput.classList.add("is-invalid");
+			        idInput.classList.remove("is-valid");
+			        idError.innerText = "아이디를 입력해주세요.";
+			        idError.style.display = "block";
+			        isValid = false;
+			    } else if (!idPattern.test(idValue)) {
+			        idInput.classList.add("is-invalid");
+			        idInput.classList.remove("is-valid");
+			        idError.innerText = "잘못된 입력 방식입니다.";
+			        idError.style.display = "block";
+			        isValid = false;
+			    } else {
+			        idInput.classList.add("is-valid");
+			    }
+
+			   
+			    if (passwordValue === "") {
+			        passwordInput.classList.add("is-invalid");
+			        passwordInput.classList.remove("is-valid");
+			        passwordError.innerText = "비밀번호를 입력해주세요.";
+			        passwordError.style.display = "block";
+			        isValid = false;
+			    } else {
+			        passwordInput.classList.add("is-valid");
+			    }
+
+			    return isValid;
+			}
+
+			function loginLogic (){		
+				alert("a");
+				if(validation() == false) return false;
+				$.ajax({
+					async: true 
+					,cache: false
+					,type: "post"
+					/* ,dataType:"json" */
+					,url: "/login/signinXdmProc"
+					/* ,data : $("#formLogin").serialize() */
+					,data : { "urID" : $("#urID").val(), "urPassword" : $("#urPassword").val(), "autoLogin" : $("#autoLogin").is(":checked")}
+					,success: function(response) {
+						if(response.rt == "success") {
+							// if(response.changePwd == "true") {
+							//	location.href = "/v1/infra/member/expiredPwdUsrForm";
+							// } else {
+							location.href = "/codegroup/CodeGroupXdmList";
+							// }
+						} else {
+					 		document.getElementById("modalAlertTitle").innerText = "확인";
+					 		document.getElementById("modalAlertBody").innerText = "일치하는 회원이 존재 하지 않습니다!";
+					 		$("#modalAlert").modal("show");
+						}
+					}
+					,error : function(jqXHR, textStatus, errorThrown){
+						alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+					}
+				});
+			}
+				
+	</script>
     <!--end::Script-->
   </body>
   <!--end::Body-->

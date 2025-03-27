@@ -31,6 +31,8 @@ public class UserService {
 	public int uelete(UserDto userDto) {
 		return userDao.uelete(userDto);
 	}
-	
+	public UserDto selectOneLogin(UserDto userDto) {
+		return userDao.selectOneLogin(userDto);
+	}
 
 }

@@ -15,5 +15,6 @@ public interface UserDao {
 	public int selectOneCount(UserVo userVo);
 	public int update (UserDto userDto);
 	public int uelete(UserDto userDto);
+	public UserDto selectOneLogin(UserDto userDto);
 
 }
