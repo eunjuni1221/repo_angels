@@ -59,14 +59,14 @@
 		  <form action="/codegroup/CodeGroupXdmList" method="post" class="needs-validation" novalidate onsubmit="return validation()">
 		      <div class="input-group mb-3">
 		          <input type="email" id="urID" name="urID" 
-		              class="form-control" placeholder="ID" required/>
+		              class="form-control" placeholder="ID" value="ej" required/>
 		          <div class="input-group-text"><span class="bi bi-envelope"></span></div>
 		          <div id="idError" class="invalid-feedback"></div> <!-- 에러 메시지 추가 -->
 		      </div>
 
 		      <div class="input-group mb-3">
 		          <input type="password" id="urPassword" name="urPassword" 
-		              class="form-control" placeholder="Password" required maxlength="20" />
+		              class="form-control" placeholder="Password" value="1"  required maxlength="20" />
 		          <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
 		          <div id="passwordError" class="invalid-feedback"></div> <!-- 에러 메시지 추가 -->
 		      </div>
@@ -203,8 +203,8 @@
 			}
 
 			function loginLogic (){		
-				alert("a");
-				if(validation() == false) return false;
+
+			if(validation() == false) return false;
 				$.ajax({
 					async: true 
 					,cache: false

@@ -83,23 +83,24 @@ public class UserController {
 			
 		} else {
 			returnMap.put("rt", "false");
-		}
-		
-		/*
-		 * 받은데이터가 있으면 성공 ? 성공 하고 나서 세션들 설정 아니면 실패
-		 */
-		
+		}		
 		return returnMap;
 	}
 	
-//	@RequestMappring(value = "/login/Login")
-//	public String signinXdmForm(UserVo vo, HttpSession httpSession) throws Exception {
-//		httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
-//		httpSession.setAttribute("sessSeqXdm", rtMember.getIfmmSeq());
-//		httpSession.setAttribute("sessIdXdm", rtMember.getIfmmId());
-//		httpSession.setAttribute("sessNameXdm", rtMember.getIfmmName());
-//		
-//	}
+	@ResponseBody
+	@RequestMapping(value = "/login/signoutXdmProc")
+	public Map<String, Object> signoutXdmProc(UserDto dto, HttpSession httpSession) throws Exception {
+		System.out.println("hihi");
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 
+			httpSession.setAttribute("sessXdmSeq", null);
+			httpSession.setAttribute("sessXdmName", null);
+			httpSession.setAttribute("sessXdmId", null);		
+
+			returnMap.put("rt", "success");	
+			
+			System.out.println(httpSession.getAttribute("sessXdmSeq"));
+		return returnMap;
+	}
 	
 }

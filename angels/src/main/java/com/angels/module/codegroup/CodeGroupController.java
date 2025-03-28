@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.angels.module.code.CodeService;
 import com.angels.module.code.CodeVo;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class CodeGroupController {
@@ -19,7 +21,13 @@ public class CodeGroupController {
 	CodeService codeService;
 	
 	@RequestMapping(value = "/codegroup/CodeGroupXdmList")
-	public String codegroupXdmList(Model model, CodeGroupVo vo, CodeGroupDto dto) throws Exception{
+	public String codegroupXdmList(Model model, CodeGroupVo vo, CodeGroupDto dto,
+			HttpSession httpSession) throws Exception{
+		
+		if(httpSession.getAttribute("sessXdmSeq") == null) {
+			return "redirect:/login/Login"; 
+		}
+		
 		System.out.println(vo.getThisPage());
 		vo.setParamsPaging(codeGroupService.selectOneCount(vo));
 		

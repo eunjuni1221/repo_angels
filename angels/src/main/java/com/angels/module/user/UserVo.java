@@ -27,12 +27,35 @@ public class UserVo {
 	private String shGender;
 	
 	private String urSeq;
+	private String urID;
+	private String urPassword;
 	
 	
 	
-	
-	
-	
+	public String getUrID() {
+		return urID;
+	}
+
+
+
+	public void setUrID(String urID) {
+		this.urID = urID;
+	}
+
+
+
+	public String getUrPassword() {
+		return urPassword;
+	}
+
+
+
+	public void setUrPassword(String urPassword) {
+		this.urPassword = urPassword;
+	}
+
+
+
 	public Integer getShUseNy() {
 		return shUseNy;
 	}
