@@ -2,6 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	
 <div th:replace="~{xdm/include/head :: head}"></div>
+<div th:replace="~{xdm/code/CodeXdmVo :: vo}"></div>
 
       <main class="app-main">
         <!--begin::App Content Header-->
@@ -37,21 +38,22 @@
                       <div class="card-body">
                         <div class="row g-3">
                           <div class="col-md-3">
-							<form action="/code/CodeXdmInst" method="post" enctype="multipart/form-data" id="form">
+							<form action="/code/CodeXdmInst" method="post" enctype="multipart/form-data" id="form" class="needs-validation" novalidate onsubmit="return validation()">
                             <label class="form-label" for="ifcgSeq">코드그룹 <span class="text-danger">*</span></label>
-                            <select class="form-select" id="codeGroup_cgSeq" name="codeGroup_cgSeq" required>
+                            <select class="form-select" id="codeGroup_cgSeq" name="codeGroup_cgSeq" th:value="${item?.codeGroup_cgSeq}">
                               <option value="" selected>선택</option>
-							  <option th:each="list : ${listCodeGroup}" th:value="${list.cgSeq}" th:text="${list.cgName}">
+							  <option th:each="list : ${listCodeGroup}" th:value="${list.cgSeq}" th:text="${list.cgName}" th:selected="${item.codeGroup_cgSeq} == ${list.cgSeq}">
 							  </option>
 							</select>
-							<div class="invalid-feedback">올바르지 않은 형식</div>
+							<div class="nameError">올바르지 않은 형식</div>
                           </div>
                         </div>
                         
                         <div class="row g-3 mt-1">
                           <div class="col-md-3">
                             <label class="form-label">코드 <span class="text-danger"> *</span></label>
-                            <input type="text" name="cdSeq" id="cdSeq" class="form-control" value="자동선택" disabled>
+							<input type="hidden" id="cdSeq" name="cdSeq" th:value="${item?.cdSeq}" maxlength="20" placeholder="자동생성" class="form-control" />
+                            <input type="text" name="cdSeq" id="cdSeq" class="form-control" value="자동생성" disabled style="background-color: grey;">
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">코드(ANOTHER)<span class="text-danger"> *</span></label>
@@ -59,27 +61,27 @@
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">코드이름<span class="text-danger"> *</span></label>
-                            <input type="text" name="cdName" id="cdName" class="form-control" placeholder="한글, 영대소문자, 숫자" required>
-							<div class="invalid-feedback">올바르지 않은 형식</div>
+                            <input type="text" name="cdName" id="cdName" th:value="${item?.cdName}" class="form-control" placeholder="한글, 영대소문자, 숫자" required>
+							<div id="cdNameError" class="invalid-feedback">올바르지 않은 형식</div>
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">코드 이름(영문)<span class="text-danger"> *</span></label>
-                            <input type="text" name="cdNameEng" id="cdNameEng" class="form-control" placeholder="영대소문자, 숫자">
+                            <input type="text" name="cdNameEng" id="cdNameEng" th:value="${item?.cdNameEng}" class="form-control" placeholder="영대소문자, 숫자">
                           </div>
                         </div>
 
                         <div class="row g-3 mt-1">
                           <div class="col-md-3">
                             <label class="form-label">사용여부 <span class="text-danger"> *</span></label>
-                            <select class="form-select" name="cdUse" id="cdUse">
+                            <select class="form-select" name="cdUse" id="cdUse" th:value="${item?.cdUse}">
                               <option selected value="1">사용</option>
 							  <option value="0">미사용</option>
                             </select>
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">순서<span class="text-danger"> *</span></label>
-                            <input type="text" name="cdOrder" id="cdOrder" class="form-control" placeholder="" required>
-							<div id="cdOrderFeedback" class="invalid-feedback">올바르지 않은 형식</div>
+                            <input type="text" name="cdOrder" id="cdOrder" class="form-control" th:value="${item?.cdOrder}" placeholder="" required>
+							<div id="orderError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
                         </div>
                         <div class="row g-3 mt-1">
@@ -93,8 +95,14 @@
                         <button type="button" class="btn btn-light" onclick="window.location.href='CodeXdmList';">
 							<i class="fa-solid fa-list"></i>
 						</button>
-                        <button type="button" id="btnSave" class="btn btn-primary ms-auto"><i class="fa-solid fa-database"></i></button>
-                      </div>
+                      
+					  <div class="ms-auto d-flex gap-1">
+					      <button type="button" id="btnDelete" class="btn btn-danger"><i class="fa fa-times"></i></button>
+					      <button type="button" id="btnUelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+					      <button type="button" id="btnSave" class="btn btn-primary">
+					          <i class="fa-solid fa-database"></i>
+					      </button>
+					  </div>
 					 </form>
                     </div>
               <!-- /.col -->
@@ -105,6 +113,7 @@
         </div>
         <!--end::App Content-->
       </main>
+	  <div th:replace="~{xdm/include/modal :: modal}"></div>
       <!--end::App Main-->
       <!--begin::Footer-->
     <!--end::App Wrapper-->
@@ -131,6 +140,7 @@
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="../../../dist/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -152,51 +162,104 @@
       });
     </script>
 	<script type="text/javascript">
-/*	  document.getElementById("btnSave").onclick= function () {
-	    document.getElementById("form").submit();
-	  }
-*/
-		document.getElementById("btnSave").onclick = function () {
-		    var form = document.getElementById("form");
-		    var isValid = true;
 		
-		    // 코드그룹 선택 확인
-		    var codeGroup = document.getElementById("codeGroup_cgSeq");
-		    if (codeGroup.value.trim() === "") {
-		        codeGroup.classList.add("is-invalid");
-		        isValid = false;
-		    } else {
-		        codeGroup.classList.remove("is-invalid");
-		    }
-		
-		    // 코드 이름 입력 확인
-		    var cdName = document.getElementById("cdName");
-		    if (cdName.value.trim() === "") {
-		        cdName.classList.add("is-invalid");
-		        isValid = false;
-		    } else {
-		        cdName.classList.remove("is-invalid");
-		    }
-		
-		    // 순서 입력 확인 (공백 불가 + 숫자만 허용)
-		    var cdOrder = document.getElementById("cdOrder");
-		    var orderValue = cdOrder.value.trim();
-		    var orderRegex = /^[0-9]+$/; // 숫자만 허용
-		
-		    if (orderValue === "" || !orderRegex.test(orderValue)) {
-		        cdOrder.classList.add("is-invalid");
-		        isValid = false;
-		    } else {
-		        cdOrder.classList.remove("is-invalid");
-		    }
-		
-		    // 유효성 검사 통과 시 폼 제출
-		    if (isValid) {
-		        form.submit();
-		    }
-		};
 
+		let cdSeq = document.querySelector("input[name=cdSeq]");
+		let CodeXdmInst = "/code/CodeXdmInst";
+		let CodeXdmUpdt = "/code/CodeXdmUpdt";		
+
+		document.getElementById("btnSave").onclick = function () {
+			
+			    function validation() {
+			        let isValid = true;
+
+			        // 코드그룹 이름이 비어있는지 확인
+			        const cdName = document.getElementById('cdName');
+			        const cdNameError = document.getElementById('nameError');
+			        if (cdName.value.trim() === "") {
+			            cdNameError.textContent = "코드그룹 이름을 입력하세요.";
+			            cdName.classList.add("is-invalid");
+			            isValid = false;
+			        } else {
+			            cdNameError.textContent = "";
+			            cdName.classList.remove("is-invalid");
+			        }
+
+			        // 순서 필드가 빈 공백이거나 숫자가 아닌 경우
+			        const cdOrder = document.getElementById('cdOrder');
+			        const orderError = document.getElementById('orderError');
+			        if (cdOrder.value.trim() === "" || isNaN(cdOrder.value.trim())) {
+			            orderError.textContent = "숫자를 입력해주세요.";
+			            cdOrder.classList.add("is-invalid");
+			            isValid = false;
+			        } else {
+			            orderError.textContent = "";
+			            cdOrder.classList.remove("is-invalid");
+			        }
+
+			        return isValid; // 유효성 검사 결과 반환
+			    }
+
+			    // 유효성 검사 실행
+			    if (!validation()) {
+			        return; // 유효성 검사 실패 시 폼 제출 중단
+			    }
+
+			    // 폼 제출
+			    const form = document.querySelector("form"); // 폼 객체 가져오기
+			    const cgSeq = document.getElementById("cgSeq");
+
+			    if (cgSeq.value === "0" || cgSeq.value === "") {
+			        form.action = "/codegroup/CodeGroupXdmInst"; // 새로운 코드그룹 생성
+			    } else {
+			        form.action = "/codegroup/CodeGroupXdmUpdt"; // 기존 코드그룹 업데이트
+			    }
+
+			    // 폼 제출
+			    form.submit();
+			};
 	</script>
+	
+	 <script>
+	let form = document.getElementById("form");
+	let CodeXdmUele = "/code/CodeXdmUele"
+	let CodeXdmDele = "/code/CodeXdmDele"	
+		
+	  if(document.getElementById("btnUelete")){
+	  	document.getElementById("btnUelete").onclick = function () {
+	  		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	  		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	  		document.querySelector("#btnModalUelete").style.display = '';
+	  		document.querySelector("#btnModalDelete").style.display = 'none';
+	  		$("#modalConfirm").modal("show");	     	
+	  	}
+	  }
+
+
+	  document.getElementById("btnModalUelete").onclick = function () {
+	  	form.action = CodeXdmUele;
+	  	form.submit();
+	  }
+	  </script>
+	  
+	   <script>
+	  	
+	    if(document.getElementById("btnDelete")){
+	    	document.getElementById("btnDelete").onclick = function () {
+	    		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	    		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	    		document.querySelector("#btnModalUelete").style.display = 'none';
+	    		document.querySelector("#btnModalDelete").style.display = '';
+	    		$("#modalConfirm").modal("show");	     	
+	    	}
+	    }
+
+
+	    document.getElementById("btnModalDelete").onclick = function () {
+	    	form.action = CodeXdmDele;
+	    	form.submit();
+	    }
+	    </script>
 	<div th:replace="~{xdm/include/footer :: footer}"></div>
 
 

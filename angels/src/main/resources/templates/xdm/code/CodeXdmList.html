@@ -5,6 +5,7 @@
 	<form name="formList" id="formList" method="post" autocomplete="off">
 	  	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
 	  	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+		<input type="hidden" name="cdSeq"/>
       <main class="app-main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
@@ -78,12 +79,12 @@
                             <input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" class="form-control form-control-sm" placeholder="검색어">
                           </div>
                           <div class="d-flex gap-2">
-                            <button class="btn btn-light btn-sm">
-                              <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>                          
-                            <button class="btn btn-light btn-sm">
-                              <i class="fa-solid fa-rotate-right"></i>
-                            </button>
+							<button type="button" id="btnSearch" class="btn btn-light btn-sm">
+							  <i class="fa-solid fa-magnifying-glass"></i>
+							</button>                          
+							<button type="button" id="btnReset" class="btn btn-light btn-sm">
+							  <i class="fa-solid fa-rotate-right"></i>
+							</button>
                           </div>                                           
                         </div>
                       </div>
@@ -144,7 +145,7 @@
 					  <td th:text="${list.cgName}"></td>
 					  <td th:text="${list.cdSeq}"></td>			  
 					  <td></td>
-					  <td th:text="${list.cdName}"></td>
+					  <td class="cdName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.cdName}" th:attr="onclick=|goForm('${list.cdSeq}')|"></a></td>
 					  <td th:text="${list.cdNameEng}"></td>
 					  <td th:text="${list.cdOrder}"></td>
 					  <td th:text="${list.cdRegDate}"></td>
@@ -180,7 +181,7 @@
                   <div class="d-flex gap-1">
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-					<a href="CodeXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>                  
+					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>                
 				  </div>
                 </div>
         
@@ -216,6 +217,7 @@
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	<script src="/xdm/jquery/jquery-3.7.1.min.js"></script>
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -290,6 +292,62 @@
 		    form.action = "/code/CodeXdmList";
 		    form.submit();
 		}			
+	</script>
+	
+	<script>
+		let seq = document.querySelector("input[name=cdSeq]");
+		
+		document.getElementById("btnForm").onclick = function () {
+		    goForm(0);
+		}
+
+
+		goForm = function (keyValue) {
+		    seq.value = keyValue;
+		    form.action = "/code/CodeXdmForm";
+		    form.submit();
+		}
+		
+	</script>
+	<script>
+	  $(function() {
+	    $("#shDateStart").datepicker({
+	      dateFormat: "yy-mm-dd"
+	    });
+	  });
+
+	  $(function() {
+	    $("#shDateEnd").datepicker({
+	      dateFormat: "yy-mm-dd"
+	    });
+	  });
+	</script>
+	<script>
+		const URL_SIGNIN_FORM_XDM = "/login/Login"
+		const URL_SIGNOUT_PROC_XDM = "/login/signoutXdmProc"
+		const URL_INDEX_VIEW_XDM = "/v1/infra/index/indexXdmView"
+		
+		$("#btnSignout").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: URL_SIGNOUT_PROC_XDM
+				,data: {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = URL_SIGNIN_FORM_XDM;
+					} else {
+						// by pass
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		});
+		
+		
 	</script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

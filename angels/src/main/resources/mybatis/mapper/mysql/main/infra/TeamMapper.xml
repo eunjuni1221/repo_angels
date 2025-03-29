@@ -29,7 +29,7 @@
         </choose>
         
 			<if test="shLeagueOption != null and !shLeagueOption.equals('')">AND tmLeague =#{shLeagueOption}</if>
-			<if test="shLeagueOption != null and !shLeagueOption.equals('')">AND tmDiv =#{shDivOption}</if>       
+			<if test="shDivOption != null and !shDivOption.equals('')">AND tmDiv =#{shDivOption}</if>       
 
 	</sql>
 
@@ -112,4 +112,51 @@
 <include refid="selectCommon"></include>
 	
 	</select>
+	
+	   <select id="selectOne" resultMap="resultMapObj">
+   		SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = #{tmSeq}
+   </select>
+	
+		<update id="update">
+	update code set
+		tmUse = #{tmUse},
+		tmHomeName = #{tmHomeName},
+		tmName = #{tmName},
+		tmNameAb = #{tmNameAb},
+		tmHomeNameKor = #{tmHomeNameKor},
+		tmLeague = #{tmLeague},
+		tmDiv = #{tmDiv},
+		cdEdDate = now()
+	where
+		tmSeq = #{tmSeq}
+	
+	</update>
+	
+	<delete id="uelete">
+	Update team set
+		tmDelNy = 1
+	where tmSeq = #{tmSeq}
+	</delete>
+	
+	<delete id="delete">
+	delete from team
+	where tmSeq = #{tmSeq}
+	</delete>
 </mapper>

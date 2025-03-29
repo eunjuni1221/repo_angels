@@ -1,0 +1,215 @@
+2025-03-28T21:37:30.411 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-28T21:37:30.418 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-28T21:37:30.430 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 12 ms 
+2025-03-28T21:37:32.209 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. SELECT
+			urSeq,
+		    urName,
+		    urID,
+		    urPassword,
+		    urRegTime
+		FROM
+			user
+		WHERE 1=1
+			AND urID = 'ej'
+			 AND urPassword = '1'
+ {executed in 2 msec} 
+2025-03-28T21:37:32.215 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|-------|-----|-----------|--------------------|
+|urseq |urname |urid |urpassword |urregtime           |
+|------|-------|-----|-----------|--------------------|
+|2     |관리자    |ej   |1          |2025-03-28T11:37:15 |
+|------|-------|-----|-----------|--------------------|
+ 
+2025-03-28T21:37:32.243 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 2 msec} 
+2025-03-28T21:37:32.245 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|23       |
+|---------|
+ 
+2025-03-28T21:37:32.250 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-28T21:37:32.252 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|32    |0       |1     |ㅁ       |          |0          |1       |2025-03-28T01:49:04 |[null]   |
+|25    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:56:37 |[null]   |
+|24    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:54:34 |[null]   |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]   |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]   |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+ 
+2025-03-28T21:37:50.404 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-28T21:37:50.405 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|23       |
+|---------|
+ 
+2025-03-28T21:37:50.409 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-28T21:37:50.411 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|32    |0       |1     |ㅁ       |          |0          |1       |2025-03-28T01:49:04 |[null]   |
+|25    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:56:37 |[null]   |
+|24    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:54:34 |[null]   |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]   |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]   |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+ 
+2025-03-28T21:37:53.550 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 2 msec} 
+2025-03-28T21:37:53.551 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|23       |
+|---------|
+ 
+2025-03-28T21:37:53.553 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-28T21:37:53.557 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|32    |0       |1     |ㅁ       |          |0          |1       |2025-03-28T01:49:04 |[null]   |
+|25    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:56:37 |[null]   |
+|24    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:54:34 |[null]   |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]   |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]   |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+ 
+2025-03-28T21:38:26.738 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-28T21:38:26.738 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|23       |
+|---------|
+ 
+2025-03-28T21:38:26.741 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-28T21:38:26.743 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+|32    |0       |1     |ㅁ       |          |0          |1       |2025-03-28T01:49:04 |[null]   |
+|25    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:56:37 |[null]   |
+|24    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:54:34 |[null]   |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]   |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]   |
+|------|--------|------|--------|----------|-----------|--------|--------------------|---------|
+ 

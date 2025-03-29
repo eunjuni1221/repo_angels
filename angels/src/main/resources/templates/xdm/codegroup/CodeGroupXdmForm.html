@@ -45,8 +45,8 @@
                             <div class="col-md-3">
 						<form action="/codegroup/CodeGroupXdmInst" method="post" enctype="multipart/form-data" id="form" class="needs-validation" novalidate onsubmit="return validation()">								
 							<label class="form-label">코드그룹 코드<span class="text-danger"> *</span></label>
-							<input type="hidden" id="cgSeq" name="cgSeq" th:value="${item?.cgSeq}" maxlength="20" placeholder="자동생성" disabled class="form-control" />
-							<input type="text" name="cgSeq" id="cgSeq" th:value="${item?.cgSeq}" class="form-control" placeholder="자동생성" readonly style="background-color: grey;">
+							<input type="hidden" id="cgSeq" name="cgSeq" th:value="${item?.cgSeq}" maxlength="20" placeholder="자동생성"  class="form-control" />
+							<input type="text" name="cgSeq" id="cgSeq" th:value="${item?.cgSeq}" class="form-control" placeholder="자동생성" disabled readonly style="background-color: grey;">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">코드그룹 코드(ANOTHER)<span class="text-danger"></span></label>
@@ -109,22 +109,6 @@
 	        </div>
 	       </div>
 	      </div>
-<!--		<div id="myModal" class="modal" tabindex="-1">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title">경고!</h5>
-		        <button id="btnClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-		        <p>잘 입력해주세요</p>
-		      </div>
-		      <div class="modal-footer">
-		        <button id="btnConfirm" type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>-->	
         <!--end::App Content-->
       </main>
       <!--end::App Main-->
@@ -269,6 +253,34 @@
 	    	form.submit();
 	    }
 	    </script>
+		
+		<script>
+			const URL_SIGNIN_FORM_XDM = "/login/Login"
+			const URL_SIGNOUT_PROC_XDM = "/login/signoutXdmProc"
+			const URL_INDEX_VIEW_XDM = "/v1/infra/index/indexXdmView"
+			
+			$("#btnSignout").on("click", function(){
+				$.ajax({
+					async: true 
+					,cache: false
+					,type: "post"
+					,url: URL_SIGNOUT_PROC_XDM
+					,data: {}
+					,success: function(response) {
+						if(response.rt == "success") {
+							location.href = URL_SIGNIN_FORM_XDM;
+						} else {
+							// by pass
+						}
+					}
+					,error : function(jqXHR, textStatus, errorThrown){
+						alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+					}
+				});
+			});
+			
+			
+		</script>
 	  
 	  <div th:replace="~{xdm/include/footer :: footer}"></div>
 	  

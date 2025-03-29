@@ -101,6 +101,50 @@
 		WHERE 1=1
 			AND cdDelNy = 0
    </select>
+   
+   <select id="selectOne" resultMap="resultMapObj">
+   		SELECT	
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+		    	from
+		    	code c
+		    	left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		    	where 1=1
+		    AND c.cdSeq = #{cdSeq}
+   </select>
+	
+	<update id="update">
+	update code set
+		cdUse = #{cdUse},
+		cdName = #{cdName},
+		cdNameEng = #{cdNameEng},
+		cdOrder = #{cdOrder},
+		codeGroup_cgSeq = #{codeGroup_cgSeq},
+		cdEdDate = now()
+	where
+		cdSeq = #{cdSeq}
+	
+	</update>
+	
+	<delete id="uelete">
+	Update code set
+		cdDelNy = 1
+	where cdSeq = #{cdSeq}
+	</delete>
+	
+	<delete id="delete">
+	delete from code
+	where cdSeq = #{cdSeq}
+	</delete>
 	
 	
 </mapper>

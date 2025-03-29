@@ -29,6 +29,9 @@ public class CodeService {
 	public List<CodeDto> listCodeGroup(CodeVo codeVo) {
 		return codeDao.listCodeGroup(codeVo);
 	}
+	public CodeDto selectOne(CodeDto codeDto) {
+		return codeDao.selectOne(codeDto);
+	}
 	
 	  @PostConstruct
 		public void selectListCachedCodeArrayList() throws Exception {
@@ -68,5 +71,13 @@ public class CodeService {
 			}
 			return rt;
 		}
-	
+	public int update (CodeDto codeDto) {
+		return codeDao.update(codeDto);
+	}
+	public int uelete(CodeDto codeDto) {
+		return codeDao.uelete(codeDto);
+	}
+	public int delete(CodeDto codeDto) {
+		return codeDao.delete(codeDto);
+	}
 }
