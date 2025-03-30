@@ -1,9 +1,12 @@
 package com.angels.module.team;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import jakarta.annotation.PostConstruct;
 
 @Service
 public class TeamService {
@@ -26,5 +29,16 @@ public class TeamService {
 	public List<TeamDto> division() {
 		return teamDao.division();
 	}
-
+	public int update(TeamDto teamDto) {
+		return teamDao.update(teamDto);
+	}
+	public int uelete(TeamDto teamDto) {
+		return teamDao.uelete(teamDto);
+	}
+	public int delete(TeamDto teamDto) {
+		return teamDao.delete(teamDto); 
+	}
+	public TeamDto selectOne(TeamDto teamDto) {
+		return teamDao.selectOne(teamDto);
+	}
 }

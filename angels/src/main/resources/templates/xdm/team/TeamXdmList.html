@@ -5,6 +5,7 @@
 	<form name="formList" id="formList" method="post" autocomplete="off">
 	  	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
 	  	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+		<input type="hidden" name="tmSeq"/>
       <main class="app-main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
@@ -159,7 +160,7 @@
 					  <td th:text="${list.tmSeq}"></td>
 					  <td th:text="${@codeService.selectOneCachedCode(list.tmLeague)}"></td>
 					  <td th:text="${@codeService.selectOneCachedCode(list.tmDiv)}"></td>
-					  <td th:text="${list.tmHomeName}"></td>
+					  <td class="tmHomeName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.tmHomeName}" th:attr="onclick=|goForm('${list.tmSeq}')|"></a></td>
 					  <td th:text="${list.tmName}"></td>			  
 					  <td th:text="${list.tmHomeNameKor}"></td>
 					  <td th:text="${list.tmNameKor}"></td>
@@ -197,7 +198,7 @@
                   <div class="d-flex gap-1">
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-					<a href="TeamXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>                  
+					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>                        
 				  </div>
                 </div>
         
@@ -232,6 +233,9 @@
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	<script src="/xdm/jquery/jquery-3.7.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -306,6 +310,34 @@
 		    form.action = "/team/TeamXdmList";
 		    form.submit();
 		}			
+	</script>
+	
+	<script type="text/javascript">
+		let seq = document.querySelector("input[name=tmSeq]");
+		
+		document.getElementById("btnForm").onclick = function () {
+		    goForm(0);
+		}
+
+
+		goForm = function (keyValue) {
+		    seq.value = keyValue;
+		    form.action = "/team/TeamXdmForm";
+		    form.submit();
+		}		
+	</script>
+	<script>
+	  $(function() {
+	    $("#shDateStart").datepicker({
+	      dateFormat: "yy-mm-dd"
+	    });
+	  });
+
+	  $(function() {
+	    $("#shDateEnd").datepicker({
+	      dateFormat: "yy-mm-dd"
+	    });
+	  });
 	</script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

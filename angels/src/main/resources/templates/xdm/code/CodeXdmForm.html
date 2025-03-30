@@ -40,12 +40,12 @@
                           <div class="col-md-3">
 							<form action="/code/CodeXdmInst" method="post" enctype="multipart/form-data" id="form" class="needs-validation" novalidate onsubmit="return validation()">
                             <label class="form-label" for="ifcgSeq">코드그룹 <span class="text-danger">*</span></label>
-                            <select class="form-select" id="codeGroup_cgSeq" name="codeGroup_cgSeq" th:value="${item?.codeGroup_cgSeq}">
+                            <select class="form-select" id="codeGroup_cgSeq" name="codeGroup_cgSeq" th:value="${item?.codeGroup_cgSeq}" required>
                               <option value="" selected>선택</option>
 							  <option th:each="list : ${listCodeGroup}" th:value="${list.cgSeq}" th:text="${list.cgName}" th:selected="${item.codeGroup_cgSeq} == ${list.cgSeq}">
 							  </option>
 							</select>
-							<div class="nameError">올바르지 않은 형식</div>
+							<div id="codeGroupError" class="invalid-feedback">올바르지 않은 형식</div>
                           </div>
                         </div>
                         
@@ -80,7 +80,7 @@
                           </div>
                           <div class="col-md-3">
                             <label class="form-label">순서<span class="text-danger"> *</span></label>
-                            <input type="text" name="cdOrder" id="cdOrder" class="form-control" th:value="${item?.cdOrder}" placeholder="" required>
+                            <input type="text" name="cdOrder" id="cdOrder" class="form-control" th:value="${item?.cdOrder}" placeholder="순서" required>
 							<div id="orderError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
                         </div>
@@ -169,55 +169,67 @@
 		let CodeXdmUpdt = "/code/CodeXdmUpdt";		
 
 		document.getElementById("btnSave").onclick = function () {
-			
-			    function validation() {
-			        let isValid = true;
+		    function validation() {
+		        let isValid = true;
 
-			        // 코드그룹 이름이 비어있는지 확인
-			        const cdName = document.getElementById('cdName');
-			        const cdNameError = document.getElementById('nameError');
-			        if (cdName.value.trim() === "") {
-			            cdNameError.textContent = "코드그룹 이름을 입력하세요.";
-			            cdName.classList.add("is-invalid");
-			            isValid = false;
-			        } else {
-			            cdNameError.textContent = "";
-			            cdName.classList.remove("is-invalid");
-			        }
+		        // 코드이름 유효성 검사
+		        const cdName = document.getElementById('cdName');
+		        const cdNameError = document.getElementById('cdNameError');
+		        if (cdName.value.trim() === "") {
+		            cdNameError.textContent = "코드이름을 입력하세요.";
+		            cdName.classList.add("is-invalid");
+		            isValid = false;
+		        } else {
+		            cdNameError.textContent = "";
+		            cdName.classList.remove("is-invalid");
+		        }
 
-			        // 순서 필드가 빈 공백이거나 숫자가 아닌 경우
-			        const cdOrder = document.getElementById('cdOrder');
-			        const orderError = document.getElementById('orderError');
-			        if (cdOrder.value.trim() === "" || isNaN(cdOrder.value.trim())) {
-			            orderError.textContent = "숫자를 입력해주세요.";
-			            cdOrder.classList.add("is-invalid");
-			            isValid = false;
-			        } else {
-			            orderError.textContent = "";
-			            cdOrder.classList.remove("is-invalid");
-			        }
+		        // 코드그룹 선택 여부 확인
+		        const codeGroup = document.getElementById('codeGroup_cgSeq');
+		        const codeGroupError = document.getElementById('codeGroupError');
+		        if (codeGroup.value.trim() === "") {
+		            codeGroupError.textContent = "코드그룹을 선택하세요.";
+		            codeGroup.classList.add("is-invalid");
+		            isValid = false;
+		        } else {
+		            codeGroupError.textContent = "";
+		            codeGroup.classList.remove("is-invalid");
+		        }
 
-			        return isValid; // 유효성 검사 결과 반환
-			    }
+		        // 순서 필드 유효성 검사 (숫자 입력)
+		        const cdOrder = document.getElementById('cdOrder');
+		        const orderError = document.getElementById('orderError');
+		        if (cdOrder.value.trim() === "" || isNaN(cdOrder.value.trim())) {
+		            orderError.textContent = "숫자를 입력해주세요.";
+		            cdOrder.classList.add("is-invalid");
+		            isValid = false;
+		        } else {
+		            orderError.textContent = "";
+		            cdOrder.classList.remove("is-invalid");
+		        }
 
-			    // 유효성 검사 실행
-			    if (!validation()) {
-			        return; // 유효성 검사 실패 시 폼 제출 중단
-			    }
+		        return isValid;
+		    }
 
-			    // 폼 제출
-			    const form = document.querySelector("form"); // 폼 객체 가져오기
-			    const cgSeq = document.getElementById("cgSeq");
+		    // 유효성 검사 실행
+		    if (!validation()) {
+		        return; // 유효성 검사 실패 시 폼 제출 중단
+		    }
 
-			    if (cgSeq.value === "0" || cgSeq.value === "") {
-			        form.action = "/codegroup/CodeGroupXdmInst"; // 새로운 코드그룹 생성
-			    } else {
-			        form.action = "/codegroup/CodeGroupXdmUpdt"; // 기존 코드그룹 업데이트
-			    }
+		    // 폼 제출
+		    const form = document.querySelector("form"); // 폼 객체 가져오기
+		    const cdSeq = document.getElementById("cdSeq");
 
-			    // 폼 제출
-			    form.submit();
-			};
+		    if (cdSeq.value === "0" || cdSeq.value === "") {
+		        form.action = "/code/CodeXdmInst"; // 새로운 코드그룹 생성
+		    } else {
+		        form.action = "/code/CodeXdmUpdt"; // 기존 코드그룹 업데이트
+		    }
+
+		    // 폼 제출
+		    form.submit();
+		};
+
 	</script>
 	
 	 <script>

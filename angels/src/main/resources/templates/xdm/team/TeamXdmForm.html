@@ -2,6 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	
 <div th:replace="~{xdm/include/head :: head}"></div>
+<div th:replace="~{xdm/team/TeamXdmVo :: vo}"></div>
 
         <!--end::Sidebar Wrapper-->
       </aside>
@@ -41,54 +42,61 @@
                       <div class="card-body">
                         <div class="row g-3">
                             <div class="col-md-3">
-						<form action="/team/TeamXdmInst" method="post" enctype="multipart/form-data" id="form">	
+						<form action="/team/TeamXdmInst" method="post" enctype="multipart/form-data" id="form" class="needs-validation" novalidate onsubmit="return validation()">	
 							 <label class="form-label">코드 번호<span class="text-danger"> *</span></label>
-							<input type="text" name="tmSeq" id="tmSeq" class="form-control" placeholder="자동생성" disabled>
+							 <input type="hidden" id="tmSeq" name="tmSeq" th:value="${item?.tmSeq}" maxlength="20" placeholder="자동생성" class="form-control" />
+							 <input type="text" name="tmSeq" id="tmSeq" class="form-control" value="자동생성" disabled style="background-color: grey;">
                             </div>
 							<div class="col-md-3">
 							  <label class="form-label">사용여부 <span class="text-danger"> *</span></label>
-							  <select class="form-select"  name="tmUse" id="tmUse">
+							  <select class="form-select"  name="tmUse" id="tmUse" th:value="${item?.tmUse}">
 							    <option selected value="1">사용</option>
 							  <option value="0">미사용</option>
 							  </select>
 							</div>
 							<div class="col-md-3">
 							  <label class="form-label">리그 <span class="text-danger"> *</span></label>
-							  <select class="form-select"  name="tmLeague" id="tmLeague">
+							  <select class="form-select"  name="tmLeague" id="tmLeague" th:value="${item?.tmLeague}">
 								<option selected value="">리그 선택</option>
 							    <!--<option th:each="list:${league}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
-								<option th:each="list : ${@codeService.selectListCachedCode(3)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
-							  </select>
-							</div>
+								<option th:each="list : ${@codeService.selectListCachedCode(3)}" th:value="${list.cdSeq}" th:text="${list.cdName}" th:selected="${item.tmLeague} == ${list.cdSeq}"></option>								
+							 </select>
+							 <div id="tmLeagueError" class="invalid-feedback">올바르지 않은 형식</div>
+						 </div>
 							<div class="col-md-3">
 							  <label class="form-label">소속 <span class="text-danger"> *</span></label>
-							  <select class="form-select" name="tmDiv" id="tmDiv">
+							  <select class="form-select" name="tmDiv" id="tmDiv" th:value="${item?.tmDiv}">
 								 <option selected value="">소속 선택</option>
-								 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
-								 <option th:each="list : ${@codeService.selectListCachedCode(4)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+								 <option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}" th:selected="${item.tmDiv} == ${list.cdSeq}"></option>				 
 							 </select>
+							 <div id="tmDivError" class="invalid-feedback">올바르지 않은 형식</div>		
 							</div>                       
                         
                         <div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">팀 이름(연고지, 영문)<span class="text-danger"> *</span></label>
-							  <input type="text" name="tmHomeName" id="tmHomeName" class="form-control" placeholder="영어">
+							  <input type="text" name="tmHomeName" id="tmHomeName" class="form-control" placeholder="영어" th:value="${item?.tmHomeName}" required>
+							  <div id="tmHomeNameError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
                           <div class="col-md-3">
                             <label class="form-label">팀 이름(구단명, 영문)<span class="text-danger"> *</span></label>
-                            <input type="text" name="tmName" id="tmName" class="form-control" placeholder="영어">
+                            <input type="text" name="tmName" id="tmName" class="form-control" placeholder="영어" th:value="${item?.tmName}" required>
+							<div id="tmNameError" class="invalid-feedback">올바르지 않은 형식</div>
                           </div>
 						  <div class="col-md-3">
 						    <label class="form-label">팀 이름(연고지, 한글)<span class="text-danger"> *</span></label>
-						    <input type="text" name="tmHomeNameKor" id="tmHomeNameKor" class="form-control" placeholder="한글">
+						    <input type="text" name="tmHomeNameKor" id="tmHomeNameKor" class="form-control" placeholder="한글" th:value="${item?.tmHomeNameKor}" required>
+							<div id="tmHomeNameKorError" class="invalid-feedback">올바르지 않은 형식</div> 
 						  </div>
 						  <div class="col-md-3">
 						    <label class="form-label">팀 이름(구단명, 한글)<span class="text-danger"> *</span></label>
-						    <input type="text" name="tmNameKor" id="tmNameKor" class="form-control" placeholder="한글">
+						    <input type="text" name="tmNameKor" id="tmNameKor" class="form-control" placeholder="한글" th:value="${item?.tmNameKor}" required>
+							<div id="tmNameKorError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
 						    <label class="form-label">팀 약어<span class="text-danger"> *</span></label>
-						    <input type="text" name="tmNameAb" id="tmNameAb" class="form-control" placeholder="영어">
+						    <input type="text" name="tmNameAb" id="tmNameAb" class="form-control" placeholder="영어" th:value="${item?.tmNameAb}" required>
+							<div id="tmNameAbError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
                         </div>
                         <div class="row g-3 mt-1">
@@ -98,12 +106,18 @@
                         </div>
                       </div>
                       
-                      <div class="mt-3 d-flex">
-                        <button type="button" class="btn btn-light" onclick="window.location.href='codeGroupXdmList';">
-							<i class="fa-solid fa-list"></i>
-						</button>
-                        <button type="button" id="btnSave" class="btn btn-primary ms-auto"><i class="fa-solid fa-database"></i></button>
-                      </div>
+					  <div class="mt-3 d-flex">
+					    <button type="button" class="btn btn-light" onclick="window.location.href='CodeXdmList';">
+					  	<i class="fa-solid fa-list"></i>
+					  </button>
+
+					  <div class="ms-auto d-flex gap-1">
+					      <button type="button" id="btnDelete" class="btn btn-danger"><i class="fa fa-times"></i></button>
+					      <button type="button" id="btnUelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+					      <button type="button" id="btnSave" class="btn btn-primary">
+					          <i class="fa-solid fa-database"></i>
+					      </button>
+					  </div>
 					  </form>
 					 </div>
                     </div>
@@ -115,24 +129,9 @@
         </div>
        </div>
       </div>
-		<div id="myModal" class="modal" tabindex="-1">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title">경고!</h5>
-		        <button id="btnClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-		        <p>잘 입력해주세요</p>
-		      </div>
-		      <div class="modal-footer">
-		        <button id="btnConfirm" type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
         <!--end::App Content-->
       </main>
+	  <div th:replace="~{xdm/include/modal :: modal}"></div>
       <!--end::App Main-->
       <!--begin::Footer-->
 	  <script
@@ -155,6 +154,7 @@
 	  <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
 	  <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
 	  <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	  <script>
 	    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
 	    const Default = {
@@ -176,48 +176,159 @@
 	    });
 	  </script>
       <script type="text/javascript">	
-		
-		  document.getElementById("btnSave").onclick= function () {
-		    document.getElementById("form").submit();
-		  }
 
-/*		
-		document.addEventListener("DOMContentLoaded", function () {
-		    let cgName = document.getElementById("cgName");
-		    let myModal = document.getElementById("myModal");
-		    let btnSave = document.getElementById("btnSave");
-		    let form = document.getElementById("form");
-		    let btnClose = document.getElementById("btnClose");
-		    let btnConfirm = document.getElementById("btnConfirm");
 
-		    let modalInstance = new bootstrap.Modal(myModal);
+		let tmSeq = document.querySelector("input[name=tmSeq]");
+		let TeamXdmInst = "/team/TeamXdmInst";
+		let TeamXdmUpdt = "/team/TeamXdmUpdt";		
 
-		    btnSave.onclick = function () {
-		        if (cgName.value.trim() === "") {
-		            modalInstance.show();
-		            return false; 
+		document.getElementById("btnSave").onclick = function () {
+		    function validation() {
+		        let isValid = true;
+
+		        // 코드이름 유효성 검사
+		        const tmHomeName = document.getElementById('tmHomeName');
+		        const tmHomeNameError = document.getElementById('tmHomeNameError');
+		        if (tmHomeName.value.trim() === "") {
+		            tmHomeNameError.textContent = "이름을 입력하세요.";
+		            tmHomeName.classList.add("is-invalid");
+		            isValid = false;
+		        } else {
+		            tmHomeNameError.textContent = "";
+		            tmHomeName.classList.remove("is-invalid");
 		        }
-		        form.submit();
-		    };
 
-		    // X 버튼 클릭 시 모달 닫기
-		    btnClose.onclick = function () {
-		        modalInstance.hide();
-		    };
+		        // 코드그룹 선택 여부 확인
+		        const tmLeague = document.getElementById('tmLeague');
+		        const tmLeagueError = document.getElementById('tmLeagueError');
+		        if (tmLeague.value.trim() === "") {
+		            tmLeagueError.textContent = "리그를 선택하세요.";
+		            tmLeague.classList.add("is-invalid");
+		            isValid = false;
+		        } else {
+		            tmLeagueError.textContent = "";
+		            tmLeague.classList.remove("is-invalid");
+		        }
+				
+				const tmDiv = document.getElementById('tmDiv');
+				const tmDivError = document.getElementById('tmDivError');
+				if (tmDiv.value.trim() === "") {
+				    tmDivError.textContent = "디비전을 선택하세요.";
+				    tmDiv.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    tmDivError.textContent = "";
+				    tmDiv.classList.remove("is-invalid");
+				}
 
-		    // 확인 버튼 클릭 시 모달 닫기
-		    btnConfirm.onclick = function () {
-		        modalInstance.hide();
-		    };
-		});
-	
-		
-*/		
-        
-      //	document.getElementById("companyName").onclick= function () {
-      //		alert("name")
-      //	}   
+		        // 순서 필드 유효성 검사 (숫자 입력)
+				const tmName = document.getElementById('tmName');
+				const tmNameError = document.getElementById('tmNameError');
+				if (tmName.value.trim() === "") {
+				    tmNameError.textContent = "이름을 입력하세요.";
+				    tmName.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    tmNameError.textContent = "";
+				    tmName.classList.remove("is-invalid");
+				}
+
+				const tmHomeNameKor = document.getElementById('tmHomeNameKor');
+				const tmHomeNameKorError = document.getElementById('tmHomeNameKorError');
+				if (tmHomeNameKor.value.trim() === "") {
+				    tmHomeNameKorError.textContent = "이름을 입력하세요.";
+				    tmHomeNameKor.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    tmHomeNameKorError.textContent = "";
+				    tmHomeNameKor.classList.remove("is-invalid");
+				}
+				
+				const tmNameKor = document.getElementById('tmNameKor');
+				const tmNameKorError = document.getElementById('tmNameKorError');
+				if (tmNameKor.value.trim() === "") {
+				    tmNameKorError.textContent = "이름을 입력하세요.";
+				    tmNameKor.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    tmNameKorError.textContent = "";
+				    tmNameKor.classList.remove("is-invalid");
+				}
+				
+				const tmNameAb = document.getElementById('tmNameAb');
+				const tmNameAbError = document.getElementById('tmNameAbError');
+				if (tmNameAb.value.trim() === "") {
+				    tmNameAbError.textContent = "이름을 입력하세요.";
+				    tmNameAb.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    tmNameAbError.textContent = "";
+				    tmNameAb.classList.remove("is-invalid");
+				}
+
+		        return isValid;
+		    }
+
+		    // 유효성 검사 실행
+		    if (!validation()) {
+		        return; // 유효성 검사 실패 시 폼 제출 중단
+		    }
+
+		    // 폼 제출
+		    const form = document.querySelector("form"); // 폼 객체 가져오기
+		    const tmSeq = document.getElementById("tmSeq");
+
+		    if (tmSeq.value === "0" || tmSeq.value === "") {
+		        form.action = "/team/TeamXdmInst"; // 새로운 코드그룹 생성
+		    } else {
+		        form.action = "/team/TeamXdmUpdt"; // 기존 코드그룹 업데이트
+		    }
+
+		    // 폼 제출
+		    form.submit();
+			}
       </script>
+	  
+	   <script>
+	  let form = document.getElementById("form");
+	  let TeamXdmUele = "/team/TeamXdmUele"
+	  let TeamXdmDele = "/team/TeamXdmDele"	
+	  	
+	    if(document.getElementById("btnUelete")){
+	    	document.getElementById("btnUelete").onclick = function () {
+	    		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	    		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	    		document.querySelector("#btnModalUelete").style.display = '';
+	    		document.querySelector("#btnModalDelete").style.display = 'none';
+	    		$("#modalConfirm").modal("show");	     	
+	    	}
+	    }
+
+
+	    document.getElementById("btnModalUelete").onclick = function () {
+	    	form.action = TeamXdmUele;
+	    	form.submit();
+	    }
+	    </script>
+	    
+	     <script>
+	    	
+	      if(document.getElementById("btnDelete")){
+	      	document.getElementById("btnDelete").onclick = function () {
+	      		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	      		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	      		document.querySelector("#btnModalUelete").style.display = 'none';
+	      		document.querySelector("#btnModalDelete").style.display = '';
+	      		$("#modalConfirm").modal("show");	     	
+	      	}
+	      }
+
+
+	      document.getElementById("btnModalDelete").onclick = function () {
+	      	form.action = TeamXdmDele;
+	      	form.submit();
+	      }
+	      </script>
 	  
 
 	  <div th:replace="~{xdm/include/footer :: footer}"></div>

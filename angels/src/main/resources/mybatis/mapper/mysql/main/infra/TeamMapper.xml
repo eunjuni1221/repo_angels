@@ -135,7 +135,7 @@
    </select>
 	
 		<update id="update">
-	update code set
+	update team set
 		tmUse = #{tmUse},
 		tmHomeName = #{tmHomeName},
 		tmName = #{tmName},
@@ -143,7 +143,7 @@
 		tmHomeNameKor = #{tmHomeNameKor},
 		tmLeague = #{tmLeague},
 		tmDiv = #{tmDiv},
-		cdEdDate = now()
+		tmModTime = now()
 	where
 		tmSeq = #{tmSeq}
 	

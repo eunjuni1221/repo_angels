@@ -1,0 +1,214 @@
+2025-03-30T22:25:03.804 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+199. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 2 msec} 
+2025-03-30T22:25:03.808 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:25:03.810 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+199. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-30T22:25:03.811 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:25:08.388 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+199. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 3 msec} 
+2025-03-30T22:25:08.388 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:25:08.391 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+199. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-30T22:25:08.394 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:25:36.250 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+199. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 0 msec} 
+2025-03-30T22:25:36.250 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:25:36.252 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+199. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:25:36.254 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:25:41.026 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+199. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 0 msec} 
+2025-03-30T22:25:41.026 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:25:41.027 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+199. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:25:41.028 [http-nio-80

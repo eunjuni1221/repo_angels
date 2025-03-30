@@ -10,5 +10,10 @@ public interface TeamDao {
 	public List<TeamDto> league();
 	public List<TeamDto> division();
 	public List<TeamDto> selectListCachedCodeArrayList();
+	public int update(TeamDto teamDto);
+	public TeamDto selectOne(TeamDto teamDto);
+	public int uelete(TeamDto teamDto);
+	public int delete(TeamDto teamDto);
+	
 
 }
