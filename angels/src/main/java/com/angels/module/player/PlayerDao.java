@@ -16,5 +16,8 @@ public interface PlayerDao {
 	public List<PlayerDto> selectNationality();
 	public List<PlayerDto> selectStatus();
 	public List<PlayerDto> selectListCachedCodeArrayList();
-
+	public PlayerDto selectOne(PlayerDto playerDto);
+	public int uelete(PlayerDto playerDto);
+	public int delete(PlayerDto playerDto);
+	public int update(PlayerDto playerDto);
 }

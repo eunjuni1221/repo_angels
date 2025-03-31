@@ -5,6 +5,7 @@
 	<form name="formList" id="formList" method="post" autocomplete="off">
 	  	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
 	  	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+		<input type="hidden" name="pySeq"/>
       <main class="app-main" style="overflow-x: hidden;">
         <!--begin::App Content Header-->
         <div class="app-content-header">
@@ -38,7 +39,7 @@
                     <div class="card-header"><h3 class="card-title">Stadium</h3></div>
                     <div class="card-body"> 
                       <div class="container-fluid">
-                        <div class="row row-cols-5 g-2">
+                        <div class="row row-cols-6 g-2">
                           <div class="col">
 							<select id="shDelNy" name="shDelNy" class="form-select form-select-sm" style="width: 100%;">
 							  <option value="" th:selected="${vo.shDelNy == null}">삭제여부</option>
@@ -61,32 +62,11 @@
 						  </select>
 						  </div>
 						  <div class="col">
-						    <input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
+						    <input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shDateStart}">
 						  </div>
 						  <div class="col">
-						    <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
+						    <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shDateEnd}">
 						  </div> 
-                          <div class="col">
-							<select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
-								<option value="" th:selected="${vo.shOption == null}">검색구분</option>
-								<option value="1" th:selected="${vo.shOption == 1}">코드 번호</option>
-								<option value="2" th:selected="${vo.shOption == 2}">성(영문)</option>
-								<option value="3" th:selected="${vo.shOption == 3}">이름(영문)</option>
-								<option value="4" th:selected="${vo.shOption == 4}">본명(영문)</option>
-								<option value="5" th:selected="${vo.shOption == 5}">성(한글)</option>
-								<option value="6" th:selected="${vo.shOption == 6}">이름(한글)</option>
-								<option value="7" th:selected="${vo.shOption == 7}">본명(한글)</option>
-								<option value="8" th:selected="${vo.shOption == 8}">별명</option>
-								<option value="11" th:selected="${vo.shOption == 9}">출생지</option>
-								<option value="12" th:selected="${vo.shOption == 10}">등번호</option>
-								<option value="13" th:selected="${vo.shOption == 11}">키(cm)</option>
-								<option value="14" th:selected="${vo.shOption == 12}">키(ft)</option>
-								<option value="15" th:selected="${vo.shOption == 13}">몸무게(kg)</option>
-								<option value="16" th:selected="${vo.shOption == 14}">몸무게(lb)</option>
-								<option value="17" th:selected="${vo.shOption == 15}">출신교</option>
-								<option value="18" th:selected="${vo.shOption == 16}">드래프트</option>
-							</select>
-                          </div>
 						  <div class="col">
 						  <select class="form-select form-select-sm" id="shTeamOption" name="shTeamOption">
 						  <option selected value="">팀 선택</option>
@@ -118,14 +98,48 @@
 						    </select>
 						  </div>
 						  <div class="col">
-						    <select id="shNation" name="shNation" class="form-select form-select-sm">  
-						    <option value="">국적</option>
-						    <option th:selected="${list.cdSeq} ==${vo.shNation}" th:each="list : ${@codeService.selectListCachedCode(8)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
-						    </select>
+						  <select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
+						  	<option value="" th:selected="${vo.shOption == null}">검색구분</option>
+						  	<option value="1" th:selected="${vo.shOption == 1}">코드 번호</option>
+						  	<option value="2" th:selected="${vo.shOption == 2}">성(영문)</option>
+						  	<option value="3" th:selected="${vo.shOption == 3}">이름(영문)</option>
+						  	<option value="4" th:selected="${vo.shOption == 4}">본명(영문)</option>
+						  	<option value="5" th:selected="${vo.shOption == 5}">성(한글)</option>
+						  	<option value="6" th:selected="${vo.shOption == 6}">이름(한글)</option>
+						  	<option value="7" th:selected="${vo.shOption == 7}">본명(한글)</option>
+						  	<option value="8" th:selected="${vo.shOption == 8}">별명</option>
+						  	<option value="11" th:selected="${vo.shOption == 9}">출생지</option>
+						  	<option value="12" th:selected="${vo.shOption == 10}">등번호</option>
+						  	<option value="13" th:selected="${vo.shOption == 11}">키(cm)</option>
+						  	<option value="14" th:selected="${vo.shOption == 12}">키(ft)</option>
+						  	<option value="15" th:selected="${vo.shOption == 13}">몸무게(kg)</option>
+						  	<option value="16" th:selected="${vo.shOption == 14}">몸무게(lb)</option>
+						  	<option value="17" th:selected="${vo.shOption == 15}">출신교</option>
+						  	<option value="18" th:selected="${vo.shOption == 16}">드래프트</option>
+						  </select>
 						  </div>     
 						  <div class="col">
 						    <input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" class="form-control form-control-sm" placeholder="검색어">
 						  </div>
+						  <div class="col">
+						    <select id="shNation" name="shNation" class="form-select form-select-sm">  
+						    <option value="">국적</option>
+						    <option th:selected="${list.cdSeq} ==${vo.shNation}" th:each="list : ${@codeService.selectListCachedCode(8)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+						    </select>
+						  </div>
+						  <div class="col">
+						  <select id="shOptionYear" name="shOptionYear" class="form-select form-select-sm" style="width: 100%;">
+						  	<option value="" th:selected="${vo.shOptionYear == null}">(데뷔연도, 출생연도)</option>
+						  	<option value="1" th:selected="${vo.shOptionYear == 1}">데뷔연도</option>
+						  	<option value="2" th:selected="${vo.shOptionYear == 2}">출생연도</option>
+						  </select>
+						  </div>
+						  <div class="col">
+						    <input type="text" id="shYearStart" name="shYearStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shYearStart}">
+						  </div>
+						  <div class="col">
+						    <input type="text" id="shYearEnd" name="shYearEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shYearEnd}">
+						  </div> 
                           <div class="d-flex gap-2">
                             <button id="btnSearch" class="btn btn-light btn-sm" >
                               <i class="fa-solid fa-magnifying-glass"></i>
@@ -211,7 +225,7 @@
 			            <td th:text="${list.tmNameAb}"></td>
 			            <td th:text="${list.pySeq}"></td>
 			            <td th:text="${list.pyGivenName}"></td>
-			            <td th:text="${list.pyFamilyName}"></td>
+			            <td class="pyFamilyName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.pyFamilyName}" th:attr="onclick=|goForm('${list.pySeq}')|"></a></td>
 			            <td th:text="${list.pyOriName}"></td>
 			            <td th:text="${list.pyFamliyNameKor}"></td>  
 			            <td th:text="${list.pyGivenNameKor}"></td>
@@ -268,7 +282,7 @@
 			      <div class="d-flex gap-1">
 			        <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
 			        <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-			        <a href="PlayerXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+			        <button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>
 			      </div>
 			    </div>
 			  </div>
@@ -301,6 +315,9 @@
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	<script src="/xdm/jquery/jquery-3.7.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -364,9 +381,33 @@
 	
 	<script>
 		document.getElementById("btnSearch").onclick = function () {
-		    form.action = PlayerXdmList;
+		    form.action = "/player/PlayerXdmList";
 		    form.submit();
 		};
+		
+	</script>
+	
+	<script>
+		document.getElementById("changeRowNum").onchange = function () {
+		    document.getElementById("rowNumToShow").value = document.getElementById("changeRowNum").value;
+		    form.action = "/player/PlayerXdmList";
+		    form.submit();
+		}			
+	</script>
+
+	<script>
+		let seq = document.querySelector("input[name=pySeq]");
+		
+		document.getElementById("btnForm").onclick = function () {
+		    goForm(0);
+		}
+
+
+		goForm = function (keyValue) {
+		    seq.value = keyValue;
+		    form.action = "/player/PlayerXdmForm";
+		    form.submit();
+		}
 		
 	</script>
     <!--end::OverlayScrollbars Configure-->

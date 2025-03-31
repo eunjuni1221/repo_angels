@@ -3,6 +3,7 @@ package com.angels.module.player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.angels.module.team.TeamDto;
@@ -20,7 +21,6 @@ public class PlayerController {
 		model.addAttribute("selectTeam",playerService.selectTeam());
 		
 		if(vo.getTotalRows() > 0) {
-			System.out.println(vo.getShUseNy() + "@@@@@@@@@@@@@@@@@@@@@@");
 		model.addAttribute("list", playerService.selectList(vo));
 		}
 		
@@ -29,21 +29,46 @@ public class PlayerController {
 	}
 	
 	@RequestMapping(value = "/player/PlayerXdmForm")
-	public String playerXdmForm(Model model) {
+	public String playerXdmForm(@ModelAttribute("vo") PlayerVo vo, Model model, PlayerDto dto) throws Exception {
 		model.addAttribute("selectTeam",playerService.selectTeam());
 		model.addAttribute("selectPosition",playerService.selectPosition());
 		model.addAttribute("selectThrowHand",playerService.selectThrowHand());
 		model.addAttribute("selectBatHand",playerService.selectBatHand());
 		model.addAttribute("selectNationality",playerService.selectNationality());
 		model.addAttribute("selectStatus",playerService.selectStatus());
+		
+		if (vo.getPySeq().equals("0") || vo.getPySeq().equals("")) {
+//			insert mode
+			model.addAttribute("item", dto);
+		} else {
+//			update mode
+			model.addAttribute("item", playerService.selectOne(dto));
+		}
+		
 	return "xdm/player/PlayerXdmForm"; 
 	}
 	
 	@RequestMapping(value = "/player/PlayerXdmInst")
 	public String playerXdmInst(PlayerDto playerDto) {
-		playerService.insert(playerDto);
-		
+		playerService.insert(playerDto);	
 		return "redirect:PlayerXdmList";
 	}
 	
+	@RequestMapping(value = "/player/PlayerXdmUpdt")
+	public String playerXdmUpdt(PlayerDto playerDto) {
+		playerService.update(playerDto);		
+		return "redirect:PlayerXdmList";
+	}
+	
+	@RequestMapping(value = "/player/PlayerXdmUele")
+	public String playerXdmUele(PlayerDto playerDto) {
+		playerService.insert(playerDto);		
+		return "redirect:PlayerXdmList";
+	}
+	
+	@RequestMapping(value = "/player/PlayerXdmDele")
+	public String playerXdmDele(PlayerDto playerDto) {
+		playerService.insert(playerDto);		
+		return "redirect:PlayerXdmList";
+	}
 }

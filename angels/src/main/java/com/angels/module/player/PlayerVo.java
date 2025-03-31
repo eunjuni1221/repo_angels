@@ -21,7 +21,7 @@ public class PlayerVo {
 //	search
 	private Integer shUseNy = 1; 									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private Integer shDelNy = 0; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
-	private Integer shOptionDate = 2;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shOptionDate;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOption;									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
@@ -32,8 +32,54 @@ public class PlayerVo {
 	private String shThrow;
 	private String shBat;
 	private String shNation;
+	private Integer shOptionYear;
+	private String shYearStart;
+	private String shYearEnd;
+	
+	private String pySeq;
 	
 	
+	
+
+
+	public Integer getShOptionYear() {
+		return shOptionYear;
+	}
+
+
+	public void setShOptionYear(Integer shOptionYear) {
+		this.shOptionYear = shOptionYear;
+	}
+
+
+	public String getShYearStart() {
+		return shYearStart;
+	}
+
+
+	public void setShYearStart(String shYearStart) {
+		this.shYearStart = shYearStart;
+	}
+
+
+	public String getShYearEnd() {
+		return shYearEnd;
+	}
+
+
+	public void setShYearEnd(String shYearEnd) {
+		this.shYearEnd = shYearEnd;
+	}
+
+
+	public String getPySeq() {
+		return pySeq;
+	}
+
+
+	public void setPySeq(String pySeq) {
+		this.pySeq = pySeq;
+	}
 
 
 	public String getShStatus() {

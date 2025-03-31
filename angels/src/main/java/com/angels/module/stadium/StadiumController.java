@@ -29,7 +29,7 @@ public class StadiumController {
 		return "xdm/stadium/StadiumXdmList";
 	}
 	@RequestMapping(value = "/stadium/StadiumXdmForm")
-	public String stadiumXdmForm(@ModelAttribute("vo") StadiumVo vo, Model model, StadiumDto dto) {
+	public String stadiumXdmForm(@ModelAttribute("vo") StadiumVo vo, Model model, StadiumDto dto) throws Exception {
 		model.addAttribute("selectTeam",stadiumService.selectTeam());
 		
 		if (vo.getStSeq().equals("0") || vo.getStSeq().equals("")) {

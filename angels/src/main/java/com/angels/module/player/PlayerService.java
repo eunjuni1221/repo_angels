@@ -40,5 +40,16 @@ public class PlayerService {
 	public List<PlayerDto> selectStatus(){
 		return playerDao.selectStatus();
 	}
-
+	public PlayerDto selectOne(PlayerDto playerDto) {
+		return playerDao.selectOne(playerDto);
+	}
+	public int update(PlayerDto playerDto) {
+		return playerDao.update(playerDto);
+	}
+	public int uelete(PlayerDto playerDto) {
+		return playerDao.uelete(playerDto);
+	}
+	public int delete(PlayerDto playerDto) {
+		return playerDao.delete(playerDto);
+	}
 }

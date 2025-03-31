@@ -2,6 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	
 <div th:replace="~{xdm/include/head :: head}"></div>
+<div th:replace="~{xdm/player/PlayerXdmVo :: vo}"></div>
 
         <!--end::Sidebar Wrapper-->
       </aside>
@@ -43,7 +44,8 @@
                             <div class="col-md-3">
 						<form action="/player/PlayerXdmInst" method="post" enctype="multipart/form-data" id="form">	
 							 <label class="form-label">코드 번호<span class="text-danger"> *</span></label>
-							<input type="text" name="pySeq" id="pySeq" class="form-control" placeholder="자동생성" disabled>
+							 <input type="hidden" id="pySeq" name="pySeq" th:value="${item?.pySeq}" maxlength="20" placeholder="자동생성" class="form-control" />
+							 <input type="text" name="pySeq" id="pySeq" class="form-control" value="자동생성" disabled style="background-color: grey;">
                             </div>
 							<div class="col-md-3">
 							  <label class="form-label">사용여부 <span class="text-danger"> *</span></label>
@@ -58,48 +60,58 @@
 								<option selected value="">팀 선택</option>
 							    <option th:each="list:${selectTeam}" th:text="${list.tmNameAb}" th:value="${list.tmSeq}"></option>
 							  </select>
+							  <div id="teamError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>                  
                         
                         <div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">이름(영문)<span class="text-danger"> *</span></label>
-							  <input type="text" name="pyGivenName" id="pyGivenName" class="form-control" placeholder="영어">
+							  <input type="text" name="pyGivenName" id="pyGivenName" class="form-control" placeholder="영어" required>
+							  <div id="pyGivenNameError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
                           <div class="col-md-3">
                             <label class="form-label">성(영문)<span class="text-danger"> *</span></label>
-                            <input type="text" name="pyFamilyName" id="pyFamilyName" class="form-control" placeholder="영어">
+                            <input type="text" name="pyFamilyName" id="pyFamilyName" class="form-control" placeholder="영어" required>
+							<div id="pyFamilyNameError" class="invalid-feedback">올바르지 않은 형식</div>
                           </div>
 						  <div class="col-md-3">
 						    <label class="form-label">본명(영문)<span class="text-danger"> *</span></label>
-						    <input type="text" name="pyOriName" id="pyOriName" class="form-control" placeholder="영어">
+						    <input type="text" name="pyOriName" id="pyOriName" class="form-control" placeholder="영어" required>
+							<div id="pyOriNameError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
                         </div>
 						<div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">성(한글)<span class="text-danger"> *</span></label>
-							  <input type="text" name="pyFamliyNameKor" id="pyGivenName" class="form-control" placeholder="한글">
+							  <input type="text" name="pyFamliyNameKor" id="pyFamliyNameKor" class="form-control" placeholder="한글" required>
+							  <div id="pyFamliyNameKorError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">이름(한글)<span class="text-danger"> *</span></label>
-						    <input type="text" name="pyGivenNameKor" id="pyFamilyName" class="form-control" placeholder="한글">
+						    <input type="text" name="pyGivenNameKor" id="pyGivenNameKor" class="form-control" placeholder="한글" required>
+							<div id="pyGivenNameKorError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
 						    <label class="form-label">본명(한글)<span class="text-danger"> *</span></label>
-						    <input type="text" name="pyOriNameKor" id="pyOriName" class="form-control" placeholder="한글">
+						    <input type="text" name="pyOriNameKor" id="pyOriNameKor" class="form-control" placeholder="한글" required>
+							<div id="pyOriNameKorError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						</div>
 						<div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">별명<span class="text-danger"> *</span></label>
-							  <input type="text" name="nickName" id="nickName" class="form-control" placeholder="영어">
+							  <input type="text" name="nickName" id="nickName" class="form-control" placeholder="영어" required>
 							</div>
 							<div class="col-md-3">
 							  <label for="birthday" class="form-label">생일<span class="text-danger"> *</span></label>
 							  <input type="date" name="birthday" id="birthday" class="form-control" required>
+							  <div id="birthdayError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">출생지<span class="text-danger"> *</span></label>
-						    <input type="text" name="homeTown" id="homeTown" class="form-control" placeholder="영어">
+						    <input type="text" name="homeTown" id="homeTown" class="form-control" placeholder="영어" required>
+							<div id="homeTownError" class="invalid-feedback">올바르지 않은 형식</div>
+
 						  </div>
 						  <div class="col-md-3">
 							<label class="form-label">국적 <span class="text-danger"> *</span></label>
@@ -108,6 +120,7 @@
 							 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
 							 <option th:each="list : ${@codeService.selectListCachedCode(8)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
 							</select>
+							<div id="nationalityError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						</div>
 						<div class="row g-3 mt-1">
@@ -118,6 +131,7 @@
 								 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
 								 <option th:each="list : ${@codeService.selectListCachedCode(6)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
 								</select>
+								<div id="throwHandError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 							<div class="col-md-3">
 								<label class="form-label">타석 <span class="text-danger"> *</span></label>
@@ -126,10 +140,12 @@
 								 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
 								 <option th:each="list : ${@codeService.selectListCachedCode(7)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
 								</select>
+								<div id="batHandError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">등번호<span class="text-danger"> *</span></label>
-						    <input type="text" name="jerseyNumber" id="jerseyNumber" class="form-control" placeholder="영어">
+						    <input type="text" name="jerseyNumber" id="jerseyNumber" class="form-control" placeholder="숫자" required>
+							<div id="jerseyNumberError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
 						    <label class="form-label">포지션 <span class="text-danger"> *</span></label>
@@ -138,38 +154,46 @@
 						  	 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
 						  	 <option th:each="list : ${@codeService.selectListCachedCode(5)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
 						   </select>
+						   <div id="positionError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>  
 						</div>
 						<div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">키(cm)<span class="text-danger"> *</span></label>
-							  <input type="text" name="heightCm" id="heightCm" class="form-control" placeholder="숫자">
+							  <input type="text" name="heightCm" id="heightCm" class="form-control" placeholder="숫자" required>
+							  <div id="heightCmError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 							<div class="col-md-3">
 								<label class="form-label">키(ft)<span class="text-danger"> *</span></label>
-								<input type="text" name="heightFt" id="heightFt" class="form-control" placeholder="영어">
+								<input type="text" name="heightFt" id="heightFt" class="form-control" placeholder="문자열" required>
+								<div id="heightFtError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">몸무게(kg)<span class="text-danger"> *</span></label>
-						    <input type="text" name="weightKg" id="weightKg" class="form-control" placeholder="영어">
+						    <input type="text" name="weightKg" id="weightKg" class="form-control" placeholder="숫자" required>
+							<div id="weightKgError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
 						    <label class="form-label">몸무게(lb)<span class="text-danger"> *</span></label>
-						    <input type="text" name="weightLb" id="weightLb" class="form-control" placeholder="영어">
+						    <input type="text" name="weightLb" id="weightLb" class="form-control" placeholder="숫자" required>
+							<div id="weightLbError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						</div>
 						<div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">출신교<span class="text-danger"> *</span></label>
-							  <input type="text" name="finalSchoolHistory" id="finalSchoolHistory" class="form-control" placeholder="영어">
-							</div>
+							  <input type="text" name="finalSchoolHistory" id="finalSchoolHistory" class="form-control" placeholder="영어" required>
+							  <div id="finalSchoolHistoryError" class="invalid-feedback">올바르지 않은 형식</div>
+						  </div>
 							<div class="col-md-3">
 							  <label for="birthday" class="form-label">데뷔일<span class="text-danger"> *</span></label>
 							  <input type="date" name="debut" id="debut" class="form-control" required>
+							  <div id="debutError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">드래프트<span class="text-danger"> *</span></label>
-						    <input type="text" name="Draft" id="Draft" class="form-control" placeholder="영어">
+						    <input type="text" name="Draft" id="Draft" class="form-control" placeholder="영어" required>
+							<div id="DraftError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
 						    <label class="form-label">현역 <span class="text-danger"> *</span></label>
@@ -178,6 +202,7 @@
 						  	 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
 						  	 <option th:each="list : ${@codeService.selectListCachedCode(10)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
 						   </select>
+						   <div id="statusError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>    
 						</div>
                         <div class="row g-3 mt-1">
@@ -187,12 +212,19 @@
                         </div>
                       </div>
                       
-                      <div class="mt-3 d-flex">
-                        <button type="button" class="btn btn-light" onclick="window.location.href='codeGroupXdmList';">
-							<i class="fa-solid fa-list"></i>
-						</button>
-                        <button type="button" id="btnSave" class="btn btn-primary ms-auto"><i class="fa-solid fa-database"></i></button>
-                      </div>
+					  <div class="mt-3 d-flex">
+					    <button type="button" class="btn btn-light" onclick="window.location.href='PlayerXdmList';">
+					  	<i class="fa-solid fa-list"></i>
+					  </button>
+
+					  <div class="ms-auto d-flex gap-1">
+					      <button type="button" id="btnDelete" class="btn btn-danger"><i class="fa fa-times"></i></button>
+					      <button type="button" id="btnUelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+					      <button type="button" id="btnSave" class="btn btn-primary">
+					          <i class="fa-solid fa-database"></i>
+					      </button>
+					  </div>
+					  </div>
 					  </form>
 					 </div>
                     </div>
@@ -204,22 +236,6 @@
         </div>
        </div>
       </div>
-		<div id="myModal" class="modal" tabindex="-1">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title">경고!</h5>
-		        <button id="btnClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-		        <p>잘 입력해주세요</p>
-		      </div>
-		      <div class="modal-footer">
-		        <button id="btnConfirm" type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
         <!--end::App Content-->
       </main>
       <!--end::App Main-->
@@ -266,46 +282,317 @@
 	  </script>
       <script type="text/javascript">	
 		
-		  document.getElementById("btnSave").onclick= function () {
-		    document.getElementById("form").submit();
-		  }
+		let pySeq = document.querySelector("input[name=pySeq]");
+		let PlayerXdmInst = "/player/PlayerXdmInst";
+		let PlayerXdmUpdt = "/player/PlayerXdmUpdt";		
 
-/*		
-		document.addEventListener("DOMContentLoaded", function () {
-		    let cgName = document.getElementById("cgName");
-		    let myModal = document.getElementById("myModal");
-		    let btnSave = document.getElementById("btnSave");
-		    let form = document.getElementById("form");
-		    let btnClose = document.getElementById("btnClose");
-		    let btnConfirm = document.getElementById("btnConfirm");
+		document.getElementById("btnSave").onclick = function () {
+		    function validation() {
+		        let isValid = true;
 
-		    let modalInstance = new bootstrap.Modal(myModal);
+				const englishRegex = /^[A-Za-z\s]+$/; // 영어와 공백만 허용
+				const koreanRegex = /^[가-힣ㄱ-ㅎ\s]+$/; // 한글과 공백만 허용
+				
+		        // 코드이름 유효성 검사
+		        const pyGivenName = document.getElementById('pyGivenName');
+		        const pyGivenNameError = document.getElementById('pyGivenNameError');
+				if (pyGivenName.value.trim() === "") {
+				    pyGivenNameError.textContent = "이름을 입력하세요.";
+				    pyGivenName.classList.add("is-invalid");
+				    isValid = false;
+				} else if (!englishRegex.test(pyGivenName.value.trim())) {
+				    pyGivenNameError.textContent = "영어만 입력 가능합니다.";
+				    pyGivenName.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    pyGivenNameError.textContent = "";
+				    pyGivenName.classList.remove("is-invalid");
+				}
 
-		    btnSave.onclick = function () {
-		        if (cgName.value.trim() === "") {
-		            modalInstance.show();
-		            return false; 
+
+		        // 코드그룹 선택 여부 확인
+		        const team = document.getElementById('team_tmSeq');
+		        const teamError = document.getElementById('teamError');
+		        if (team.value.trim() === "") {
+		            teamError.textContent = "팀을 선택하세요.";
+		            team.classList.add("is-invalid");
+		            isValid = false;
+		        } else {
+		            teamError.textContent = "";
+		            team.classList.remove("is-invalid");
 		        }
-		        form.submit();
-		    };
 
-		    // X 버튼 클릭 시 모달 닫기
-		    btnClose.onclick = function () {
-		        modalInstance.hide();
-		    };
+				const pyFamilyName = document.getElementById('pyFamilyName');
+				const pyFamilyNameError = document.getElementById('pyFamilyNameError');
+				if (pyFamilyName.value.trim() === "") {
+				    pyFamilyNameError.textContent = "성을 입력하세요.";
+				    pyFamilyName.classList.add("is-invalid");
+				    isValid = false;
+				} else if (!englishRegex.test(pyFamilyName.value.trim())) {
+				    pyFamilyNameError.textContent = "영어만 입력 가능합니다.";
+				    pyFamilyName.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    pyFamilyNameError.textContent = "";
+				    pyFamilyName.classList.remove("is-invalid");
+				}
+				
+				const pyOriName = document.getElementById('pyOriName');
+				const pyOriNameError = document.getElementById('pyOriNameError');
+				if (pyOriName.value.trim() === "") {
+				    pyOriNameError.textContent = "이름을 입력하세요.";
+				    pyOriName.classList.add("is-invalid");
+				    isValid = false;
+				} else if (!englishRegex.test(pyOriName.value.trim())) {
+				    pyOriNameError.textContent = "영어만 입력 가능합니다.";
+				    pyOriName.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    pyOriNameError.textContent = "";
+				    pyOriName.classList.remove("is-invalid");
+				}
+				
+				const pyFamliyNameKor = document.getElementById('pyFamliyNameKor');
+				const pyFamliyNameKorError = document.getElementById('pyFamliyNameKorError');
+				if (pyFamliyNameKor.value.trim() === "") {
+				    pyFamliyNameKorError.textContent = "성을 입력하세요.";
+				    pyFamliyNameKor.classList.add("is-invalid");
+				    isValid = false;
+				} else if (!koreanRegex.test(pyFamliyNameKor.value.trim())) {
+				    pyFamliyNameKorError.textContent = "한글만 입력 가능합니다.";
+				    pyFamliyNameKor.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    pyFamliyNameKorError.textContent = "";
+				    pyFamliyNameKor.classList.remove("is-invalid");
+				}
+				
+				const pyGivenNameKor = document.getElementById('pyGivenNameKor');
+				const pyGivenNameKorError = document.getElementById('pyGivenNameKorError');
+				if (pyGivenNameKor.value.trim() === "") {
+				    pyGivenNameKorError.textContent = "이름을 입력하세요.";
+				    pyGivenNameKor.classList.add("is-invalid");
+				    isValid = false;
+				} else if (!koreanRegex.test(pyGivenNameKor.value.trim())) {
+				    pyGivenNameKorError.textContent = "한글만 입력 가능합니다.";
+				    pyGivenNameKor.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    pyGivenNameKorError.textContent = "";
+				    pyGivenNameKor.classList.remove("is-invalid");
+				}
+				
+				const pyOriNameKor = document.getElementById('pyOriNameKor');
+				const pyOriNameKorError = document.getElementById('pyOriNameKorError');
+				if (pyOriNameKor.value.trim() === "") {
+				    pyOriNameKorError.textContent = "이름을 입력하세요.";
+				    pyOriNameKor.classList.add("is-invalid");
+				    isValid = false;
+				} else if (!koreanRegex.test(pyOriNameKor.value.trim())) {
+				    pyOriNameKorError.textContent = "한글만 입력 가능합니다.";
+				    pyOriNameKor.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    pyOriNameKorError.textContent = "";
+				    pyOriNameKor.classList.remove("is-invalid");
+				}
+				
+				const birthday = document.getElementById('birthday');
+				const birthdayError = document.getElementById('birthdayError');
+				if (birthday.value.trim() === "") {
+				    birthdayError.textContent = "생일을 입력해주세요.";
+				    birthday.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    birthdayError.textContent = "";
+				    birthday.classList.remove("is-invalid");
+				}
+				
+				const homeTown = document.getElementById('homeTown');
+				const homeTownError = document.getElementById('homeTownError');
+				if (homeTown.value.trim() === "") {
+				    homeTownError.textContent = "출신지를 입력하세요.";
+				    homeTown.classList.add("is-invalid");
+				    isValid = false;
+				} else if (!englishRegex.test(homeTown.value.trim())) {
+				    homeTownError.textContent = "영어만 입력 가능합니다.";
+				    homeTown.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    homeTownError.textContent = "";
+				    homeTown.classList.remove("is-invalid");
+				}
+				
+				const nationality = document.getElementById('nationality');
+				const nationalityError = document.getElementById('nationalityError');
+				if (nationality.value.trim() === "") {
+				    nationalityError.textContent = "국적을 선택해주세요.";
+				    nationality.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    nationalityError.textContent = "";
+				    nationality.classList.remove("is-invalid");
+				}
+				
+				const position = document.getElementById('position');
+				const positionError = document.getElementById('positionError');
+				if (position.value.trim() === "") {
+				    positionError.textContent = "포지션을 선택해주세요.";
+				    position.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    positionError.textContent = "";
+				    position.classList.remove("is-invalid");
+				}
+				
+				const throwHand = document.getElementById('throwHand');
+				const throwHandError = document.getElementById('throwHandError');
+				if (throwHand.value.trim() === "") {
+				    throwHandError.textContent = "던지는쪽을 선택해주세요.";
+				    throwHand.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    throwHandError.textContent = "";
+				    throwHand.classList.remove("is-invalid");
+				}
+				
+				const batHand = document.getElementById('batHand');
+				const batHandError = document.getElementById('batHandError');
+				if (batHand.value.trim() === "") {
+				    batHandError.textContent = "치는쪽을 선택해주세요.";
+				    batHand.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    batHandError.textContent = "";
+				    batHand.classList.remove("is-invalid");
+				}
+				
+				const jerseyNumber = document.getElementById('jerseyNumber');
+				const jerseyNumberError = document.getElementById('jerseyNumberError');
+				if (jerseyNumber.value.trim() === "" || isNaN(jerseyNumber.value.trim())) {
+				    jerseyNumberError.textContent = "숫자를 입력해주세요.";
+				    jerseyNumber.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    jerseyNumberError.textContent = "";
+				    jerseyNumber.classList.remove("is-invalid");
+				}
+				
+				const heightCm = document.getElementById('heightCm');
+				const heightCmError = document.getElementById('heightCmError');
+				if (heightCm.value.trim() === "" || isNaN(heightCm.value.trim())) {
+				    heightCmError.textContent = "숫자를 입력해주세요.";
+				    heightCm.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    heightCmError.textContent = "";
+				    heightCm.classList.remove("is-invalid");
+				}
+				
+				const heightFt = document.getElementById('heightFt');
+				const heightFtError = document.getElementById('heightFtError');
+				if (heightFt.value.trim() === "") {
+				    heightFtError.textContent = "문자열을 입력하세요.";
+				    heightFt.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    heightFtError.textContent = "";
+				    heightFt.classList.remove("is-invalid");
+				}
+				
+				const weightKg = document.getElementById('weightKg');
+				const weightKgError = document.getElementById('weightKgError');
+				if (weightKg.value.trim() === "" || isNaN(weightKg.value.trim())) {
+				    weightKgError.textContent = "숫자를 입력해주세요.";
+				    weightKg.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    weightKgError.textContent = "";
+				    weightKg.classList.remove("is-invalid");
+				}
 
-		    // 확인 버튼 클릭 시 모달 닫기
-		    btnConfirm.onclick = function () {
-		        modalInstance.hide();
-		    };
-		});
-	
-		
-*/		
-        
-      //	document.getElementById("companyName").onclick= function () {
-      //		alert("name")
-      //	}   
+				const weightLb = document.getElementById('weightLb');
+				const weightLbError = document.getElementById('weightLbError');
+				if (weightLb.value.trim() === "" || isNaN(weightLb.value.trim())) {
+				    weightLbError.textContent = "숫자를 입력해주세요.";
+				    weightLb.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    weightLbError.textContent = "";
+				    weightLb.classList.remove("is-invalid");
+				}
+				
+				const finalSchoolHistory = document.getElementById('finalSchoolHistory');
+				const finalSchoolHistoryError = document.getElementById('finalSchoolHistoryError');
+				if (finalSchoolHistory.value.trim() === "") {
+				    finalSchoolHistoryError.textContent = "이름을 입력하세요.";
+				    finalSchoolHistory.classList.add("is-invalid");
+				    isValid = false;
+				} else if (!englishRegex.test(finalSchoolHistory.value.trim())) {
+				    finalSchoolHistoryError.textContent = "영어만 입력 가능합니다.";
+				    finalSchoolHistory.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    finalSchoolHistoryError.textContent = "";
+				    finalSchoolHistory.classList.remove("is-invalid");
+				}
+
+				const debut = document.getElementById('debut');
+				const debutError = document.getElementById('debutError');
+				if (debut.value.trim() === "") {
+				    debutError.textContent = "데뷔날짜를 선택해주세요.";
+				    debut.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    debutError.textContent = "";
+				    debut.classList.remove("is-invalid");
+				}
+
+				const Draft = document.getElementById('Draft');
+				const DraftError = document.getElementById('DraftError');
+				if (Draft.value.trim() === "") {
+				    DraftError.textContent = "치는쪽을 선택해주세요.";
+				    Draft.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    DraftError.textContent = "";
+				    Draft.classList.remove("is-invalid");
+				}
+				
+				const status = document.getElementById('status');
+				const statusError = document.getElementById('statusError');
+				if (status.value.trim() === "") {
+				    statusError.textContent = "상태를 선택해주세요.";
+				    status.classList.add("is-invalid");
+				    isValid = false;
+				} else {
+				    statusError.textContent = "";
+				    status.classList.remove("is-invalid");
+				}
+
+
+		        return isValid;
+		    }
+
+		    // 유효성 검사 실행
+		    if (!validation()) {
+		        return; // 유효성 검사 실패 시 폼 제출 중단
+		    }
+
+		    // 폼 제출
+		    const form = document.querySelector("form"); // 폼 객체 가져오기
+		    const pySeq = document.getElementById("pySeq");
+
+		    if (pySeq.value === "0" || pySeq.value === "") {
+		        form.action = "/player/PlayerXdmInst"; // 새로운 코드그룹 생성
+		    } else {
+		        form.action = "/player/PlayerXdmUpdt"; // 기존 코드그룹 업데이트
+		    }
+
+		    // 폼 제출
+		    form.submit();
+		};
+
       </script>
 	  
 

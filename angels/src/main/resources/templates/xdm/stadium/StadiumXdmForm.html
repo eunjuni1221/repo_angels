@@ -88,7 +88,7 @@
                       </div>
                       
                       <div class="mt-3 d-flex">
-                        <button type="button" class="btn btn-light" onclick="window.location.href='codeGroupXdmList';">
+                        <button type="button" class="btn btn-light" onclick="window.location.href='StadiumXdmList';">
 							<i class="fa-solid fa-list"></i>
 						</button>
 						
@@ -169,7 +169,7 @@
 			        let isValid = true;
 
 					const englishRegex = /^[A-Za-z\s]+$/; // 영어와 공백만 허용
-					const koreanRegex = /^[가-힣\s]+$/; // 한글과 공백만 허용
+					const koreanRegex = /^[가-힣ㄱ-ㅎ\s]+$/; // 한글과 공백만 허용
 					
 			        // 코드이름 유효성 검사
 			        const stName = document.getElementById('stName');
@@ -218,10 +218,6 @@
 					    stAdressError.textContent = "주소를 입력하세요.";
 					    stAdress.classList.add("is-invalid");
 					    isValid = false;
-					} else if (!englishRegex.test(stAdress.value.trim())) {
-					    stAdressError.textContent = "영어만 입력 가능합니다.";
-					    stAdress.classList.add("is-invalid");
-					    isValid = false;
 					} else {
 					    stAdressError.textContent = "";
 					    stAdress.classList.remove("is-invalid");
@@ -260,7 +256,7 @@
 	  	
 	    if(document.getElementById("btnUelete")){
 	    	document.getElementById("btnUelete").onclick = function () {
-	    		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	    		document.querySelector("#modalConfirmTitle").textContent = "Uelete";
 	    		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
 	    		document.querySelector("#btnModalUelete").style.display = '';
 	    		document.querySelector("#btnModalDelete").style.display = 'none';
@@ -279,7 +275,7 @@
 	    	
 	      if(document.getElementById("btnDelete")){
 	      	document.getElementById("btnDelete").onclick = function () {
-	      		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	      		document.querySelector("#modalConfirmTitle").textContent = "Delete";
 	      		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
 	      		document.querySelector("#btnModalUelete").style.display = 'none';
 	      		document.querySelector("#btnModalDelete").style.display = '';

@@ -18,12 +18,12 @@
         <if test="shNation != null and !shNation.equals('')">AND p.nationality = #{shNation}</if>
         
         
-<!-- 				
+ 				
 			<choose>
-				<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-				<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 1">AND p.pyRegTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND p.pyModTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 			</choose>
--->				
+			
 
 <!-- 생일, 데뷔일 keep -->
          <choose>
@@ -44,6 +44,11 @@
             <when test="shOption == 15">AND p.finalSchoolHistory LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 16">AND p.Draft LIKE CONCAT('%',#{shValue},'%')</when>
         </choose>
+        
+			<choose>
+				<when test="shOptionYear == 1">AND p.debut BETWEEN #{shYearStart} AND #{shYearEnd}</when>
+				<when test="shOptionYear == 2">AND p.birthday BETWEEN #{shYearStart} AND #{shYearEnd}</when>
+			</choose>
         
 	</sql>
 
@@ -228,5 +233,85 @@
 
 	
 	</select>
+	
+	   <select id="selectOne" resultMap="resultMapObj">
+   		SELECT	
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy
+		 
+			from 
+			player p left join team tm ON p.team_tmSeq = tm.tmSeq
+			where 1=1		
+		    AND p.pySeq = #{pySeq}
+   </select>
+   
+   	<update id="update">
+	update player set
+		team_tmSeq = #{team_tmSeq},
+		pyUse = #{pyUse},
+		pyGivenName = #{pyGivenName},
+		pyFamilyName = #{pyFamilyName},
+		pyOriName = #{pyOriName},
+		pyFamliyNameKor = #{pyFamliyNameKor},
+		pyGivenNameKor = #{pyGivenNameKor},
+		pyOriNameKor = #{pyOriNameKor},
+		nickName = #{nickName},
+		birthday = #{birthday},
+		homeTown = #{homeTown},
+		nationality = #{nationality},
+		position = #{position},
+		throwHand = #{throwHand},
+		batHand = #{batHand},
+		jerseyNumber = #{jerseyNumber},
+		heightCm = #{heightCm},
+		heightFt = #{heightFt},
+		weightKg = #{weightKg},
+		weightLb = #{weightLb},
+		finalSchoolHistory = #{finalSchoolHistory},
+		debut = #{debut},
+		Draft = #{Draft},
+		status = #{status},
+		pyRegTime = now()
+	where
+		pySeq = #{pySeq}
+	
+	</update>
+	
+	<delete id="uelete">
+	Update player set
+		pyDelNy = 1
+	where pySeq = #{pySeq}
+	</delete>
+	
+	<delete id="delete">
+	delete from player
+	where pySeq = #{pySeq}
+	</delete>
  </mapper>
  
