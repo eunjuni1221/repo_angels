@@ -1,0 +1,3064 @@
+2025-03-31T11:03:26.345 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:03:26.347 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|22       |
+|---------|
+ 
+2025-03-31T11:03:26.352 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:03:26.361 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|32    |0       |1     |ㅁ       |          |1          |1       |2025-03-28T01:49:04 |2025-03-28T22:30:19 |
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:03:55.447 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:03:55.447 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|22       |
+|---------|
+ 
+2025-03-31T11:03:55.451 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:03:55.451 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|32    |0       |1     |ㅁ       |          |1          |1       |2025-03-28T01:49:04 |2025-03-28T22:30:19 |
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:04:53.585 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 2 msec} 
+2025-03-31T11:04:53.585 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|22       |
+|---------|
+ 
+2025-03-31T11:04:53.588 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:04:53.588 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|32    |0       |1     |ㅁ       |          |1          |1       |2025-03-28T01:49:04 |2025-03-28T22:30:19 |
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:04:55.761 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '32'
+ {executed in 9 msec} 
+2025-03-31T11:04:55.761 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|32    |0       |1     |ㅁ      |          |1          |1       |2025-03-28T01:49:04 |2025-03-28T22:30:19 |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:05:02.229 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. update codegroup set
+		cgUse = 1,
+		cgName = 'ㅁ',
+		cgNameEng = '',
+		cgOrder = '1',
+		cgEdDate = now()
+	where
+		cgSeq = '32'
+ {executed in 6 msec} 
+2025-03-31T11:05:02.239 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 0 msec} 
+2025-03-31T11:05:02.239 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|22       |
+|---------|
+ 
+2025-03-31T11:05:02.244 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-31T11:05:02.245 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|32    |0       |1     |ㅁ       |          |1          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:05:05.669 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '32'
+ {executed in 1 msec} 
+2025-03-31T11:05:05.669 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|32    |0       |1     |ㅁ      |          |1          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:05:07.825 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Update codegroup set
+			cgdelNy = 1
+		Where cgSeq = '32'
+ {executed in 5 msec} 
+2025-03-31T11:05:07.835 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:05:07.835 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:05:07.837 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:05:07.837 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:05:10.038 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 1
+ {executed in 0 msec} 
+2025-03-31T11:05:10.040 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|7        |
+|---------|
+ 
+2025-03-31T11:05:10.044 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-31T11:05:10.045 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|33    |1       |1     |aasdad  |a         |1          |1       |2025-03-29T02:35:05 |2025-03-29T02:35:08 |
+|32    |1       |1     |ㅁ       |          |1          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|31    |1       |1     |121221  |hihi      |0          |44      |2025-03-26T10:58:26 |[null]              |
+|30    |1       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:58:13 |[null]              |
+|29    |1       |1     |ㄴ       |hihi      |0          |44      |2025-03-26T10:57:52 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:05:12.950 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '32'
+ {executed in 1 msec} 
+2025-03-31T11:05:12.950 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|32    |1       |1     |ㅁ      |          |1          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:05:16.058 [http-nio-8080-exec-1] ERROR j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. delete from codegroup
+		where cgSeq = '32'
+ {FAILED after 576 msec} 
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.delete(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy9/jdk.proxy9.$Proxy120.delete(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy9/jdk.proxy9.$Proxy121.delete(Unknown Source)
+	at com.angels.module.codegroup.CodeGroupService.delete(CodeGroupService.java:36)
+	at com.angels.module.codegroup.CodeGroupController.codegroupXdmDele(CodeGroupController.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T11:05:16.201 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+### The error may exist in file [C:\factory\ws_sts4_4270\repo_angels\angels\bin\main\mybatis\mapper\mysql\main\infra\CodeGroupMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: delete from codegroup   where cgSeq = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+; Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))] with root cause 
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.delete(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy9/jdk.proxy9.$Proxy120.delete(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy9/jdk.proxy9.$Proxy121.delete(Unknown Source)
+	at com.angels.module.codegroup.CodeGroupService.delete(CodeGroupService.java:36)
+	at com.angels.module.codegroup.CodeGroupController.codegroupXdmDele(CodeGroupController.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T11:05:21.142 [http-nio-8080-exec-7] ERROR j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. delete from codegroup
+		where cgSeq = '32'
+ {FAILED after 5 msec} 
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.delete(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy9/jdk.proxy9.$Proxy120.delete(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy9/jdk.proxy9.$Proxy121.delete(Unknown Source)
+	at com.angels.module.codegroup.CodeGroupService.delete(CodeGroupService.java:36)
+	at com.angels.module.codegroup.CodeGroupController.codegroupXdmDele(CodeGroupController.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T11:05:21.146 [http-nio-8080-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+### The error may exist in file [C:\factory\ws_sts4_4270\repo_angels\angels\bin\main\mybatis\mapper\mysql\main\infra\CodeGroupMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: delete from codegroup   where cgSeq = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+; Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))] with root cause 
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.delete(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy9/jdk.proxy9.$Proxy120.delete(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy9/jdk.proxy9.$Proxy121.delete(Unknown Source)
+	at com.angels.module.codegroup.CodeGroupService.delete(CodeGroupService.java:36)
+	at com.angels.module.codegroup.CodeGroupController.codegroupXdmDele(CodeGroupController.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T11:06:04.793 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+	from 
+	user
+	where 1=1
+ {executed in 13 msec} 
+2025-03-31T11:06:04.794 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|2        |
+|---------|
+ 
+2025-03-31T11:06:04.798 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select 
+			urSeq,
+		    urUse,
+		    urDelNy,
+		    urName,
+		    urGender,
+		    telecom,
+		    phoneNumber,
+		    urBirth,
+		    urID,
+		    urPassword,
+		    urRegTime,
+		    urModTime
+		from user
+		where 1=1 
+
+		 AND urUse = 1 
+         AND urDelNy = 0 
+
+		order by urSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:06:04.799 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|------|--------|-------|---------|--------|--------------|-----------|----------|-----------|--------------------|----------|
+|urseq |uruse |urdelny |urname |urgender |telecom |phonenumber   |urbirth    |urid      |urpassword |urregtime           |urmodtime |
+|------|------|--------|-------|---------|--------|--------------|-----------|----------|-----------|--------------------|----------|
+|2     |1     |0       |관리자    |7        |1       |010-0000-0000 |2001-12-21 |ej        |1          |2025-03-28T11:37:15 |[null]    |
+|1     |1     |0       |정한용    |7        |1       |010-4422-8123 |1994-03-06 |gksdyd009 |gksdyd009  |2025-03-26T18:45:46 |[null]    |
+|------|------|--------|-------|---------|--------|--------------|-----------|----------|-----------|--------------------|----------|
+ 
+2025-03-31T11:06:06.210 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:06:06.210 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:06:06.213 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:06:06.214 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:06:08.187 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:06:08.188 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:06:08.190 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:06:08.192 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|32              |1     |ㅁ      |105   |ads    |ads       |1       |2025-03-30T20:34:23 |[null]   |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]   |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]   |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-03-31T11:06:09.788 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-31T11:06:09.789 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|--------|
+|cgseq |cgname  |
+|------|--------|
+|1     |통신사     |
+|2     |성별      |
+|3     |리그메인    |
+|4     |리그서브    |
+|5     |포지션     |
+|6     |투       |
+|7     |타       |
+|8     |국적      |
+|9     |이닝      |
+|10    |status  |
+|11    |하이      |
+|12    |ccsww   |
+|13    |22      |
+|14    |55      |
+|16    |80802rD |
+|18    |80802rD |
+|19    |80802rD |
+|20    |80802rD |
+|21    |80802rD |
+|22    |80802rD |
+|23    |80802rD |
+|25    |노을      |
+|27    |80802rD |
+|28    |80802r  |
+|29    |ㄴ       |
+|30    |80802rD |
+|31    |121221  |
+|32    |ㅁ       |
+|33    |aasdad  |
+|------|--------|
+ 
+2025-03-31T11:06:09.791 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT	
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+		    	from
+		    	code c
+		    	left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		    	where 1=1
+		    AND c.cdSeq = '105'
+ {executed in 1 msec} 
+2025-03-31T11:06:09.793 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|32              |1     |ㅁ      |105   |ads    |ads       |1       |2025-03-30T20:34:23 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-03-31T11:06:14.408 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. update code set
+		cdUse = 1,
+		cdName = 'ads',
+		cdNameEng = 'ads',
+		cdOrder = '1',
+		codeGroup_cgSeq = '28',
+		cdEdDate = now()
+	where
+		cdSeq = '105'
+ {executed in 9 msec} 
+2025-03-31T11:06:14.417 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 2 msec} 
+2025-03-31T11:06:14.418 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:06:14.422 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:06:14.423 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|28              |1     |80802r |105   |ads    |ads       |1       |2025-03-30T20:34:23 |2025-03-31T11:06:14 |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]              |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]              |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]              |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]              |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:06:18.500 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:06:18.500 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:06:18.502 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:06:18.503 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|28              |1     |80802r |105   |ads    |ads       |1       |2025-03-30T20:34:23 |2025-03-31T11:06:14 |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]              |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]              |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]              |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]              |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:06:20.001 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:06:20.001 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:06:20.004 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:06:20.005 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|28              |1     |80802r |105   |ads    |ads       |1       |2025-03-30T20:34:23 |2025-03-31T11:06:14 |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]              |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]              |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]              |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]              |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:06:21.762 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 0 msec} 
+2025-03-31T11:06:21.763 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:06:21.765 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:06:21.766 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:06:24.547 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 1
+ {executed in 1 msec} 
+2025-03-31T11:06:24.548 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|7        |
+|---------|
+ 
+2025-03-31T11:06:24.551 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:06:24.552 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|33    |1       |1     |aasdad  |a         |1          |1       |2025-03-29T02:35:05 |2025-03-29T02:35:08 |
+|32    |1       |1     |ㅁ       |          |0          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|31    |1       |1     |121221  |hihi      |0          |44      |2025-03-26T10:58:26 |[null]              |
+|30    |1       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:58:13 |[null]              |
+|29    |1       |1     |ㄴ       |hihi      |0          |44      |2025-03-26T10:57:52 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:06:25.825 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '32'
+ {executed in 1 msec} 
+2025-03-31T11:06:25.826 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|32    |1       |1     |ㅁ      |          |0          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:06:28.915 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '32'
+ {executed in 0 msec} 
+2025-03-31T11:06:28.915 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|32    |1       |1     |ㅁ      |          |0          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:06:30.544 [http-nio-8080-exec-3] ERROR j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. delete from codegroup
+		where cgSeq = '32'
+ {FAILED after 4 msec} 
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.delete(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy9/jdk.proxy9.$Proxy120.delete(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy9/jdk.proxy9.$Proxy121.delete(Unknown Source)
+	at com.angels.module.codegroup.CodeGroupService.delete(CodeGroupService.java:36)
+	at com.angels.module.codegroup.CodeGroupController.codegroupXdmDele(CodeGroupController.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T11:06:30.546 [http-nio-8080-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+### The error may exist in file [C:\factory\ws_sts4_4270\repo_angels\angels\bin\main\mybatis\mapper\mysql\main\infra\CodeGroupMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: delete from codegroup   where cgSeq = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+; Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))] with root cause 
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.delete(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy9/jdk.proxy9.$Proxy120.delete(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy9/jdk.proxy9.$Proxy121.delete(Unknown Source)
+	at com.angels.module.codegroup.CodeGroupService.delete(CodeGroupService.java:36)
+	at com.angels.module.codegroup.CodeGroupController.codegroupXdmDele(CodeGroupController.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T11:06:54.344 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '32'
+ {executed in 1 msec} 
+2025-03-31T11:06:54.344 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|32    |1       |1     |ㅁ      |          |0          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:06:56.948 [http-nio-8080-exec-6] ERROR j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. delete from codegroup
+		where cgSeq = '32'
+ {FAILED after 5 msec} 
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.delete(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy9/jdk.proxy9.$Proxy120.delete(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy9/jdk.proxy9.$Proxy121.delete(Unknown Source)
+	at com.angels.module.codegroup.CodeGroupService.delete(CodeGroupService.java:36)
+	at com.angels.module.codegroup.CodeGroupController.codegroupXdmDele(CodeGroupController.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T11:06:56.951 [http-nio-8080-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+### The error may exist in file [C:\factory\ws_sts4_4270\repo_angels\angels\bin\main\mybatis\mapper\mysql\main\infra\CodeGroupMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: delete from codegroup   where cgSeq = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+; Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))] with root cause 
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`la`.`code`, CONSTRAINT `fk_code_codeGroup` FOREIGN KEY (`codeGroup_cgSeq`) REFERENCES `codegroup` (`cgSeq`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.delete(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy9/jdk.proxy9.$Proxy120.delete(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy9/jdk.proxy9.$Proxy121.delete(Unknown Source)
+	at com.angels.module.codegroup.CodeGroupService.delete(CodeGroupService.java:36)
+	at com.angels.module.codegroup.CodeGroupController.codegroupXdmDele(CodeGroupController.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T11:07:00.220 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:07:00.220 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:07:00.223 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:07:00.224 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|28              |1     |80802r |105   |ads    |ads       |1       |2025-03-30T20:34:23 |2025-03-31T11:06:14 |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]              |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]              |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]              |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]              |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:07:03.279 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:07:03.279 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:07:03.282 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:07:03.283 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|28              |1     |80802r |105   |ads    |ads       |1       |2025-03-30T20:34:23 |2025-03-31T11:06:14 |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]              |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]              |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]              |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]              |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:07:03.824 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:07:03.824 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:07:03.826 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 5
+ {executed in 1 msec} 
+2025-03-31T11:07:03.827 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|9               |1     |이닝     |92    |20회말   |BOT 20    |1       |2025-03-22T14:12:40 |[null]   |[null]  |0       |
+|9               |1     |이닝     |91    |20회초   |TOP 20    |1       |2025-03-22T14:12:16 |[null]   |[null]  |0       |
+|9               |1     |이닝     |90    |19회말   |BOT 19    |1       |2025-03-22T14:11:45 |[null]   |[null]  |0       |
+|9               |1     |이닝     |89    |19회초   |TOP 19    |1       |2025-03-22T14:11:01 |[null]   |[null]  |0       |
+|9               |1     |이닝     |88    |18회말   |BOT 18    |1       |2025-03-22T14:10:22 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-03-31T11:07:04.275 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 2 msec} 
+2025-03-31T11:07:04.275 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:07:04.279 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 5
+ {executed in 3 msec} 
+2025-03-31T11:07:04.281 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|9               |1     |이닝     |92    |20회말   |BOT 20    |1       |2025-03-22T14:12:40 |[null]   |[null]  |0       |
+|9               |1     |이닝     |91    |20회초   |TOP 20    |1       |2025-03-22T14:12:16 |[null]   |[null]  |0       |
+|9               |1     |이닝     |90    |19회말   |BOT 19    |1       |2025-03-22T14:11:45 |[null]   |[null]  |0       |
+|9               |1     |이닝     |89    |19회초   |TOP 19    |1       |2025-03-22T14:11:01 |[null]   |[null]  |0       |
+|9               |1     |이닝     |88    |18회말   |BOT 18    |1       |2025-03-22T14:10:22 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-03-31T11:07:04.674 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:07:04.674 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:07:04.676 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 10
+ {executed in 1 msec} 
+2025-03-31T11:07:04.679 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|9               |1     |이닝     |87    |18회초   |TOP 18    |1       |2025-03-22T14:09:36 |[null]   |[null]  |0       |
+|9               |1     |이닝     |86    |17회말   |BOT 17    |1       |2025-03-22T14:09:13 |[null]   |[null]  |0       |
+|9               |1     |이닝     |85    |17회초   |TOP 17    |1       |2025-03-22T14:08:05 |[null]   |[null]  |0       |
+|9               |1     |이닝     |84    |16회말   |BOT 16    |1       |2025-03-22T14:07:09 |[null]   |[null]  |0       |
+|9               |1     |이닝     |83    |16회초   |TOP 16    |1       |2025-03-22T14:06:32 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-03-31T11:07:07.203 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 1
+ {executed in 2 msec} 
+2025-03-31T11:07:07.203 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|4        |
+|---------|
+ 
+2025-03-31T11:07:07.205 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 1 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:07:07.206 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|----------------|------|--------|------|------------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname  |cdseq |cdname      |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|--------|------|------------|----------|--------|--------------------|--------------------|--------|--------|
+|30              |1     |80802rD |104   |ㄴ           |221       |1       |2025-03-30T18:27:06 |[null]              |[null]  |1       |
+|31              |1     |121221  |101   |ㄷㅇㅁㄴㅁㅇㄻ     |ㄴㅇㄴㄹ      |1       |2025-03-30T18:26:25 |[null]              |[null]  |1       |
+|32              |1     |ㅁ       |99    |ㄴㅁㅇㄹㅇㄹㅁㄴㅇsd |ㅁㅁ        |12      |2025-03-29T02:33:57 |2025-03-29T11:58:59 |[null]  |1       |
+|29              |1     |ㄴ       |98    |ㅁㄴㅇ         |ㅁㄴㅇㅁㄴㅇㅁㄴㅇ |1       |2025-03-29T02:33:36 |2025-03-29T02:33:45 |[null]  |1       |
+|----------------|------|--------|------|------------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:07:09.197 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 1 msec} 
+2025-03-31T11:07:09.199 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|--------|
+|cgseq |cgname  |
+|------|--------|
+|1     |통신사     |
+|2     |성별      |
+|3     |리그메인    |
+|4     |리그서브    |
+|5     |포지션     |
+|6     |투       |
+|7     |타       |
+|8     |국적      |
+|9     |이닝      |
+|10    |status  |
+|11    |하이      |
+|12    |ccsww   |
+|13    |22      |
+|14    |55      |
+|16    |80802rD |
+|18    |80802rD |
+|19    |80802rD |
+|20    |80802rD |
+|21    |80802rD |
+|22    |80802rD |
+|23    |80802rD |
+|25    |노을      |
+|27    |80802rD |
+|28    |80802r  |
+|29    |ㄴ       |
+|30    |80802rD |
+|31    |121221  |
+|32    |ㅁ       |
+|33    |aasdad  |
+|------|--------|
+ 
+2025-03-31T11:07:09.202 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT	
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+		    	from
+		    	code c
+		    	left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		    	where 1=1
+		    AND c.cdSeq = '99'
+ {executed in 1 msec} 
+2025-03-31T11:07:09.203 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|----------------|------|-------|------|------------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname      |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|-------|------|------------|----------|--------|--------------------|--------------------|--------|--------|
+|32              |1     |ㅁ      |99    |ㄴㅁㅇㄹㅇㄹㅁㄴㅇsd |ㅁㅁ        |12      |2025-03-29T02:33:57 |2025-03-29T11:58:59 |[null]  |1       |
+|----------------|------|-------|------|------------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:07:11.050 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. delete from code
+	where cdSeq = '99'
+ {executed in 6 msec} 
+2025-03-31T11:07:11.058 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:07:11.059 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:07:11.062 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:07:11.063 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|28              |1     |80802r |105   |ads    |ads       |1       |2025-03-30T20:34:23 |2025-03-31T11:06:14 |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]              |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]              |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]              |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]              |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:07:13.114 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:07:13.114 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-31T11:07:13.116 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:07:13.117 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate            |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+|28              |1     |80802r |105   |ads    |ads       |1       |2025-03-30T20:34:23 |2025-03-31T11:06:14 |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]              |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]              |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]              |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]              |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|--------------------|--------|--------|
+ 
+2025-03-31T11:07:14.436 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:07:14.437 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:07:14.439 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:07:14.440 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:07:16.842 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 1
+ {executed in 2 msec} 
+2025-03-31T11:07:16.842 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|7        |
+|---------|
+ 
+2025-03-31T11:07:16.846 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 1 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:07:16.848 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|33    |1       |1     |aasdad  |a         |1          |1       |2025-03-29T02:35:05 |2025-03-29T02:35:08 |
+|32    |1       |1     |ㅁ       |          |0          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|31    |1       |1     |121221  |hihi      |0          |44      |2025-03-26T10:58:26 |[null]              |
+|30    |1       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:58:13 |[null]              |
+|29    |1       |1     |ㄴ       |hihi      |0          |44      |2025-03-26T10:57:52 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:07:17.890 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+				from
+				codegroup as a 		
+				where 1=1
+			AND a.cgSeq = '32'
+ {executed in 1 msec} 
+2025-03-31T11:07:17.891 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+|32    |1       |1     |ㅁ      |          |0          |1       |2025-03-28T01:49:04 |2025-03-31T11:05:02 |
+|------|--------|------|-------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:07:20.046 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. delete from codegroup
+		where cgSeq = '32'
+ {executed in 5 msec} 
+2025-03-31T11:07:20.054 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:07:20.055 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:07:20.056 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:07:20.057 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:10:43.748 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 0 msec} 
+2025-03-31T11:10:43.749 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:10:43.754 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-31T11:10:43.756 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:24:19.487 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 2 msec} 
+2025-03-31T11:24:19.487 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:24:19.492 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 4 msec} 
+2025-03-31T11:24:19.492 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:24:26.192 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 0 msec} 
+2025-03-31T11:24:26.192 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:24:26.195 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:24:26.197 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:24:34.232 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:24:34.233 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:24:34.236 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:24:34.237 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:25:49.911 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 0 msec} 
+2025-03-31T11:25:49.911 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:25:49.913 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:25:49.913 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:26:17.971 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:26:17.971 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:26:17.975 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:26:17.975 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:27:21.552 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:27:21.552 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:27:21.555 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:27:21.555 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:27:32.498 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:27:32.498 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:27:32.501 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T11:27:32.502 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:30:02.767 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:30:02.768 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T11:30:02.772 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+71. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T11:30:02.773 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T11:43:30.950 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-31T11:43:30.952 [Thread-23] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-31T11:43:30.952 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-31T11:43:30.967 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-31T11:43:30.968 [Thread-23] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-31T11:43:30.970 [Thread-23] INFO c.z.h.HikariDataSource - HikariPool-6 - Shutdown initiated... 
+2025-03-31T11:43:30.978 [Thread-23] INFO c.z.h.HikariDataSource - HikariPool-6 - Shutdown completed. 
+2025-03-31T11:43:31.086 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 12304 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-31T11:43:31.086 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-31T11:43:31.467 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-31T11:43:31.469 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-31T11:43:31.469 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-31T11:43:31.469 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-31T11:43:31.491 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-31T11:43:31.491 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 402 ms 
+2025-03-31T11:43:31.594 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-7 - Starting... 
+2025-03-31T11:43:31.609 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-7 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@31e1d38d 
+2025-03-31T11:43:31.610 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-7 - Start completed. 
+2025-03-31T11:43:31.611 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:43:31.613 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|102   |ㅈㅇㄻㄴ      |33              |
+|105   |ads       |28              |
+|------|----------|----------------|
+ 
+2025-03-31T11:43:31.751 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-31T11:43:31.764 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-31T11:43:31.769 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-31T11:43:31.775 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.743 seconds (process running for 7296.703) 
+2025-03-31T11:43:31.777 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-31T11:59:21.906 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-31T11:59:21.907 [Thread-27] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-31T11:59:21.907 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-31T11:59:21.923 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-31T11:59:21.924 [Thread-27] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-31T11:59:21.926 [Thread-27] INFO c.z.h.HikariDataSource - HikariPool-7 - Shutdown initiated... 
+2025-03-31T11:59:21.932 [Thread-27] INFO c.z.h.HikariDataSource - HikariPool-7 - Shutdown completed. 
+2025-03-31T11:59:22.022 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 12304 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-31T11:59:22.022 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-31T11:59:22.348 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-31T11:59:22.351 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-31T11:59:22.351 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-31T11:59:22.351 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-31T11:59:22.373 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-31T11:59:22.373 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 349 ms 
+2025-03-31T11:59:22.493 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-8 - Starting... 
+2025-03-31T11:59:22.513 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2aa7fb5 
+2025-03-31T11:59:22.513 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-8 - Start completed. 
+2025-03-31T11:59:22.515 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+91. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T11:59:22.517 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|102   |ㅈㅇㄻㄴ      |33              |
+|105   |ads       |28              |
+|------|----------|----------------|
+ 
+2025-03-31T11:59:22.665 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-31T11:59:22.674 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-31T11:59:22.682 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-31T11:59:22.688 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.705 seconds (process running for 8247.615) 
+2025-03-31T11:59:22.690 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 

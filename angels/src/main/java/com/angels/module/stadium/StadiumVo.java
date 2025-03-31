@@ -25,9 +25,25 @@ public class StadiumVo {
 	private String shValue;
 	private String shTeamOption;
 	
+	private String stSeq;
+
+	
 	
 
 	
+
+
+
+	public String getStSeq() {
+		return stSeq;
+	}
+
+
+	public void setStSeq(String stSeq) {
+		this.stSeq = stSeq;
+	}
+
+
 	public String getShTeamOption() {
 		return shTeamOption;
 	}

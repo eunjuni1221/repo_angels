@@ -91,4 +91,48 @@
 <include refid="selectCommon"></include>
 
 	</select>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+	SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+	    
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = #{stSeq}	
+	</select>
+	
+	<update id="update">
+	update stadium set
+		stUse = #{stUse},
+		stName = #{stName},
+		stNameKor = #{stNameKor},
+		stAdress = #{stAdress},
+		team_tmSeq = #{team_tmSeq},
+		stModTime = now()
+		
+	where
+		stSeq = #{stSeq}
+	</update>
+	
+	<delete id="uelete">
+	Update stadium set
+		stDelNy = 1
+	where stSeq = #{stSeq}
+	</delete>
+	
+	<delete id="delete">
+	delete from stadium
+	where stSeq = #{stSeq}
+	</delete>
+	
 </mapper>

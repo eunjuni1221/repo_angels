@@ -64,10 +64,10 @@
 	                            </select>
 	                          </div>
 	                          <div class="col">
-            					<input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
+            					<input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shDateStart}">
 	                          </div>
 	                          <div class="col">
-	                            <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
+	                            <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shDateEnd}">
 	                          </div> 
 	                          <div class="col">
 	                            <select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
@@ -213,7 +213,6 @@
 	    <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
 	    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
 		<script src="/xdm/jquery/jquery-3.7.1.min.js"></script>
-		<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 	    <script>
 	      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
 	      const Default = {
@@ -305,47 +304,7 @@
 			}
 			
 		</script>
-		<script>
-			const URL_SIGNIN_FORM_XDM = "/login/Login"
-			const URL_SIGNOUT_PROC_XDM = "/login/signoutXdmProc"
-			const URL_INDEX_VIEW_XDM = "/v1/infra/index/indexXdmView"
-			
-			$("#btnSignout").on("click", function(){
-				$.ajax({
-					async: true 
-					,cache: false
-					,type: "post"
-					,url: URL_SIGNOUT_PROC_XDM
-					,data: {}
-					,success: function(response) {
-						if(response.rt == "success") {
-							location.href = URL_SIGNIN_FORM_XDM;
-						} else {
-							// by pass
-						}
-					}
-					,error : function(jqXHR, textStatus, errorThrown){
-						alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-					}
-				});
-			});
-			
-			
-		</script>
 		
-		<script>
-		  $(function() {
-		    $("#shDateStart").datepicker({
-		      dateFormat: "yy-mm-dd"
-		    });
-		  });
-
-		  $(function() {
-		    $("#shDateEnd").datepicker({
-		      dateFormat: "yy-mm-dd"
-		    });
-		  });
-		</script>
       <!--end::App Main-->
       <!--begin::Footer-->
 	  <div th:replace="~{xdm/include/footer :: footer}"></div>

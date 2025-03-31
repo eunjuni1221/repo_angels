@@ -2,6 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	
 <div th:replace="~{xdm/include/head :: head}"></div>
+<div th:replace="~{xdm/stadium/StadiumXdmVo :: vo}"></div>
 
         <!--end::Sidebar Wrapper-->
       </aside>
@@ -43,35 +44,40 @@
                             <div class="col-md-3">
 						<form action="/stadium/StadiumXdmInst" method="post" enctype="multipart/form-data" id="form">	
 							 <label class="form-label">코드 번호<span class="text-danger"> *</span></label>
-							<input type="text" name="stSeq" id="stSeq" class="form-control" placeholder="자동생성" disabled>
+							 <input type="hidden" id="stSeq" name="stSeq" th:value="${item?.stSeq}" maxlength="20" placeholder="자동생성" class="form-control" />
+							 <input type="text" name="stSeq" id="stSeq" class="form-control" value="자동생성" disabled style="background-color: grey;">
                             </div>
 							<div class="col-md-3">
 							  <label class="form-label">사용여부 <span class="text-danger"> *</span></label>
-							  <select class="form-select"  name="stUse" id="stUse">
+							  <select class="form-select"  name="stUse" id="stUse" th:value="${item?.stUse}">
 							    <option selected value="1">사용</option>
 							  <option value="0">미사용</option>
 							  </select>
 							</div>
 							<div class="col-md-3">
 							  <label class="form-label">팀 <span class="text-danger"> *</span></label>
-							  <select class="form-select"  name="team_tmSeq" id="team_tmSeq">
+							  <select class="form-select"  name="team_tmSeq" id="team_tmSeq" th:value="${item?.team_tmSeq}">
 								<option selected value="">팀 선택</option>
-							    <option th:each="list:${selectTeam}" th:text="${list.tmNameAb}" th:value="${list.tmSeq}"></option>
+							    <option th:each="list:${selectTeam}" th:text="${list.tmNameAb}" th:value="${list.tmSeq}" th:selected="${item.team_tmSeq} == ${list.tmSeq}"></option>
 							  </select>
-							</div>                  
+							  <div id="teamError" class="invalid-feedback">올바르지 않은 형식</div>
+						  </div>                  
                         
                         <div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">야구장(영문)<span class="text-danger"> *</span></label>
-							  <input type="text" name="stName" id="stName" class="form-control" placeholder="영어">
+							  <input type="text" name="stName" id="stName" class="form-control" th:value="${item?.stName}" placeholder="영어" required>
+							  <div id="stNameError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
                           <div class="col-md-3">
                             <label class="form-label">야구장(한글)<span class="text-danger"> *</span></label>
-                            <input type="text" name="stNameKor" id="stNameKor" class="form-control" placeholder="한글">
+                            <input type="text" name="stNameKor" id="stNameKor" class="form-control" th:value="${item?.stNameKor}" placeholder="한글" required>
+							<div id="stNameKorError" class="invalid-feedback">올바르지 않은 형식</div>
                           </div>
 						  <div class="col-md-3">
 						    <label class="form-label">주소<span class="text-danger"> *</span></label>
-						    <input type="text" name="stAdress" id="stAdress" class="form-control" placeholder="영어">
+						    <input type="text" name="stAdress" id="stAdress" class="form-control" th:value="${item?.stAdress}" placeholder="영어" required>
+							<div id="stAdressError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
                         </div>
                         <div class="row g-3 mt-1">
@@ -85,7 +91,14 @@
                         <button type="button" class="btn btn-light" onclick="window.location.href='codeGroupXdmList';">
 							<i class="fa-solid fa-list"></i>
 						</button>
-                        <button type="button" id="btnSave" class="btn btn-primary ms-auto"><i class="fa-solid fa-database"></i></button>
+						
+						<div class="ms-auto d-flex gap-1">
+						    <button type="button" id="btnDelete" class="btn btn-danger"><i class="fa fa-times"></i></button>
+						    <button type="button" id="btnUelete" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+						    <button type="button" id="btnSave" class="btn btn-primary">
+						        <i class="fa-solid fa-database"></i>
+						    </button>
+						</div>
                       </div>
 					  </form>
 					 </div>
@@ -98,24 +111,9 @@
         </div>
        </div>
       </div>
-		<div id="myModal" class="modal" tabindex="-1">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title">경고!</h5>
-		        <button id="btnClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-		        <p>잘 입력해주세요</p>
-		      </div>
-		      <div class="modal-footer">
-		        <button id="btnConfirm" type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
         <!--end::App Content-->
       </main>
+	  <div th:replace="~{xdm/include/modal :: modal}"></div>
       <!--end::App Main-->
       <!--begin::Footer-->
 	  <script
@@ -138,6 +136,7 @@
 	  <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
 	  <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
 	  <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	  <script>
 	    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
 	    const Default = {
@@ -159,48 +158,140 @@
 	    });
 	  </script>
       <script type="text/javascript">	
-		
-		  document.getElementById("btnSave").onclick= function () {
-		    document.getElementById("form").submit();
-		  }
 
-/*		
-		document.addEventListener("DOMContentLoaded", function () {
-		    let cgName = document.getElementById("cgName");
-		    let myModal = document.getElementById("myModal");
-		    let btnSave = document.getElementById("btnSave");
-		    let form = document.getElementById("form");
-		    let btnClose = document.getElementById("btnClose");
-		    let btnConfirm = document.getElementById("btnConfirm");
 
-		    let modalInstance = new bootstrap.Modal(myModal);
+			let stSeq = document.querySelector("input[name=stSeq]");
+			let StadiumXdmInst = "/stadium/StadiumXdmInst";
+			let StadiumXdmUpdt = "/stadium/StadiumXdmUpdt";		
 
-		    btnSave.onclick = function () {
-		        if (cgName.value.trim() === "") {
-		            modalInstance.show();
-		            return false; 
-		        }
-		        form.submit();
-		    };
+			document.getElementById("btnSave").onclick = function () {
+			    function validation() {
+			        let isValid = true;
 
-		    // X 버튼 클릭 시 모달 닫기
-		    btnClose.onclick = function () {
-		        modalInstance.hide();
-		    };
+					const englishRegex = /^[A-Za-z\s]+$/; // 영어와 공백만 허용
+					const koreanRegex = /^[가-힣\s]+$/; // 한글과 공백만 허용
+					
+			        // 코드이름 유효성 검사
+			        const stName = document.getElementById('stName');
+			        const stNameError = document.getElementById('stNameError');
+					if (stName.value.trim() === "") {
+					    stNameError.textContent = "이름을 입력하세요.";
+					    stName.classList.add("is-invalid");
+					    isValid = false;
+					} else if (!englishRegex.test(stName.value.trim())) {
+					    stNameError.textContent = "영어만 입력 가능합니다.";
+					    stName.classList.add("is-invalid");
+					    isValid = false;
+					} else {
+					    stNameError.textContent = "";
+					    stName.classList.remove("is-invalid");
+					}
 
-		    // 확인 버튼 클릭 시 모달 닫기
-		    btnConfirm.onclick = function () {
-		        modalInstance.hide();
-		    };
-		});
-	
-		
-*/		
-        
-      //	document.getElementById("companyName").onclick= function () {
-      //		alert("name")
-      //	}   
+
+			        // 코드그룹 선택 여부 확인
+			        const team = document.getElementById('team_tmSeq');
+			        const teamError = document.getElementById('teamError');
+			        if (team.value.trim() === "") {
+			            teamError.textContent = "팀을 선택하세요.";
+			            team.classList.add("is-invalid");
+			            isValid = false;
+			        } else {
+			            teamError.textContent = "";
+			            team.classList.remove("is-invalid");
+			        }
+
+			        // 순서 필드 유효성 검사 (숫자 입력)
+					if (stNameKor.value.trim() === "") {
+					    stNameKorError.textContent = "이름을 입력하세요.";
+					    stNameKor.classList.add("is-invalid");
+					    isValid = false;
+					} else if (!koreanRegex.test(stNameKor.value.trim())) {
+					    stNameKorError.textContent = "한글만 입력 가능합니다.";
+					    stNameKor.classList.add("is-invalid");
+					    isValid = false;
+					} else {
+					    stNameKorError.textContent = "";
+					    stNameKor.classList.remove("is-invalid");
+					}
+
+					if (stAdress.value.trim() === "") {
+					    stAdressError.textContent = "주소를 입력하세요.";
+					    stAdress.classList.add("is-invalid");
+					    isValid = false;
+					} else if (!englishRegex.test(stAdress.value.trim())) {
+					    stAdressError.textContent = "영어만 입력 가능합니다.";
+					    stAdress.classList.add("is-invalid");
+					    isValid = false;
+					} else {
+					    stAdressError.textContent = "";
+					    stAdress.classList.remove("is-invalid");
+					}
+
+			        return isValid;
+			    }
+
+			    // 유효성 검사 실행
+			    if (!validation()) {
+			        return; // 유효성 검사 실패 시 폼 제출 중단
+			    }
+
+			    // 폼 제출
+			    const form = document.querySelector("form"); // 폼 객체 가져오기
+			    const stSeq = document.getElementById("stSeq");
+
+			    if (stSeq.value === "0" || stSeq.value === "") {
+			        form.action = "/stadium/StadiumXdmInst"; // 새로운 코드그룹 생성
+			    } else {
+			        form.action = "/stadium/StadiumXdmUpdt"; // 기존 코드그룹 업데이트
+			    }
+
+			    // 폼 제출
+			    form.submit();
+			};
+
+
+
       </script>
 	  
+	   <script>
+	  let form = document.getElementById("form");
+	  let StadiumXdmUele = "/stadium/StadiumXdmUele"
+	  let StadiumXdmDele = "/stadium/StadiumXdmDele"	
+	  	
+	    if(document.getElementById("btnUelete")){
+	    	document.getElementById("btnUelete").onclick = function () {
+	    		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	    		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	    		document.querySelector("#btnModalUelete").style.display = '';
+	    		document.querySelector("#btnModalDelete").style.display = 'none';
+	    		$("#modalConfirm").modal("show");	     	
+	    	}
+	    }
+
+
+	    document.getElementById("btnModalUelete").onclick = function () {
+	    	form.action = StadiumXdmUele;
+	    	form.submit();
+	    }
+	    </script>
+	    
+	     <script>
+	    	
+	      if(document.getElementById("btnDelete")){
+	      	document.getElementById("btnDelete").onclick = function () {
+	      		document.querySelector("#modalConfirmTitle").textContent = "경고";
+	      		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	      		document.querySelector("#btnModalUelete").style.display = 'none';
+	      		document.querySelector("#btnModalDelete").style.display = '';
+	      		$("#modalConfirm").modal("show");	     	
+	      	}
+	      }
+
+
+	      document.getElementById("btnModalDelete").onclick = function () {
+	      	form.action = StadiumXdmDele;
+	      	form.submit();
+	      }
+	      </script>
 
 	  <div th:replace="~{xdm/include/footer :: footer}"></div>

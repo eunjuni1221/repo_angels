@@ -8,4 +8,8 @@ public interface StadiumDao {
 	public int selectOneCount(StadiumVo stadiumVo);
 	public int insert(StadiumDto stadiumDto);
 	public List<StadiumDto> selectTeam();
+	public StadiumDto selectOne(StadiumDto stadiumDto);
+	public int update (StadiumDto stadiumDto);
+	public int uelete (StadiumDto stadiumDto);
+	public int delete (StadiumDto stadiumDto);
 }

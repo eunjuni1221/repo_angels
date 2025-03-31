@@ -211,4 +211,2056 @@
 	order by tmSeq desc
 	limit 5 offset 0
  {executed in 1 msec} 
-2025-03-30T22:25:41.028 [http-nio-80
+2025-03-30T22:25:41.028 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:26:38.743 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 2 msec} 
+2025-03-30T22:26:38.743 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:26:38.745 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:26:38.746 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:27:46.441 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 2 msec} 
+2025-03-30T22:27:46.441 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-30T22:27:46.449 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-03-30T22:27:46.452 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|32              |1     |ㅁ      |105   |ads    |ads       |1       |2025-03-30T20:34:23 |[null]   |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]   |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]   |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-03-30T22:28:41.955 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 0 msec} 
+2025-03-30T22:28:41.955 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-30T22:28:41.958 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:28:41.959 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|32              |1     |ㅁ      |105   |ads    |ads       |1       |2025-03-30T20:34:23 |[null]   |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]   |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]   |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-03-30T22:28:50.820 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-30T22:28:50.820 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|22       |
+|---------|
+ 
+2025-03-30T22:28:50.829 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 4 msec} 
+2025-03-30T22:28:50.830 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|32    |0       |1     |ㅁ       |          |1          |1       |2025-03-28T01:49:04 |2025-03-28T22:30:19 |
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-30T22:41:37.158 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-30T22:41:37.158 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|97       |
+|---------|
+ 
+2025-03-30T22:41:37.160 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:41:37.161 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|32              |1     |ㅁ      |105   |ads    |ads       |1       |2025-03-30T20:34:23 |[null]   |[null]  |0       |
+|33              |1     |aasdad |102   |ㅈㅇㄻㄴ   |ㅁㄴㅇㄻㄴㄹ    |1       |2025-03-30T18:26:53 |[null]   |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업   |TWP       |1       |2025-03-23T23:12:21 |[null]   |[null]  |0       |
+|10              |1     |status |94    |은퇴     |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |0       |
+|10              |1     |status |93    |현역     |active    |1       |2025-03-23T17:13:41 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-03-30T22:43:22.919 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 1 msec} 
+2025-03-30T22:43:22.919 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:43:22.921 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:43:22.923 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:46:03.852 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 2 msec} 
+2025-03-30T22:46:03.854 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:46:03.857 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:46:03.858 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:46:06.577 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:46:06.578 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:46:06.579 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:46:06.579 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:46:06.580 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '34'
+ {executed in 0 msec} 
+2025-03-30T22:46:06.582 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|34    |1     |0       |하이하이       |ㅁ      |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:46:11.423 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:46:11.423 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:46:11.425 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:46:11.425 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:46:11.426 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '34'
+ {executed in 1 msec} 
+2025-03-30T22:46:11.428 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|34    |1     |0       |하이하이       |ㅁ      |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:46:18.707 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 0 msec} 
+2025-03-30T22:46:18.708 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|--------|
+|cgseq |cgname  |
+|------|--------|
+|1     |통신사     |
+|2     |성별      |
+|3     |리그메인    |
+|4     |리그서브    |
+|5     |포지션     |
+|6     |투       |
+|7     |타       |
+|8     |국적      |
+|9     |이닝      |
+|10    |status  |
+|11    |하이      |
+|12    |ccsww   |
+|13    |22      |
+|14    |55      |
+|16    |80802rD |
+|18    |80802rD |
+|19    |80802rD |
+|20    |80802rD |
+|21    |80802rD |
+|22    |80802rD |
+|23    |80802rD |
+|25    |노을      |
+|27    |80802rD |
+|28    |80802r  |
+|29    |ㄴ       |
+|30    |80802rD |
+|31    |121221  |
+|32    |ㅁ       |
+|33    |aasdad  |
+|------|--------|
+ 
+2025-03-30T22:48:01.727 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 0 msec} 
+2025-03-30T22:48:01.727 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:48:01.730 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:48:01.731 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:48:02.782 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:48:02.782 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:48:02.784 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:48:02.784 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:48:02.786 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 1 msec} 
+2025-03-30T22:48:02.787 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:48:37.340 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 0 msec} 
+2025-03-30T22:48:37.341 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|
+|cgseq |cgname  |
+|------|--------|
+|1     |통신사     |
+|2     |성별      |
+|3     |리그메인    |
+|4     |리그서브    |
+|5     |포지션     |
+|6     |투       |
+|7     |타       |
+|8     |국적      |
+|9     |이닝      |
+|10    |status  |
+|11    |하이      |
+|12    |ccsww   |
+|13    |22      |
+|14    |55      |
+|16    |80802rD |
+|18    |80802rD |
+|19    |80802rD |
+|20    |80802rD |
+|21    |80802rD |
+|22    |80802rD |
+|23    |80802rD |
+|25    |노을      |
+|27    |80802rD |
+|28    |80802r  |
+|29    |ㄴ       |
+|30    |80802rD |
+|31    |121221  |
+|32    |ㅁ       |
+|33    |aasdad  |
+|------|--------|
+ 
+2025-03-30T22:49:29.293 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		 l.cgSeq,
+		 l.cgName
+		 	from
+		 	codeGroup as l
+		 	where 1=1
+ {executed in 2 msec} 
+2025-03-30T22:49:29.293 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|
+|cgseq |cgname  |
+|------|--------|
+|1     |통신사     |
+|2     |성별      |
+|3     |리그메인    |
+|4     |리그서브    |
+|5     |포지션     |
+|6     |투       |
+|7     |타       |
+|8     |국적      |
+|9     |이닝      |
+|10    |status  |
+|11    |하이      |
+|12    |ccsww   |
+|13    |22      |
+|14    |55      |
+|16    |80802rD |
+|18    |80802rD |
+|19    |80802rD |
+|20    |80802rD |
+|21    |80802rD |
+|22    |80802rD |
+|23    |80802rD |
+|25    |노을      |
+|27    |80802rD |
+|28    |80802r  |
+|29    |ㄴ       |
+|30    |80802rD |
+|31    |121221  |
+|32    |ㅁ       |
+|33    |aasdad  |
+|------|--------|
+ 
+2025-03-30T22:49:38.024 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 0 msec} 
+2025-03-30T22:49:38.025 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:49:38.026 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-30T22:49:38.029 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:49:52.581 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:49:52.581 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:49:52.582 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:49:52.582 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:49:52.583 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '34'
+ {executed in 1 msec} 
+2025-03-30T22:49:52.584 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|34    |1     |0       |하이하이       |ㅁ      |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:50:12.745 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:12.746 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:50:12.751 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 3 msec} 
+2025-03-30T22:50:12.752 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:50:12.756 [http-nio-8080-exec-10] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.angels.module.team.TeamVo.getTmSeq()" is null] with root cause 
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.angels.module.team.TeamVo.getTmSeq()" is null
+	at com.angels.module.team.TeamController.teamXdmForm(TeamController.java:36)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-30T22:50:17.600 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 2 msec} 
+2025-03-30T22:50:17.600 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:50:17.602 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:50:17.603 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]              |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:50:18.144 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:18.145 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:50:18.146 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:18.146 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:50:18.148 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 0 msec} 
+2025-03-30T22:50:18.149 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:50:20.752 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:20.754 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:50:20.755 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:50:20.755 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:50:22.338 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:22.338 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:50:22.339 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:22.339 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:50:22.342 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '32'
+ {executed in 1 msec} 
+2025-03-30T22:50:22.342 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |[null]    |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+ 
+2025-03-30T22:50:24.648 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. update team set
+		tmUse = 1,
+		tmHomeName = 'Toronto',
+		tmName = 'Blue Jays',
+		tmNameAb = 'TOR',
+		tmHomeNameKor = '토론토',
+		tmLeague = 9,
+		tmDiv = 11,
+		tmModTime = now()
+	where
+		tmSeq = '32'
+ {executed in 6 msec} 
+2025-03-30T22:50:24.660 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 3 msec} 
+2025-03-30T22:50:24.660 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:50:24.663 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-30T22:50:24.664 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |2025-03-30T22:50:24 |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:50:25.621 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:50:25.621 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:50:25.623 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:25.623 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:50:25.625 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 1 msec} 
+2025-03-30T22:50:25.625 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T21:56:06 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:50:29.105 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. update team set
+		tmUse = 1,
+		tmHomeName = 'ㅁㅇㅁㅇㅁㄴㅇ',
+		tmName = 'ㅁ',
+		tmNameAb = '1',
+		tmHomeNameKor = 'a',
+		tmLeague = 9,
+		tmDiv = 13,
+		tmModTime = now()
+	where
+		tmSeq = '35'
+ {executed in 6 msec} 
+2025-03-30T22:50:29.116 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 1 msec} 
+2025-03-30T22:50:29.117 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:50:29.119 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-30T22:50:29.120 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:50:29 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |2025-03-30T22:50:24 |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:50:31.021 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:31.021 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:50:31.023 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:31.023 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:50:31.025 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 1 msec} 
+2025-03-30T22:50:31.025 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:50:29 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:50:43.686 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:50:43.686 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:50:43.687 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:50:43.687 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:50:43.689 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 0 msec} 
+2025-03-30T22:50:43.689 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:50:29 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:52:03.261 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:52:03.261 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:52:03.264 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:52:03.264 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:52:03.266 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 0 msec} 
+2025-03-30T22:52:03.266 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:50:29 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:52:05.004 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. update team set
+		tmUse = 1,
+		tmHomeName = 'ㅁㅇㅁㅇㅁㄴㅇ',
+		tmName = 'ㅁ',
+		tmNameAb = '1',
+		tmHomeNameKor = 'a',
+		tmLeague = 9,
+		tmDiv = 13,
+		tmModTime = now()
+	where
+		tmSeq = '35'
+ {executed in 9 msec} 
+2025-03-30T22:52:05.019 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 2 msec} 
+2025-03-30T22:52:05.019 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|35       |
+|---------|
+ 
+2025-03-30T22:52:05.021 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:52:05.022 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ         |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:52:04 |
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |2025-03-30T22:50:24 |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:52:06.563 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 2 msec} 
+2025-03-30T22:52:06.563 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:52:06.565 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:52:06.565 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:52:06.567 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 1 msec} 
+2025-03-30T22:52:06.568 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:52:04 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:53:46.187 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:53:46.188 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:53:46.190 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:53:46.191 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:53:46.193 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 2 msec} 
+2025-03-30T22:53:46.193 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |0       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:52:04 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:53:52.097 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Update team set
+		tmDelNy = 1
+	where tmSeq = '35'
+ {executed in 19 msec} 
+2025-03-30T22:53:52.112 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 0 msec} 
+2025-03-30T22:53:52.112 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|34       |
+|---------|
+ 
+2025-03-30T22:53:52.115 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-30T22:53:52.117 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |2025-03-30T22:50:24 |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|30    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-20T22:43:31 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:53:55.227 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 1
+ {executed in 1 msec} 
+2025-03-30T22:53:55.227 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|1        |
+|---------|
+ 
+2025-03-30T22:53:55.229 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 1 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 0 msec} 
+2025-03-30T22:53:55.229 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |1       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:52:04 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:53:56.427 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 0 msec} 
+2025-03-30T22:53:56.428 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-03-30T22:53:56.429 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-03-30T22:53:56.429 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-03-30T22:53:56.432 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT	
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime 
+		    from
+		    	team
+		    	where 1=1
+		    AND tmSeq = '35'
+ {executed in 1 msec} 
+2025-03-30T22:53:56.433 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|35    |1     |1       |ㅁㅇㅁㅇㅁㄴㅇ    |ㅁ      |1        |a             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:59 |2025-03-30T22:52:04 |
+|------|------|--------|-----------|-------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:53:58.340 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. delete from team
+	where tmSeq = '35'
+ {executed in 8 msec} 
+2025-03-30T22:53:58.349 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 1 msec} 
+2025-03-30T22:53:58.350 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|34       |
+|---------|
+ 
+2025-03-30T22:53:58.351 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-30T22:53:58.352 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime           |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+|34    |1     |0       |하이하이       |ㅁ         |1        |ㄴ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:50 |2025-03-30T21:56:13 |
+|33    |1     |0       |ㅁ          |ㅁ         |1        |ㅁ             |ㅁ         |[null] |9        |13    |2025-03-30T21:46:45 |[null]              |
+|32    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-30T18:04:27 |2025-03-30T22:50:24 |
+|31    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |10       |11    |2025-03-30T18:04:22 |[null]              |
+|30    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-20T22:43:31 |[null]              |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|--------------------|
+ 
+2025-03-30T22:54:01.675 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+209. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 1
+ {executed in 1 msec} 
+2025-03-30T22:54:01.675 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 

@@ -1,0 +1,2177 @@
+2025-03-31T18:02:16.953 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 3 msec} 
+2025-03-31T18:02:16.972 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:02:16.986 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '29'
+ {executed in 3 msec} 
+2025-03-31T18:02:16.990 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|------|--------|----------------|----------|----------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname          |stnamekor |stadress                                      |stregtime           |stmodtime |
+|---------|------|------|--------|----------------|----------|----------------------------------------------|--------------------|----------|
+|TB       |29    |1     |0       |Tropicana Field |트로피카나 필드  |1 Tropicana Dr, St. Petersburg, FL 33705, USA |2025-03-25T00:40:17 |[null]    |
+|---------|------|------|--------|----------------|----------|----------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:02:18.543 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. Select count(*)
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0
+ {executed in 4 msec} 
+2025-03-31T18:02:18.548 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-31T18:02:18.554 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 3 msec} 
+2025-03-31T18:02:18.567 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:02:18.574 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT	
+		tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0 
+
+		ORDER BY s.stSeq DESC	
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T18:02:18.584 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname                      |stnamekor      |stadress                                      |stregtime           |stmodtime |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|TOR      |30    |1     |0       |Rogers Centre               |로저스 센터         |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada  |2025-03-25T00:40:28 |[null]    |
+|TB       |29    |1     |0       |Tropicana Field             |트로피카나 필드       |1 Tropicana Dr, St. Petersburg, FL 33705, USA |2025-03-25T00:40:17 |[null]    |
+|NYY      |28    |1     |0       |Yankee Stadium              |양키 스타디움        |1 E 161st St, The Bronx, NY 10451, USA        |2025-03-25T00:39:46 |[null]    |
+|BOS      |27    |1     |0       |Fenway Park                 |펜웨이 파크         |4 Yawkey Way, Boston, MA 02215, USA           |2025-03-25T00:39:36 |[null]    |
+|BAL      |26    |1     |0       |Oriole Park at Camden Yards |오리올 파크 앳 캠든 야드 |333 W Camden St, Baltimore, MD 21201, USA     |2025-03-25T00:39:28 |[null]    |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:02:19.357 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 2 msec} 
+2025-03-31T18:02:19.366 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:02:19.371 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '28'
+ {executed in 3 msec} 
+2025-03-31T18:02:19.373 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname         |stnamekor |stadress                               |stregtime           |stmodtime |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|
+|NYY      |28    |1     |0       |Yankee Stadium |양키 스타디움   |1 E 161st St, The Bronx, NY 10451, USA |2025-03-25T00:39:46 |[null]    |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:02:31.197 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:02:31.201 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:02:31.205 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '28'
+ {executed in 3 msec} 
+2025-03-31T18:02:31.211 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname         |stnamekor |stadress                               |stregtime           |stmodtime |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|
+|NYY      |28    |1     |0       |Yankee Stadium |양키 스타디움   |1 E 161st St, The Bronx, NY 10451, USA |2025-03-25T00:39:46 |[null]    |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:03:33.820 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. Select count(*)
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0
+ {executed in 2 msec} 
+2025-03-31T18:03:33.821 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-31T18:03:33.825 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 2 msec} 
+2025-03-31T18:03:33.827 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:03:33.831 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT	
+		tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0 
+
+		ORDER BY s.stSeq DESC	
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T18:03:33.832 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname                      |stnamekor      |stadress                                      |stregtime           |stmodtime |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|TOR      |30    |1     |0       |Rogers Centre               |로저스 센터         |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada  |2025-03-25T00:40:28 |[null]    |
+|TB       |29    |1     |0       |Tropicana Field             |트로피카나 필드       |1 Tropicana Dr, St. Petersburg, FL 33705, USA |2025-03-25T00:40:17 |[null]    |
+|NYY      |28    |1     |0       |Yankee Stadium              |양키 스타디움        |1 E 161st St, The Bronx, NY 10451, USA        |2025-03-25T00:39:46 |[null]    |
+|BOS      |27    |1     |0       |Fenway Park                 |펜웨이 파크         |4 Yawkey Way, Boston, MA 02215, USA           |2025-03-25T00:39:36 |[null]    |
+|BAL      |26    |1     |0       |Oriole Park at Camden Yards |오리올 파크 앳 캠든 야드 |333 W Camden St, Baltimore, MD 21201, USA     |2025-03-25T00:39:28 |[null]    |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:03:34.738 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:03:34.739 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:03:34.742 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '30'
+ {executed in 1 msec} 
+2025-03-31T18:03:34.743 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname        |stnamekor |stadress                                     |stregtime           |stmodtime |
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|
+|TOR      |30    |1     |0       |Rogers Centre |로저스 센터    |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada |2025-03-25T00:40:28 |[null]    |
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:03:37.318 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 2 msec} 
+2025-03-31T18:03:37.320 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:03:37.323 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '26'
+ {executed in 2 msec} 
+2025-03-31T18:03:37.324 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|------|--------|----------------------------|---------------|------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname                      |stnamekor      |stadress                                  |stregtime           |stmodtime |
+|---------|------|------|--------|----------------------------|---------------|------------------------------------------|--------------------|----------|
+|BAL      |26    |1     |0       |Oriole Park at Camden Yards |오리올 파크 앳 캠든 야드 |333 W Camden St, Baltimore, MD 21201, USA |2025-03-25T00:39:28 |[null]    |
+|---------|------|------|--------|----------------------------|---------------|------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:04:18.746 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. Select count(*)
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0
+ {executed in 2 msec} 
+2025-03-31T18:04:18.748 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-31T18:04:18.750 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:04:18.753 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:04:18.756 [http-nio-8080-exec-6] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT	
+		tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0 
+
+		ORDER BY s.stSeq DESC	
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T18:04:18.757 [http-nio-8080-exec-6] INFO j.resultsettable - 
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname                      |stnamekor      |stadress                                      |stregtime           |stmodtime |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|TOR      |30    |1     |0       |Rogers Centre               |로저스 센터         |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada  |2025-03-25T00:40:28 |[null]    |
+|TB       |29    |1     |0       |Tropicana Field             |트로피카나 필드       |1 Tropicana Dr, St. Petersburg, FL 33705, USA |2025-03-25T00:40:17 |[null]    |
+|NYY      |28    |1     |0       |Yankee Stadium              |양키 스타디움        |1 E 161st St, The Bronx, NY 10451, USA        |2025-03-25T00:39:46 |[null]    |
+|BOS      |27    |1     |0       |Fenway Park                 |펜웨이 파크         |4 Yawkey Way, Boston, MA 02215, USA           |2025-03-25T00:39:36 |[null]    |
+|BAL      |26    |1     |0       |Oriole Park at Camden Yards |오리올 파크 앳 캠든 야드 |333 W Camden St, Baltimore, MD 21201, USA     |2025-03-25T00:39:28 |[null]    |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:04:19.578 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. Select count(*)
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0
+ {executed in 4 msec} 
+2025-03-31T18:04:19.579 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-31T18:04:19.587 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 3 msec} 
+2025-03-31T18:04:19.589 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:04:19.595 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT	
+		tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0 
+
+		ORDER BY s.stSeq DESC	
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T18:04:19.600 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname                      |stnamekor      |stadress                                      |stregtime           |stmodtime |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|TOR      |30    |1     |0       |Rogers Centre               |로저스 센터         |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada  |2025-03-25T00:40:28 |[null]    |
+|TB       |29    |1     |0       |Tropicana Field             |트로피카나 필드       |1 Tropicana Dr, St. Petersburg, FL 33705, USA |2025-03-25T00:40:17 |[null]    |
+|NYY      |28    |1     |0       |Yankee Stadium              |양키 스타디움        |1 E 161st St, The Bronx, NY 10451, USA        |2025-03-25T00:39:46 |[null]    |
+|BOS      |27    |1     |0       |Fenway Park                 |펜웨이 파크         |4 Yawkey Way, Boston, MA 02215, USA           |2025-03-25T00:39:36 |[null]    |
+|BAL      |26    |1     |0       |Oriole Park at Camden Yards |오리올 파크 앳 캠든 야드 |333 W Camden St, Baltimore, MD 21201, USA     |2025-03-25T00:39:28 |[null]    |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:04:20.274 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. Select count(*)
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0
+ {executed in 2 msec} 
+2025-03-31T18:04:20.275 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-31T18:04:20.278 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 2 msec} 
+2025-03-31T18:04:20.280 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:04:20.284 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT	
+		tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0 
+
+		ORDER BY s.stSeq DESC	
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T18:04:20.286 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname                      |stnamekor      |stadress                                      |stregtime           |stmodtime |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|TOR      |30    |1     |0       |Rogers Centre               |로저스 센터         |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada  |2025-03-25T00:40:28 |[null]    |
+|TB       |29    |1     |0       |Tropicana Field             |트로피카나 필드       |1 Tropicana Dr, St. Petersburg, FL 33705, USA |2025-03-25T00:40:17 |[null]    |
+|NYY      |28    |1     |0       |Yankee Stadium              |양키 스타디움        |1 E 161st St, The Bronx, NY 10451, USA        |2025-03-25T00:39:46 |[null]    |
+|BOS      |27    |1     |0       |Fenway Park                 |펜웨이 파크         |4 Yawkey Way, Boston, MA 02215, USA           |2025-03-25T00:39:36 |[null]    |
+|BAL      |26    |1     |0       |Oriole Park at Camden Yards |오리올 파크 앳 캠든 야드 |333 W Camden St, Baltimore, MD 21201, USA     |2025-03-25T00:39:28 |[null]    |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:04:21.694 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:04:21.696 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:04:21.699 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+300. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '30'
+ {executed in 2 msec} 
+2025-03-31T18:04:21.700 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname        |stnamekor |stadress                                     |stregtime           |stmodtime |
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|
+|TOR      |30    |1     |0       |Rogers Centre |로저스 센터    |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada |2025-03-25T00:40:28 |[null]    |
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:08:05.206 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-03-31T18:08:05.209 [Thread-102] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-03-31T18:08:05.210 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-03-31T18:08:05.226 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-03-31T18:08:05.227 [Thread-102] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-03-31T18:08:05.230 [Thread-102] INFO c.z.h.HikariDataSource - HikariPool-28 - Shutdown initiated... 
+2025-03-31T18:08:05.244 [Thread-102] INFO c.z.h.HikariDataSource - HikariPool-28 - Shutdown completed. 
+2025-03-31T18:08:05.399 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 12304 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-03-31T18:08:05.399 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-03-31T18:08:06.008 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-03-31T18:08:06.011 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-03-31T18:08:06.011 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-03-31T18:08:06.011 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-03-31T18:08:06.036 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-03-31T18:08:06.036 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 631 ms 
+2025-03-31T18:08:06.201 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-29 - Starting... 
+2025-03-31T18:08:06.230 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-29 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@314317b0 
+2025-03-31T18:08:06.230 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-29 - Start completed. 
+2025-03-31T18:08:06.233 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+310. SELECT 
+			cdSeq,
+			cdName,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T18:08:06.235 [restartedMain] INFO j.resultsettable - 
+|------|----------|----------------|
+|cdseq |cdname    |codegroup_cgseq |
+|------|----------|----------------|
+|1     |SKT       |1               |
+|2     |KT        |1               |
+|3     |LG U+     |1               |
+|4     |SKT 알뜰폰   |1               |
+|5     |KT 알뜰폰    |1               |
+|6     |LG U+ 알뜰폰 |1               |
+|7     |남자        |2               |
+|8     |여자        |2               |
+|9     |AL        |3               |
+|10    |NL        |3               |
+|11    |East      |4               |
+|12    |Central   |4               |
+|13    |West      |4               |
+|14    |투수        |5               |
+|15    |1루수       |5               |
+|16    |2루수       |5               |
+|17    |3루수       |5               |
+|18    |유격수       |5               |
+|19    |좌익수       |5               |
+|20    |중견수       |5               |
+|21    |우익수       |5               |
+|22    |포수        |5               |
+|23    |지명타자      |5               |
+|24    |대타        |5               |
+|25    |대주자       |5               |
+|26    |좌투        |6               |
+|27    |우투        |6               |
+|28    |양투        |6               |
+|29    |좌타        |7               |
+|30    |우타        |7               |
+|31    |양타        |7               |
+|32    |미국        |8               |
+|33    |도미니카 공화국  |8               |
+|34    |베네수엘라     |8               |
+|35    |쿠바        |8               |
+|36    |푸에르토리코    |8               |
+|37    |멕시코       |8               |
+|38    |캐나다       |8               |
+|39    |일본        |8               |
+|40    |콜롬비아      |8               |
+|41    |대한민국      |8               |
+|42    |파나마       |8               |
+|43    |퀴라소       |8               |
+|44    |네덜란드      |8               |
+|45    |바하마       |8               |
+|46    |니카라과      |8               |
+|47    |호주        |8               |
+|48    |브라질       |8               |
+|49    |독일        |8               |
+|50    |온두라스      |8               |
+|51    |대만        |8               |
+|52    |아루바       |8               |
+|53    |1회초       |9               |
+|54    |1회말       |9               |
+|55    |2회초       |9               |
+|56    |2회말       |9               |
+|57    |3회초       |9               |
+|58    |3회말       |9               |
+|59    |4회초       |9               |
+|60    |4회말       |9               |
+|61    |5회초       |9               |
+|62    |5회말       |9               |
+|63    |6회초       |9               |
+|64    |6회말       |9               |
+|65    |7회초       |9               |
+|66    |7회말       |9               |
+|67    |8회초       |9               |
+|68    |8회말       |9               |
+|69    |9회초       |9               |
+|70    |9회말       |9               |
+|71    |10회초      |9               |
+|72    |10회말      |9               |
+|73    |11회초      |9               |
+|74    |11회말      |9               |
+|75    |12회초      |9               |
+|76    |12회말      |9               |
+|77    |13회초      |9               |
+|78    |13회말      |9               |
+|79    |14회초      |9               |
+|80    |14회말      |9               |
+|81    |15회초      |9               |
+|82    |15회말      |9               |
+|83    |16회초      |9               |
+|84    |16회말      |9               |
+|85    |17회초      |9               |
+|86    |17회말      |9               |
+|87    |18회초      |9               |
+|88    |18회말      |9               |
+|89    |19회초      |9               |
+|90    |19회말      |9               |
+|91    |20회초      |9               |
+|92    |20회말      |9               |
+|93    |현역        |10              |
+|94    |은퇴        |10              |
+|95    |투타겸업      |5               |
+|102   |ㅈㅇㄻㄴ      |33              |
+|105   |ads       |28              |
+|------|----------|----------------|
+ 
+2025-03-31T18:08:06.448 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-03-31T18:08:06.460 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-03-31T18:08:06.464 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-03-31T18:08:06.469 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 1.164 seconds (process running for 30371.397) 
+2025-03-31T18:08:06.472 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-03-31T18:08:19.996 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-03-31T18:08:19.996 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-03-31T18:08:19.997 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-03-31T18:08:20.005 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+310. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:08:20.007 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:08:20.020 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+310. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '30'
+ {executed in 10 msec} 
+2025-03-31T18:08:20.021 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|-----------|
+|tmnameab |stseq |stuse |stdelny |stname        |stnamekor |stadress                                     |stregtime           |stmodtime |team_tmseq |
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|-----------|
+|TOR      |30    |1     |0       |Rogers Centre |로저스 센터    |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada |2025-03-25T00:40:28 |[null]    |30         |
+|---------|------|------|--------|--------------|----------|---------------------------------------------|--------------------|----------|-----------|
+ 
+2025-03-31T18:08:22.788 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+310. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 0 msec} 
+2025-03-31T18:08:22.789 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:08:22.792 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+310. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '28'
+ {executed in 2 msec} 
+2025-03-31T18:08:22.793 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+|tmnameab |stseq |stuse |stdelny |stname         |stnamekor |stadress                               |stregtime           |stmodtime |team_tmseq |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+|NYY      |28    |1     |0       |Yankee Stadium |양키 스타디움   |1 E 161st St, The Bronx, NY 10451, USA |2025-03-25T00:39:46 |[null]    |28         |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+ 
+2025-03-31T18:08:24.916 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+310. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:08:24.917 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:08:24.919 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+310. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '26'
+ {executed in 1 msec} 
+2025-03-31T18:08:24.920 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|------|------|--------|----------------------------|---------------|------------------------------------------|--------------------|----------|-----------|
+|tmnameab |stseq |stuse |stdelny |stname                      |stnamekor      |stadress                                  |stregtime           |stmodtime |team_tmseq |
+|---------|------|------|--------|----------------------------|---------------|------------------------------------------|--------------------|----------|-----------|
+|BAL      |26    |1     |0       |Oriole Park at Camden Yards |오리올 파크 앳 캠든 야드 |333 W Camden St, Baltimore, MD 21201, USA |2025-03-25T00:39:28 |[null]    |26         |
+|---------|------|------|--------|----------------------------|---------------|------------------------------------------|--------------------|----------|-----------|
+ 
+2025-03-31T18:45:31.652 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT
+			urSeq,
+		    urName,
+		    urID,
+		    urPassword,
+		    urRegTime
+		FROM
+			user
+		WHERE 1=1
+			AND urID = 'ej'
+			 AND urPassword = '1'
+ {executed in 2 msec} 
+2025-03-31T18:45:31.655 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|------|-------|-----|-----------|--------------------|
+|urseq |urname |urid |urpassword |urregtime           |
+|------|-------|-----|-----------|--------------------|
+|2     |관리자    |ej   |1          |2025-03-28T11:37:15 |
+|------|-------|-----|-----------|--------------------|
+ 
+2025-03-31T18:45:31.688 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+			 AND a.cgEdDate BETWEEN NULL AND NULL
+ {executed in 1 msec} 
+2025-03-31T18:45:31.689 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-03-31T18:45:33.002 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+			 AND a.cgEdDate BETWEEN NULL AND NULL
+ {executed in 1 msec} 
+2025-03-31T18:45:33.004 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-03-31T18:45:52.413 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+			 AND a.cgEdDate BETWEEN NULL AND NULL
+ {executed in 0 msec} 
+2025-03-31T18:45:52.413 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-03-31T18:45:58.126 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T18:45:58.127 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T18:45:58.133 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-03-31T18:45:58.144 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T18:46:01.446 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-03-31T18:46:01.447 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-03-31T18:46:01.450 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T18:46:01.453 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-03-31T18:46:04.092 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. Select count(*)
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0
+ {executed in 1 msec} 
+2025-03-31T18:46:04.093 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|30       |
+|---------|
+ 
+2025-03-31T18:46:04.097 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:46:04.103 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:46:04.113 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT	
+		tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0 
+
+		ORDER BY s.stSeq DESC	
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T18:46:04.117 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname                      |stnamekor      |stadress                                      |stregtime           |stmodtime |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+|TOR      |30    |1     |0       |Rogers Centre               |로저스 센터         |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada  |2025-03-25T00:40:28 |[null]    |
+|TB       |29    |1     |0       |Tropicana Field             |트로피카나 필드       |1 Tropicana Dr, St. Petersburg, FL 33705, USA |2025-03-25T00:40:17 |[null]    |
+|NYY      |28    |1     |0       |Yankee Stadium              |양키 스타디움        |1 E 161st St, The Bronx, NY 10451, USA        |2025-03-25T00:39:46 |[null]    |
+|BOS      |27    |1     |0       |Fenway Park                 |펜웨이 파크         |4 Yawkey Way, Boston, MA 02215, USA           |2025-03-25T00:39:36 |[null]    |
+|BAL      |26    |1     |0       |Oriole Park at Camden Yards |오리올 파크 앳 캠든 야드 |333 W Camden St, Baltimore, MD 21201, USA     |2025-03-25T00:39:28 |[null]    |
+|---------|------|------|--------|----------------------------|---------------|----------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:46:05.687 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:46:05.692 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:46:05.695 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '28'
+ {executed in 1 msec} 
+2025-03-31T18:46:05.696 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+|tmnameab |stseq |stuse |stdelny |stname         |stnamekor |stadress                               |stregtime           |stmodtime |team_tmseq |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+|NYY      |28    |1     |0       |Yankee Stadium |양키 스타디움   |1 E 161st St, The Bronx, NY 10451, USA |2025-03-25T00:39:46 |[null]    |28         |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+ 
+2025-03-31T18:46:51.233 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 2 msec} 
+2025-03-31T18:46:51.235 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:46:51.240 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '28'
+ {executed in 3 msec} 
+2025-03-31T18:46:51.243 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+|tmnameab |stseq |stuse |stdelny |stname         |stnamekor |stadress                               |stregtime           |stmodtime |team_tmseq |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+|NYY      |28    |1     |0       |Yankee Stadium |양키 스타디움   |1 E 161st St, The Bronx, NY 10451, USA |2025-03-25T00:39:46 |[null]    |28         |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+ 
+2025-03-31T18:50:01.755 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:50:01.758 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:50:01.763 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '28'
+ {executed in 2 msec} 
+2025-03-31T18:50:01.766 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+|tmnameab |stseq |stuse |stdelny |stname         |stnamekor |stadress                               |stregtime           |stmodtime |team_tmseq |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+|NYY      |28    |1     |0       |Yankee Stadium |양키 스타디움   |1 E 161st St, The Bronx, NY 10451, USA |2025-03-25T00:39:46 |[null]    |28         |
+|---------|------|------|--------|---------------|----------|---------------------------------------|--------------------|----------|-----------|
+ 
+2025-03-31T18:50:04.678 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:50:04.680 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:50:25.965 [http-nio-8080-exec-1] ERROR j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. INSERT INTO stadium (
+		stDelNy,
+		stUse,
+		stName,
+		stNameKor,
+		stAdress,	
+		team_tmSeq,
+		stRegTime
+
+	) values (
+		0,
+		1,
+		'Tokyo Dome',
+		'도교돔',
+		'japan',
+		'',
+		NOW()
+	)
+ {FAILED after 2 msec} 
+java.sql.SQLException: Incorrect integer value: '' for column 'team_tmSeq' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy32/jdk.proxy32.$Proxy332.insert(Unknown Source)
+	at com.angels.module.stadium.StadiumService.insert(StadiumService.java:21)
+	at com.angels.module.stadium.StadiumController.stadiumXdmInst(StadiumController.java:49)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T18:50:25.970 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.UncategorizedSQLException: 
+### Error updating database.  Cause: java.sql.SQLException: Incorrect integer value: '' for column 'team_tmSeq' at row 1
+### The error may exist in file [C:\factory\ws_sts4_4270\repo_angels\angels\bin\main\mybatis\mapper\mysql\main\infra\StadiumMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: INSERT INTO stadium (   stDelNy,   stUse,   stName,   stNameKor,   stAdress,    team_tmSeq,   stRegTime        ) values (   0,   ?,   ?,   ?,   ?,   ?,   NOW()  )
+### Cause: java.sql.SQLException: Incorrect integer value: '' for column 'team_tmSeq' at row 1
+; uncategorized SQLException; SQL state [HY000]; error code [1366]; Incorrect integer value: '' for column 'team_tmSeq' at row 1] with root cause 
+java.sql.SQLException: Incorrect integer value: '' for column 'team_tmSeq' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:382)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	at jdk.proxy2/jdk.proxy2.$Proxy64.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy32/jdk.proxy32.$Proxy332.insert(Unknown Source)
+	at com.angels.module.stadium.StadiumService.insert(StadiumService.java:21)
+	at com.angels.module.stadium.StadiumController.stadiumXdmInst(StadiumController.java:49)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-03-31T18:51:14.558 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. INSERT INTO stadium (
+		stDelNy,
+		stUse,
+		stName,
+		stNameKor,
+		stAdress,	
+		team_tmSeq,
+		stRegTime
+
+	) values (
+		0,
+		1,
+		'Tokyo Dome',
+		'도교돔',
+		'japan',
+		'2',
+		NOW()
+	)
+ {executed in 9 msec} 
+2025-03-31T18:51:14.560 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT last_insert_id()
+ {executed in 2 msec} 
+2025-03-31T18:51:14.562 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|31               |
+|-----------------|
+ 
+2025-03-31T18:51:14.577 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. Select count(*)
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0
+ {executed in 0 msec} 
+2025-03-31T18:51:14.577 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|31       |
+|---------|
+ 
+2025-03-31T18:51:14.579 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 0 msec} 
+2025-03-31T18:51:14.580 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:51:14.583 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT	
+		tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime
+
+		from
+	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+
+		 AND s.stUse = 1 
+         AND s.stDelNy = 0 
+
+		ORDER BY s.stSeq DESC	
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-03-31T18:51:14.587 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|------|------|--------|----------------|----------|----------------------------------------------|--------------------|----------|
+|tmnameab |stseq |stuse |stdelny |stname          |stnamekor |stadress                                      |stregtime           |stmodtime |
+|---------|------|------|--------|----------------|----------|----------------------------------------------|--------------------|----------|
+|LAD      |31    |1     |0       |Tokyo Dome      |도교돔       |japan                                         |2025-03-31T18:51:14 |[null]    |
+|TOR      |30    |1     |0       |Rogers Centre   |로저스 센터    |1 Blue Jays Way, Toronto, ON M5V 1J1, Canada  |2025-03-25T00:40:28 |[null]    |
+|TB       |29    |1     |0       |Tropicana Field |트로피카나 필드  |1 Tropicana Dr, St. Petersburg, FL 33705, USA |2025-03-25T00:40:17 |[null]    |
+|NYY      |28    |1     |0       |Yankee Stadium  |양키 스타디움   |1 E 161st St, The Bronx, NY 10451, USA        |2025-03-25T00:39:46 |[null]    |
+|BOS      |27    |1     |0       |Fenway Park     |펜웨이 파크    |4 Yawkey Way, Boston, MA 02215, USA           |2025-03-25T00:39:36 |[null]    |
+|---------|------|------|--------|----------------|----------|----------------------------------------------|--------------------|----------|
+ 
+2025-03-31T18:51:16.687 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:51:16.688 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:51:16.691 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '31'
+ {executed in 2 msec} 
+2025-03-31T18:51:16.692 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|------|------|--------|-----------|----------|---------|--------------------|----------|-----------|
+|tmnameab |stseq |stuse |stdelny |stname     |stnamekor |stadress |stregtime           |stmodtime |team_tmseq |
+|---------|------|------|--------|-----------|----------|---------|--------------------|----------|-----------|
+|LAD      |31    |1     |0       |Tokyo Dome |도교돔       |japan    |2025-03-31T18:51:14 |[null]    |2          |
+|---------|------|------|--------|-----------|----------|---------|--------------------|----------|-----------|
+ 
+2025-03-31T18:52:02.619 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-03-31T18:52:02.621 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-03-31T18:52:02.625 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+320. SELECT
+	 	tm.tmNameAb,
+	    s.stSeq,
+	    s.stUse,
+	    s.stDelNy,
+	    s.stName,
+	    s.stNameKor,
+	    s.stAdress,
+	    s.stRegTime,
+	    s.stModTime,
+	    s.team_tmSeq
+
+	    from
+	  	stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+		WHERE 1=1
+		AND s.stSeq = '31'
+ {executed in 2 msec} 
+2025-03-31T18:52:02.627 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|------|------|--------|-----------|----------|---------|--------------------|----------|-----------|
+|tmnameab |stseq |stuse |stdelny |stname     |stnamekor |stadress |stregtime           |stmodtime |team_tmseq |
+|---------|------|------|--------|-----------|----------|---------|--------------------|----------|-----------|
+|LAD      |31    |1     |0       |Tokyo Dome |도교돔       |japan    |2025-03-31T18:51:14 |[null]    |2          |
+|---------|------|------|--------|-----------|----------|---------|--------------------|----------|-----------|
+ 

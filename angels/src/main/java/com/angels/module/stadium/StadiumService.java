@@ -23,4 +23,16 @@ public class StadiumService {
 	public List<StadiumDto> selectTeam() {
 		return stadiumDao.selectTeam();
 	}
+	public StadiumDto selectOne(StadiumDto stadiumDto) {
+		return stadiumDao.selectOne(stadiumDto);
+	}
+	public int update(StadiumDto stadiumDto) {
+		return stadiumDao.update(stadiumDto);
+	}
+	public int uelete(StadiumDto stadiumDto) {
+		return stadiumDao.uelete(stadiumDto);
+	}
+	public int delete(StadiumDto stadiumDto) {
+		return stadiumDao.delete(stadiumDto);
+	}
 }

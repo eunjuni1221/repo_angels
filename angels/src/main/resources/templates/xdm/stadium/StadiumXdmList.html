@@ -5,6 +5,7 @@
 	<form name="formList" id="formList" method="post" autocomplete="off">
 	  	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
 	  	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+		<input type="hidden" name="stSeq"/>
       <main class="app-main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
@@ -61,7 +62,7 @@
 							</select>
                           </div>
                           <div class="col">
-                            <input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
+                            <input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shDateStart}">
                           </div>
                           <div class="col">
                             <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
@@ -147,7 +148,7 @@
 					  <td th:text="${list.stUse == 1 ? 'Y' : 'N'}"></td>
 					  <td th:text="${list.tmNameAb}"></td>
 					  <td th:text="${list.stSeq}"></td>
-					  <td th:text="${list.stName}"></td>
+					  <td class="stName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.stName}" th:attr="onclick=|goForm('${list.stSeq}')|"></a></td>
 					  <td th:text="${list.stNameKor}"></td>
 					  <td th:text="${list.stAdress}"></td>
 					  <td th:text="${list.stRegTime}"></td>	
@@ -183,7 +184,8 @@
                   <div class="d-flex gap-1">
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-					<a href="StadiumXdmForm" class="btn btn-primary"><i class="fa fa-plus"></i></a>                  </div>
+					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>                    
+				  </div>
                 </div>
         
               </div>
@@ -217,6 +219,9 @@
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	<script src="/xdm/jquery/jquery-3.7.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
       const Default = {
@@ -290,6 +295,21 @@
 		    form.action = "/stadium/StadiumXdmList";
 		    form.submit();
 		}			
+	</script>
+	<script>
+		let seq = document.querySelector("input[name=stSeq]");
+		
+		document.getElementById("btnForm").onclick = function () {
+		    goForm(0);
+		}
+
+
+		goForm = function (keyValue) {
+		    seq.value = keyValue;
+		    form.action = "/stadium/StadiumXdmForm";
+		    form.submit();
+		}
+		
 	</script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

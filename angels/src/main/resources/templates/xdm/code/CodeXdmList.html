@@ -194,7 +194,7 @@
         <!--end::App Content-->
       </main>
 	</form>
-	<div th:replace="~{xdm/include/footer :: footer}"></div>
+	
       <!--end::App Main-->
       <!--begin::Footer-->
     <script
@@ -311,48 +311,7 @@
 		}
 		
 	</script>
-	
-	<script>
-	  $(function() {
-	    $("#shDateStart").datepicker({
-	      dateFormat: "yy-mm-dd"
-	    });
-	  });
-
-	  $(function() {
-	    $("#shDateEnd").datepicker({
-	      dateFormat: "yy-mm-dd"
-	    });
-	  });
-	</script>
-	
-	<script>
-		const URL_SIGNIN_FORM_XDM = "/login/Login"
-		const URL_SIGNOUT_PROC_XDM = "/login/signoutXdmProc"
-		const URL_INDEX_VIEW_XDM = "/v1/infra/index/indexXdmView"
-		
-		$("#btnSignout").on("click", function(){
-			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				,url: URL_SIGNOUT_PROC_XDM
-				,data: {}
-				,success: function(response) {
-					if(response.rt == "success") {
-						location.href = URL_SIGNIN_FORM_XDM;
-					} else {
-						// by pass
-					}
-				}
-				,error : function(jqXHR, textStatus, errorThrown){
-					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				}
-			});
-		});
-		
-		
-	</script>
+	<div th:replace="~{xdm/include/footer :: footer}"></div>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->
 

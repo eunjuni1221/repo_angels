@@ -2,6 +2,77 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <th:block th:fragment="footer">
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+
+<script>
+	jQuery.datetimepicker.setLocale('ko');
+
+	jQuery('#shDateStart').datetimepicker({
+	 i18n:{
+	  de:{
+	   months:[
+	    '1월','2월','3월','4월',
+	    '5월','6월','7월','8월',
+	    '9월','10월','11월','12월',
+	   ],
+	   dayOfWeek:[
+	    "일.", "월", "화", "수",
+	    "목", "금", "토.",
+	   ]
+	  }
+	 },
+	 timepicker:false,
+	 format:'Y.m.d'
+	});
+	
+	jQuery('#shDateEnd').datetimepicker({
+	 i18n:{
+	  de:{
+	   months:[
+	    '1월','2월','3월','4월',
+	    '5월','6월','7월','8월',
+	    '9월','10월','11월','12월',
+	   ],
+	   dayOfWeek:[
+	    "일.", "월", "화", "수",
+	    "목", "금", "토.",
+	   ]
+	  }
+	 },
+	 timepicker:false,
+	 format:'Y.m.d'
+	});
+
+
+</script>
+
+	<script>
+		const URL_SIGNIN_FORM_XDM = "/login/Login"
+		const URL_SIGNOUT_PROC_XDM = "/login/signoutXdmProc"
+		const URL_INDEX_VIEW_XDM = "/v1/infra/index/indexXdmView"
+		
+		$("#btnSignout").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: URL_SIGNOUT_PROC_XDM
+				,data: {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = URL_SIGNIN_FORM_XDM;
+					} else {
+						// by pass
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		});
+				
+	</script>
     <footer class="app-footer">
         <!--begin::To the end-->
         <div class="float-end d-none d-sm-inline">Anything you want</div>
