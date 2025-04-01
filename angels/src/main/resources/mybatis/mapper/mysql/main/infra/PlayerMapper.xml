@@ -230,7 +230,7 @@
 	from 
 	player p left join team tm ON p.team_tmSeq = tm.tmSeq
 	where 1=1
-
+<include refid="selectCommon"/>
 	
 	</select>
 	
@@ -263,7 +263,8 @@
 		    p.status,
 		    p.pyRegTime,
 		    p.pyModTime,
-		    p.pyDelNy
+		    p.pyDelNy,
+		    p.team_tmSeq
 		 
 			from 
 			player p left join team tm ON p.team_tmSeq = tm.tmSeq

@@ -1,0 +1,1224 @@
+2025-04-01T15:26:25.264 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. SELECT
+			urSeq,
+		    urName,
+		    urID,
+		    urPassword,
+		    urRegTime
+		FROM
+			user
+		WHERE 1=1
+			AND urID = 'ej'
+			 AND urPassword = '1'
+ {executed in 1 msec} 
+2025-04-01T15:26:25.267 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|-------|-----|-----------|--------------------|
+|urseq |urname |urid |urpassword |urregtime           |
+|------|-------|-----|-----------|--------------------|
+|2     |관리자    |ej   |1          |2025-03-28T11:37:15 |
+|------|-------|-----|-----------|--------------------|
+ 
+2025-04-01T15:26:25.302 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 3 msec} 
+2025-04-01T15:26:25.303 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|21       |
+|---------|
+ 
+2025-04-01T15:26:25.314 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-04-01T15:26:25.322 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|cgseq |cgdelny |cguse |cgname  |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate            |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+|25    |0       |1     |노을      |hihi      |0          |44      |2025-03-26T10:56:37 |2025-03-28T22:30:43 |
+|23    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:52:51 |[null]              |
+|22    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:49:22 |[null]              |
+|21    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:48:39 |[null]              |
+|20    |0       |1     |80802rD |hihi      |0          |44      |2025-03-26T10:47:38 |[null]              |
+|------|--------|------|--------|----------|-----------|--------|--------------------|--------------------|
+ 
+2025-04-01T15:26:28.816 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. Select count(*)
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1
+ {executed in 2 msec} 
+2025-04-01T15:26:28.817 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|3        |
+|---------|
+ 
+2025-04-01T15:26:28.821 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 2 msec} 
+2025-04-01T15:26:28.826 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-04-01T15:26:28.835 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. SELECT
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy
+
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1		
+
+		 AND p.pyUse = 1 
+         AND p.pyDelNy = 0 
+
+		 order by p.pySeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-04-01T15:26:28.843 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+|tmnameab |pyuse |pyseq |pygivenname |pyfamilyname |pyoriname     |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday   |hometown |position |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory           |debut      |draft |status |pyregtime           |pymodtime |pydelny |
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+|ARI      |1     |3     |a           |a            |a             |ㅁ               |ㅁ              |ㅁ            |         |2025-04-29 |a        |25       |32          |26        |29      |17           |15       |dkdl     |17       |17       |sd                           |2025-04-18 |ㄴ     |93     |2025-04-01T03:02:25 |[null]    |0       |
+|LAD      |1     |2     |Shohei      |Ohtani       |Shohei Ohtani |오타니             |쇼헤이            |오타니 쇼헤이      |shotime  |1994-07-05 |Oshu     |95       |39          |27        |29      |17           |190      |6-3      |95       |210      |Hanamaki Higashi High School |2013-03-29 |FA    |93     |2025-03-25T20:24:22 |[null]    |0       |
+|LAD      |1     |1     |Shohei      |Ohtani       |Shohei Ohtani |                |쇼헤이            |오타니 쇼헤이      |shotime  |1994-07-05 |Oshu     |95       |39          |27        |29      |17           |190      |6-3      |95       |210      |Hanamaki Higashi High School |2013-03-29 |FA    |93     |2025-03-25T20:14:11 |[null]    |0       |
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+ 
+2025-04-01T15:26:30.496 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 0 msec} 
+2025-04-01T15:26:30.500 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-04-01T15:26:30.506 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=5
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-01T15:26:30.506 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:30.508 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=6
+		order by cdSeq desc
+ {executed in 0 msec} 
+2025-04-01T15:26:30.509 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:30.510 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=7
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:26:30.511 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:30.514 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=8
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-01T15:26:30.515 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:30.519 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=10
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:26:30.520 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:30.523 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. SELECT	
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy,
+		    p.team_tmSeq
+
+			from 
+			player p left join team tm ON p.team_tmSeq = tm.tmSeq
+			where 1=1		
+		    AND p.pySeq = '1'
+ {executed in 1 msec} 
+2025-04-01T15:26:30.530 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+|tmnameab |pyuse |pyseq |pygivenname |pyfamilyname |pyoriname     |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday   |hometown |position |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory           |debut      |draft |status |pyregtime           |pymodtime |pydelny |team_tmseq |
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+|LAD      |1     |1     |Shohei      |Ohtani       |Shohei Ohtani |                |쇼헤이            |오타니 쇼헤이      |shotime  |1994-07-05 |Oshu     |95       |39          |27        |29      |17           |190      |6-3      |95       |210      |Hanamaki Higashi High School |2013-03-29 |FA    |93     |2025-03-25T20:14:11 |[null]    |0       |2          |
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+ 
+2025-04-01T15:26:33.311 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. update player set
+		team_tmSeq = 2,
+		pyUse = 1,
+		pyGivenName = 'Shohei',
+		pyFamilyName = 'Ohtani',
+		pyOriName = 'Shohei Ohtani',
+		pyFamliyNameKor = '오타니',
+		pyGivenNameKor = '쇼헤이',
+		pyOriNameKor = '오타니 쇼헤이',
+		nickName = 'shotime',
+		birthday = 1994-07-05,
+		homeTown = 'Oshu',
+		nationality = '39',
+		position = 95,
+		throwHand = 27,
+		batHand = 29,
+		jerseyNumber = 17,
+		heightCm = 190,
+		heightFt = '6-3',
+		weightKg = 95,
+		weightLb = 210,
+		finalSchoolHistory = 'Hanamaki Higashi High School',
+		debut = 2013-03-29,
+		Draft = 'FA',
+		status = 93,
+		pyRegTime = now()
+	where
+		pySeq = '1'
+ {executed in 17 msec} 
+2025-04-01T15:26:33.335 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. Select count(*)
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1
+ {executed in 1 msec} 
+2025-04-01T15:26:33.336 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|3        |
+|---------|
+ 
+2025-04-01T15:26:33.338 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 0 msec} 
+2025-04-01T15:26:33.340 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-04-01T15:26:33.343 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. SELECT
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy
+
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1		
+
+		 AND p.pyUse = 1 
+         AND p.pyDelNy = 0 
+
+		 order by p.pySeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-04-01T15:26:33.347 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+|tmnameab |pyuse |pyseq |pygivenname |pyfamilyname |pyoriname     |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday   |hometown |position |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory           |debut      |draft |status |pyregtime           |pymodtime |pydelny |
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+|ARI      |1     |3     |a           |a            |a             |ㅁ               |ㅁ              |ㅁ            |         |2025-04-29 |a        |25       |32          |26        |29      |17           |15       |dkdl     |17       |17       |sd                           |2025-04-18 |ㄴ     |93     |2025-04-01T03:02:25 |[null]    |0       |
+|LAD      |1     |2     |Shohei      |Ohtani       |Shohei Ohtani |오타니             |쇼헤이            |오타니 쇼헤이      |shotime  |1994-07-05 |Oshu     |95       |39          |27        |29      |17           |190      |6-3      |95       |210      |Hanamaki Higashi High School |2013-03-29 |FA    |93     |2025-03-25T20:24:22 |[null]    |0       |
+|LAD      |1     |1     |Shohei      |Ohtani       |Shohei Ohtani |오타니             |쇼헤이            |오타니 쇼헤이      |shotime  |1994-07-05 |Oshu     |95       |39          |27        |29      |17           |190      |6-3      |95       |210      |Hanamaki Higashi High School |2013-03-29 |FA    |93     |2025-04-01T15:26:33 |[null]    |0       |
+|---------|------|------|------------|-------------|--------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+ 
+2025-04-01T15:26:37.988 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-04-01T15:26:37.989 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-04-01T15:26:37.992 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=5
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:26:37.992 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:37.995 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=6
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-01T15:26:37.996 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:37.998 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=7
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-01T15:26:38.000 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:38.003 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=8
+		order by cdSeq desc
+ {executed in 3 msec} 
+2025-04-01T15:26:38.004 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:26:38.006 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+251. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=10
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:26:38.007 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:28:50.697 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. INSERT INTO player (
+		team_tmSeq,
+		pyUse,
+		pyDelNy,
+		pySeq,
+	    pyGivenName,
+	    pyFamilyName,
+	    pyOriName,
+	    pyFamliyNameKor,
+	    pyGivenNameKor,
+	    pyOriNameKor,
+		nickName,
+	    birthday,
+	    homeTown,
+	    nationality,
+	    position,
+		throwHand,
+	    batHand,
+	    jerseyNumber,
+	    heightCm,
+	    heightFt,
+	    weightKg,
+	    weightLb,
+	    finalSchoolHistory,
+	    debut,
+	    Draft,
+	    status,
+	    pyRegTime
+	) values (
+		3,
+		1,
+		0,
+		'0',
+		'Yoshinobu',
+		'Yamamoto',
+		'Yoshinobu Yamamoto',
+		'요시노부',
+		'야마모토',
+		'야마모토 요시노부',
+		'창던지기',
+		1998-02-02,
+		'Tokyo',
+		'39',
+		14,
+		27,
+		30,
+		18,
+		178,
+		'6-3',
+		17,
+		210,
+		'Hanamaki Higashi High School',
+		2024-03-04,
+		'FA',
+		93,
+		NOW()
+	)
+ {executed in 7 msec} 
+2025-04-01T15:28:50.698 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-04-01T15:28:50.702 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|4                |
+|-----------------|
+ 
+2025-04-01T15:28:50.720 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. Select count(*)
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1
+ {executed in 1 msec} 
+2025-04-01T15:28:50.720 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|4        |
+|---------|
+ 
+2025-04-01T15:28:50.722 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-04-01T15:28:50.723 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-04-01T15:28:50.727 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. SELECT
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy
+
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1		
+
+		 AND p.pyUse = 1 
+         AND p.pyDelNy = 0 
+
+		 order by p.pySeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-04-01T15:28:50.730 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+|tmnameab |pyuse |pyseq |pygivenname |pyfamilyname |pyoriname          |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday   |hometown |position |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory           |debut      |draft |status |pyregtime           |pymodtime |pydelny |
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+|COL      |1     |4     |Yoshinobu   |Yamamoto     |Yoshinobu Yamamoto |요시노부            |야마모토           |야마모토 요시노부    |창던지기     |1998-02-02 |Tokyo    |14       |39          |27        |30      |18           |178      |6-3      |17       |210      |Hanamaki Higashi High School |2024-03-04 |FA    |93     |2025-04-01T15:28:50 |[null]    |0       |
+|ARI      |1     |3     |a           |a            |a                  |ㅁ               |ㅁ              |ㅁ            |         |2025-04-29 |a        |25       |32          |26        |29      |17           |15       |dkdl     |17       |17       |sd                           |2025-04-18 |ㄴ     |93     |2025-04-01T03:02:25 |[null]    |0       |
+|LAD      |1     |2     |Shohei      |Ohtani       |Shohei Ohtani      |오타니             |쇼헤이            |오타니 쇼헤이      |shotime  |1994-07-05 |Oshu     |95       |39          |27        |29      |17           |190      |6-3      |95       |210      |Hanamaki Higashi High School |2013-03-29 |FA    |93     |2025-03-25T20:24:22 |[null]    |0       |
+|LAD      |1     |1     |Shohei      |Ohtani       |Shohei Ohtani      |오타니             |쇼헤이            |오타니 쇼헤이      |shotime  |1994-07-05 |Oshu     |95       |39          |27        |29      |17           |190      |6-3      |95       |210      |Hanamaki Higashi High School |2013-03-29 |FA    |93     |2025-04-01T15:26:33 |[null]    |0       |
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+ 
+2025-04-01T15:28:56.377 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-04-01T15:28:56.378 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-04-01T15:28:56.380 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=5
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-01T15:28:56.380 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:28:56.382 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=6
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:28:56.383 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:28:56.386 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=7
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:28:56.386 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:28:56.389 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=8
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:28:56.390 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:28:56.392 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=10
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:28:56.393 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:28:56.397 [http-nio-8080-exec-9] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+259. SELECT	
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy,
+		    p.team_tmSeq
+
+			from 
+			player p left join team tm ON p.team_tmSeq = tm.tmSeq
+			where 1=1		
+		    AND p.pySeq = '4'
+ {executed in 2 msec} 
+2025-04-01T15:28:56.400 [http-nio-8080-exec-9] INFO j.resultsettable - 
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+|tmnameab |pyuse |pyseq |pygivenname |pyfamilyname |pyoriname          |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday   |hometown |position |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory           |debut      |draft |status |pyregtime           |pymodtime |pydelny |team_tmseq |
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+|COL      |1     |4     |Yoshinobu   |Yamamoto     |Yoshinobu Yamamoto |요시노부            |야마모토           |야마모토 요시노부    |창던지기     |1998-02-02 |Tokyo    |14       |39          |27        |30      |18           |178      |6-3      |17       |210      |Hanamaki Higashi High School |2024-03-04 |FA    |93     |2025-04-01T15:28:50 |[null]    |0       |3          |
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+ 
+2025-04-01T15:48:28.205 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 2 msec} 
+2025-04-01T15:48:28.207 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-04-01T15:48:28.209 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=5
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:48:28.209 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:48:28.211 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=6
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-01T15:48:28.211 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:48:28.214 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=7
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-01T15:48:28.214 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:48:28.218 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=8
+		order by cdSeq desc
+ {executed in 3 msec} 
+2025-04-01T15:48:28.218 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:48:28.219 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. select
+			cdName,
+			cdSeq
+		from
+			code
+		where 1=1
+		 and codeGroup_cgSeq=10
+		order by cdSeq desc
+ {executed in 0 msec} 
+2025-04-01T15:48:28.220 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-01T15:48:28.221 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. SELECT	
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy,
+		    p.team_tmSeq
+
+			from 
+			player p left join team tm ON p.team_tmSeq = tm.tmSeq
+			where 1=1		
+		    AND p.pySeq = '4'
+ {executed in 1 msec} 
+2025-04-01T15:48:28.223 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+|tmnameab |pyuse |pyseq |pygivenname |pyfamilyname |pyoriname          |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday   |hometown |position |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory           |debut      |draft |status |pyregtime           |pymodtime |pydelny |team_tmseq |
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+|COL      |1     |4     |Yoshinobu   |Yamamoto     |Yoshinobu Yamamoto |요시노부            |야마모토           |야마모토 요시노부    |창던지기     |1998-02-02 |Tokyo    |14       |39          |27        |30      |18           |178      |6-3      |17       |210      |Hanamaki Higashi High School |2024-03-04 |FA    |93     |2025-04-01T15:28:50 |[null]    |0       |3          |
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|-----------|
+ 
+2025-04-01T15:49:11.652 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. Select count(*)
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1
+ {executed in 3 msec} 
+2025-04-01T15:49:11.652 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|4        |
+|---------|
+ 
+2025-04-01T15:49:11.655 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. select
+			tmNameAb,
+		    tmSeq
+		from
+			team
+		where 1=1
+ {executed in 1 msec} 
+2025-04-01T15:49:11.656 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|------|
+|tmnameab |tmseq |
+|---------|------|
+|ARI      |1     |
+|LAD      |2     |
+|COL      |3     |
+|SD       |4     |
+|SF       |5     |
+|CHC      |6     |
+|CIN      |7     |
+|MIL      |8     |
+|PIT      |9     |
+|STL      |10    |
+|ATL      |11    |
+|MIA      |12    |
+|NYM      |13    |
+|PHI      |14    |
+|WSH      |15    |
+|HOU      |16    |
+|LAA      |17    |
+|ATH      |18    |
+|SEA      |19    |
+|TEX      |20    |
+|CWS      |21    |
+|CLE      |22    |
+|DET      |23    |
+|KC       |24    |
+|MIN      |25    |
+|BAL      |26    |
+|BOS      |27    |
+|NYY      |28    |
+|TB       |29    |
+|TOR      |30    |
+|---------|------|
+ 
+2025-04-01T15:49:11.663 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+261. SELECT
+			tm.tmNameAb,
+			p.pyUse,
+			p.pySeq,
+		    p.pyGivenName,
+		    p.pyFamilyName,
+		    p.pyOriName,
+		    p.pyFamliyNameKor,
+		    p.pyGivenNameKor,
+		    p.pyOriNameKor,
+			p.nickName,
+		    p.birthday,
+		    p.homeTown,
+		    p.position,
+		    p.nationality,
+			p.throwHand,
+		    p.batHand,
+		    p.jerseyNumber,
+		    p.heightCm,
+		    p.heightFt,
+		    p.weightKg,
+		    p.weightLb,
+		    p.finalSchoolHistory,
+		    p.debut,
+		    p.Draft,
+		    p.status,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.pyDelNy
+
+	from 
+	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	where 1=1		
+
+		 AND p.pyUse = 1 
+         AND p.pyDelNy = 0 
+
+			 AND p.birthday BETWEEN '1998.02.02' AND '1998.02.02' 
+
+		 order by p.pySeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-04-01T15:49:11.664 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+|tmnameab |pyuse |pyseq |pygivenname |pyfamilyname |pyoriname          |pyfamliynamekor |pygivennamekor |pyorinamekor |nickname |birthday   |hometown |position |nationality |throwhand |bathand |jerseynumber |heightcm |heightft |weightkg |weightlb |finalschoolhistory           |debut      |draft |status |pyregtime           |pymodtime |pydelny |
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+|COL      |1     |4     |Yoshinobu   |Yamamoto     |Yoshinobu Yamamoto |요시노부            |야마모토           |야마모토 요시노부    |창던지기     |1998-02-02 |Tokyo    |14       |39          |27        |30      |18           |178      |6-3      |17       |210      |Hanamaki Higashi High School |2024-03-04 |FA    |93     |2025-04-01T15:28:50 |[null]    |0       |
+|---------|------|------|------------|-------------|-------------------|----------------|---------------|-------------|---------|-----------|---------|---------|------------|----------|--------|-------------|---------|---------|---------|---------|-----------------------------|-----------|------|-------|--------------------|----------|--------|
+ 

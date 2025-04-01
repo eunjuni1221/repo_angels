@@ -61,12 +61,12 @@
 								<option value="2" th:selected="${vo.shOptionDate == 2}">수정일</option>
 							</select>
                           </div>
-                          <div class="col">
-                           <input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shDateStart}">
-                          </div>
-                          <div class="col">
-                           <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off" th:value="${vo.shDateEnd}">
-                          </div> 
+						  <div class="col">
+						  <input type="text" id="shDateStart" name="shDateStart" th:value="${#strings.substring(vo.shDateStart, 0, 10)}" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
+						  </div>
+						  <div class="col">
+						    <input type="text" id="shDateEnd" name="shDateEnd" th:value="${#strings.substring(vo.shDateEnd, 0, 10)}" placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
+						  </div>
                           <div class="col">
 							<select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
 								<option value="" th:selected="${vo.shOption == null}">검색구분</option>

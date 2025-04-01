@@ -6,14 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.angels.module.Base.BaseController;
 import com.angels.module.code.CodeService;
-import com.angels.module.code.CodeVo;
 
 import jakarta.servlet.http.HttpSession;
 
 
 @Controller
-public class CodeGroupController {
+public class CodeGroupController extends BaseController{
 	
 	@Autowired
 	CodeGroupService codeGroupService;
@@ -23,7 +23,8 @@ public class CodeGroupController {
 	@RequestMapping(value = "/codegroup/CodeGroupXdmList")
 	public String codegroupXdmList(Model model, CodeGroupVo vo, CodeGroupDto dto,
 			HttpSession httpSession) throws Exception{
-		
+		setSearch(vo);
+			
 		if(httpSession.getAttribute("sessXdmSeq") == null) {
 			return "redirect:/login/Login"; 
 		}

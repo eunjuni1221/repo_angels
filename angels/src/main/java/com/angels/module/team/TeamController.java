@@ -6,10 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.angels.module.Base.BaseController;
 import com.angels.module.code.CodeService;
 
 @Controller
-public class TeamController {
+public class TeamController extends BaseController{
 	
 	@Autowired
 	TeamService teamService;
@@ -17,6 +18,9 @@ public class TeamController {
 	
 	@RequestMapping(value="/team/TeamXdmList")
 	public String teamXdmList(Model model, TeamVo vo) throws Exception {
+		
+		setSearch(vo);
+		
 		System.out.println(vo.getThisPage());
 		vo.setParamsPaging(teamService.selectOneCount(vo));
 		

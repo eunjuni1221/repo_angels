@@ -21,6 +21,7 @@
             <when test="shOption == 3">AND phoneNumber LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 4">AND urID LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 5">AND urPassword LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 6">AND urPassword LIKE CONCAT('%',#{shValue},'%')</when>
         </choose>
         
 			<if test="shTelecom != null and !shTelecom.equals('')">AND telecom =#{shTelecom}</if>
@@ -40,6 +41,8 @@
 		    phoneNumber,
 		    urBirth,
 		    urID,
+		    emailID,
+		    email,
 		    urPassword,
 		    urRegTime,
 		    urModTime
@@ -84,6 +87,8 @@
 		    phoneNumber,
 		    urBirth,
 		    urID,
+			emailID,
+		    email,
 		    urPassword,
 		    urRegTime
 	) values (
@@ -96,6 +101,8 @@
 		#{phoneNumber},
 		#{urBirth},
 		#{urID},
+		#{emailID},
+		#{email},
 		#{urPassword},
 		NOW()
 	)

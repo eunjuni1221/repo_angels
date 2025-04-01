@@ -6,17 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.angels.module.team.TeamDto;
-import com.angels.module.team.TeamVo;
+import com.angels.module.Base.BaseController;
 
 @Controller
-public class StadiumController {
+public class StadiumController extends BaseController{
 	
 	@Autowired
 	StadiumService stadiumService;
 	
 	@RequestMapping(value="/stadium/StadiumXdmList")
 	public String stadiumXdmList(Model model, StadiumVo vo) throws Exception {
+		setSearch(vo);
+		
 		System.out.println(vo.getThisPage());
 		vo.setParamsPaging(stadiumService.selectOneCount(vo));
 		model.addAttribute("selectTeam",stadiumService.selectTeam());

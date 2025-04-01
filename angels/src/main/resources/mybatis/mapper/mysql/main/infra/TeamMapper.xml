@@ -13,12 +13,12 @@
 		    
 		<if test="shUseNy != null and !shUseNy.equals('')">AND tmUse = #{shUseNy}</if>
         <if test="shDelNy != null and !shDelNy.equals('')">AND tmDelNy = #{shDelNy}</if>
-<!-- 				
+ 				
 			<choose>
-				<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-				<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 1">AND tmRegTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND tmModTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 			</choose>
--->				
+				
         <choose>
             <when test="shOption == 1">AND tmSeq = #{shValue}</when>
             <when test="shOption == 2">AND tmHomeName LIKE CONCAT('%',#{shValue},'%')</when>

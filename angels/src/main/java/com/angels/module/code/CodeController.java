@@ -6,14 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.angels.module.Base.BaseController;
+
 @Controller
-public class CodeController {
+public class CodeController extends BaseController{
 	
 	@Autowired
 	CodeService codeService;
 	
 	@RequestMapping(value="/code/CodeXdmList")
 	public String codeXdmList(Model model, CodeVo vo, CodeDto dto) throws Exception {
+		setSearch(vo);
+		
 		System.out.println(vo.getThisPage());
 		vo.setParamsPaging(codeService.selectOneCount(vo));
 		

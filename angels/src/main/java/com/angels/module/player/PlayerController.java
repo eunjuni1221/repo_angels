@@ -6,19 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.angels.module.team.TeamDto;
-import com.angels.module.team.TeamVo;
+import com.angels.module.Base.BaseController;
 
 @Controller
-public class PlayerController {
+public class PlayerController extends BaseController {
 	
 	@Autowired
 	PlayerService playerService;
 	
 	@RequestMapping(value="/player/PlayerXdmList")
 	public String playerXdmList(Model model, PlayerVo vo) throws Exception {
+		setSearch(vo);
+		
 		vo.setParamsPaging(playerService.selectOneCount(vo));
-		model.addAttribute("selectTeam",playerService.selectTeam());
 		
 		if(vo.getTotalRows() > 0) {
 		model.addAttribute("list", playerService.selectList(vo));
@@ -62,13 +62,13 @@ public class PlayerController {
 	
 	@RequestMapping(value = "/player/PlayerXdmUele")
 	public String playerXdmUele(PlayerDto playerDto) {
-		playerService.insert(playerDto);		
+		playerService.uelete(playerDto);		
 		return "redirect:PlayerXdmList";
 	}
 	
 	@RequestMapping(value = "/player/PlayerXdmDele")
 	public String playerXdmDele(PlayerDto playerDto) {
-		playerService.insert(playerDto);		
+		playerService.delete(playerDto);		
 		return "redirect:PlayerXdmList";
 	}
 }

@@ -56,9 +56,9 @@
 							</div>
 							<div class="col-md-3">
 							  <label class="form-label">팀 <span class="text-danger"> *</span></label>
-							  <select class="form-select"  name="team_tmSeq" id="team_tmSeq">
+							  <select class="form-select"  name="team_tmSeq" id="team_tmSeq" th:value="${item?.team_tmSeq}">
 								<option selected value="">팀 선택</option>
-							    <option th:each="list:${selectTeam}" th:text="${list.tmNameAb}" th:value="${list.tmSeq}"></option>
+							    <option th:each="list:${selectTeam}" th:text="${list.tmNameAb}" th:value="${list.tmSeq}" th:selected="${item.team_tmSeq} == ${list.tmSeq}"></option>
 							  </select>
 							  <div id="teamError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>                  
@@ -66,50 +66,50 @@
                         <div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">이름(영문)<span class="text-danger"> *</span></label>
-							  <input type="text" name="pyGivenName" id="pyGivenName" class="form-control" placeholder="영어" required>
+							  <input type="text" name="pyGivenName" id="pyGivenName" class="form-control" th:value="${item?.pyGivenName}" placeholder="영어" required>
 							  <div id="pyGivenNameError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
                           <div class="col-md-3">
                             <label class="form-label">성(영문)<span class="text-danger"> *</span></label>
-                            <input type="text" name="pyFamilyName" id="pyFamilyName" class="form-control" placeholder="영어" required>
+                            <input type="text" name="pyFamilyName" id="pyFamilyName" class="form-control" th:value="${item?.pyFamilyName}" placeholder="영어" required>
 							<div id="pyFamilyNameError" class="invalid-feedback">올바르지 않은 형식</div>
                           </div>
 						  <div class="col-md-3">
 						    <label class="form-label">본명(영문)<span class="text-danger"> *</span></label>
-						    <input type="text" name="pyOriName" id="pyOriName" class="form-control" placeholder="영어" required>
+						    <input type="text" name="pyOriName" id="pyOriName" class="form-control" th:value="${item?.pyOriName}" placeholder="영어" required>
 							<div id="pyOriNameError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
                         </div>
 						<div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">성(한글)<span class="text-danger"> *</span></label>
-							  <input type="text" name="pyFamliyNameKor" id="pyFamliyNameKor" class="form-control" placeholder="한글" required>
+							  <input type="text" name="pyFamliyNameKor" id="pyFamliyNameKor" class="form-control" th:value="${item?.pyFamliyNameKor}" placeholder="한글" required>
 							  <div id="pyFamliyNameKorError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">이름(한글)<span class="text-danger"> *</span></label>
-						    <input type="text" name="pyGivenNameKor" id="pyGivenNameKor" class="form-control" placeholder="한글" required>
+						    <input type="text" name="pyGivenNameKor" id="pyGivenNameKor" class="form-control" th:value="${item?.pyGivenNameKor}" placeholder="한글" required>
 							<div id="pyGivenNameKorError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
 						    <label class="form-label">본명(한글)<span class="text-danger"> *</span></label>
-						    <input type="text" name="pyOriNameKor" id="pyOriNameKor" class="form-control" placeholder="한글" required>
+						    <input type="text" name="pyOriNameKor" id="pyOriNameKor" class="form-control" th:value="${item?.pyOriNameKor}" placeholder="한글" required>
 							<div id="pyOriNameKorError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						</div>
 						<div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">별명<span class="text-danger"> *</span></label>
-							  <input type="text" name="nickName" id="nickName" class="form-control" placeholder="영어" required>
+							  <input type="text" name="nickName" id="nickName" class="form-control" th:value="${item?.nickName}" placeholder="영어" required>
 							</div>
 							<div class="col-md-3">
 							  <label for="birthday" class="form-label">생일<span class="text-danger"> *</span></label>
-							  <input type="date" name="birthday" id="birthday" class="form-control" required>
+							  <input type="date" name="birthday" id="birthday" class="form-control" th:value="${item?.birthday}" required>
 							  <div id="birthdayError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">출생지<span class="text-danger"> *</span></label>
-						    <input type="text" name="homeTown" id="homeTown" class="form-control" placeholder="영어" required>
+						    <input type="text" name="homeTown" id="homeTown" class="form-control" th:value="${item?.homeTown}" placeholder="영어" required>
 							<div id="homeTownError" class="invalid-feedback">올바르지 않은 형식</div>
 
 						  </div>
@@ -118,7 +118,7 @@
 							 <select class="form-select" name="nationality" id="nationality">
 							 <option selected value="">국적 선택</option>
 							 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
-							 <option th:each="list : ${@codeService.selectListCachedCode(8)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+							 <option th:each="list : ${@codeService.selectListCachedCode(8)}" th:value="${list.cdSeq}" th:text="${list.cdName}" th:selected="${item.nationality} == ${list.cdSeq}"></option>
 							</select>
 							<div id="nationalityError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
@@ -129,7 +129,7 @@
 								 <select class="form-select" name="throwHand" id="throwHand">
 								 <option selected value="">투구 선택</option>
 								 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
-								 <option th:each="list : ${@codeService.selectListCachedCode(6)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+								 <option th:each="list : ${@codeService.selectListCachedCode(6)}" th:value="${list.cdSeq}" th:text="${list.cdName}" th:selected="${item.throwHand} == ${list.cdSeq}"></option>
 								</select>
 								<div id="throwHandError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
@@ -138,13 +138,13 @@
 								 <select class="form-select" name="batHand" id="batHand">
 								 <option selected value="">타석 선택</option>
 								 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
-								 <option th:each="list : ${@codeService.selectListCachedCode(7)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+								 <option th:each="list : ${@codeService.selectListCachedCode(7)}" th:value="${list.cdSeq}" th:text="${list.cdName}" th:selected="${item.batHand} == ${list.cdSeq}"></option>
 								</select>
 								<div id="batHandError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">등번호<span class="text-danger"> *</span></label>
-						    <input type="text" name="jerseyNumber" id="jerseyNumber" class="form-control" placeholder="숫자" required>
+						    <input type="text" name="jerseyNumber" id="jerseyNumber" class="form-control" th:value="${item?.jerseyNumber}" placeholder="숫자" required>
 							<div id="jerseyNumberError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
@@ -152,7 +152,7 @@
 						    <select class="form-select" name="position" id="position">
 						  	 <option selected value="">포지션 선택</option>
 						  	 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
-						  	 <option th:each="list : ${@codeService.selectListCachedCode(5)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+						  	 <option th:each="list : ${@codeService.selectListCachedCode(5)}" th:value="${list.cdSeq}" th:text="${list.cdName}" th:selected="${item.position} == ${list.cdSeq}"></option>
 						   </select>
 						   <div id="positionError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>  
@@ -160,39 +160,39 @@
 						<div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">키(cm)<span class="text-danger"> *</span></label>
-							  <input type="text" name="heightCm" id="heightCm" class="form-control" placeholder="숫자" required>
+							  <input type="text" name="heightCm" id="heightCm" class="form-control" th:value="${item?.heightCm}" placeholder="숫자" required>
 							  <div id="heightCmError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 							<div class="col-md-3">
 								<label class="form-label">키(ft)<span class="text-danger"> *</span></label>
-								<input type="text" name="heightFt" id="heightFt" class="form-control" placeholder="문자열" required>
+								<input type="text" name="heightFt" id="heightFt" class="form-control" th:value="${item?.heightFt}" placeholder="문자열" required>
 								<div id="heightFtError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">몸무게(kg)<span class="text-danger"> *</span></label>
-						    <input type="text" name="weightKg" id="weightKg" class="form-control" placeholder="숫자" required>
+						    <input type="text" name="weightKg" id="weightKg" class="form-control" th:value="${item?.weightKg}" placeholder="숫자" required>
 							<div id="weightKgError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
 						    <label class="form-label">몸무게(lb)<span class="text-danger"> *</span></label>
-						    <input type="text" name="weightLb" id="weightLb" class="form-control" placeholder="숫자" required>
+						    <input type="text" name="weightLb" id="weightLb" class="form-control" th:value="${item?.weightLb}" placeholder="숫자" required>
 							<div id="weightLbError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						</div>
 						<div class="row g-3 mt-1">
 							<div class="col-md-3">
 							  <label class="form-label">출신교<span class="text-danger"> *</span></label>
-							  <input type="text" name="finalSchoolHistory" id="finalSchoolHistory" class="form-control" placeholder="영어" required>
+							  <input type="text" name="finalSchoolHistory" id="finalSchoolHistory" class="form-control" th:value="${item?.finalSchoolHistory}" placeholder="영어" required>
 							  <div id="finalSchoolHistoryError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 							<div class="col-md-3">
-							  <label for="birthday" class="form-label">데뷔일<span class="text-danger"> *</span></label>
-							  <input type="date" name="debut" id="debut" class="form-control" required>
+							  <label for="debut" class="form-label">데뷔일<span class="text-danger"> *</span></label>
+							  <input type="date" name="debut" id="debut" class="form-control" th:value="${item?.debut}"  required>
 							  <div id="debutError" class="invalid-feedback">올바르지 않은 형식</div>
 							</div>
 						  <div class="col-md-3">
 						    <label class="form-label">드래프트<span class="text-danger"> *</span></label>
-						    <input type="text" name="Draft" id="Draft" class="form-control" placeholder="영어" required>
+						    <input type="text" name="Draft" id="Draft" class="form-control" th:value="${item?.Draft}" placeholder="영어" required>
 							<div id="DraftError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>
 						  <div class="col-md-3">
@@ -200,7 +200,7 @@
 						    <select class="form-select" name="status" id="status">
 						  	 <option selected value="">소속 선택</option>
 						  	 <!--<option th:each="list:${division}" th:text="${list.cdName}" th:value="${list.cdSeq}"></option>-->
-						  	 <option th:each="list : ${@codeService.selectListCachedCode(10)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+						  	 <option th:each="list : ${@codeService.selectListCachedCode(10)}" th:value="${list.cdSeq}" th:text="${list.cdName}" th:selected="${item.status} == ${list.cdSeq}"></option>
 						   </select>
 						   <div id="statusError" class="invalid-feedback">올바르지 않은 형식</div>
 						  </div>    
@@ -238,6 +238,7 @@
       </div>
         <!--end::App Content-->
       </main>
+	  <div th:replace="~{xdm/include/modal :: modal}"></div>
       <!--end::App Main-->
       <!--begin::Footer-->
 	  <script
@@ -260,6 +261,8 @@
 	  <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
 	  <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
 	  <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 	  <script>
 	    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
 	    const Default = {
@@ -594,6 +597,47 @@
 		};
 
       </script>
+	  
+	   <script>
+	  let form = document.getElementById("form");
+	  let PlayerXdmUele = "/player/PlayerXdmUele"
+	  let PlayerXdmDele = "/player/PlayerXdmDele"	
+	  	
+	    if(document.getElementById("btnUelete")){
+	    	document.getElementById("btnUelete").onclick = function () {
+	    		document.querySelector("#modalConfirmTitle").textContent = "Uelete";
+	    		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	    		document.querySelector("#btnModalUelete").style.display = '';
+	    		document.querySelector("#btnModalDelete").style.display = 'none';
+	    		$("#modalConfirm").modal("show");	     	
+	    	}
+	    }
+
+
+	    document.getElementById("btnModalUelete").onclick = function () {
+	    	form.action = PlayerXdmUele;
+	    	form.submit();
+	    }
+	    </script>
+	    
+	     <script>
+	    	
+	      if(document.getElementById("btnDelete")){
+	      	document.getElementById("btnDelete").onclick = function () {
+	      		document.querySelector("#modalConfirmTitle").textContent = "Delete";
+	      		document.querySelector("#modalConfirmBody").textContent = "해당 데이터를 삭제하시겠습니까 ?";
+	      		document.querySelector("#btnModalUelete").style.display = 'none';
+	      		document.querySelector("#btnModalDelete").style.display = '';
+	      		$("#modalConfirm").modal("show");	     	
+	      	}
+	      }
+
+
+	      document.getElementById("btnModalDelete").onclick = function () {
+	      	form.action = PlayerXdmDele;
+	      	form.submit();
+	      }
+	      </script>
 	  
 
 	  <div th:replace="~{xdm/include/footer :: footer}"></div>
