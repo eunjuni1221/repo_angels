@@ -71,6 +71,21 @@ public class CodeService {
 			}
 			return rt;
 		}
+		
+		public static String selectOneCachedEngCode(int code) throws Exception {
+			String rt = "";
+			for(CodeDto codeRow : CodeDto.cachedCodeArrayList) {
+				if (codeRow.getCdSeq().equals(Integer.toString(code))) {
+					rt = codeRow.getCdNameEng();
+					System.out.println(codeRow.getCdSeq());
+					System.out.println(code);
+				} else {
+					// by pass
+				}
+			}
+			return rt;
+		}
+		
 	public int update (CodeDto codeDto) {
 		return codeDao.update(codeDto);
 	}

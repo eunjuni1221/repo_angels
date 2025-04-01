@@ -21,7 +21,7 @@
             <when test="shOption == 3">AND phoneNumber LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 4">AND urID LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 5">AND urPassword LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 6">AND urPassword LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 6">AND email LIKE CONCAT('%',#{shValue},'%')</when>
         </choose>
         
 			<if test="shTelecom != null and !shTelecom.equals('')">AND telecom =#{shTelecom}</if>
@@ -74,6 +74,17 @@
 		where 1=1
 			and codeGroup_cgSeq=1
 			
+		order by cdSeq desc
+	</select>
+	
+	<select id="email" resultMap="resultMapObj">
+	select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
 		order by cdSeq desc
 	</select>
 	

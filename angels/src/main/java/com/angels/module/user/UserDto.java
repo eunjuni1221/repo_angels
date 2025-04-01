@@ -16,11 +16,26 @@ public class UserDto {
 	private LocalDate urBirth;
 	private int age;
 	private String urID;
+	private String emailID;
+	private String email;
 	private String urPassword;
 	private LocalDateTime urRegTime;
 	private LocalDateTime urModTime;
 
 	
+	
+	public String getEmailID() {
+		return emailID;
+	}
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getUrSeq() {
 		return urSeq;
 	}
