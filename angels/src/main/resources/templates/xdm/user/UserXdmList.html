@@ -56,31 +56,34 @@
 									<option value="0" th:selected="${vo.shUseNy == 0}">N</option>
 	                            </select>
 	                          </div>
-	                          <div class="col">
-	                            <select id="shOptionDate" name="shOptionDate" class="form-select form-select-sm" style="width: 100%;">
-									<option value="" th:selected="${vo.shOptionDate == null}">날짜</option>
-									<option value="1" th:selected="${vo.shOptionDate == 1}">등록일</option>
-									<option value="2" th:selected="${vo.shOptionDate == 2}">수정일</option>
-	                            </select>
-	                          </div>
 							  <div class="col">
-							    <select id="shTelecom" name="shTelecom" class="form-select form-select-sm">  
-							    <option value="">통신사 선택</option>
-							    <option th:selected="${list.cdSeq} ==${vo.shTelecom}" th:each="list : ${@codeService.selectListCachedCode(1)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
-							    </select>
-							  </div>
-							  <div class="col">
-							    <select id="shGender" name="shGender" class="form-select form-select-sm">  
-							    <option value="">성별 선택</option>
-							    <option th:selected="${list.cdSeq} ==${vo.shGender}" th:each="list : ${@codeService.selectListCachedCode(2)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
-							    </select>
-							  </div>
-	                          <div class="col">
-            					<input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
-	                          </div>
-	                          <div class="col">
-	                            <input type="text" id="shDateEnd" name="shDateEnd"  placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
-	                          </div> 
+							  <select id="shOptionDate" name="shOptionDate" class="form-select form-select-sm" style="width: 100%;">
+								<option value="" th:selected="${vo.shOptionDate == null}">날짜</option>
+								<option value="1" th:selected="${vo.shOptionDate == 1}">등록일</option>
+								<option value="2" th:selected="${vo.shOptionDate == 2}">수정일</option>
+							  </select>
+							</div>
+  							 <div class="col">
+  							  <input type="text" id="shDateStart" name="shDateStart" th:value="${#strings.substring(vo.shDateStart, 0, 10)}" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
+  							 </div>
+  							 <div class="col">
+  							   <input type="text" id="shDateEnd" name="shDateEnd" th:value="${#strings.substring(vo.shDateEnd, 0, 10)}" placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
+  							 </div>
+							</div>
+							<!--검색 부분2-->
+							<div class="row row-cols-5 g-2 mt-0">
+								<div class="col">
+								  <select id="shTelecom" name="shTelecom" class="form-select form-select-sm">  
+								  <option value="">통신사 선택</option>
+								  <option th:selected="${list.cdSeq} ==${vo.shTelecom}" th:each="list : ${@codeService.selectListCachedCode(1)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+								  </select>
+								</div>
+								<div class="col">
+								  <select id="shGender" name="shGender" class="form-select form-select-sm">  
+								  <option value="">성별 선택</option>
+								  <option th:selected="${list.cdSeq} ==${vo.shGender}" th:each="list : ${@codeService.selectListCachedCode(2)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+								  </select>
+								</div>
 	                          <div class="col">
 	                            <select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
 									<option value="" th:selected="${vo.shOption == null}">검색구분</option>
@@ -89,12 +92,18 @@
 									<option value="3" th:selected="${vo.shOption == 3}">전화번호</option>
 									<option value="4" th:selected="${vo.shOption == 4}">아이디</option>
 									<option value="5" th:selected="${vo.shOption == 5}">패스워드</option>
-									<option value="6" th:selected="${vo.shOption == 6}">이메일</option>									
+									<option value="6" th:selected="${vo.shOption == 6}">이메일 ID</option>									
 	                            </select>
 	                          </div> 
 	                          <div class="col">
 	                            <input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" class="form-control form-control-sm" placeholder="검색어">
 	                          </div>
+							  <div class="col">
+							    <select id="shEmail" name="shEmail" class="form-select form-select-sm">  
+							    <option value="">주소 선택</option>
+							    <option th:selected="${list.cdSeq} ==${vo.shEmail}" th:each="list : ${@codeService.selectListCachedCode(11)}" th:value="${list.cdSeq}" th:text="${list.cdNameEng}"></option>
+							    </select>
+							  </div>
 	                          <div class="d-flex gap-2">
 	                            <button type="button" id="btnSearch" class="btn btn-light btn-sm">
 	                              <i class="fa-solid fa-magnifying-glass"></i>
@@ -102,8 +111,8 @@
 	                            <button type="button" id="btnReset" class="btn btn-light btn-sm">
 	                              <i class="fa-solid fa-rotate-right"></i>
 	                            </button>
-	                          </div>                                           
-	                        </div>
+	                          </div>  
+							</div>                                         
 	                      </div>
 	                    </div>
 	                  </div>
@@ -153,7 +162,7 @@
 	                  </thead>
 	                  <tbody>
 						<tr th:if="${#lists.isEmpty(list)}">
-							<td colspan="13">
+							<td colspan="15">
 								<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
 							</td>
 						</tr>

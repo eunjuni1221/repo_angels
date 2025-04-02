@@ -1,6 +1,5 @@
 package com.angels.module.user;
 
-import java.security.Provider.Service;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,18 +10,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.angels.module.Base.BaseController;
+
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class UserController {
+public class UserController extends BaseController{
 
 	@Autowired
 	UserService userService;
 
 	@RequestMapping(value = "/user/UserXdmList")
 	public String userXdmList(Model model, UserVo vo, UserDto dto) throws Exception {
-		System.out.println(vo.getThisPage());
+		setSearch(vo);
+		
 		vo.setParamsPaging(userService.selectOneCount(vo));
+		System.out.println(vo.getShEmail());
 
 		if (vo.getTotalRows() > 0) {
 			model.addAttribute("list", userService.selectList(vo));
@@ -69,7 +72,6 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value = "/login/signinXdmProc")
 	public Map<String, Object> signinXdmProc(UserDto dto, HttpSession httpSession) throws Exception {
-		System.out.println("hihi");
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		UserDto rtUserDto = userService.selectOneLogin(dto);
@@ -90,16 +92,13 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value = "/login/signoutXdmProc")
 	public Map<String, Object> signoutXdmProc(UserDto dto, HttpSession httpSession) throws Exception {
-		System.out.println("hihi");
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 			httpSession.setAttribute("sessXdmSeq", null);
 			httpSession.setAttribute("sessXdmName", null);
 			httpSession.setAttribute("sessXdmId", null);		
 
-			returnMap.put("rt", "success");	
-			
-			System.out.println(httpSession.getAttribute("sessXdmSeq"));
+			returnMap.put("rt", "success");				
 		return returnMap;
 	}
 	

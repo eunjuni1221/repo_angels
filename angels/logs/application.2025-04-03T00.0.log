@@ -1,0 +1,1962 @@
+2025-04-03T00:17:26.601 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 9932 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:17:26.603 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:17:26.658 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2025-04-03T00:17:26.658 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2025-04-03T00:17:28.061 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:17:28.078 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:17:28.081 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:17:28.081 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:17:28.138 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:17:28.138 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1480 ms 
+2025-04-03T00:17:28.588 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2025-04-03T00:17:29.026 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@52408e4a 
+2025-04-03T00:17:29.029 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2025-04-03T00:17:29.087 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 36 msec} 
+2025-04-03T00:17:29.112 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:17:29.783 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:17:29.812 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:17:29.842 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:17:29.852 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 3.722 seconds (process running for 4.948) 
+2025-04-03T00:20:24.986 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-04-03T00:20:24.986 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-04-03T00:20:24.988 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 0 ms 
+2025-04-03T00:25:57.215 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 42 class path changes (0 additions, 42 deletions, 0 modifications) 
+2025-04-03T00:25:57.236 [Thread-5] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:25:57.240 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:25:57.336 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:25:57.337 [Thread-5] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:25:57.359 [Thread-5] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2025-04-03T00:25:57.418 [Thread-5] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed. 
+2025-04-03T00:25:57.824 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 9932 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:25:57.824 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:25:58.791 [restartedMain] WARN o.m.s.m.ClassPathMapperScanner - No MyBatis mapper was found in '[com.angels]' package. Please check your configuration. 
+2025-04-03T00:25:59.104 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:25:59.112 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:25:59.113 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:25:59.114 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:25:59.209 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:25:59.210 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1374 ms 
+2025-04-03T00:26:00.183 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class 
+2025-04-03T00:26:00.184 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2025-04-03T00:26:00.239 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2025-04-03T00:26:00.437 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+ 
+2025-04-03T00:26:02.582 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 9932 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:26:02.582 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:26:03.579 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:26:03.584 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:26:03.584 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:26:03.584 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:26:03.643 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:26:03.644 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1053 ms 
+2025-04-03T00:26:04.265 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-2 - Starting... 
+2025-04-03T00:26:04.316 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@58f1113 
+2025-04-03T00:26:04.318 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-2 - Start completed. 
+2025-04-03T00:26:04.323 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 4 msec} 
+2025-04-03T00:26:04.338 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:26:05.382 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:26:05.464 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:26:05.502 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:26:05.529 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 3.098 seconds (process running for 520.625) 
+2025-04-03T00:26:05.545 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:29:32.251 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 489 class path changes (447 additions, 0 deletions, 42 modifications) 
+2025-04-03T00:29:32.253 [Thread-7] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:29:32.256 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:29:32.367 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:29:32.367 [Thread-7] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:29:32.374 [Thread-7] INFO c.z.h.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+2025-04-03T00:29:32.395 [Thread-7] INFO c.z.h.HikariDataSource - HikariPool-2 - Shutdown completed. 
+2025-04-03T00:29:32.581 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 9932 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:29:32.582 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:29:34.029 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:29:34.032 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:29:34.033 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:29:34.033 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:29:34.118 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:29:34.118 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1531 ms 
+2025-04-03T00:29:34.435 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-3 - Starting... 
+2025-04-03T00:29:34.465 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-3 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@474024ef 
+2025-04-03T00:29:34.467 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-3 - Start completed. 
+2025-04-03T00:29:34.470 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 2 msec} 
+2025-04-03T00:29:34.477 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:29:34.921 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:29:34.947 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:29:34.956 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:29:34.978 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 2.5 seconds (process running for 730.074) 
+2025-04-03T00:29:34.995 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:30:05.061 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 594 class path changes (13 additions, 581 deletions, 0 modifications) 
+2025-04-03T00:30:05.085 [Thread-14] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:30:05.093 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:30:05.246 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:30:05.247 [Thread-14] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:30:05.251 [Thread-14] INFO c.z.h.HikariDataSource - HikariPool-3 - Shutdown initiated... 
+2025-04-03T00:30:05.280 [Thread-14] INFO c.z.h.HikariDataSource - HikariPool-3 - Shutdown completed. 
+2025-04-03T00:30:05.521 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 9932 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:30:05.522 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:30:05.945 [restartedMain] WARN o.m.s.m.ClassPathMapperScanner - No MyBatis mapper was found in '[com.angels]' package. Please check your configuration. 
+2025-04-03T00:30:06.031 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:30:06.033 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:30:06.033 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:30:06.033 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:30:06.102 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:30:06.102 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 577 ms 
+2025-04-03T00:30:06.271 [restartedMain] WARN o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false) 
+2025-04-03T00:30:06.294 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class 
+2025-04-03T00:30:06.295 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2025-04-03T00:30:06.305 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2025-04-03T00:30:06.314 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+ 
+2025-04-03T00:35:08.369 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:35:08.371 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:35:08.433 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2025-04-03T00:35:08.435 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2025-04-03T00:35:09.906 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:35:09.921 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:35:09.923 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:35:09.923 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:35:09.981 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:35:09.981 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1545 ms 
+2025-04-03T00:35:10.361 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2025-04-03T00:35:10.808 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@75b22be6 
+2025-04-03T00:35:10.811 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2025-04-03T00:35:10.847 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 14 msec} 
+2025-04-03T00:35:10.876 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:35:12.224 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:35:12.245 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:35:12.269 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:35:12.276 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 4.313 seconds (process running for 5.666) 
+2025-04-03T00:36:03.551 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 42 class path changes (0 additions, 0 deletions, 42 modifications) 
+2025-04-03T00:36:03.555 [Thread-5] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:36:03.557 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:36:03.577 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:36:03.579 [Thread-5] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:36:03.585 [Thread-5] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2025-04-03T00:36:03.597 [Thread-5] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed. 
+2025-04-03T00:36:03.716 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:36:03.717 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:36:04.071 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:36:04.071 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:36:04.071 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:36:04.071 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:36:04.095 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:36:04.095 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 376 ms 
+2025-04-03T00:36:04.198 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-2 - Starting... 
+2025-04-03T00:36:04.216 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5712d2af 
+2025-04-03T00:36:04.216 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-2 - Start completed. 
+2025-04-03T00:36:04.218 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 2 msec} 
+2025-04-03T00:36:04.224 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:36:04.371 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:36:04.382 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:36:04.387 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:36:04.394 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.725 seconds (process running for 57.783) 
+2025-04-03T00:36:04.397 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:37:00.905 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 42 class path changes (0 additions, 0 deletions, 42 modifications) 
+2025-04-03T00:37:00.906 [Thread-7] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:37:00.906 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:37:00.922 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:37:00.922 [Thread-7] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:37:00.926 [Thread-7] INFO c.z.h.HikariDataSource - HikariPool-2 - Shutdown initiated... 
+2025-04-03T00:37:00.934 [Thread-7] INFO c.z.h.HikariDataSource - HikariPool-2 - Shutdown completed. 
+2025-04-03T00:37:01.038 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:37:01.039 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:37:01.459 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:37:01.460 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:37:01.460 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:37:01.460 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:37:01.482 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:37:01.482 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 441 ms 
+2025-04-03T00:37:01.568 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-3 - Starting... 
+2025-04-03T00:37:01.585 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-3 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@e1e0583 
+2025-04-03T00:37:01.585 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-3 - Start completed. 
+2025-04-03T00:37:01.596 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+21. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 10 msec} 
+2025-04-03T00:37:01.601 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:37:01.771 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:37:01.784 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:37:01.790 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:37:01.803 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.802 seconds (process running for 115.192) 
+2025-04-03T00:37:01.804 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:39:56.947 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 42 class path changes (0 additions, 0 deletions, 42 modifications) 
+2025-04-03T00:39:56.949 [Thread-11] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:39:56.950 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:39:56.968 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:39:56.969 [Thread-11] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:39:56.971 [Thread-11] INFO c.z.h.HikariDataSource - HikariPool-3 - Shutdown initiated... 
+2025-04-03T00:39:56.977 [Thread-11] INFO c.z.h.HikariDataSource - HikariPool-3 - Shutdown completed. 
+2025-04-03T00:39:57.067 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:39:57.068 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:39:57.481 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:39:57.484 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:39:57.484 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:39:57.484 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:39:57.519 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:39:57.520 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 449 ms 
+2025-04-03T00:39:57.639 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-4 - Starting... 
+2025-04-03T00:39:57.656 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-4 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2b562a7b 
+2025-04-03T00:39:57.656 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-4 - Start completed. 
+2025-04-03T00:39:57.666 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 9 msec} 
+2025-04-03T00:39:57.671 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:39:57.843 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:39:57.852 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:39:57.857 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:39:57.864 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.838 seconds (process running for 291.253) 
+2025-04-03T00:39:57.865 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:42:31.964 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-04-03T00:42:31.965 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-04-03T00:42:31.966 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2025-04-03T00:42:32.047 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			urSeq,
+		    urName,
+		    urID,
+		    urPassword,
+		    urRegTime
+		FROM
+			user
+		WHERE 1=1
+			AND urID = 'ej'
+			 AND urPassword = '1'
+ {executed in 4 msec} 
+2025-04-03T00:42:32.052 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|-------|-----|-----------|--------------------|
+|urseq |urname |urid |urpassword |urregtime           |
+|------|-------|-----|-----------|--------------------|
+|2     |관리자    |ej   |1          |2025-03-28T11:37:15 |
+|------|-------|-----|-----------|--------------------|
+ 
+2025-04-03T00:42:32.122 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 11 msec} 
+2025-04-03T00:42:32.123 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|11       |
+|---------|
+ 
+2025-04-03T00:42:32.140 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 15 msec} 
+2025-04-03T00:42:32.141 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng   |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|11    |0       |1     |이메일    |e-mail      |3          |1       |2025-04-01T19:50:09 |[null]   |
+|10    |0       |1     |status |status      |2          |1       |2025-03-23T17:08:37 |[null]   |
+|9     |0       |1     |이닝     |Inning      |40         |1       |2025-03-22T13:33:54 |[null]   |
+|8     |0       |1     |국적     |Nationality |21         |1       |2025-03-22T10:51:18 |[null]   |
+|7     |0       |1     |타      |Bat         |3          |1       |2025-03-21T17:26:47 |[null]   |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+ 
+2025-04-03T00:42:32.432 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. SELECT
+			urSeq,
+		    urName,
+		    urID,
+		    urPassword,
+		    urRegTime
+		FROM
+			user
+		WHERE 1=1
+			AND urID = 'ej'
+			 AND urPassword = '1'
+ {executed in 1 msec} 
+2025-04-03T00:42:32.433 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|-------|-----|-----------|--------------------|
+|urseq |urname |urid |urpassword |urregtime           |
+|------|-------|-----|-----------|--------------------|
+|2     |관리자    |ej   |1          |2025-03-28T11:37:15 |
+|------|-------|-----|-----------|--------------------|
+ 
+2025-04-03T00:42:32.456 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-04-03T00:42:32.457 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|11       |
+|---------|
+ 
+2025-04-03T00:42:32.462 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-04-03T00:42:32.464 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng   |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|11    |0       |1     |이메일    |e-mail      |3          |1       |2025-04-01T19:50:09 |[null]   |
+|10    |0       |1     |status |status      |2          |1       |2025-03-23T17:08:37 |[null]   |
+|9     |0       |1     |이닝     |Inning      |40         |1       |2025-03-22T13:33:54 |[null]   |
+|8     |0       |1     |국적     |Nationality |21         |1       |2025-03-22T10:51:18 |[null]   |
+|7     |0       |1     |타      |Bat         |3          |1       |2025-03-21T17:26:47 |[null]   |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+ 
+2025-04-03T00:44:14.379 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 42 class path changes (0 additions, 0 deletions, 42 modifications) 
+2025-04-03T00:44:14.381 [Thread-15] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:44:14.381 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:44:14.396 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:44:14.397 [Thread-15] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:44:14.400 [Thread-15] INFO c.z.h.HikariDataSource - HikariPool-4 - Shutdown initiated... 
+2025-04-03T00:44:14.407 [Thread-15] INFO c.z.h.HikariDataSource - HikariPool-4 - Shutdown completed. 
+2025-04-03T00:44:14.539 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:44:14.540 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:44:14.864 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:44:14.866 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:44:14.867 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:44:14.867 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:44:14.890 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:44:14.890 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 348 ms 
+2025-04-03T00:44:14.993 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-5 - Starting... 
+2025-04-03T00:44:15.022 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-5 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@33bf6ccf 
+2025-04-03T00:44:15.022 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-5 - Start completed. 
+2025-04-03T00:44:15.025 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 3 msec} 
+2025-04-03T00:44:15.038 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:44:15.207 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:44:15.220 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:44:15.226 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:44:15.235 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.745 seconds (process running for 548.625) 
+2025-04-03T00:44:15.238 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:44:48.495 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications) 
+2025-04-03T00:44:48.497 [Thread-19] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:44:48.497 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:44:48.514 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:44:48.514 [Thread-19] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:44:48.517 [Thread-19] INFO c.z.h.HikariDataSource - HikariPool-5 - Shutdown initiated... 
+2025-04-03T00:44:48.521 [Thread-19] INFO c.z.h.HikariDataSource - HikariPool-5 - Shutdown completed. 
+2025-04-03T00:44:48.610 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:44:48.611 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:44:48.873 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:44:48.873 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:44:48.874 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:44:48.874 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:44:48.892 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:44:48.892 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 278 ms 
+2025-04-03T00:44:48.981 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-6 - Starting... 
+2025-04-03T00:44:49.002 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-6 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@11e2aaf1 
+2025-04-03T00:44:49.002 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-6 - Start completed. 
+2025-04-03T00:44:49.005 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 2 msec} 
+2025-04-03T00:44:49.012 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:44:49.158 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:44:49.168 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:44:49.174 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:44:49.180 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.604 seconds (process running for 582.57) 
+2025-04-03T00:44:49.182 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:45:54.332 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-04-03T00:45:54.333 [Thread-23] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:45:54.334 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:45:54.352 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:45:54.353 [Thread-23] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:45:54.354 [Thread-23] INFO c.z.h.HikariDataSource - HikariPool-6 - Shutdown initiated... 
+2025-04-03T00:45:54.363 [Thread-23] INFO c.z.h.HikariDataSource - HikariPool-6 - Shutdown completed. 
+2025-04-03T00:45:54.461 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:45:54.461 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:45:54.740 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:45:54.741 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:45:54.741 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:45:54.741 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:45:54.761 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:45:54.762 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 298 ms 
+2025-04-03T00:45:54.860 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-7 - Starting... 
+2025-04-03T00:45:54.875 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-7 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@cf79dcf 
+2025-04-03T00:45:54.876 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-7 - Start completed. 
+2025-04-03T00:45:54.877 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+61. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 1 msec} 
+2025-04-03T00:45:54.881 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:45:54.933 [restartedMain] WARN o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'loginController' method 
+com.angels.module.login.LoginController#login()
+to { [/login/Login]}: There is already 'hofMainController' bean method
+com.angels.module.hofmain.HofMainController#login() mapped. 
+2025-04-03T00:45:54.934 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-7 - Shutdown initiated... 
+2025-04-03T00:45:54.936 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-7 - Shutdown completed. 
+2025-04-03T00:45:54.936 [restartedMain] INFO o.a.c.c.StandardService - Stopping service [Tomcat] 
+2025-04-03T00:45:54.944 [restartedMain] INFO o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2025-04-03T00:45:54.966 [restartedMain] ERROR o.s.b.SpringApplication - Application run failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'loginController' method 
+com.angels.module.login.LoginController#login()
+to { [/login/Login]}: There is already 'hofMainController' bean method
+com.angels.module.hofmain.HofMainController#login() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:346)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1155)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1121)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1056)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.angels.AngelsApplication.main(AngelsApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'loginController' method 
+com.angels.module.login.LoginController#login()
+to { [/login/Login]}: There is already 'hofMainController' bean method
+com.angels.module.hofmain.HofMainController#login() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:676)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:637)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:331)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:509)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:84)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$2(AbstractHandlerMethodMapping.java:298)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:296)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:265)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:224)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:212)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:239)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	... 21 common frames omitted
+2025-04-03T00:46:13.385 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:46:13.385 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:46:13.644 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:46:13.645 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:46:13.645 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:46:13.645 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:46:13.664 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:46:13.664 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 276 ms 
+2025-04-03T00:46:13.727 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-8 - Starting... 
+2025-04-03T00:46:13.739 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@185e13f0 
+2025-04-03T00:46:13.739 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-8 - Start completed. 
+2025-04-03T00:46:13.752 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+62. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 13 msec} 
+2025-04-03T00:46:13.758 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:46:13.933 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:46:13.947 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:46:13.954 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:46:13.965 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.61 seconds (process running for 667.355) 
+2025-04-03T00:46:13.972 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:47:03.480 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-04-03T00:47:03.481 [Thread-27] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:47:03.482 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:47:03.498 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:47:03.498 [Thread-27] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:47:03.500 [Thread-27] INFO c.z.h.HikariDataSource - HikariPool-8 - Shutdown initiated... 
+2025-04-03T00:47:03.504 [Thread-27] INFO c.z.h.HikariDataSource - HikariPool-8 - Shutdown completed. 
+2025-04-03T00:47:03.595 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 20132 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-03T00:47:03.595 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-03T00:47:03.898 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-03T00:47:03.899 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:47:03.900 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-03T00:47:03.900 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-03T00:47:03.925 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-03T00:47:03.925 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 326 ms 
+2025-04-03T00:47:04.034 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-9 - Starting... 
+2025-04-03T00:47:04.052 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-9 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@567d4355 
+2025-04-03T00:47:04.052 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-9 - Start completed. 
+2025-04-03T00:47:04.064 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+72. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 11 msec} 
+2025-04-03T00:47:04.075 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-03T00:47:04.210 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-03T00:47:04.220 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:47:04.225 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-03T00:47:04.228 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 0.671 seconds (process running for 717.618) 
+2025-04-03T00:47:04.232 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-03T00:47:16.573 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-04-03T00:47:16.574 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-04-03T00:47:16.587 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 13 ms 
+2025-04-03T00:47:16.625 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+72. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 3 msec} 
+2025-04-03T00:47:16.629 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|11       |
+|---------|
+ 
+2025-04-03T00:47:16.645 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+72. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 4 msec} 
+2025-04-03T00:47:16.653 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng   |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|11    |0       |1     |이메일    |e-mail      |3          |1       |2025-04-01T19:50:09 |[null]   |
+|10    |0       |1     |status |status      |2          |1       |2025-03-23T17:08:37 |[null]   |
+|9     |0       |1     |이닝     |Inning      |40         |1       |2025-03-22T13:33:54 |[null]   |
+|8     |0       |1     |국적     |Nationality |21         |1       |2025-03-22T10:51:18 |[null]   |
+|7     |0       |1     |타      |Bat         |3          |1       |2025-03-21T17:26:47 |[null]   |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+ 
+2025-04-03T00:56:39.428 [RMI TCP Connection(53)-127.0.0.1] INFO o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested. 
+2025-04-03T00:56:39.438 [RMI TCP Connection(53)-127.0.0.1] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-03T00:56:39.443 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:56:39.463 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-03T00:56:39.464 [RMI TCP Connection(53)-127.0.0.1] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-03T00:56:39.977 [RMI TCP Connection(53)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-9 - Shutdown initiated... 
+2025-04-03T00:56:39.988 [RMI TCP Connection(53)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-9 - Shutdown completed. 

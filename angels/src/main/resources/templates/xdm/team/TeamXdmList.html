@@ -67,17 +67,8 @@
 						  <div class="col">
 						    <input type="text" id="shDateEnd" name="shDateEnd" th:value="${#strings.substring(vo.shDateEnd, 0, 10)}" placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
 						  </div>
-                          <div class="col">
-							<select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
-								<option value="" th:selected="${vo.shOption == null}">검색구분</option>
-								<option value="1" th:selected="${vo.shOption == 1}">코드 번호</option>
-								<option value="2" th:selected="${vo.shOption == 2}">팀 이름(연고지, 영문)</option>
-								<option value="3" th:selected="${vo.shOption == 3}">팀 이름(구단명, 영문)</option>
-								<option value="4" th:selected="${vo.shOption == 4}">팀 이름(연고지, 한글)</option>
-								<option value="5" th:selected="${vo.shOption == 5}">팀 이름(구단명, 한글)</option>
-								<option value="6" th:selected="${vo.shOption == 6}">팀 약어</option>
-							</select>
-                          </div>
+						  </div>
+						<div class="row row-cols-5 g-2 mt-0">		
 						  <div class="col">
 							<select id="shLeagueOption" name="shLeagueOption" class="form-select form-select-sm">  
 							<option value="">리그 선택</option>
@@ -89,19 +80,30 @@
 							  <option value="">리그 선택</option>
 							  <option th:selected="${list.cdSeq} ==${vo.shDivOption}" th:each="list : ${@codeService.selectListCachedCode(4)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
 							  </select>
+						  </div>
+						  <div class="col">
+						  <select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
+						  	<option value="" th:selected="${vo.shOption == null}">검색구분</option>
+						  	<option value="1" th:selected="${vo.shOption == 1}">코드 번호</option>
+						  	<option value="2" th:selected="${vo.shOption == 2}">팀 이름(연고지, 영문)</option>
+						  	<option value="3" th:selected="${vo.shOption == 3}">팀 이름(구단명, 영문)</option>
+						  	<option value="4" th:selected="${vo.shOption == 4}">팀 이름(연고지, 한글)</option>
+						  	<option value="5" th:selected="${vo.shOption == 5}">팀 이름(구단명, 한글)</option>
+						  	<option value="6" th:selected="${vo.shOption == 6}">팀 약어</option>
+						  </select>
 						  </div>    
                           <div class="col">
                             <input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" class="form-control form-control-sm" placeholder="검색어">
                           </div>
                           <div class="d-flex gap-2">
-                            <button class="btn btn-light btn-sm">
+                            <button type="button" class="btn btn-light btn-sm" id="btnSearch">
                               <i class="fa-solid fa-magnifying-glass"></i>
                             </button>                          
-                            <button class="btn btn-light btn-sm">
+                            <button type="button" class="btn btn-light btn-sm" id="btnRefresh">
                               <i class="fa-solid fa-rotate-right"></i>
                             </button>
                           </div>                                           
-                        </div>
+						</div>
                       </div>
                     </div>
                   </div>
@@ -138,10 +140,8 @@
 					  <th class="sortable">코드 번호 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">리그 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">소속 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">팀 이름(연고지, 영문) <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">팀 이름(구단명, 영문) <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">팀 이름(연고지, 한글)<i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">팀 이름(구단명, 한글) <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀 이름(연고지) <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀 이름(구단명) <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">팀 약어 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
@@ -149,7 +149,7 @@
                   </thead>
                   <tbody>
 					<tr th:if="${#lists.isEmpty(list)}">
-						<td colspan="12">
+						<td colspan="10">
 							<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
 						</td>
 					</tr>
@@ -160,10 +160,8 @@
 					  <td th:text="${list.tmSeq}"></td>
 					  <td th:text="${@codeService.selectOneCachedCode(list.tmLeague)}"></td>
 					  <td th:text="${@codeService.selectOneCachedCode(list.tmDiv)}"></td>
-					  <td class="tmHomeName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.tmHomeName}" th:attr="onclick=|goForm('${list.tmSeq}')|"></a></td>
-					  <td th:text="${list.tmName}"></td>			  
-					  <td th:text="${list.tmHomeNameKor}"></td>
-					  <td th:text="${list.tmNameKor}"></td>
+					  <td class="|tmHomeName align-middle fw-semi-bold ${list.tmHomeNameKor}|"><a href="javascript:void(0);" th:text="|${list.tmHomeName} (${list.tmHomeNameKor})|" th:attr="onclick=|goForm('${list.tmSeq}')|"></a></td>
+					  <td th:text="|${list.tmName} (${list.tmNameKor})|"></td>			  
 					  <td th:text="${list.tmNameAb}"></td>
 					  <td th:text="${list.tmRegTime}"></td>
 					  <td th:text="${list.tmModTime}"></td>
@@ -303,6 +301,12 @@
 		    form.submit();
 		};
 	</script>
+	
+	<script>
+		document.getElementById("btnRefresh").onclick = function () {
+		    location = "/team/TeamXdmList";
+		}			
+	</script>
 
 	<script>
 		document.getElementById("changeRowNum").onchange = function () {
@@ -326,6 +330,7 @@
 		    form.submit();
 		}		
 	</script>
+			
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->
 <div th:replace="~{xdm/include/footer :: footer}"></div>

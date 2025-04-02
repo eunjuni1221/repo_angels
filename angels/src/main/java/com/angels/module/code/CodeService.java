@@ -77,8 +77,6 @@ public class CodeService {
 			for(CodeDto codeRow : CodeDto.cachedCodeArrayList) {
 				if (codeRow.getCdSeq().equals(Integer.toString(code))) {
 					rt = codeRow.getCdNameEng();
-					System.out.println(codeRow.getCdSeq());
-					System.out.println(code);
 				} else {
 					// by pass
 				}

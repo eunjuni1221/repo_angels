@@ -1,0 +1,322 @@
+/*
+File Name: 		custom.css
+Description:  You can add your custom CSS here and it will overwrite template styles
+*/
+/*# sourceMappingURL=maps/custom.css.map */
+
+/* CKEditor css
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+
+.btn-check:checked + .btn {
+    background-color: #573ccb;
+    color: #fff;
+    border-color: #573ccb;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 25px;
+    margin-left: -20px;
+}
+
+.menu-list li {
+    margin: 0 10px;
+}
+
+.menu-list .separator {
+    pointer-events: none;
+    color: #ccc;
+}
+
+.content-box {
+    display: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .content-box {
+    display: block; /* 처음부터 보이도록 수정 */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+    max-height: 200px;  /* 최대 높이 설정 */
+    overflow-y: auto;   /* 내용이 길면 스크롤 */
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {  
+    .alc-player-info-banner__stats h3 {
+        padding-top: 30px; /* 위쪽 여백 추가 */
+    }
+}
+
+@media (max-width: 991px) {  
+    .alc-player-info-banner__stats h3 {
+        padding-top: 30px; /* 위쪽 여백 추가 */
+    }
+}
+
+/* Team history 부분 수정완료 하도 안돼서 id로 함 */
+@media (min-width: 992px) {
+    #myWidget {
+        width: 204.3%;
+        overflow: visible; /* 화면 밖으로 나가지 않도록 조정 */
+        box-sizing: border-box;
+    }
+    
+    #myWidget button {
+        z-index: 9999; /* 버튼을 다른 요소 위로 올리기 */
+        position: relative;
+        pointer-events: auto; /* 클릭 가능하게 설정 */
+        display: block; /* 버튼을 제대로 표시 */
+    }
+}
+
+
+/* HOT PICK TOP3 경기결과 수정 */
+@media (min-width: 768px) {
+    #hof-pick-top3 {
+        width: 190.5%;
+        max-width: 200%;
+    }
+}
+
+@media (min-width: 992px) {
+    #hof-pick-top3 {
+        width: 621.5px;
+        max-width: 200%;
+    }
+}
+@media (min-width: 1200px) {
+    #hof-pick-top3 {
+        width: 773px;
+        max-width: 200%;
+    }
+}
+
+/* 광고배너 */
+@media (min-width: 1200px) {
+    .info-block__item--ad {
+        width: 50%; 
+        height: 80px; 
+        overflow: hidden; 
+    }
+
+    .info-block__item--ad img {
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover;
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 992px) {
+    .info-block__item--ad {
+        width: 50%; 
+        height: 80px; 
+        overflow: hidden; 
+        margin-top: 2px;
+    }
+
+    .info-block__item--ad img {
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover;
+    }
+}
+
+@media print {
+	body {
+		margin: 0 !important;
+	}
+}
+
+.main-container {
+	font-family: 'Lato';
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ck-content {
+	font-family: 'Lato';
+	line-height: 1.6;
+	word-break: break-word;
+}
+
+.editor-container_classic-editor .editor-container__editor {
+	min-width: 795px;
+	max-width: 795px;
+}
+
+
+/* 선수 인포 배너에 대한 부분 */
+@media (min-width: 992px) {
+    #infoBanner {
+        margin-top: -160px;
+    }
+}
+
+@media (min-width: 992px) {
+    #infoUserBanner {
+        margin-top: -80px;
+    }
+}
+
+.header-mobile__logo-img {
+    filter: invert(1);
+}
+
+.circle-buttonball {
+    width: 15px;
+    height: 15px;
+    background-color: #4CAF50; /* 색상 */
+    color: white; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 50%; /* 동그란 모양 만들기 */
+    font-size: 10px; /* 숫자 크기 */
+    display: flex;
+    justify-content: center; /* 가로로 가운데 정렬 */
+    align-items: center; /* 세로로 가운데 정렬 */
+  }
+
+  .circle-buttonstrike {
+    width: 15px;
+    height: 15px;
+    background-color: orange; /* 색상 */
+    color: white; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 50%; /* 동그란 모양 만들기 */
+    font-size: 10px; /* 숫자 크기 */
+    display: flex;
+    justify-content: center; /* 가로로 가운데 정렬 */
+    align-items: center; /* 세로로 가운데 정렬 */
+  }
+
+  .circle-buttonhit {
+    width: 15px;
+    height: 15px;
+    background-color: blue; /* 색상 */
+    color: white; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 50%; /* 동그란 모양 만들기 */
+    font-size: 10px; /* 숫자 크기 */
+    display: flex;
+    justify-content: center; /* 가로로 가운데 정렬 */
+    align-items: center; /* 세로로 가운데 정렬 */
+  }
+
+  .circle-button-out {
+    width: 1px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid black; /* 얇은 검은색 테두리 */
+    background-color: transparent; /* 안은 비워둠 */
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.out-button-filled {
+    background-color: red; /* 아웃되면 빨간색으로 채움 */
+}
+
+  /* 데이트 피커 */
+.date-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* 버튼 사이 여백 */
+  margin-top: 20px;
+}
+
+.date-button {
+  background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.date-button:hover {
+  background: linear-gradient(135deg, #e0e0e0, #c7c7c7);
+  transform: translateY(-2px);
+}
+
+.date-button:disabled {
+  background: #e0e0e0;
+  color: #aaa;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.arrow-button {
+  background: white;
+  border: 2px solid #aaa;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.arrow-button:hover {
+  background: #f0f0f0;
+  border-color: #888;
+  transform: scale(1.1);
+}
+
+
+  /* 아코디언 */
+  .custom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 열 */
+    gap: 20px;
+  }
+
+  .custom-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .widget-standings {
+    transition: margin 0.3s ease-in-out;
+  }
+
+  .widget-standings.collapsed {
+    margin-top: -20px; /* 위로 이동 */
+  }
+  
+  
+/* 화살표 회전 애니메이션 (예정) */
+  /* .rotated {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+} */
+
+/* 이건 아이콘 회전 애니메이션 Jquery */
+/* $(document).ready(function () {
+    $(".toggle-arrow").on("click", function () {
+        let target = $(this).attr("data-target");
+        $(target).collapse("toggle");
+
+        // 아이콘 회전 효과 추가
+        $(this).find("i").toggleClass("rotated");
+    });
+}); */

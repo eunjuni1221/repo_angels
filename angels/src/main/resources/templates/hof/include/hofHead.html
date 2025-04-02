@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="head">
+	<!-- Basic Page Needs
+	================================================== -->
+	<title>Home Of Fame - HOF</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Sports Club, League and News HTML Template">
+	<meta name="author" content="Dan Fisher">
+	<meta name="keywords" content="sports club news HTML template">
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="/hof/template/assets/images/baseball_Icon.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/hof/template/assets/images/baseball/favicons/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/hof/template/assets/images/baseball/favicons/favicon-152.png">
+
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+	<!-- Google Web Fonts
+	================================================== -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display&#x3D;swap" rel="stylesheet">
+
+	<!-- CSS
+	================================================== -->
+	<!-- Vendor CSS -->
+	<link href="/hof/template/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="/hof/template/assets/fonts/font-awesome/css/all.min.css" rel="stylesheet">
+	<link href="/hof/template/assets/fonts/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+	<link href="/hof/template/assets/vendor/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+	<link href="/hof/template/assets/vendor/slick/slick.css" rel="stylesheet">
+	<link href="/hof/template/assets/vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
+
+	<!-- Template CSS-->
+	<link href="/hof/template/assets/css/style-hockey.css" rel="stylesheet">
+
+	<!-- Custom CSS-->
+	<link href="/hof/template/assets/css/custom.css" rel="stylesheet">
+
+</head>
+<body data-template="template-hockey"  >
+
+	<div class="site-wrapper clearfix">
+		<div class="site-overlay"></div>
+
+		<div class="alc-events-scoreboard">
+			<div class="alc-events-scoreboard__filter">
+				<div class="form-group form-group--floating-label mb-0">
+					<div class="alc-events-scoreboard__filter">
+						<h4>실시간 Live <span class="alc-events-scoreboard__info-live"></span></h4>
+					</div>
+				</div>
+			</div>
+			<div class="alc-events-scoreboard__nav alc-events-scoreboard__nav--skewed">
+				<div class="alc-events-scoreboard__button-prev swiper-button-prev swiper-button--fa"></div>
+				<div class="alc-events-scoreboard__button-next swiper-button-next swiper-button--fa"></div>
+			</div>
+			<div class="alc-events-scoreboard__body">
+		
+				<div class="alc-events-scoreboard__slider js-alc-events-scoreboard-slider swiper">
+					<div class="swiper-wrapper">
+		
+						<div class="swiper-slide">
+							<div class="alc-events-scoreboard__item">
+								<div class="alc-events-scoreboard__teams">
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/alchemists-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/ocean-kings-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__score">
+									<div class="alc-events-scoreboard__score-item ">
+										3
+									</div>
+									<div class="alc-events-scoreboard__score-item ">
+										1
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__info">
+									<div class="alc-events-scoreboard__info-date">
+										<span class="alc-events-scoreboard__info-live">Live</span>
+									</div>
+									<div class="alc-events-scoreboard__info-status">
+										<span class="alc-events-scoreboard__info-status-period">2회초</span>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__links alc-events-scoreboard__links--skewed">
+									<a href="_hockey_event-team-stats.html" class="alc-events-scoreboard__link">
+										<i class="alc-icon alc-icon--chart alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Stats</span>
+									</a>
+									<a href="_hockey_event-news-recap.html" class="alc-events-scoreboard__link">
+										<i class="fas fa-play fa-xs alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Recap</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="alc-events-scoreboard__item">
+								<div class="alc-events-scoreboard__teams">
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/alchemists-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/ocean-kings-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__score">
+									<div class="alc-events-scoreboard__score-item ">
+										3
+									</div>
+									<div class="alc-events-scoreboard__score-item ">
+										1
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__info">
+									<div class="alc-events-scoreboard__info-date">
+										<span class="alc-events-scoreboard__info-live">Live</span>
+									</div>
+									<div class="alc-events-scoreboard__info-status">
+										<span class="alc-events-scoreboard__info-status-period">2회초</span>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__links alc-events-scoreboard__links--skewed">
+									<a href="_hockey_event-team-stats.html" class="alc-events-scoreboard__link">
+										<i class="alc-icon alc-icon--chart alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Stats</span>
+									</a>
+									<a href="_hockey_event-news-recap.html" class="alc-events-scoreboard__link">
+										<i class="fas fa-play fa-xs alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Recap</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="alc-events-scoreboard__item">
+								<div class="alc-events-scoreboard__teams">
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/ocean-kings-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/logos/ocean-kings-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__score">
+									<div class="alc-events-scoreboard__score-item ">
+										3
+									</div>
+									<div class="alc-events-scoreboard__score-item ">
+										1
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__info">
+									<div class="alc-events-scoreboard__info-date">
+										<span class="alc-events-scoreboard__info-live">Live</span>
+									</div>
+									<div class="alc-events-scoreboard__info-status">
+										<span class="alc-events-scoreboard__info-status-period">2회초</span>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__links alc-events-scoreboard__links--skewed">
+									<a href="_hockey_event-team-stats.html" class="alc-events-scoreboard__link">
+										<i class="alc-icon alc-icon--chart alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Stats</span>
+									</a>
+									<a href="_hockey_event-news-recap.html" class="alc-events-scoreboard__link">
+										<i class="fas fa-play fa-xs alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Recap</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="alc-events-scoreboard__item">
+								<div class="alc-events-scoreboard__teams">
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/alchemists-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/ocean-kings-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__score">
+									<div class="alc-events-scoreboard__score-item ">
+										3
+									</div>
+									<div class="alc-events-scoreboard__score-item ">
+										1
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__info">
+									<div class="alc-events-scoreboard__info-date">
+										<span class="alc-events-scoreboard__info-live">Live</span>
+									</div>
+									<div class="alc-events-scoreboard__info-status">
+										<span class="alc-events-scoreboard__info-status-period">2회초</span>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__links alc-events-scoreboard__links--skewed">
+									<a href="_hockey_event-team-stats.html" class="alc-events-scoreboard__link">
+										<i class="alc-icon alc-icon--chart alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Stats</span>
+									</a>
+									<a href="_hockey_event-news-recap.html" class="alc-events-scoreboard__link">
+										<i class="fas fa-play fa-xs alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Recap</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="alc-events-scoreboard__item">
+								<div class="alc-events-scoreboard__teams">
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/alchemists-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/ocean-kings-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__score">
+									<div class="alc-events-scoreboard__score-item ">
+										3
+									</div>
+									<div class="alc-events-scoreboard__score-item ">
+										1
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__info">
+									<div class="alc-events-scoreboard__info-date">
+										<!-- <span class="alc-events-scoreboard__info-status-final">Final</span> -->
+									</div>
+									<div class="alc-events-scoreboard__info-status">
+										<span class="alc-events-scoreboard__info-status-final">Final</span>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__links alc-events-scoreboard__links--skewed">
+									<a href="_hockey_event-team-stats.html" class="alc-events-scoreboard__link">
+										<i class="alc-icon alc-icon--chart alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Stats</span>
+									</a>
+									<a href="_hockey_event-news-recap.html" class="alc-events-scoreboard__link">
+										<i class="fas fa-play fa-xs alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Recap</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<!-- 더블헤더 있을시에 -->
+						<div class="swiper-slide">
+							<div class="alc-events-scoreboard__item">
+								<div class="alc-events-scoreboard__teams">
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/alchemists-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+									<div class="alc-events-scoreboard__team">
+										<figure class="alc-events-scoreboard__team-logo">
+											<img src="/hof/template/assets/images/baseball/samples/logos/ocean-kings-xs.png" alt="">
+										</figure>
+										<div class="alc-events-scoreboard__team-info">
+											<h6 class="alc-events-scoreboard__team-name ">삼성</h6>
+										</div>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__score">
+									<div class="alc-events-scoreboard__score-item ">
+										3
+									</div>
+									<div class="alc-events-scoreboard__score-item ">
+										1
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__info">
+									<div class="alc-events-scoreboard__info-date">
+										18:30
+									</div>
+									<div class="alc-events-scoreboard__info-status">
+										<span class="alc-events-scoreboard__info-status-period">더블헤더</span>
+									</div>
+								</div>
+								<div class="alc-events-scoreboard__links alc-events-scoreboard__links--skewed">
+									<a href="_hockey_event-team-stats.html" class="alc-events-scoreboard__link">
+										<i class="alc-icon alc-icon--chart alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Stats</span>
+									</a>
+									<a href="_hockey_event-news-recap.html" class="alc-events-scoreboard__link">
+										<i class="fas fa-play fa-xs alc-events-scoreboard__link-icon"></i>
+										<span class="alc-events-scoreboard__link-txt">Recap</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+
+		<!-- Header
+		================================================== -->
+		
+		<!-- Header Mobile -->
+		<div class="header-mobile clearfix" id="header-mobile">
+			<div class="header-mobile__logo">
+				<a href="baseball-main.html"><img src="/hof/template/assets/images/baseball_Icon.png"  alt="homeOfFame" class="header-mobile__logo-img" style="width: 96px;"></a>
+			</div>
+			<div class="header-mobile__inner">
+				<a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
+				<span class="header-mobile__search-icon" id="header-mobile__search-icon"></span>
+			</div>
+		</div>
+		
+		<!-- Header Desktop -->
+		<header class="header header--layout-5">
+		
+			<!-- Header Secondary -->
+			<div class="header__secondary header__secondary--split-bg">
+				<!-- Header Secondary Background -->
+				<div class="header__secondary-bg-layer effect-duotone effect-duotone--primary"></div>
+				<!-- Header Secondary Background / End -->
+		
+				<div class="container">
+		
+					<!-- Header Search Form -->
+					<div class="header-search-form d-block d-lg-none">
+						<form action="#" id="mobile-search-form" class="search-form">
+							<input type="text" class="form-control header-mobile__search-control" value="" placeholder="Enter your search here...">
+							<button type="submit" class="header-mobile__search-submit"><i class="fas fa-search"></i></button>
+						</form>
+					</div>
+					<!-- Header Search Form / End -->
+		
+					<!-- Social Icons -->
+					<ul class="info-block info-block--header info-block--social">
+						<li class="info-block__item info-block__item--sm">
+							<div class="df-icon df-icon--custom">
+								<i class="fa-solid fa-phone"></i>							
+							</div>
+							<h6 class="info-block__heading">버그 신고</h6>
+							<a class="info-block__link" href="https://facebook.com/danfisher.dev/">070)0000-0000</a>
+						</li>
+						<li class="info-block__item info-block__item--sm">
+							<div class="df-icon df-icon--custom">
+								<i class="fa-solid fa-rectangle-ad"></i>
+							</div>
+							<h6 class="info-block__heading">광고 문의</h6>
+							<a class="info-block__link" href="https://twitter.com/danfisher_dev">hof_admin@google.com</a>
+						</li>
+						<li class="info-block__item info-block__item--sm">
+							<div class="df-icon df-icon--custom">
+								<i class="fab fa-instagram"></i>
+							</div>
+							<h6 class="info-block__heading">Instagram</h6>
+							<a class="info-block__link" href="https://www.instagram.com/dan.fisher.dev/">@alcstHOCKEY</a>
+						</li>
+					</ul>
+					<!-- Social Icons / End -->
+		
+					<!-- Info Block -->
+					<li class="info-block__item info-block__item--ad">
+						<!-- 캐러셀로 넣어봅시다 -->
+						<a href="https://example.com" target="_blank">
+							<img src="/hof/template/assets/images/banner.png" alt="광고 배너">
+						</a>
+					</li>
+					<!-- Info Block / End -->
+				</div>
+			</div>
+			<!-- Header Secondary / End -->
+		
+			<!-- Header Primary -->
+			<div class="header__primary">
+				<div class="container">
+					<div class="header__primary-inner">
+		
+						<!-- Header Logo -->
+						<div class="header-logo">
+							<a href="mainHof"><img src="/hof/template/assets/images/baseball_Icon.png" alt="HomeOfFame" class="header-logo__img" style="width: 140px;"></a>
+						</div>
+						<!-- Header Logo / End -->
+		
+						<!-- Main Navigation -->
+						<nav class="main-nav clearfix">
+							<ul class="main-nav__list">
+								<li class="active"><a href="mainHof">Home</a>
+									<!-- 리스트 삭제  -->
+								</li>
+								<li class=""><a href="#">전체메뉴</a>
+									<div class="main-nav__megamenu clearfix">
+										<ul class="col-lg-4 col-md-3 col-12 main-nav__ul main-nav__ul-2cols">
+											<li class="main-nav__title">Features</li>
+											<li><a href="_hockey_index.html">Homepage v1</a></li>
+											<li><a href="_hockey_features-shortcodes.html">Shortcodes</a></li>
+											<li><a href="_hockey_index-2.html">Homepage v2</a></li>
+											<li><a href="_hockey_features-typography.html">Typography</a></li>
+											<li><a href="_hockey_blog-1.html">News Page v1</a></li>
+											<li><a href="_hockey_event-calendar.html">Scores Calendar</a></li>
+											<li><a href="_hockey_blog-2.html">News Page v2</a></li>
+											<li><a href="_hockey_features-tickets.html">Buy Tickets</a></li>
+											<li><a href="_hockey_blog-3.html">News Page v3</a></li>
+											<li><a href="_hockey_blog-post-video.html">Video Player</a></li>
+											<li><a href="_hockey_staff-single.html">Staff Member</a></li>
+											<li><a href="_hockey_page-event.html">Event Page</a></li>
+											<li><a href="_hockey_page-sponsors.html">Sponsors</a></li>
+											<li><a href="_hockey_page-contacts.html">Contact Page</a></li>
+											<li><a href="_hockey_page-faqs.html">FAQs</a></li>
+											<li><a href="_hockey_features-search-results.html">Search Results</a></li>
+										</ul>
+										<ul class="col-lg-2 col-md-3 col-12 main-nav__ul">
+											<li class="main-nav__title">KBO</li>
+											<li class=""><a href="baseball_team-mainmain.html">팀</a></li>
+											<li class=""><a href="_hockey_team-roster.html">기록 · 순위</a></li>
+											<li class=""><a href="_hockey_team-standings.html">스코어보드</a></li>
+											<li class=""><a href="_hockey_team-last-results.html">유저 PICK</a></li>
+											<li class=""><a href="_hockey_team-schedule.html">Schedule</a></li>
+											<li class=""><a href="_hockey_team-gallery.html">Gallery</a></li>
+										</ul>
+										<ul class="col-lg-2 col-md-3 col-12 main-nav__ul">
+											<li class="main-nav__title">HOF</li>
+											<li class=""><a href="_hockey_player-stats.html">유저 순위</a></li>
+											<li class=""><a href="_hockey_player-gameslog.html">통산</a></li>
+											<li class=""><a href="_hockey_player-awards.html">베스트나인</a></li>
+											<li class=""><a href="_hockey_player-bio-news.html">역대 기록</a></li>
+											<li class=""><a href="_hockey_player-gallery.html">월간랭킹</a></li>
+										</ul>
+										<ul class="col-lg-2 col-md-3 col-12 main-nav__ul">
+											<li class="main-nav__title">NEWS</li>
+											<li class=""><a href="_hockey_event-overview.html">Overview</a></li>
+											<li class=""><a href="_hockey_event-box-score.html">Box Score</a></li>
+											<li class=""><a href="_hockey_event-play-by-play.html">Play-by-Play</a></li>
+											<li class=""><a href="_hockey_event-team-stats.html">Team Stats</a></li>
+											<li class=""><a href="_hockey_event-news-recap.html">News Recap</a></li>
+											<li class=""><a href="_hockey_event-videos.html">Videos</a></li>
+										</ul>
+										<ul class="col-lg-2 col-md-3 col-12 main-nav__ul">
+											<li class="main-nav__title">FORUM</li>
+											<li class=""><a href="_hockey_shop-fullwidth.html">Main</a></li>
+											<li class=""><a href="_hockey_shop-sidebar-grid.html">자유게시판</a></li>
+											<li class=""><a href="_hockey_shop-sidebar-list.html">팀 갤러리</a></li>
+											<li class=""><a href="_hockey_shop-product.html">HOT</a></li>
+											<li class=""><a href="_hockey_shop-cart.html">Shopping Cart</a></li>
+											<li class=""><a href="_hockey_shop-checkout.html">Checkout</a></li>
+											<li class=""><a href="_hockey_shop-whishlist.html">Wishlist</a></li>
+											<li class=""><a href="_hockey_shop-account.html">Your Account</a></li>
+										</ul>
+									</div>
+								</li>
+								<li class=""><a href="*">KBO</a>
+									<ul class="main-nav__sub">
+										<li><a href="baseball_team-mainmain.html">TEAM</a>
+											<ul class="main-nav__sub-2">
+												<li class="">
+													<a href="">MAIN</a>
+													<ul class="main-nav__sub-2">
+														<li><a href="baseball_team-main.html">삼성</a></li>
+														<li><a href="baseball_team-main.html">두산</a></li>
+														<li><a href="baseball_team-main.html">KT</a></li>
+														<li><a href="baseball_team-main.html">LG</a></li>
+														<li><a href="baseball_team-main.html">SSG</a></li>
+														<li><a href="baseball_team-main.html">KIA</a></li>
+														<li><a href="baseball_team-main.html">롯데</a></li>
+														<li><a href="baseball_team-main.html">한화</a></li>
+														<li><a href="baseball_team-main.html">NC</a></li>
+														<li><a href="baseball_team-main.html">키움</a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li><a href="_hockey_player-overview.html">선수조회</a>
+										<li><a href="_hockey_player-overview.html">기록 · 순위</a>
+											<ul class="main-nav__sub-2">
+												<li class=""><a href="_hockey_player-overview.html">선수 기록</a></li>
+												<li class=""><a href="_hockey_player-stats.html">팀순위</a></li>
+												<li class=""><a href="_hockey_player-gameslog.html">선수 순위</a></li>
+												<li class=""><a href="_hockey_player-awards.html">역대 기록</a></li>
+												<li class=""><a href="_hockey_player-bio-news.html">투수 VS 타자</a></li>
+												<li class=""><a href="_hockey_player-gallery.html">Gallery</a></li>
+											</ul>
+										</li>
+										<li><a href="_hockey_staff-single.html">스코어보드</a></li>
+										<li><a href="_hockey_event-overview.html">유저 PICK</a>
+											<ul class="main-nav__sub-2">
+												<li class=""><a href="_hockey_event-videos.html">MAIN</a></li>
+												<li class=""><a href="_hockey_event-overview.html">통산</a></li>
+												<li class=""><a href="_hockey_event-box-score.html">연간</a></li>
+												<li class=""><a href="_hockey_event-play-by-play.html">월</a></li>
+												<li class=""><a href="_hockey_event-team-stats.html">주</a></li>
+												<li class=""><a href="_hockey_event-news-recap.html">일</a></li>
+											</ul>
+										</li>
+										<li><a href="_hockey_game-overview.html">Game Overview</a></li>
+										<li><a href="_hockey_event-tournament.html">Tournament</a></li>
+									</ul>
+								</li>
+								<li class=""><a href="_hockey_team-overview.html">HOF</a>
+									<ul class="main-nav__sub">
+										<li><a href="_hockey_team-overview.html">유저 순위</a>
+											<ul class="main-nav__sub-2">
+												<li class="">
+													<a href="_hockey_team-overview.html">순위</a>
+												</li>
+												<li class="">
+													<a href="_hockey_team-roster.html">TOP 9</a>
+												</li>
+												<li class="">
+													<a href="_hockey_team-standings.html">주간 랭킹</a>
+												</li>
+												<li class="">
+													<a href="_hockey_team-last-results.html">월간 랭킹</a>
+												</li>
+												<li class="">
+													<a href="_hockey_team-schedule.html">Schedule</a>
+												</li>
+												<li class="">
+													<a href="_hockey_team-gallery.html">Gallery</a>
+													<ul class="main-nav__sub-2">
+														<li><a href="_hockey_team-gallery-album.html">Single Album</a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li><a href="_hockey_player-overview.html">통산</a>
+											<ul class="main-nav__sub-2">
+												<li class=""><a href="_hockey_player-overview.html">통산 순위</a></li>
+												<li class=""><a href="_hockey_player-stats.html">주간 랭킹선정 TOP 50</a></li>
+												<li class=""><a href="_hockey_player-gameslog.html">월간 랭킹 TOP 50</a></li>
+												<li class=""><a href="_hockey_player-awards.html">통산 누적 순위</a></li>
+												<li class=""><a href="_hockey_player-bio-news.html">투수 VS 타자</a></li>
+												<li class=""><a href="_hockey_player-gallery.html">Gallery</a></li>
+											</ul>
+										</li>
+										<li><a href="_hockey_staff-single.html">스코어보드</a></li>
+										<li><a href="_hockey_event-overview.html">베스트 나인</a>
+											<ul class="main-nav__sub-2">
+												<li class=""><a href="_hockey_event-videos.html">2025 베스트나인</a></li>
+												<li class=""><a href="_hockey_event-overview.html">월간 베스트나인</a></li>
+												<li class=""><a href="_hockey_event-box-score.html">주간 베스트나인</a></li>
+												<li class=""><a href="_hockey_event-play-by-play.html">월</a></li>
+												<li class=""><a href="_hockey_event-team-stats.html">주</a></li>
+												<li class=""><a href="_hockey_event-news-recap.html">일</a></li>
+											</ul>
+										</li>
+										<li><a href="_hockey_game-overview.html">Game Overview</a></li>
+										<li><a href="_hockey_event-tournament.html">Tournament</a></li>
+										<li><a href="_hockey_event-overview.html">역대 기록</a>
+											<ul class="main-nav__sub-2">
+												<li class=""><a href="_hockey_event-videos.html">2024 MVP</a></li>
+												<li class=""><a href="_hockey_event-overview.html">역대 MVP</a></li>
+												<li class=""><a href="_hockey_event-box-score.html">역대 타자상</a></li>
+												<li class=""><a href="_hockey_event-play-by-play.html">시즌 신기록</a></li>
+												<li class=""><a href="_hockey_event-team-stats.html">주</a></li>
+												<li class=""><a href="_hockey_event-news-recap.html">일</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li class=""><a href="_hockey_forum-main.html">Forum</a>
+									<ul class="main-nav__sub">
+										<li class=""><a href="_hockey_forum-main.html">Forum - Main</a></li>
+										<li class=""><a href="_hockey_forum-topics.html">자유게시판</a></li>
+										<li><a href="_hockey_event-overview.html">팀 갤러리</a>
+											<ul class="main-nav__sub-2">
+												<li class=""><a href="_hockey_event-videos.html">삼성</a></li>
+												<li class=""><a href="_hockey_event-overview.html">LG</a></li>
+												<li class=""><a href="_hockey_event-box-score.html">SSG</a></li>
+												<li class=""><a href="_hockey_event-play-by-play.html">두산</a></li>
+												<li class=""><a href="_hockey_event-team-stats.html">키움</a></li>
+												<li class=""><a href="_hockey_event-news-recap.html">KT</a></li>
+												<li class=""><a href="_hockey_event-box-score.html">한화</a></li>
+												<li class=""><a href="_hockey_event-play-by-play.html">롯데</a></li>
+												<li class=""><a href="_hockey_event-team-stats.html"> NC</a></li>
+												<li class=""><a href="_hockey_event-news-recap.html">KIA</a></li>
+											</ul>
+											<li><a href="_hockey_event-overview.html">HOT</a>
+												<ul class="main-nav__sub-2">
+													<li class=""><a href="_hockey_event-videos.html">실시간</a></li>
+													<li class=""><a href="_hockey_event-overview.html">주간 best</a></li>
+													<li class=""><a href="_hockey_event-box-score.html">월간 best</a></li>
+												</ul>
+									</ul>
+								</li>
+							</ul>
+							
+		
+							<!-- Account Navigation -->
+							<ul class="nav-account">
+								<li class="nav-account__item">
+									<a href="baseball_user-main.html">Dugout</a>
+									<ul class="main-nav__sub">
+										<li><a href="baseball_user-stats.html">연도별 기록</a></li>
+										<li><a href="baseball_user-gameslog.html">지난경기</a></li>
+										<li><a href="baseball_user-awardTitles.html">수상 & 타이틀</a></li>
+										<li><a href="baseball_user-hofPick.html">HOF PICK</a></li>
+									</ul>
+								</li>
+								<li class="nav-account__item">
+									<a href="_hockey_index-nologin.html">LOGOUT</a>
+								</li>
+								<li class="nav-account__item">
+									<a href="#">
+										<img src="/hof/template/assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
+									</a>
+									<ul class="main-nav__sub main-nav__sub--account">
+										<li class="main-nav__sub-heading">
+											<a href="#">
+												Hello!
+												<img src="/hof/template/assets/images/baseball/samples/header-user-avatar.jpg" alt="" class="main-nav__sub-heading-avatar">
+												<span class="highlight">유저닉네임</span>
+											</a>
+										</li>
+										<li><a href="baseball-profile.html">프로필</a></li>
+										<li><a href="baseball-myPage.html">마이페이지</a></li>
+										<li><a href="baseball-secession.html">탈퇴하기</a></li>
+										<li><a href="baseball_main-nologin.html">Logout</a></li>
+									</ul>
+								</li>
+							</ul>
+							<!-- Account Navigation / End -->
+		
+							<!-- Search Toggle -->
+							<a href="#" class="search__toggle search__toggle--skewed">
+								<svg role="img" class="df-icon df-icon--search">
+									<use xlink:href="/hof/template/assets/images/baseball/icons-hockey.svg#search"/>
+								</svg>
+							</a>
+							<!-- Search Toggle / Eng -->
+		
+						</nav>
+						<!-- Main Navigation / End -->
+		
+		
+					</div>
+				</div>
+			</div>
+			<!-- Header Primary / End -->
+		
+		</header>
+		<!-- Header / End -->
+		
+		<!-- Search Panel -->
+		<aside class="search-panel">
+			<form action="https://necromancers-wp.dan-fisher.dev/" id="search-panel-form" class="search-panel-form">
+				<input type="text" name="s" id="s" class="form-control" placeholder="What are you looking for...?">
+			</form>
+		</aside>	
+</th:block>
+
+	

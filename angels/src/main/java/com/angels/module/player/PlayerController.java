@@ -19,6 +19,7 @@ public class PlayerController extends BaseController {
 		setSearch(vo);
 		
 		vo.setParamsPaging(playerService.selectOneCount(vo));
+		model.addAttribute("selectTeam",playerService.selectTeam());
 		
 		if(vo.getTotalRows() > 0) {
 		model.addAttribute("list", playerService.selectList(vo));
