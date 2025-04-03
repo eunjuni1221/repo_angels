@@ -18,10 +18,11 @@
         <choose>
             <when test="shOption == 1">AND urSeq = #{shValue}</when>
             <when test="shOption == 2">AND urName LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 3">AND phoneNumber LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 4">AND urID LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 5">AND urPassword LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 6">AND emailID LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND urNickname LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND phoneNumber LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 5">AND urID LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 6">AND urPassword LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 7">AND emailID LIKE CONCAT('%',#{shValue},'%')</when>
         </choose>
         
 			<if test="shTelecom != null and !shTelecom.equals('')">AND telecom =#{shTelecom}</if>
@@ -37,6 +38,7 @@
 		    urUse,
 		    urDelNy,
 		    urName,
+		    urNickname,
 		    urGender,
 		    telecom,
 		    phoneNumber,
@@ -135,6 +137,7 @@
 		SELECT
 			urSeq,
 		    urName,
+		    urNickName,
 		    urID,
 		    urPassword,
 		    urRegTime

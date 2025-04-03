@@ -46,9 +46,19 @@ public class UserController extends BaseController{
 		}
 
 		model.addAttribute("vo", vo);
-		return "xdm/user/UserXdmForm";
+		return "hof//UserXdmForm";
 	}
 
+	@RequestMapping(value = "/hof/hofRegAgree")
+	public String userHofRegAgree() {
+		return "hof/user/baseball-registerAgree";
+	}
+	
+	@RequestMapping(value = "/hof/hofRegister")
+	public String userHofRegister() {
+		return "hof/user/baseball-register";
+	}
+	
 	@RequestMapping(value = "/user/UserXdmInst")
 	public String userXdmInst(UserDto dto) {
 
@@ -92,6 +102,41 @@ public class UserController extends BaseController{
 	@ResponseBody
 	@RequestMapping(value = "/login/signoutXdmProc")
 	public Map<String, Object> signoutXdmProc(UserDto dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+
+			httpSession.setAttribute("sessXdmSeq", null);
+			httpSession.setAttribute("sessXdmName", null);
+			httpSession.setAttribute("sessXdmId", null);		
+
+			returnMap.put("rt", "success");				
+		return returnMap;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/login/signinHofProc")
+	public Map<String, Object> signinHofProc(UserDto dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		UserDto rtUserDto = userService.selectOneLogin(dto);
+//		아이디, 패스워드 집어넣어서 데이터 받기
+		
+		if(rtUserDto != null) {
+			returnMap.put("rt", "success");
+			httpSession.setAttribute("sessXdmSeq", rtUserDto.getUrSeq());
+			httpSession.setAttribute("sessXdmName", rtUserDto.getUrNickname());
+			System.out.println(httpSession.getAttribute("sessXdmName"));
+
+			httpSession.setAttribute("sessXdmId", rtUserDto.getUrID());
+			
+		} else {
+			returnMap.put("rt", "false");
+		}		
+		return returnMap;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/login/signoutHofProc")
+	public Map<String, Object> signoutHofProc(UserDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 			httpSession.setAttribute("sessXdmSeq", null);

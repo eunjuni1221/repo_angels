@@ -441,7 +441,7 @@
 		
 						<!-- Header Logo -->
 						<div class="header-logo">
-							<a href="mainHof"><img src="/hof/template/assets/images/baseball_Icon.png" alt="HomeOfFame" class="header-logo__img" style="width: 140px;"></a>
+							<a href="/mainHof"><img src="/hof/template/assets/images/baseball_Icon.png" alt="HomeOfFame" class="header-logo__img" style="width: 140px;"></a>
 						</div>
 						<!-- Header Logo / End -->
 		
@@ -660,9 +660,13 @@
 									</ul>
 								</li>
 								<li class="nav-account__item">
-									<a href="_hockey_index-nologin.html">LOGOUT</a>
+									<a href="javascript:void(0);" th:if="${session.sessXdmSeq != null}" id="btnSignout1">LOGOUT</a>
+									<a href="/hof/hofLogin" th:if="${session.sessXdmSeq == null}" >LOGIN</a>
 								</li>
-								<li class="nav-account__item">
+								<li class="nav-account__item" th:if="${session.sessXdmSeq == null}">
+									<a href="/hof/hofRegAgree">회원가입</a>
+								</li>
+								<li class="nav-account__item" th:if="${session.sessXdmSeq != null}">
 									<a href="#">
 										<img src="/hof/template/assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
 									</a>
@@ -671,13 +675,13 @@
 											<a href="#">
 												Hello!
 												<img src="/hof/template/assets/images/baseball/samples/header-user-avatar.jpg" alt="" class="main-nav__sub-heading-avatar">
-												<span class="highlight">유저닉네임</span>
+												<span class="highlight" th:text="${session.sessXdmName}"></span>
 											</a>
 										</li>
 										<li><a href="baseball-profile.html">프로필</a></li>
 										<li><a href="baseball-myPage.html">마이페이지</a></li>
 										<li><a href="baseball-secession.html">탈퇴하기</a></li>
-										<li><a href="baseball_main-nologin.html">Logout</a></li>
+										<li><a href="javascript:void(0);" id="btnSignout2">Logout</a></li>
 									</ul>
 								</li>
 							</ul>

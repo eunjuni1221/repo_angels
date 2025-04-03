@@ -10,6 +10,7 @@ public class UserDto {
 	private Integer urUse;
 	private Integer urDelNy;
 	private String urName;
+	private String urNickname;
 	private Integer urGender;
 	private Integer telecom;
 	private String phoneNumber;
@@ -24,6 +25,13 @@ public class UserDto {
 
 	
 	
+	
+	public String getUrNickname() {
+		return urNickname;
+	}
+	public void setUrNickname(String urNickname) {
+		this.urNickname = urNickname;
+	}
 	public String getEmailID() {
 		return emailID;
 	}

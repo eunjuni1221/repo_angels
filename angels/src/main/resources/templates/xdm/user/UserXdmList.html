@@ -89,10 +89,11 @@
 									<option value="" th:selected="${vo.shOption == null}">검색구분</option>
 									<option value="1" th:selected="${vo.shOption == 1}">유저 코드</option>
 									<option value="2" th:selected="${vo.shOption == 2}">이름</option>
-									<option value="3" th:selected="${vo.shOption == 3}">전화번호</option>
-									<option value="4" th:selected="${vo.shOption == 4}">아이디</option>
-									<option value="5" th:selected="${vo.shOption == 5}">패스워드</option>
-									<option value="6" th:selected="${vo.shOption == 6}">이메일 ID</option>									
+									<option value="3" th:selected="${vo.shOption == 3}">닉네임</option>
+									<option value="4" th:selected="${vo.shOption == 4}">전화번호</option>
+									<option value="5" th:selected="${vo.shOption == 5}">아이디</option>
+									<option value="6" th:selected="${vo.shOption == 6}">패스워드</option>
+									<option value="7" th:selected="${vo.shOption == 7}">이메일 ID</option>									
 	                            </select>
 	                          </div> 
 	                          <div class="col">
@@ -148,6 +149,7 @@
 	                      <th class="sortable">사용 <i class="fa-solid fa-sort"></i></th>
 						  <th class="sortable">코드 <i class="fa-solid fa-sort"></i></th>
 	                      <th class="sortable">이름 <i class="fa-solid fa-sort"></i></th>
+						  <th class="sortable">닉네임 <i class="fa-solid fa-sort"></i></th>
 	                      <th class="sortable">성별 <i class="fa-solid fa-sort"></i></th>
 	                      <th class="sortable">통신사 <i class="fa-solid fa-sort"></i></th>
 	                      <th class="sortable">전화번호 <i class="fa-solid fa-sort"></i></th>
@@ -172,7 +174,8 @@
 						  <td th:text="${list.urUse == 1 ? 'Y' : 'N'}"></td>
 						  <td th:text="${list.urSeq}"></td>
 						  <td class="urName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.urName}" th:attr="onclick=|goForm('${list.urSeq}')|"></a></td>
-	                      <td th:text="${@codeService.selectOneCachedCode(list.urGender)}"></td>	                      
+						  <td th:text="${list.urNickname}"></td>
+						  <td th:text="${@codeService.selectOneCachedCode(list.urGender)}"></td>	                      
 	                      <td th:text="${@codeService.selectOneCachedCode(list.telecom)}"></td>
 	                      <td th:text="${list.phoneNumber}"></td>
 	                      <td th:text="${list.urBirth}"></td>
