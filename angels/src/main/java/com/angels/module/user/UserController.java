@@ -55,7 +55,10 @@ public class UserController extends BaseController{
 	}
 	
 	@RequestMapping(value = "/hof/hofRegister")
-	public String userHofRegister() {
+	public String userHofRegister(Model model) {
+		model.addAttribute("telecom",userService.telecom());
+		model.addAttribute("email",userService.email());
+		model.addAttribute("sex",userService.sex());
 		return "hof/user/baseball-register";
 	}
 	

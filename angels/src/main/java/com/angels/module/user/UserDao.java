@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.angels.module.team.TeamDto;
+
 
 
 @Repository
@@ -16,5 +18,8 @@ public interface UserDao {
 	public int update (UserDto userDto);
 	public int uelete(UserDto userDto);
 	public UserDto selectOneLogin(UserDto userDto);
+	public List<UserDto> sex();
+	public List<UserDto> telecom();
+	public List<UserDto> email();
 
 }
