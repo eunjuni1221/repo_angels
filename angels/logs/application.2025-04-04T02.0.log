@@ -1,0 +1,1968 @@
+2025-04-04T02:04:46.124 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+	from 
+	user
+	where 1=1
+
+		 AND urUse = 1 
+         AND urDelNy = 0
+ {executed in 1 msec} 
+2025-04-04T02:04:46.127 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|2        |
+|---------|
+ 
+2025-04-04T02:04:46.138 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select 
+			urSeq,
+		    urUse,
+		    urDelNy,
+		    urName,
+		    urNickname,
+		    urGender,
+		    telecom,
+		    phoneNumber,
+		    urBirth,
+		    urID,
+		    emailID,
+		    email,
+		    urPassword,
+		    urRegTime,
+		    urModTime
+		from user
+		where 1=1 
+
+		 AND urUse = 1 
+         AND urDelNy = 0 
+
+		order by urSeq desc
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-04-04T02:04:46.142 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|------|------|--------|-------|-----------|---------|--------|--------------|-----------|----------|----------|------|-----------|--------------------|--------------------|
+|urseq |uruse |urdelny |urname |urnickname |urgender |telecom |phonenumber   |urbirth    |urid      |emailid   |email |urpassword |urregtime           |urmodtime           |
+|------|------|--------|-------|-----------|---------|--------|--------------|-----------|----------|----------|------|-----------|--------------------|--------------------|
+|2     |1     |0       |이은준    |관리자        |7        |1       |010-0000-0000 |2001-12-21 |ej        |admin     |98    |1          |2025-03-28T11:37:15 |2025-04-01T21:09:29 |
+|1     |1     |0       |정한용    |해덕이아빠      |7        |1       |010-4422-8123 |1994-03-06 |gksdyd009 |gksdyd009 |96    |gksdyd009  |2025-03-26T18:45:46 |2025-04-01T21:09:06 |
+|------|------|--------|-------|-----------|---------|--------|--------------|-----------|----------|----------|------|-----------|--------------------|--------------------|
+ 
+2025-04-04T02:06:28.366 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-04T02:06:28.366 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:06:28.369 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 0 msec} 
+2025-04-04T02:06:28.369 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:06:28.371 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:06:28.373 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:06:28.471 [http-nio-8080-exec-7] ERROR o.t.TemplateEngine - [THYMELEAF][http-nio-8080-exec-7] Exception processing template "hof/user/baseball-register": An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]") 
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "list.cdSeq" (template: "hof/user/baseball-register" - line 63, col 58)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "list.cdSeq" (template: "hof/user/baseball-register" - line 63, col 58)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'cdSeq' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:376)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:116)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 69 common frames omitted
+2025-04-04T02:06:28.476 [http-nio-8080-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")] with root cause 
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'cdSeq' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:376)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:116)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-04-04T02:06:28.547 [http-nio-8080-exec-7] ERROR o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView - Cannot render error page for request [/hof/hofRegister] and exception [An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")] as the response has already been committed. As a result, the response may have the wrong status code. 
+2025-04-04T02:07:59.588 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-04T02:07:59.588 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:07:59.590 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:07:59.591 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:07:59.593 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-04T02:07:59.594 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:07:59.610 [http-nio-8080-exec-1] ERROR o.t.TemplateEngine - [THYMELEAF][http-nio-8080-exec-1] Exception processing template "hof/user/baseball-register": An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]") 
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "list.cdSeq" (template: "hof/user/baseball-register" - line 63, col 58)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "list.cdSeq" (template: "hof/user/baseball-register" - line 63, col 58)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'cdSeq' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:376)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:116)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 69 common frames omitted
+2025-04-04T02:07:59.611 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")] with root cause 
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'cdSeq' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:376)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:116)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-04-04T02:07:59.624 [http-nio-8080-exec-1] ERROR o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView - Cannot render error page for request [/hof/hofRegister] and exception [An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")] as the response has already been committed. As a result, the response may have the wrong status code. 
+2025-04-04T02:08:01.818 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:08:01.819 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:08:01.821 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:08:01.823 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:08:01.824 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:08:01.826 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:08:01.842 [http-nio-8080-exec-10] ERROR o.t.TemplateEngine - [THYMELEAF][http-nio-8080-exec-10] Exception processing template "hof/user/baseball-register": An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]") 
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "list.cdSeq" (template: "hof/user/baseball-register" - line 63, col 58)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "list.cdSeq" (template: "hof/user/baseball-register" - line 63, col 58)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'cdSeq' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:376)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:116)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 69 common frames omitted
+2025-04-04T02:08:01.845 [http-nio-8080-exec-10] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")] with root cause 
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'cdSeq' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:376)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:116)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-04-04T02:08:01.860 [http-nio-8080-exec-10] ERROR o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView - Cannot render error page for request [/hof/hofRegister] and exception [An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")] as the response has already been committed. As a result, the response may have the wrong status code. 
+2025-04-04T02:20:18.300 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:20:18.301 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:20:18.304 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-04T02:20:18.305 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:20:18.307 [http-nio-8080-exec-4] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:20:18.308 [http-nio-8080-exec-4] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:20:18.342 [http-nio-8080-exec-4] ERROR o.t.TemplateEngine - [THYMELEAF][http-nio-8080-exec-4] Exception processing template "hof/user/baseball-register": An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]") 
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "list.cdSeq" (template: "hof/user/baseball-register" - line 66, col 58)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "list.cdSeq" (template: "hof/user/baseball-register" - line 66, col 58)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'cdSeq' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:376)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:116)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 69 common frames omitted
+2025-04-04T02:20:18.344 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")] with root cause 
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'cdSeq' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:376)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:116)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-04-04T02:20:18.358 [http-nio-8080-exec-4] ERROR o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView - Cannot render error page for request [/hof/hofRegister] and exception [An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]")] as the response has already been committed. As a result, the response may have the wrong status code. 
+2025-04-04T02:21:03.500 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:21:03.501 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:21:03.503 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:21:03.503 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:21:03.506 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:21:03.506 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:22:02.359 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-04-04T02:22:02.360 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|98       |
+|---------|
+ 
+2025-04-04T02:22:02.365 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-04-04T02:22:02.368 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+|11              |1     |이메일    |98    |구글(지메일) |gmail.com |1       |2025-04-01T19:53:49 |[null]   |[null]  |0       |
+|11              |1     |이메일    |97    |다음      |daum.net  |1       |2025-04-01T19:51:13 |[null]   |[null]  |0       |
+|11              |1     |이메일    |96    |네이버     |naver.com |1       |2025-04-01T19:50:59 |[null]   |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업    |TWP       |1       |2025-03-23T23:12:21 |[null]   |[null]  |0       |
+|10              |1     |status |94    |은퇴      |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |0       |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-04-04T02:22:14.004 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-04-04T02:22:14.004 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|98       |
+|---------|
+ 
+2025-04-04T02:22:14.009 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 4 msec} 
+2025-04-04T02:22:14.012 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+|11              |1     |이메일    |98    |구글(지메일) |gmail.com |1       |2025-04-01T19:53:49 |[null]   |[null]  |0       |
+|11              |1     |이메일    |97    |다음      |daum.net  |1       |2025-04-01T19:51:13 |[null]   |[null]  |0       |
+|11              |1     |이메일    |96    |네이버     |naver.com |1       |2025-04-01T19:50:59 |[null]   |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업    |TWP       |1       |2025-03-23T23:12:21 |[null]   |[null]  |0       |
+|10              |1     |status |94    |은퇴      |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |0       |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-04-04T02:22:16.015 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-04-04T02:22:16.016 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|11       |
+|---------|
+ 
+2025-04-04T02:22:16.019 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-04-04T02:22:16.021 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng   |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+|11    |0       |1     |이메일    |e-mail      |3          |1       |2025-04-01T19:50:09 |[null]   |
+|10    |0       |1     |status |status      |2          |1       |2025-03-23T17:08:37 |[null]   |
+|9     |0       |1     |이닝     |Inning      |40         |1       |2025-03-22T13:33:54 |[null]   |
+|8     |0       |1     |국적     |Nationality |21         |1       |2025-03-22T10:51:18 |[null]   |
+|7     |0       |1     |타      |Bat         |3          |1       |2025-03-21T17:26:47 |[null]   |
+|------|--------|------|-------|------------|-----------|--------|--------------------|---------|
+ 
+2025-04-04T02:22:17.745 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0
+ {executed in 1 msec} 
+2025-04-04T02:22:17.746 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|11       |
+|---------|
+ 
+2025-04-04T02:22:17.748 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+			a.cgSeq,
+			a.cgdelNy,
+			a.cgUse,
+		    a.cgName,
+		    a.cgNameEng,
+		    (select count(aa.cdSeq) from code aa where 1=1 and aa.cdDelNy = 0 and aa.codeGroup_cgSeq = a.cgSeq) as cdSeqCount,
+		    a.cgOrder,
+		    a.cgRegDate,
+		    a.cgEdDate
+
+			from
+			codegroup as a 		
+			where 1=1
+		 AND a.cgUse = 1 
+         AND a.cgdelNy = 0 
+
+		order by cgSeq desc
+		limit 5 offset 10
+ {executed in 2 msec} 
+2025-04-04T02:22:17.749 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+|cgseq |cgdelny |cguse |cgname |cgnameeng |cdseqcount |cgorder |cgregdate           |cgeddate |
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+|1     |0       |1     |통신사    |Telecom   |6          |1       |2025-03-20T16:45:56 |[null]   |
+|------|--------|------|-------|----------|-----------|--------|--------------------|---------|
+ 
+2025-04-04T02:22:19.463 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-04-04T02:22:19.465 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|98       |
+|---------|
+ 
+2025-04-04T02:22:19.466 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 0 msec} 
+2025-04-04T02:22:19.469 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+|11              |1     |이메일    |98    |구글(지메일) |gmail.com |1       |2025-04-01T19:53:49 |[null]   |[null]  |0       |
+|11              |1     |이메일    |97    |다음      |daum.net  |1       |2025-04-01T19:51:13 |[null]   |[null]  |0       |
+|11              |1     |이메일    |96    |네이버     |naver.com |1       |2025-04-01T19:50:59 |[null]   |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업    |TWP       |1       |2025-03-23T23:12:21 |[null]   |[null]  |0       |
+|10              |1     |status |94    |은퇴      |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |0       |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-04-04T02:22:24.720 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0
+ {executed in 1 msec} 
+2025-04-04T02:22:24.720 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|98       |
+|---------|
+ 
+2025-04-04T02:22:24.726 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 3 msec} 
+2025-04-04T02:22:24.728 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname  |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+|11              |1     |이메일    |98    |구글(지메일) |gmail.com |1       |2025-04-01T19:53:49 |[null]   |[null]  |0       |
+|11              |1     |이메일    |97    |다음      |daum.net  |1       |2025-04-01T19:51:13 |[null]   |[null]  |0       |
+|11              |1     |이메일    |96    |네이버     |naver.com |1       |2025-04-01T19:50:59 |[null]   |[null]  |0       |
+|5               |1     |포지션    |95    |투타겸업    |TWP       |1       |2025-03-23T23:12:21 |[null]   |[null]  |0       |
+|10              |1     |status |94    |은퇴      |retire    |1       |2025-03-23T17:13:52 |[null]   |[null]  |0       |
+|----------------|------|-------|------|--------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-04-04T02:22:27.300 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+         AND c.cdName LIKE CONCAT('%','성별','%')
+ {executed in 2 msec} 
+2025-04-04T02:22:27.300 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-04-04T02:22:32.495 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+         AND c.cdName LIKE CONCAT('%','남자','%')
+ {executed in 1 msec} 
+2025-04-04T02:22:32.496 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|1        |
+|---------|
+ 
+2025-04-04T02:22:32.499 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+         AND c.cdName LIKE CONCAT('%','남자','%')  
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 2 msec} 
+2025-04-04T02:22:32.500 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|2               |1     |성별     |7     |남자     |man       |1       |2025-03-20T17:16:04 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-04-04T02:23:55.576 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. Select count(*)
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+         AND c.cdName LIKE CONCAT('%','여자','%')
+ {executed in 2 msec} 
+2025-04-04T02:23:55.577 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|1        |
+|---------|
+ 
+2025-04-04T02:23:55.583 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. SELECT
+
+		    c.codeGroup_cgSeq,
+		    c.cdUse,
+			cg.cgName,
+		    c.cdSeq,
+		    c.cdName,
+		    c.cdNameEng,
+		    c.cdOrder,
+		    c.cdRegDate,
+		    c.cdEdDate,
+		    c.cdCheck,
+		    c.cdDelNy
+
+			FROM
+		    code c
+		left JOIN codegroup cg ON c.codeGroup_cgSeq = cg.cgSeq
+		WHERE
+		    1=1
+
+		 AND c.cdUse = 1 
+         AND c.cdDelNy = 0 
+
+         AND c.cdName LIKE CONCAT('%','여자','%')  
+
+		ORDER BY
+		    c.cdSeq DESC		    
+		limit 5 offset 0
+ {executed in 1 msec} 
+2025-04-04T02:23:55.584 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|codegroup_cgseq |cduse |cgname |cdseq |cdname |cdnameeng |cdorder |cdregdate           |cdeddate |cdcheck |cddelny |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+|2               |1     |성별     |8     |여자     |woman     |1       |2025-03-20T17:16:18 |[null]   |[null]  |0       |
+|----------------|------|-------|------|-------|----------|--------|--------------------|---------|--------|--------|
+ 
+2025-04-04T02:24:09.255 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:24:09.255 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:24:09.256 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 0 msec} 
+2025-04-04T02:24:09.258 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:24:09.259 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+212. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 0 msec} 
+2025-04-04T02:24:09.259 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:27:52.876 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2025-04-04T02:27:52.880 [Thread-88] INFO o.s.b.w.e.t.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete 
+2025-04-04T02:27:52.881 [tomcat-shutdown] INFO o.a.c.h.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"] 
+2025-04-04T02:27:52.894 [tomcat-shutdown] INFO o.s.b.w.e.t.GracefulShutdown - Graceful shutdown complete 
+2025-04-04T02:27:52.894 [Thread-88] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2025-04-04T02:27:52.899 [Thread-88] INFO c.z.h.HikariDataSource - HikariPool-22 - Shutdown initiated... 
+2025-04-04T02:27:52.905 [Thread-88] INFO c.z.h.HikariDataSource - HikariPool-22 - Shutdown completed. 
+2025-04-04T02:27:53.106 [restartedMain] INFO c.a.AngelsApplication - Starting AngelsApplication using Java 21.0.5 with PID 2696 (C:\factory\ws_sts4_4270\repo_angels\angels\bin\main started by sunjs in C:\factory\ws_sts4_4270\repo_angels\angels) 
+2025-04-04T02:27:53.106 [restartedMain] INFO c.a.AngelsApplication - No active profile set, falling back to 1 default profile: "default" 
+2025-04-04T02:27:53.914 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2025-04-04T02:27:53.916 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2025-04-04T02:27:53.918 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2025-04-04T02:27:53.918 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36] 
+2025-04-04T02:27:53.958 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2025-04-04T02:27:53.958 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 837 ms 
+2025-04-04T02:27:54.179 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-23 - Starting... 
+2025-04-04T02:27:54.220 [restartedMain] INFO c.z.h.p.HikariPool - HikariPool-23 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5a0addad 
+2025-04-04T02:27:54.220 [restartedMain] INFO c.z.h.HikariDataSource - HikariPool-23 - Start completed. 
+2025-04-04T02:27:54.222 [restartedMain] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. SELECT 
+			cdSeq,
+			cdName,
+			cdNameEng,
+			codeGroup_cgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND cdDelNy = 0
+ {executed in 2 msec} 
+2025-04-04T02:27:54.226 [restartedMain] INFO j.resultsettable - 
+|------|----------|-------------------|----------------|
+|cdseq |cdname    |cdnameeng          |codegroup_cgseq |
+|------|----------|-------------------|----------------|
+|1     |SKT       |SKT                |1               |
+|2     |KT        |KT                 |1               |
+|3     |LG U+     |LG U+              |1               |
+|4     |SKT 알뜰폰   |                   |1               |
+|5     |KT 알뜰폰    |                   |1               |
+|6     |LG U+ 알뜰폰 |                   |1               |
+|7     |남자        |man                |2               |
+|8     |여자        |woman              |2               |
+|9     |AL        |AL                 |3               |
+|10    |NL        |NL                 |3               |
+|11    |East      |East               |4               |
+|12    |Central   |Central            |4               |
+|13    |West      |West               |4               |
+|14    |투수        |P                  |5               |
+|15    |1루수       |1B                 |5               |
+|16    |2루수       |2B                 |5               |
+|17    |3루수       |3B                 |5               |
+|18    |유격수       |SS                 |5               |
+|19    |좌익수       |LF                 |5               |
+|20    |중견수       |CF                 |5               |
+|21    |우익수       |RF                 |5               |
+|22    |포수        |C                  |5               |
+|23    |지명타자      |DH                 |5               |
+|24    |대타        | PH                |5               |
+|25    |대주자       |PR                 |5               |
+|26    |좌투        |L                  |6               |
+|27    |우투        |R                  |6               |
+|28    |양투        |S                  |6               |
+|29    |좌타        |L                  |7               |
+|30    |우타        |R                  |7               |
+|31    |양타        |S                  |7               |
+|32    |미국        |United States      |8               |
+|33    |도미니카 공화국  |Dominican Republic |8               |
+|34    |베네수엘라     |Venezuela          |8               |
+|35    |쿠바        |Cuba               |8               |
+|36    |푸에르토리코    |Puerto Rico        |8               |
+|37    |멕시코       |Mexico             |8               |
+|38    |캐나다       |Canada             |8               |
+|39    |일본        |Japan              |8               |
+|40    |콜롬비아      |Colombia           |8               |
+|41    |대한민국      |Korea              |8               |
+|42    |파나마       |Panama             |8               |
+|43    |퀴라소       |Curaçao            |8               |
+|44    |네덜란드      |Netherlands        |8               |
+|45    |바하마       |Bahamas            |8               |
+|46    |니카라과      |Nicaragua          |8               |
+|47    |호주        |Australia          |8               |
+|48    |브라질       |Brazil             |8               |
+|49    |독일        |Germany            |8               |
+|50    |온두라스      |Honduras           |8               |
+|51    |대만        |Taiwan             |8               |
+|52    |아루바       |Aruba              |8               |
+|53    |1회초       |TOP 1              |9               |
+|54    |1회말       |BOT 1              |9               |
+|55    |2회초       |TOP 2              |9               |
+|56    |2회말       |BOT 2              |9               |
+|57    |3회초       |TOP 3              |9               |
+|58    |3회말       |BOT 3              |9               |
+|59    |4회초       |TOP 4              |9               |
+|60    |4회말       |BOT 4              |9               |
+|61    |5회초       |TOP 5              |9               |
+|62    |5회말       |BOT 5              |9               |
+|63    |6회초       |TOP 6              |9               |
+|64    |6회말       |BOT 6              |9               |
+|65    |7회초       |TOP 7              |9               |
+|66    |7회말       |BOT 7              |9               |
+|67    |8회초       |TOP 8              |9               |
+|68    |8회말       |BOT 8              |9               |
+|69    |9회초       |TOP 9              |9               |
+|70    |9회말       |BOT 9              |9               |
+|71    |10회초      |TOP 10             |9               |
+|72    |10회말      |BOT 10             |9               |
+|73    |11회초      |TOP 11             |9               |
+|74    |11회말      |BOT 11             |9               |
+|75    |12회초      |TOP 12             |9               |
+|76    |12회말      |BOT 12             |9               |
+|77    |13회초      |TOP 13             |9               |
+|78    |13회말      |BOT 13             |9               |
+|79    |14회초      |TOP 14             |9               |
+|80    |14회말      |BOT 14             |9               |
+|81    |15회초      |TOP 15             |9               |
+|82    |15회말      |BOT 15             |9               |
+|83    |16회초      |TOP 16             |9               |
+|84    |16회말      |BOT 16             |9               |
+|85    |17회초      |TOP 17             |9               |
+|86    |17회말      |BOT 17             |9               |
+|87    |18회초      |TOP 18             |9               |
+|88    |18회말      |BOT 18             |9               |
+|89    |19회초      |TOP 19             |9               |
+|90    |19회말      |BOT 19             |9               |
+|91    |20회초      |TOP 20             |9               |
+|92    |20회말      |BOT 20             |9               |
+|93    |현역        |active             |10              |
+|94    |은퇴        |retire             |10              |
+|95    |투타겸업      |TWP                |5               |
+|96    |네이버       |naver.com          |11              |
+|97    |다음        |daum.net           |11              |
+|98    |구글(지메일)   |gmail.com          |11              |
+|------|----------|-------------------|----------------|
+ 
+2025-04-04T02:27:54.535 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2025-04-04T02:27:54.554 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2025-04-04T02:27:54.564 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2025-04-04T02:27:54.576 [restartedMain] INFO c.a.AngelsApplication - Started AngelsApplication in 1.61 seconds (process running for 9871.513) 
+2025-04-04T02:27:54.579 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2025-04-04T02:30:42.304 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2025-04-04T02:30:42.305 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2025-04-04T02:30:42.316 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 11 ms 
+2025-04-04T02:30:42.362 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. Select count(*)
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0
+ {executed in 4 msec} 
+2025-04-04T02:30:42.366 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|31       |
+|---------|
+ 
+2025-04-04T02:30:42.387 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. SELECT
+		tmSeq,
+		tmUse,
+		tmDelNy,
+		tmHomeName,
+	    tmName,
+	    tmNameAb,
+	    tmHomeNameKor,
+	    tmNameKor,
+	    tmLogo,
+	    tmLeague,
+	    tmDiv,
+	    tmRegTime,
+	    tmModTime    
+
+			FROM
+		    team
+		WHERE
+		    1=1
+
+		 AND tmUse = 1 
+         AND tmDelNy = 0 
+
+	order by tmSeq desc
+	limit 5 offset 0
+ {executed in 4 msec} 
+2025-04-04T02:30:42.417 [http-nio-8080-exec-1] INFO j.resultsettable - 
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|tmseq |tmuse |tmdelny |tmhomename |tmname    |tmnameab |tmhomenamekor |tmnamekor |tmlogo |tmleague |tmdiv |tmregtime           |tmmodtime |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+|36    |1     |0       |hi         |Smailes   |HI       |하이            |스마일스      |[null] |9        |13    |2025-04-02T16:10:55 |[null]    |
+|30    |1     |0       |Toronto    |Blue Jays |TOR      |토론토           |블루제이스     |[null] |9        |11    |2025-03-20T22:43:31 |[null]    |
+|29    |1     |0       |Tampa Bay  |Rays      |TB       |탬파베이          |레이스       |[null] |9        |11    |2025-03-20T22:43:02 |[null]    |
+|28    |1     |0       |New York   |Yankees   |NYY      |뉴욕            |양키스       |[null] |9        |11    |2025-03-20T22:42:37 |[null]    |
+|27    |1     |0       |Boston     |Red Sox   |BOS      |보스턴           |레드삭스      |[null] |9        |11    |2025-03-20T22:42:13 |[null]    |
+|------|------|--------|-----------|----------|---------|--------------|----------|-------|---------|------|--------------------|----------|
+ 
+2025-04-04T02:30:44.660 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=3
+	order by cdSeq desc
+ {executed in 4 msec} 
+2025-04-04T02:30:44.666 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|NL     |10    |
+|AL     |9     |
+|-------|------|
+ 
+2025-04-04T02:30:44.669 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=4
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-04T02:30:44.671 [http-nio-8080-exec-3] INFO j.resultsettable - 
+|--------|------|
+|cdname  |cdseq |
+|--------|------|
+|West    |13    |
+|Central |12    |
+|East    |11    |
+|--------|------|
+ 
+2025-04-04T02:32:28.216 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-04T02:32:28.218 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:32:28.222 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:32:28.223 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:32:28.227 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-04T02:32:28.228 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:32:28.257 [http-nio-8080-exec-5] ERROR o.t.TemplateEngine - [THYMELEAF][http-nio-8080-exec-5] Exception processing template "hof/user/baseball-register": An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]" - line 89, col 54) 
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]" - line 89, col 54)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.attoparser.ParseException: (Line = 89, Column = 54) Malformed markup: Attribute "name" appears more than once in element
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549)
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+2025-04-04T02:32:28.260 [http-nio-8080-exec-5] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]" - line 89, col 54)] with root cause 
+org.attoparser.ParseException: (Line = 89, Column = 54) Malformed markup: Attribute "name" appears more than once in element
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549)
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1435)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1105)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-04-04T02:32:28.284 [http-nio-8080-exec-5] ERROR o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView - Cannot render error page for request [/hof/hofRegister] and exception [An error happened during template parsing (template: "class path resource [templates/hof/user/baseball-register.html]" - line 89, col 54)] as the response has already been committed. As a result, the response may have the wrong status code. 
+2025-04-04T02:34:30.218 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:34:30.220 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:34:30.223 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-04T02:34:30.224 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:34:30.228 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 3 msec} 
+2025-04-04T02:34:30.228 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:40:53.854 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 3 msec} 
+2025-04-04T02:40:53.858 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-04T02:40:53.862 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-04T02:40:53.865 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-04T02:40:53.874 [http-nio-8080-exec-7] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+222. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 5 msec} 
+2025-04-04T02:40:53.877 [http-nio-8080-exec-7] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 

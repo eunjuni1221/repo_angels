@@ -45,86 +45,95 @@
 							<div class="card__content">
 		
 								<!-- Register Form -->
-								<form action="/user/UserXdmInst" method="post" enctype="multipart/form-data" id="form">
+								<form action="/user/UserHofInst" method="post" enctype="multipart/form-data" id="form" class="needs-validation" novalidate onsubmit="return validation()">
 									<input type="hidden" id="urSeq" name="urSeq" th:value="${item?.urSeq}" maxlength="20" placeholder="자동생성" class="form-control" />
-									<input type="hidden" name="urSeq" id="urSeq" class="form-control" value="자동생성" disabled style="background-color: grey;">
+									<input type="hidden" name="urSeq" id="urSeq" class="form-control" value="자동생성" style="background-color: grey;">
 									<div class="form-group form-group--floating-label">
 										<input type="text" class="form-control" id="urName" name="urName" placeholder="이름 *">
 										<label class="control-label" for="register-name">이름 *</label>
+										<small id="urNameError" class="text-danger" style="display: none;">이름을 입력해주세요.</small>
 									</div>  
 									<div class="form-group form-group--floating-label">
 										<input type="date" class="form-control" name="urBirth" id="urBirth" placeholder="생년월일 8자리 *">
 										<label class="control-label" for="register-birth">생년월일 8자리 *</label>
+										<small id="urBirthError" class="text-danger" style="display: none;">생년월일을 입력해주세요.</small>
+									</div>				
+									<div class="d-flex justify-content-between mb-4 btn-group-toggle d-flex" data-toggle="buttons" style="width: 100%">
+									  <label th:each="list : ${@codeService.selectListCachedCode(2)}"
+									         class="btn btn-info btn-outline flex-fill">
+									    <input type="radio" name="urGender" th:value="${list.cdSeq}" autocomplete="off">
+									    <span th:text="${list.cdName}">성별</span>
+									  </label>
 									</div>
-				
-									<div class="d-flex justify-content-between mb-4">
-										<div class="btn-group-toggle d-flex" data-toggle="buttons" style="width: 100%">
-											<label class="btn btn-info btn-outline flex-fill">
-												<input type="radio" id="urGender" value="7" autocomplete="off" checked> 남자
-											</label>
-											<label class="btn btn-info btn-outline flex-fill">
-												<input type="radio" id="urGender" value="8" autocomplete="off"> 여자
-											</label>
-										</div>												
-									</div>
+									<small id="urGenderError" class="text-danger" style="display: none; margin: -20px 0 20px 0;">이름을 입력해주세요.</small>	
 									<div class="form-group form-group--floating-label"> 
 										<input type="id" class="form-control" id="urNickname" name="urNickname" placeholder="닉네임 *">
 										<label class="control-label" for="register-password">닉네임 *</label>
-										<button href="" class="btn btn-primary-inverse btn-lg btn-block" style="position: absolute; top: 0; right: 0; height: 100%; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 4px; font-size: 14px; border-radius: 0;">닉네임 중복확인</button>
+										<button type="button" class="btn btn-primary-inverse btn-lg btn-block" style="position: absolute; top: 0; right: 0; height: 100%; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 4px; font-size: 14px; border-radius: 0;">닉네임 중복확인</button>									
 									</div>
+									<small id="urNicknameError" class="text-danger" style="display: none; margin: -20px 0 20px 0";>닉네임을 입력해주세요.</small>
 									<div class="form-group form-group--floating-label"> 
 										<input type="id" class="form-control" id="urID" name="urID" placeholder="아이디 *">
 										<label class="control-label" for="register-password">아이디 *</label>
-										<button href="" class="btn btn-primary-inverse btn-lg btn-block" style="position: absolute; top: 0; right: 0; height: 100%; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 4px; font-size: 14px; border-radius: 0;">아이디 중복확인</button>
+										<button type="button" class="btn btn-primary-inverse btn-lg btn-block" style="position: absolute; top: 0; right: 0; height: 100%; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 4px; font-size: 14px; border-radius: 0;">아이디 중복확인</button>
 									</div>
+									<small id="urIDError" class="text-danger" style="display: none; margin: -20px 0 20px 0;">아이디를 입력해주세요.</small>
 									<div class="form-group form-group--floating-label">
 										<input type="password" class="form-control" id="urPassword" name="urPassword" placeholder="비밀번호 *">
 										<label class="control-label" for="register-password">비밀번호 *</label>
+										<small id="urPasswordError" class="text-danger" style="display: none;">비밀번호를 입력해주세요.</small>
 									</div>
 									<div class="form-group form-group--floating-label">
 										<input type="password" class="form-control" id="urPasswordCheck" name="urPasswordCheck" placeholder="비밀번호 확인 *">
 										<label class="control-label" for="register-password-confirm">비밀번호 확인 *</label>
+										<small id="urPasswordCheckError" class="text-danger" style="display: none;">닉네임을 입력해주세요.</small>
 									</div>
 									<div class="form-group form-group--floating-label d-flex">
-										<select id="telecom" name="telecom" class="form-control" style="width: 30%; height: 50px; border-radius: 0; font-size: 12px;">
-											<option selected value="">통신사 선택</option>
-											<option th:each="list : ${@codeService.selectListCachedCode(1)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
-										</select>
-										<label class="control-label" for="select-default">
-											통신사 선택
-										</label>										
-										<div class="form-group form-group--floating-label" style="position: relative; width: 80%; margin-left: 10px;">
-											<input type="id" class="form-control" id="register-password-confirm" placeholder="휴대전화 *" style="height: 50px;">
-											<label class="control-label" for="register-password-confirm">휴대전화 *</label>
-											<button href="" class="btn btn-primary-inverse btn-lg" style="position: absolute; top: 0; right: 0; height: 100%; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 0px; display: flex; align-items: center; justify-content: center; white-space: nowrap;">
-												휴대폰 인증
-											</button>
+									  <div class="form-group form-group--floating-label" style="width: 30%;">
+									    <select id="telecom" name="telecom" class="form-control" style="height: 50px; border-radius: 0; font-size: 12px;">
+									      <option selected value="">통신사 선택</option>
+									      <option th:each="list : ${@codeService.selectListCachedCode(1)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+									    </select>
+									    <label class="control-label" for="telecom">통신사 선택</label>
+									    <small id="telecomError" class="text-danger" style="display: none;">통신사를 선택해주세요.</small>
+									  </div>
+									  <div style="position: relative; width: 80%; margin-left: 10px;">
+									    <div class="form-group form-group--floating-label" style="margin-bottom: 0;">
+									      <input type="id" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="휴대전화 *" style="height: 50px;">
+									      <label class="control-label" for="register-password-confirm">휴대전화 *</label>
+									      <button type="button" class="btn btn-primary-inverse btn-lg"
+									        style="position: absolute; top: 0; right: 0; height: 100%; width: 30%; background-color: #573ccb;
+									        border: 1px solid #573ccb; color: #fff; border-radius: 0px; display: flex; align-items: center;
+									        justify-content: center; white-space: nowrap;">
+									        휴대폰 인증
+									      </button>
+									    </div>
+									    <small id="phoneNumberError" class="text-danger" style="display: none; position: absolute; left: 0;">휴대전화를 입력해주세요.</small>
+									  </div>
+									</div>		
+									<div class="form-group form-group--floating-label d-flex">
+										<!-- 휴대전화 입력 -->
+										<div class="form-group form-group--floating-label" style="position: relative; width: 80%; margin-right: 10px; margin-top: -20px;">
+											<input type="id" class="form-control" id="emailID" name="emailID" placeholder="휴대전화 *" style="height: 50px;">
+											<label class="control-label" for="register-password-confirm">이메일 ID *</label>
+											<small id="emailIDError" class="text-danger" style="display: none;">닉네임을 입력해주세요.</small>
 										</div>
-									</div>
-									<div class="form-group form-group--floating-label" style="margin-top: -20px;">
-										<input type="text" class="form-control" id="register-name" placeholder="[선택] 이메일(비밀번호 찾기 등 본인 확인 용)" disabled>
-										<label class="control-label" for="register-name">인증번호 6자리</label>
-									</div> 
-									<div class="form-group form-group--floating-label d-flex">
-										<select name="select-default" id="select-default" class="form-control" style="width: 30%; height: 50px; border-radius: 0; font-size: 12px;">
-											<option value="SKT">SKT</option>
-											<option value="KT">KT</option>
-											<option value="LG U+">LG U+</option>
-											<option value="알뜰폰">알뜰폰</option>
-										</select>
-										<label class="control-label" for="select-default">
-											통신사 선택
-										</label>										
-										<div class="form-group form-group--floating-label" style="position: relative; width: 80%; margin-left: 10px;">
-											<input type="id" class="form-control" id="register-password-confirm" placeholder="휴대전화 *" style="height: 50px;">
-											<label class="control-label" for="register-password-confirm">휴대전화 *</label>
+
+										<!-- 통신사 선택 -->
+										<div class="form-group form-group--floating-label" style="width: 30%; margin-top: -20px;">
+											<select name="email" id="email" class="form-control" style="height: 50px; border-radius: 0; font-size: 12px;">
+												<option selected value="">이메일 선택</option>
+												<option th:each="list : ${@codeService.selectListCachedCode(11)}" th:value="${list.cdSeq}" th:text="${list.cdNameEng}"></option>
+											</select>
+											<small id="emailError" class="text-danger" style="display: none;">닉네임을 입력해주세요.</small>
+											<label class="control-label" for="email">이메일 선택</label>
 										</div>
 									</div>
 									<div class="form-group form-group--sm" style="margin-top: 10px;">
-										<button href="" class="btn btn-primary-inverse btn-lg btn-block">회원가입</button>
-										<button href="" class="btn btn-danger btn-lg btn-block">가입 취소</button>
+										<button href="button" class="btn btn-primary-inverse btn-lg btn-block" id="btnSave">회원가입</button>
+										<a href="/mainHof" class="btn btn-danger btn-lg btn-block">가입 취소</a>
 									</div>
-									<p class="mb-0 font-size-sm">You will receive a confirmation email in your inbox with a link to activate your account!</p>
+									<p class="mb-0 font-size-sm">You will receive a confirmation email in your inbox with a link to activate your account!</p>									
 								</form>
 								
 								<!-- Register Form / End -->
@@ -136,9 +145,9 @@
 		
 				</div>
 			</div>
+			<div th:replace="~{hof/include/hofModal :: modal}"></div>
 		</div>
-		<!-- Content / End -->
-		
+		<!-- Content / End -->		
 		<div th:replace="~{hof/include/hofFooter :: footer}"></div>		
 
 	<!-- Javascript Files
@@ -158,5 +167,6 @@
 	<!-- Template JS -->
 	<script src="/hof/template/assets/js/init.js"></script>
 	<script src="/hof/template/assets/js/custom.js"></script>
+	<script src="/hof/template/assets/js/hofRegister.js"></script>
 </body>
 </html>

@@ -35,19 +35,6 @@ public class UserController extends BaseController{
 		return "xdm/user/UserXdmList";
 	}
 
-	@RequestMapping(value = "/user/UserXdmForm")
-	public String userXdmForm(@ModelAttribute("vo") Model model, UserVo vo, UserDto dto) throws Exception {
-
-		if (vo.getUrSeq().equals("0") || vo.getUrSeq().equals("")) {
-//			insert mode
-		} else {
-//			update mode
-			model.addAttribute("item", userService.selectOne(dto));
-		}
-
-		model.addAttribute("vo", vo);
-		return "hof//UserXdmForm";
-	}
 
 	@RequestMapping(value = "/hof/hofRegAgree")
 	public String userHofRegAgree() {
@@ -62,11 +49,24 @@ public class UserController extends BaseController{
 		return "hof/user/baseball-register";
 	}
 	
-	@RequestMapping(value = "/user/UserXdmInst")
-	public String userXdmInst(UserDto dto) {
+	@RequestMapping(value = "/user/UserHofInst")
+	public String userHofInst(UserDto dto) {
 
 		userService.insert(dto);
-		return "redirect:UserXdmList";
+		System.out.println(dto.getUrSeq());
+		System.out.println(dto.getUrDelNy());
+		System.out.println(dto.getUrName());
+		System.out.println(dto.getUrGender());
+		System.out.println(dto.getTelecom());
+		System.out.println(dto.getPhoneNumber());
+		System.out.println(dto.getUrBirth());
+		System.out.println(dto.getUrID());
+		System.out.println(dto.getEmailID());
+		System.out.println(dto.getEmail());
+		System.out.println(dto.getUrPassword());
+		System.out.println(dto.getUrRegTime());
+
+		return "redirect:/hof/hofLogin";
 	}
 
 	@RequestMapping(value = "/user/UserXdmUpdt")

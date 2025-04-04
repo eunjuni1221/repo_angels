@@ -92,8 +92,8 @@
 	</select>
 	
 		<insert id="insert" parameterType="com.angels.module.user.UserDto">
-	INSERT INTO team (
-		    urUse,
+	INSERT INTO user (
+			urUse,
 		    urDelNy,
 		    urName,
 		    urNickname,
@@ -121,10 +121,11 @@
 		#{urPassword},
 		NOW()
 	)
-		<selectKey resultType= "String" keyProperty="tmSeq" order="AFTER">
+		<selectKey resultType= "String" keyProperty="urSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
 	<select id="selectOneCount" resultType="Integer">
 	
 	Select count(*)
