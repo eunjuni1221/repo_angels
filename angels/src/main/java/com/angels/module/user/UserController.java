@@ -150,4 +150,24 @@ public class UserController extends BaseController{
 		return returnMap;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/login/idNmCheckXdmProc")
+	public Map<String, Object> idNmCheckXdmProc(UserDto dto) throws Exception {
+	    Map<String, Object> returnMap = new HashMap<>();
+
+	    // ID 중복 체크
+	    if (dto.getUrID() != null && !dto.getUrID().trim().isEmpty()) {
+	        int idCount = userService.idCheck(dto);
+	        returnMap.put("idExists", idCount > 0);  // true: 중복, false: 사용 가능
+	    }
+
+	    // 닉네임 중복 체크
+	    if (dto.getUrNickname() != null && !dto.getUrNickname().trim().isEmpty()) {
+	        int nicknameCount = userService.nicknameCheck(dto);
+	        returnMap.put("nicknameExists", nicknameCount > 0);
+	    }
+
+	    return returnMap;
+	}
+	
 }

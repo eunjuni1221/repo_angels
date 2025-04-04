@@ -1,16 +1,23 @@
-
 document.getElementById("btnSave").onclick = function (event) {
     event.preventDefault(); // 폼 기본 제출 방지
 
     function validation() {
         let isValid = true;
 
-        function checkField(fieldId, errorId, errorMessage, regex = null) {
+        function checkField(fieldId, errorId, errorMessageEmpty, errorMessageInvalid, regex = null) {
             const field = document.getElementById(fieldId);
             const errorField = document.getElementById(errorId);
+            const fieldValue = field.value.trim();
 
-            if (!field.value.trim() || (regex && !regex.test(field.value.trim()))) {
-                errorField.textContent = errorMessage;
+            if (!fieldValue) {
+                // 값이 비어 있을 때
+                errorField.textContent = errorMessageEmpty;
+                errorField.style.display = "block";
+                field.classList.add("is-invalid");
+                isValid = false;
+            } else if (regex && !regex.test(fieldValue)) {
+                // 값이 유효하지 않을 때
+                errorField.textContent = errorMessageInvalid;
                 errorField.style.display = "block";
                 field.classList.add("is-invalid");
                 isValid = false;
@@ -21,13 +28,13 @@ document.getElementById("btnSave").onclick = function (event) {
             }
         }
 
-        // **필수 입력값 검사**
-        checkField("urName", "urNameError", "이름을 입력해주세요.");
-        checkField("urBirth", "urBirthError", "생년월일을 입력해주세요.", /^\d{4}-\d{2}-\d{2}$/);
-        checkField("urNickname", "urNicknameError", "닉네임을 입력해주세요.", /^[가-힣a-zA-Z0-9_]{1,15}$/);
-        checkField("urID", "urIDError", "아이디를 입력해주세요.", /^[a-zA-Z0-9_]+$/);
-        checkField("urPassword", "urPasswordError", "비밀번호는 8~20자리로 입력해주세요.", /^[a-zA-Z0-9!@#$%^&*()_+]{8,20}$/);
-        checkField("urPasswordCheck", "urPasswordCheckError", "비밀번호 확인을 입력해주세요.");
+        // **필수 입력값 및 유효성 검사**
+        checkField("urName", "urNameError", "이름을 입력해주세요.", "유효하지 않은 이름입니다.", /^[가-힣]+$/);
+        checkField("urBirth", "urBirthError", "생년월일을 입력해주세요.", "올바른 형식(YYYY-MM-DD)으로 입력해주세요.", /^\d{4}-\d{2}-\d{2}$/);
+        checkField("urNickname", "urNicknameError", "닉네임을 입력해주세요.", "유효하지 않은 닉네임입니다. (한글, 영문, 숫자, _ 만 가능)", /^[가-힣a-zA-Z0-9_]{1,15}$/);
+        checkField("urID", "urIDError", "아이디를 입력해주세요.", "유효하지 않은 아이디입니다. (영문, 숫자, _ 만 가능)", /^[a-zA-Z0-9_]+$/);
+        checkField("urPassword", "urPasswordError", "비밀번호를 입력해주세요.", "비밀번호는 8~20자리로 입력해주세요.", /^[a-zA-Z0-9!@#$%^&*()_+]{8,20}$/);
+        checkField("urPasswordCheck", "urPasswordCheckError", "비밀번호 확인을 입력해주세요.", "비밀번호가 일치하지 않습니다.");
 
         // **비밀번호 확인 검사**
         const password = document.getElementById("urPassword").value.trim();
@@ -73,8 +80,8 @@ document.getElementById("btnSave").onclick = function (event) {
         checkSelect("email", "emailError", "도메인을 선택해주세요.");
 
         // **휴대전화 & 이메일 입력 검사**
-        checkField("phoneNumber", "phoneNumberError", "휴대전화를 입력해주세요.", /^\d{10,11}$/);
-        checkField("emailID", "emailIDError", "이메일 ID를 입력해주세요.", /^[a-zA-Z0-9._%+-]+$/);
+        checkField("phoneNumber", "phoneNumberError", "휴대전화를 입력해주세요.", "올바른 형식(11자리 숫자)으로 입력해주세요.", /^\d{11}$/);
+        checkField("emailID", "emailIDError", "이메일 ID를 입력해주세요.", "유효하지 않은 이메일 ID입니다.", /^[a-zA-Z0-9._%+-]+$/);
 
         return isValid;
     }
@@ -94,13 +101,10 @@ document.getElementById("btnSave").onclick = function (event) {
             clearTimeout(redirectTimeout); // 5초 타이머 취소
             window.location.href = "/hof/hofLogin";
         };
-
+	
         // 1초 뒤 폼 제출 (백엔드로 데이터 전송)
         setTimeout(function () {
             document.getElementById("form").submit();
         }, 1000);
     }
 };
-
-
-

@@ -45,5 +45,11 @@ public class UserService {
 	public List<UserDto> telecom(){
 		return userDao.telecom();
 	}
+	public int idCheck(UserDto userDto) {
+		return userDao.idCheck(userDto);
+	}
+	public int nicknameCheck(UserDto userDto) {
+		return userDao.nicknameCheck(userDto);
+	}
 
 }

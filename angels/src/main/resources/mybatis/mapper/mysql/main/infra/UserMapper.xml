@@ -151,5 +151,19 @@
 	
 	</select>
 	
+	<select id="idCheck" parameterType="com.angels.module.user.UserDto" resultType="java.lang.Integer">
+	    SELECT COUNT(*) 
+	    FROM user 
+	    WHERE urID = #{urID}
+	</select>
+	
+	<select id="nicknameCheck" parameterType="com.angels.module.user.UserDto" resultType="java.lang.Integer">
+	    SELECT COUNT(*) 
+	    FROM user 
+	    WHERE urNickName = #{urNickName}
+	</select>
+	
+	
+	
 
 </mapper>

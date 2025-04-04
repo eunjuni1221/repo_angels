@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.angels.module.team.TeamDto;
 
-
-
 @Repository
 public interface UserDao {
 	
@@ -21,5 +19,8 @@ public interface UserDao {
 	public List<UserDto> sex();
 	public List<UserDto> telecom();
 	public List<UserDto> email();
+	public int idCheck(UserDto userDto);
+	public int nicknameCheck(UserDto userDto);
+
 
 }
