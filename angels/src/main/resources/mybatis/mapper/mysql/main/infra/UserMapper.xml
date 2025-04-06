@@ -160,9 +160,31 @@
 	<select id="nicknameCheck" parameterType="com.angels.module.user.UserDto" resultType="java.lang.Integer">
 	    SELECT COUNT(*) 
 	    FROM user 
-	    WHERE urNickName = #{urNickName}
+	    WHERE urNickname = #{urNickname}
 	</select>
 	
+	<select id="selectOne" resultMap="resultMapObj">
+		select
+			urSeq,
+		    urUse,
+		    urDelNy,
+		    urName,
+		    urNickname,
+		    urGender,
+		    telecom,
+		    phoneNumber,
+		    urBirth,
+		    urID,
+		    emailID,
+		    email,
+		    urPassword,
+		    urRegTime,
+		    urModTime
+				from
+				user 		
+				where 1=1
+			AND urSeq = #{urSeq}				
+	</select>
 	
 	
 

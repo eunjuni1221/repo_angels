@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
 <head>
 
 	<div th:replace="~{hof/include/hofHead :: head}"></div>
@@ -136,6 +136,8 @@
 										<a href="/mainHof" class="btn btn-danger btn-lg btn-block">가입 취소</a>
 									</div>
 									<p class="mb-0 font-size-sm">You will receive a confirmation email in your inbox with a link to activate your account!</p>									
+									<input type="hidden" id="isIdChecked" value="false">
+									<input type="hidden" id="isNicknameChecked" value="false">
 								</form>
 								
 								<!-- Register Form / End -->
@@ -169,7 +171,6 @@
 	<!-- Template JS -->
 	<script src="/hof/template/assets/js/init.js"></script>
 	<script src="/hof/template/assets/js/custom.js"></script>
-	<script src="/hof/template/assets/js/hofRegIdCheck.js"></script>
 	<script src="/hof/template/assets/js/hofRegister.js"></script>
 
 </body>

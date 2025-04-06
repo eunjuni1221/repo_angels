@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+	<div th:replace="~{hof/include/hofHead :: head}"></div>
+
+		<!-- Page Heading
+		================================================== -->
+		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-6">
+						<div class="page-heading__inner page-heading__inner--highlight">
+							<h1 class="page-heading__title">프로필</h1>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="page-heading__inner ml-auto">
+							<ol class="page-heading__breadcrumb breadcrumb">
+								<li class="breadcrumb-item"><a href="baseball-main.html">Home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">프로필</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page Heading / End -->
+		
+		
+		<!-- Content
+		================================================== -->
+		<div class="site-content">
+			<div class="container">
+		
+				<div class="row">
+		
+					<div class="col-lg-4">
+		
+						<!-- Account Navigation -->
+						<div class="card">
+							<div class="card__content">
+								<div class="df-account-user">
+									<figure class="df-account-user__avatar">
+										<img src="assets/images/hockey/samples/avatar-17.jpg" alt="">
+									</figure>
+									<div class="df-account-user__body">
+										<div class="df-account-user__header">
+											<h4 class="df-account-user__title" th:text="${list.urName}">Iron_Hockey_V</h4>
+											<div class="df-account-user__subtitle" th:text="${list.urNickname}">Robert Stark</div>
+										</div>
+										<ul class="df-account-user__info">
+											<li class="df-account-user__info-item">
+												<span class="df-account-user__info-item-label">Posts:</span>
+												<span class="df-account-user__info-item-value">96</span>
+											</li>
+											<li class="df-account-user__info-item">
+												<span class="df-account-user__info-item-label">Likes:</span>
+												<span class="df-account-user__info-item-value">135</span>
+											</li>
+											<li class="df-account-user__info-item">
+												<span class="df-account-user__info-item-label">Topics:</span>
+												<span class="df-account-user__info-item-value">12</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<nav class="df-account-navigation">
+									<ul>
+										<li class="df-account-navigation__link df-account-navigation__link--active">
+											<a href="baseball-profile.html">프로필</a>
+										</li>
+										<li class="df-account-navigation__link">
+											<a href="baseball-myPage.html">마이페이지</a>
+										</li>
+										<li class="df-account-navigation__link">
+											<a href="baseball-secession.html">탈퇴하기</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<!-- Account Navigation / End -->
+					</div>
+		
+					<div class="col-lg-8">
+		
+						<!-- Account Settings -->
+						<div class="card">
+							<div class="card__header">
+								<h4>프로필</h4>
+							</div>
+							<div class="card__content pt-0">
+								<div class="card__subheader card__subheader--sm border-top-0 text-left">
+									<h5>메인 프로필</h5>
+								</div>
+									<div class="form-group form-group--floating-label">
+										<input type="text" class="form-control" id="account-name" th:value="${list.urName}" disabled>
+										<label class="control-label" for="account-email">이름</label>
+									</div>
+									<div class="form-group form-group--floating-label">
+										<input type="text" class="form-control" id="account-nickname" th:value="${list.urNickname}" disabled>
+										<label class="control-label" for="account-email">닉네임</label>
+									</div>
+									<div class="form-group form-group--floating-label">
+										<input type="text" class="form-control" id="account-ID" th:value="${list.urID}" disabled>
+										<label class="control-label" for="account-email">아이디</label>
+									</div>
+									<div class="form-group form-group--floating-label">
+										<input type="email" class="form-control" id="account-email" th:value="${list.emailID + '@' + @codeService.selectOneCachedCode(list.email)" disabled>
+										<label class="control-label" for="account-email">이메일</label>
+										<a href="baseball_profile-changeEmail.html">
+											<button href="" class="btn btn-primary-inverse btn-lg" style="position: absolute; top: 0; right: 0; height: 51px; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 0px; display: flex; align-items: center; justify-content: center; white-space: nowrap;">
+												이메일 변경
+											</button>
+										</a>
+									</div>
+									<div class="form-group form-group--floating-label">
+										<input type="phone" class="form-control" id="account-phone" th:value="${list.phoneNumber}" disabled>	
+										<label class="control-label" for="account-phone">휴대전화</label>
+										<a href="baseball_profile-changePhoneNumber.html">
+											<button href="" class="btn btn-primary-inverse btn-lg" style="position: absolute; top: 0; right: 0; height: 51px; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 0px; display: flex; align-items: center; justify-content: center; white-space: nowrap;">
+												전화번호 수정
+											</button>
+										</a>
+									</div>
+									<div class="text-left" style="margin-bottom: 20px;">
+										<a href="baseball_profile-changePassword.html">
+											<button class="btn btn-md btn-primary-inverse">비밀번호 수정</button>
+										</a>
+									</div>
+								</form>
+								<div class="card__subheader card__subheader--sm text-left">
+									<h5>사진 수정</h5>
+								</div>
+								<div class="form-group form-group--upload-photo mb-0">
+									<div class="form-group__photo">
+										<img src="assets/images/hockey/samples/avatar-17.jpg" alt="">
+									</div>
+									<div class="form-group__upload-btn">
+										<label class="btn btn-default btn-xs btn-file">
+											Browse a photo... <input type="file" class="d-none">
+										</label>
+										<div class="form-group__label d-block">
+											<span>100x100px minimum resolution</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Account Settings / End -->
+					</div>
+				</div>
+		
+			</div>
+		</div>
+		<!-- Content / End -->
+		
+<div th:replace="~{hof/include/hofFooter :: footer}"></div>
+
+
+
+	<!-- Javascript Files
+	================================================== -->
+	<!-- Core JS -->
+	<script src="/hof/template/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="/hof/template/assets/vendor/jquery/jquery-migrate.min.js"></script>
+	<script src="/hof/template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/hof/template/assets/vendor/swiper/js/swiper-bundle.min.js"></script>
+	<script src="/hof/template/assets/js/core.js"></script>
+	
+	<!-- Vendor JS -->
+	
+	<!-- Template JS -->
+	<script src="/hof/template/assets/js/init.js"></script>
+	<script src="/hof/template/assets/js/custom.js"></script>
+
+</body>
+</html>

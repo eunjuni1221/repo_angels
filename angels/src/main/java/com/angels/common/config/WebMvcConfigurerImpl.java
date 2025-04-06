@@ -20,7 +20,7 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer{
 //						"/v1/infra/member"
 //						+ "/signUpUsrForm",
 //						"/v1/infra/member/signinUsrForm",
-						"/login/signinXdmProc"
+						"/login/signinXdmProc",
 //						"/v1/infra/member/signupIdCheckUsrProc",
 //						"/v1/infra/member/sendMailGoogleCertificationUsrProc",
 //						"/v1/infra/member/certificationCheckUsrProc",
@@ -39,7 +39,9 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer{
 //						"/xdm/**",
 //						"/v1/infra/member/signupXdmForm",
 //						"/v1/infra/member/signinXdmForm",
-//						"/v1/infra/member/signinXdmProc"
+//						"/v1/infra/member/signinXdmProc",
+						"/login/idNmCheckXdmProc"
+
 		);
 	}
 

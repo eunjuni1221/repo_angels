@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.angels.module.team.TeamDto;
-
 @Repository
 public interface UserDao {
 	

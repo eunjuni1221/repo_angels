@@ -125,11 +125,12 @@ public class UserController extends BaseController{
 		
 		if(rtUserDto != null) {
 			returnMap.put("rt", "success");
-			httpSession.setAttribute("sessXdmSeq", rtUserDto.getUrSeq());
-			httpSession.setAttribute("sessXdmName", rtUserDto.getUrNickname());
-			System.out.println(httpSession.getAttribute("sessXdmName"));
-
-			httpSession.setAttribute("sessXdmId", rtUserDto.getUrID());
+			httpSession.setAttribute("sessHofSeq", rtUserDto.getUrSeq());
+			httpSession.setAttribute("sessHofName", rtUserDto.getUrName());
+			httpSession.setAttribute("sessHofNickname", rtUserDto.getUrNickname());
+			httpSession.setAttribute("sessHofId", rtUserDto.getUrID());
+			
+			System.out.println();
 			
 		} else {
 			returnMap.put("rt", "false");
@@ -142,9 +143,11 @@ public class UserController extends BaseController{
 	public Map<String, Object> signoutHofProc(UserDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
-			httpSession.setAttribute("sessXdmSeq", null);
-			httpSession.setAttribute("sessXdmName", null);
-			httpSession.setAttribute("sessXdmId", null);		
+			httpSession.setAttribute("sessHofSeq", null);
+			httpSession.setAttribute("sessHofName", null);
+			httpSession.setAttribute("sessHofNickname", null);
+			httpSession.setAttribute("sessHofId", null);		
+
 
 			returnMap.put("rt", "success");				
 		return returnMap;
@@ -168,6 +171,13 @@ public class UserController extends BaseController{
 	    }
 
 	    return returnMap;
+	}
+	
+	@RequestMapping(value = "/hof/hofUsrProfile")
+	public String hofUsrProfile(HttpSession httpSession, UserDto dto, Model model) {
+		dto.setUrSeq((String) httpSession.getAttribute("sessHofSeq"));
+		model.addAttribute("list", userService.selectOne(dto));
+		return "hof/user/baseball-profile";
 	}
 	
 }

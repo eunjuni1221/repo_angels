@@ -448,7 +448,7 @@
 						<!-- Main Navigation -->
 						<nav class="main-nav clearfix">
 							<ul class="main-nav__list">
-								<li class="active"><a href="mainHof">Home</a>
+								<li th:classappend="${activeMenu == 'home'} ? 'active'"><a href="mainHof">Home</a>
 									<!-- 리스트 삭제  -->
 								</li>
 								<li class=""><a href="#">전체메뉴</a>
@@ -511,7 +511,7 @@
 										</ul>
 									</div>
 								</li>
-								<li class=""><a href="*">KBO</a>
+								<li th:classappend="${activeMenu == 'kbo'} ? 'active'"><a href="*">KBO</a>
 									<ul class="main-nav__sub">
 										<li><a href="baseball_team-mainmain.html">TEAM</a>
 											<ul class="main-nav__sub-2">
@@ -558,7 +558,7 @@
 										<li><a href="_hockey_event-tournament.html">Tournament</a></li>
 									</ul>
 								</li>
-								<li class=""><a href="_hockey_team-overview.html">HOF</a>
+								<li th:classappend="${activeMenu == 'hof'} ? 'active'"><a href="_hockey_team-overview.html">HOF</a>
 									<ul class="main-nav__sub">
 										<li><a href="_hockey_team-overview.html">유저 순위</a>
 											<ul class="main-nav__sub-2">
@@ -620,7 +620,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class=""><a href="_hockey_forum-main.html">Forum</a>
+								<li th:classappend="${activeMenu == 'forum'} ? 'active'"><a href="_hockey_forum-main.html">Forum</a>
 									<ul class="main-nav__sub">
 										<li class=""><a href="_hockey_forum-main.html">Forum - Main</a></li>
 										<li class=""><a href="_hockey_forum-topics.html">자유게시판</a></li>
@@ -660,13 +660,13 @@
 									</ul>
 								</li>
 								<li class="nav-account__item">
-									<a href="javascript:void(0);" th:if="${session.sessXdmSeq != null}" id="btnSignout1">LOGOUT</a>
-									<a href="/hof/hofLogin" th:if="${session.sessXdmSeq == null}" >LOGIN</a>
+									<a href="javascript:void(0);" th:if="${session.sessHofSeq != null}" id="btnSignout1">LOGOUT</a>
+									<a href="/hof/hofLogin" th:if="${session.sessHofSeq == null}" >LOGIN</a>
 								</li>
-								<li class="nav-account__item" th:if="${session.sessXdmSeq == null}">
+								<li class="nav-account__item" th:if="${session.sessHofSeq == null}">
 									<a href="/hof/hofRegAgree">회원가입</a>
 								</li>
-								<li class="nav-account__item" th:if="${session.sessXdmSeq != null}">
+								<li class="nav-account__item" th:if="${session.sessHofSeq != null}">
 									<a href="#">
 										<img src="/hof/template/assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
 									</a>
@@ -675,10 +675,10 @@
 											<a href="#">
 												Hello!
 												<img src="/hof/template/assets/images/baseball/samples/header-user-avatar.jpg" alt="" class="main-nav__sub-heading-avatar">
-												<span class="highlight" th:text="${session.sessXdmName}"></span>
+												<span class="highlight" th:text="${session.sessHofNickname}"></span>
 											</a>
 										</li>
-										<li><a href="baseball-profile.html">프로필</a></li>
+										<li><a href="/hof/hofUsrProfile">프로필</a></li>
 										<li><a href="baseball-myPage.html">마이페이지</a></li>
 										<li><a href="baseball-secession.html">탈퇴하기</a></li>
 										<li><a href="javascript:void(0);" id="btnSignout2">Logout</a></li>

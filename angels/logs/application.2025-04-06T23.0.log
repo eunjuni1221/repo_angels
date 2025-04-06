@@ -1,0 +1,155 @@
+2025-04-06T23:27:19.039 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+54. select
+		cdName,
+	    cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=1
+
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-06T23:27:19.044 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-06T23:27:19.049 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+54. select
+		cdNameEng,
+		cdSeq
+		from
+			code
+		where 1=1
+			and codeGroup_cgSeq=11
+		order by cdSeq desc
+ {executed in 2 msec} 
+2025-04-06T23:27:19.051 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|----------|------|
+|cdnameeng |cdseq |
+|----------|------|
+|----------|------|
+ 
+2025-04-06T23:27:19.058 [http-nio-8080-exec-2] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+54. select
+		cdName,
+	    cdSeq
+	from
+		code
+	where 1=1
+		and codeGroup_cgSeq=2
+	order by cdSeq desc
+ {executed in 1 msec} 
+2025-04-06T23:27:19.060 [http-nio-8080-exec-2] INFO j.resultsettable - 
+|-------|------|
+|cdname |cdseq |
+|-------|------|
+|-------|------|
+ 
+2025-04-06T23:28:38.378 [http-nio-8080-exec-8] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+54. SELECT COUNT(*) 
+	    FROM user 
+	    WHERE urID = 'freeman'
+ {executed in 2 msec} 
+2025-04-06T23:28:38.378 [http-nio-8080-exec-8] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|0        |
+|---------|
+ 
+2025-04-06T23:29:43.899 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+54. SELECT COUNT(*) 
+	    FROM user 
+	    WHERE urNickname = '베츠'
+ {executed in 3 msec} 
+2025-04-06T23:29:43.900 [http-nio-8080-exec-10] INFO j.resultsettable - 
+|---------|
+|count(*) |
+|---------|
+|1        |
+|---------|
+ 
+2025-04-06T23:30:03.068 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+54. INSERT INTO user (
+			urUse,
+		    urDelNy,
+		    urName,
+		    urNickname,
+		    urGender,
+		    telecom,
+		    phoneNumber,
+		    urBirth,
+		    urID,
+			emailID,
+		    email,
+		    urPassword,
+		    urRegTime
+	) values (
+		1,
+		0,
+		'프리먼',
+		'베츠',
+		7,
+		4,
+		'01053872185',
+		1988-02-01,
+		'freeman',
+		'freeman',
+		'98',
+		'12121212',
+		NOW()
+	)
+ {executed in 5 msec} 
+2025-04-06T23:30:03.070 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+54. SELECT last_insert_id()
+ {executed in 0 msec} 
+2025-04-06T23:30:03.070 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|9                |
+|-----------------|
+ 
+2025-04-06T23:57:44.855 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+64. INSERT INTO user (
+			urUse,
+		    urDelNy,
+		    urName,
+		    urNickname,
+		    urGender,
+		    telecom,
+		    phoneNumber,
+		    urBirth,
+		    urID,
+			emailID,
+		    email,
+		    urPassword,
+		    urRegTime
+	) values (
+		1,
+		0,
+		'프리먼',
+		'베츠',
+		7,
+		4,
+		'01053872185',
+		1988-02-01,
+		'freeman',
+		'freeman',
+		'98',
+		'12121212',
+		NOW()
+	)
+ {executed in 13 msec} 
+2025-04-06T23:57:44.860 [http-nio-8080-exec-5] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+64. SELECT last_insert_id()
+ {executed in 1 msec} 
+2025-04-06T23:57:44.864 [http-nio-8080-exec-5] INFO j.resultsettable - 
+|-----------------|
+|last_insert_id() |
+|-----------------|
+|10               |
+|-----------------|
+ 
