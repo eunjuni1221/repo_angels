@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{hof/include/hofHead :: head}"></div>
+		<!-- Search Panel / End -->
+
+		<!-- Page Heading
+		================================================== -->
+		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-6">
+						<div class="page-heading__inner page-heading__inner--highlight">
+							<h1 class="page-heading__title">전화번호 수정</h1>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="page-heading__inner ml-auto">
+							<ol class="page-heading__breadcrumb breadcrumb">
+								<li class="breadcrumb-item"><a href="baseball-main.html">Home</a></li>
+								<li class="breadcrumb-item"><a href="baseball-profile.html">프로필</a></li>
+								<li class="breadcrumb-item active" aria-current="page">전화번호 수정</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page Heading / End -->
+		
+		
+		<!-- Content
+		================================================== -->
+		<div class="site-content">
+			<div class="container">
+		
+				<div class="row justify-content-center">
+		
+					<div class="col-lg-6 mx-auto">
+		
+						<!-- Login -->
+						<div class="card">
+							<div class="card">
+								<div class="card__header">
+									<h4>전화번호 수정</h4>
+								</div>
+								<div class="card__header-bg effect-duotone effect-duotone--primary"></div>
+							</div>
+							<div class="card__content">
+		
+								<!-- Login Form -->
+
+								<!-- 휴대폰 체크박스 -->
+								<form action="#">
+									<div class="form-group form-group--floating-label d-flex" style="margin-top: -20px;">
+										<select name="select-default" id="select-default" class="form-control" style="width: 30%; height: 50px; border-radius: 0; font-size: 12px;">
+											<option value="SKT">SKT</option>
+											<option value="KT">KT</option>
+											<option value="LG U+">LG U+</option>
+											<option value="알뜰폰">알뜰폰</option>
+										</select>
+										<label class="control-label" for="select-default">통신사 선택</label>
+										<div class="form-group form-group--floating-label" style="position: relative; width: 80%; margin-left: 10px;">
+											<input type="id" class="form-control" id="register-password-confirm" placeholder="휴대전화 *" style="height: 50px;">
+											<label class="control-label" for="register-password-confirm">휴대전화 *</label>
+											<button href="" class="btn btn-primary-inverse btn-lg" style="position: absolute; top: 0; right: 0; height: 100%; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 0px; display: flex; align-items: center; justify-content: center; white-space: nowrap;">
+												휴대폰 인증
+											</button>
+										</div>
+									</div>
+									<div class="form-group form-group--floating-label"  style="margin-top: -30px;">
+										<input type="password" class="form-control" id="login-newpasswordcheck" placeholder="비밀번호 *">
+										<label class="control-label" for="login-newpasswordcheck">인증번호 입력*</label>
+									</div>
+								
+									<div class="form-group form-group--sm">
+										<a href="#" id="openPasswordChangeModal" class="btn btn-primary-inverse btn-lg btn-block">변경</a>
+									</div>
+
+									<div class="form-group form-group--sm">
+										<a href="baseball-profile.html" id="openPasswordChangeModal" class="btn btn-default btn-lg btn-block">취소</a>
+									</div>
+								
+									<!-- 모달 창 -->
+									<div class="modal fade" id="passwordChangeModal" tabindex="-1" role="dialog" aria-labelledby="passwordChangeModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="passwordChangeModalLabel" style="margin-top: 20px;">전화번호 변경 완료</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													전화번호가 성공적으로 변경되었습니다. 5초 후 프로필 화면으로 이동합니다.
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal-confirm-btn">확인</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								
+								<!-- Login Form / End -->
+		
+							</div>
+						</div>
+						<!-- Login / End -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:replace="~{hof/include/hofFooter :: footer}"></div>
+
+
+
+	<!-- Javascript Files
+	================================================== -->
+	<!-- Core JS -->
+	<script src="/hof/template/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="/hof/template/assets/vendor/jquery/jquery-migrate.min.js"></script>
+	<script src="/hof/template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/hof/template/assets/vendor/swiper/js/swiper-bundle.min.js"></script>
+	<script src="/hof/template/assets/js/core.js"></script>
+
+	<!-- Vendor JS -->
+	
+	<!-- Template JS -->
+	<script src="/hof/template/assets/js/init.js"></script>
+	<script src="/hof/template/assets/js/custom.js"></script>
+	<script src="/hof/template/assets/js/profileChangePhoneNumber.js"></script>
+</body>
+</html>

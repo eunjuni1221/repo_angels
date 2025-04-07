@@ -49,5 +49,26 @@ public class UserService {
 	public int nicknameCheck(UserDto userDto) {
 		return userDao.nicknameCheck(userDto);
 	}
+	public int updateID (UserDto userDto) {
+		return userDao.updateID(userDto);
+	}
+	public int updatePassword (UserDto userDto) {
+		return userDao.updateID(userDto);
+	}
+	public int updateEmail (UserDto userDto) {
+		return userDao.updateID(userDto);
+	}
+	public int updatePhoneNumber (UserDto userDto) {
+		return userDao.updateID(userDto);
+	}
+	public int passwordCheck(UserDto userDto) {
+		return userDao.passwordCheck(userDto);
+	}
+	public int phoneNumberCheck(UserDto userDto) {
+		return userDao.phoneNumberCheck(userDto);
+	}
+	public int telecomCheck(UserDto userDto) {
+		return userDao.telecomCheck(userDto);
+	}
 
 }

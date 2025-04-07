@@ -186,6 +186,53 @@
 			AND urSeq = #{urSeq}				
 	</select>
 	
+	<update id="updateID">
+	update user set
+		urID = #{urID}
+	where
+		urSeq = #{urSeq}
+	</update>
+	
+		<update id="updatePassword">
+	update user set
+		urPassword = #{urPassword}
+	where
+		urSeq = #{urSeq}
+	</update>
+	
+	<update id="updateEmail">
+	update user set
+		emailID = #{emailID}
+		email = #{email}
+	where
+		urSeq = #{urSeq}
+	</update>
+	
+	<update id="updatePhoneNumber">
+	update user set
+		telecom = #{telecom}
+		phoneNumber = #{phoneNumber}
+	where
+		urSeq = #{urSeq}
+	</update>
+	
+	<select id="passwordCheck" parameterType="com.angels.module.user.UserDto" resultType="java.lang.Integer">
+	    SELECT COUNT(*) 
+	    FROM user 
+	    WHERE urPassword = #{urPassword}
+	</select>
+	
+		<select id="phoneNumberCheck" parameterType="com.angels.module.user.UserDto" resultType="java.lang.Integer">
+	    SELECT COUNT(*) 
+	    FROM user 
+	    WHERE phoneNumber = #{phoneNumber}
+	</select>
+	
+		<select id="telecomCheck" parameterType="com.angels.module.user.UserDto" resultType="java.lang.Integer">
+	    SELECT COUNT(*) 
+	    FROM user 
+	    WHERE telecom = #{telecom}
+	</select>
 	
 
 </mapper>

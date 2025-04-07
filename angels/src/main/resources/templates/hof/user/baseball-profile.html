@@ -50,15 +50,15 @@
 										<ul class="df-account-user__info">
 											<li class="df-account-user__info-item">
 												<span class="df-account-user__info-item-label">Posts:</span>
-												<span class="df-account-user__info-item-value">96</span>
+												<span class="df-account-user__info-item-value">0</span>
 											</li>
 											<li class="df-account-user__info-item">
 												<span class="df-account-user__info-item-label">Likes:</span>
-												<span class="df-account-user__info-item-value">135</span>
+												<span class="df-account-user__info-item-value">0</span>
 											</li>
 											<li class="df-account-user__info-item">
 												<span class="df-account-user__info-item-label">Topics:</span>
-												<span class="df-account-user__info-item-value">12</span>
+												<span class="df-account-user__info-item-value">0</span>
 											</li>
 										</ul>
 									</div>
@@ -107,7 +107,7 @@
 									<div class="form-group form-group--floating-label">
 										<input type="email" class="form-control" id="account-email" th:value="${list.emailID + '@' + @codeService.selectOneCachedEngCode(list.email)}" disabled>
 										<label class="control-label" for="account-email">이메일</label>
-										<a href="baseball_profile-changeEmail.html">
+										<a href="/hof/hofUsrChangeEmail">
 											<button href="" class="btn btn-primary-inverse btn-lg" style="position: absolute; top: 0; right: 0; height: 51px; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 0px; display: flex; align-items: center; justify-content: center; white-space: nowrap;">
 												이메일 변경
 											</button>
@@ -116,14 +116,14 @@
 									<div class="form-group form-group--floating-label">
 										<input type="phone" class="form-control" id="account-phone" th:value="${list.phoneNumber}" disabled>	
 										<label class="control-label" for="account-phone">휴대전화</label>
-										<a href="baseball_profile-changePhoneNumber.html">
+										<a href="/hof/hofUsrChangePhoneNumber">
 											<button href="" class="btn btn-primary-inverse btn-lg" style="position: absolute; top: 0; right: 0; height: 51px; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 0px; display: flex; align-items: center; justify-content: center; white-space: nowrap;">
 												전화번호 수정
 											</button>
 										</a>
 									</div>
 									<div class="text-left" style="margin-bottom: 20px;">
-										<a href="baseball_profile-changePassword.html">
+										<a href="/hof/hofUsrChangePassword">
 											<button class="btn btn-md btn-primary-inverse">비밀번호 수정</button>
 										</a>
 									</div>
@@ -173,6 +173,7 @@
 	<!-- Template JS -->
 	<script src="/hof/template/assets/js/init.js"></script>
 	<script src="/hof/template/assets/js/custom.js"></script>
+	<script src="/hof/template/assets/js/hoflogout.js"></script>
 
 </body>
 </html>

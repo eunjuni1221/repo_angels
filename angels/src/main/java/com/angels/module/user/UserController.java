@@ -180,4 +180,56 @@ public class UserController extends BaseController{
 		return "hof/user/baseball-profile";
 	}
 	
+	@RequestMapping(value = "/hof/hofUsrChangePassword")
+	public String hofUsrChangePassword() {
+		
+		return "hof/user/baseball_profile-changePassword";
+	}
+	
+	@RequestMapping(value = "/hof/hofUsrChangeEmail")
+	public String hofUsrChangeEmail() {
+		
+		return "hof/user/baseball_profile-changeEmail";
+	}
+	
+	@RequestMapping(value = "/hof/hofUsrChangePhoneNumber")
+	public String hofUsrChangePhoneNumber() {
+		
+		return "hof/user/baseball_profile-changePhoneNumber";
+	}
+	
+//	@ResponseBody
+//	@RequestMapping(value = "/login/passwordCheckXdmProc")
+//	public Map<String, Object> passwordCheckXdmProc(UserDto dto) throws Exception {
+//	    Map<String, Object> returnMap = new HashMap<>();
+//
+//	    // ID 중복 체크
+//	    if (dto.getUrPassword() != null && !dto.getUrPassword().trim().isEmpty()) {
+//	        int passwordCount = userService.idCheck(dto);
+//	        returnMap.put("passwordExists", passwordCount > 0);  // true: 중복, false: 사용 가능
+//	    }
+//	    return returnMap;
+//	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/login/phoneCheckXdmProc")
+	public Map<String, Object> phoneCheckXdmProc(UserDto dto) throws Exception {
+	    Map<String, Object> returnMap = new HashMap<>();
+
+	    // 폰 번호 중복 체크
+	    if (dto.getPhoneNumber() != null && !dto.getPhoneNumber().trim().isEmpty()) {
+	        int phoneNumberCount = userService.phoneNumberCheck(dto);
+	        returnMap.put("phoneNumberExists", phoneNumberCount > 0);  // true: 중복, false: 사용 가능
+	    }
+	    
+	    // 통신사 중복 체크
+	    if (dto.getTelecom() != null && !dto.getTelecom().trim().isEmpty()) {
+	        int telecomCount = userService.telecomCheck(dto);
+	        returnMap.put("nicknameExists", telecomCount > 0);
+	    }
+
+	    
+	    return returnMap;
+	}
+	
 }
