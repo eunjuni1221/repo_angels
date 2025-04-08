@@ -211,25 +211,25 @@ public class UserController extends BaseController{
 //	    return returnMap;
 //	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/login/phoneCheckXdmProc")
-	public Map<String, Object> phoneCheckXdmProc(UserDto dto) throws Exception {
-	    Map<String, Object> returnMap = new HashMap<>();
-
-	    // 폰 번호 중복 체크
-	    if (dto.getPhoneNumber() != null && !dto.getPhoneNumber().trim().isEmpty()) {
-	        int phoneNumberCount = userService.phoneNumberCheck(dto);
-	        returnMap.put("phoneNumberExists", phoneNumberCount > 0);  // true: 중복, false: 사용 가능
-	    }
-	    
-	    // 통신사 중복 체크
-	    if (dto.getTelecom() != null && !dto.getTelecom().trim().isEmpty()) {
-	        int telecomCount = userService.telecomCheck(dto);
-	        returnMap.put("nicknameExists", telecomCount > 0);
-	    }
-
-	    
-	    return returnMap;
-	}
+//	@ResponseBody
+//	@RequestMapping(value = "/login/phoneCheckXdmProc")
+//	public Map<String, Object> phoneCheckXdmProc(UserDto dto) throws Exception {
+//	    Map<String, Object> returnMap = new HashMap<>();
+//
+//	    // 폰 번호 중복 체크
+//	    if (dto.getPhoneNumber() != null && !dto.getPhoneNumber().trim().isEmpty()) {
+//	        int phoneNumberCount = userService.phoneNumberCheck(dto);
+//	        returnMap.put("phoneNumberExists", phoneNumberCount > 0);  // true: 중복, false: 사용 가능
+//	    }
+//	    
+//	    // 통신사 중복 체크
+//	    if (dto.getTelecom() != null && !dto.getTelecom().trim().isEmpty()) {
+//	        int telecomCount = userService.telecomCheck(dto);
+//	        returnMap.put("nicknameExists", telecomCount > 0);
+//	    }
+//
+//	    
+//	    return returnMap;
+//	}
 	
 }

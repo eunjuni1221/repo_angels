@@ -72,4 +72,9 @@ public class TeamController extends BaseController{
 		
 		return "redirect:TeamXdmList";
 	}
+	@RequestMapping(value = "/team/TeamHofMainList")
+	public String teamHofMainList() {
+
+	return "hof/team/baseball_team-mainmain"; 
+	}
 }
