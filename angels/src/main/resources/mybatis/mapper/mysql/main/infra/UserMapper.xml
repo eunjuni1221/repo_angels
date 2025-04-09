@@ -136,6 +136,7 @@
 	</select>	
 	
 	<select id="selectOneLogin" resultMap="resultMapObj">
+	
 		SELECT
 			urSeq,
 		    urName,
@@ -147,7 +148,6 @@
 			user
 		WHERE 1=1
 			AND urID = #{urID}
-			<if test="urPassword != null and !urPassword.equals('')">AND urPassword = #{urPassword}</if>
 	
 	</select>
 	

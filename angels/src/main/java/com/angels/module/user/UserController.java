@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -51,6 +51,8 @@ public class UserController extends BaseController{
 	
 	@RequestMapping(value = "/user/UserHofInst")
 	public String userHofInst(UserDto dto) {
+		
+		dto.setUrPassword(encodeBcrypt(dto.getUrPassword(), 10));
 
 		userService.insert(dto);
 		System.out.println(dto.getUrSeq());
@@ -90,7 +92,7 @@ public class UserController extends BaseController{
 		UserDto rtUserDto = userService.selectOneLogin(dto);
 //		아이디, 패스워드 집어넣어서 데이터 받기
 		
-		if(rtUserDto != null) {
+		if(rtUserDto != null && matchesBcrypt(dto.getUrPassword(), rtUserDto.getUrPassword(), 10)) {
 			returnMap.put("rt", "success");
 			httpSession.setAttribute("sessXdmSeq", rtUserDto.getUrSeq());
 			httpSession.setAttribute("sessXdmName", rtUserDto.getUrName());
@@ -123,15 +125,13 @@ public class UserController extends BaseController{
 		UserDto rtUserDto = userService.selectOneLogin(dto);
 //		아이디, 패스워드 집어넣어서 데이터 받기
 		
-		if(rtUserDto != null) {
+		if(rtUserDto != null && matchesBcrypt(dto.getUrPassword(), rtUserDto.getUrPassword(), 10)) {
 			returnMap.put("rt", "success");
 			httpSession.setAttribute("sessHofSeq", rtUserDto.getUrSeq());
 			httpSession.setAttribute("sessHofName", rtUserDto.getUrName());
 			httpSession.setAttribute("sessHofNickname", rtUserDto.getUrNickname());
 			httpSession.setAttribute("sessHofId", rtUserDto.getUrID());
-			
-			System.out.println();
-			
+						
 		} else {
 			returnMap.put("rt", "false");
 		}		

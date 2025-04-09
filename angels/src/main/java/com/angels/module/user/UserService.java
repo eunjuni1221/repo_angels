@@ -53,13 +53,13 @@ public class UserService {
 		return userDao.updateID(userDto);
 	}
 	public int updatePassword (UserDto userDto) {
-		return userDao.updateID(userDto);
+		return userDao.updatePassword(userDto);
 	}
 	public int updateEmail (UserDto userDto) {
-		return userDao.updateID(userDto);
+		return userDao.updateEmail(userDto);
 	}
 	public int updatePhoneNumber (UserDto userDto) {
-		return userDao.updateID(userDto);
+		return userDao.updatePhoneNumber(userDto);
 	}
 	public int passwordCheck(UserDto userDto) {
 		return userDao.passwordCheck(userDto);
