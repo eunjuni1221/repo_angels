@@ -74,7 +74,14 @@ public class TeamController extends BaseController{
 	}
 	@RequestMapping(value = "/team/TeamHofMainList")
 	public String teamHofMainList(Model model, TeamDto dto) {
+		dto.setTmSeq("1");
 		model.addAttribute("item", teamService.selectOne(dto));
 	return "hof/team/baseball_team-mainmain"; 
+	}
+	
+	@RequestMapping(value = "/team/TeamHofMain")
+	public String teamHofMain(Model model, TeamDto dto) {
+		
+	return "hof/team/baseball_team-main"; 
 	}
 }

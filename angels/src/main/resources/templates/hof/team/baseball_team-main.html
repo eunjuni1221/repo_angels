@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+	<div th:replace="~{hof/include/hofHead :: head(activeMenu='team')}"></div>
+
+		<!-- Page Heading
+		================================================== -->
+		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-6">
+						<div class="page-heading__inner page-heading__inner--highlight">
+							<h1 class="page-heading__title">메인</h1>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="page-heading__inner ml-auto">
+							<ol class="page-heading__breadcrumb breadcrumb">
+								<li class="breadcrumb-item"><a href="baseball-main.html">Home</a></li>
+								<li class="breadcrumb-item"><a href="baseball_team-mainmain.html">팀 메인</a></li>
+								<li class="breadcrumb-item active" aria-current="page">삼성 라이온즈</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page Heading / End -->
+		
+		
+		<!-- Content
+		================================================== -->
+		<div class="site-content">
+			<div class="container">
+		
+				<!-- Team Info Banner -->
+				<div class="alc-team-info-banner">
+				
+					<!-- Team Header -->
+					<div class="alc-team-info-banner__header">
+						<div class="alc-team-info-banner__team-label">Team Name</div>
+						<h1 class="alc-team-info-banner__team-title">삼성 라이온즈</h1>
+					</div>
+					<!-- Team Header / End -->
+				
+					<!-- Team Logo -->
+					<div class="alc-team-info-banner__logo">
+						<img src="assets/images/hockey/samples/team-single-logo.png" alt="">
+					</div>
+					<!-- Team Logo / End -->
+				
+					<!-- Meta Info -->
+					<div class="alc-team-info-banner__meta">
+						<ul class="alc-team-info-banner__list-info list-info">
+							<li class="list-info__item">
+								<div class="list-info__label">시즌 기록 (승차)</div>
+								<div class="list-info__value">11 - 2 - 0 (0)</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">순위</div>
+								<div class="list-info__value">1</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">도시</div>
+								<div class="list-info__value">대구 (포항)</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">팀 타율</div>
+								<div class="list-info__value">0.301</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">팀 출루율</div>
+								<div class="list-info__value">0.369</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">팀 장타율</div>
+								<div class="list-info__value">0.459</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">팀 OPS</div>
+								<div class="list-info__value">0.828</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">팀 wRC+</div>
+								<div class="list-info__value">114.1</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">Social Links</div>
+								<div class="list-info__value">
+									<ul class="social-links social-links--plain">
+										<li class="social-links__item">
+											<a href="https://www.youtube.com/channel/UCMWAku3a3h65QpLm63Jf2pw" class="social-links__link social-links__link--youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+										</li>
+										<li class="social-links__item">
+											<a href="https://www.instagram.com/samsunglions_baseballclub/" class="social-links__link social-links__link--instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- Meta Info / End -->
+				
+					<!-- Circular Bar -->
+					<div class="alc-team-info-banner__primary-info">
+						<div class="alc-circle-progress alc-circle-progress--xl js-alc-circle-progress" data-value="100" data-label="Win Ratio" data-percent-symbol="true"></div>
+					</div>
+					<!-- Circular Bar / End -->
+				
+					<!-- Background -->
+					<div class="alc-team-info-banner__bg effect-duotone effect-duotone--primary"></div>
+					<!-- Background / End-->
+				
+				</div>
+				<!-- Team Info Banner / End -->
+		
+				<!-- Team Filter -->
+				<nav class="content-filter content-filter--fit mb-40">
+					<div class="container">
+						<a href="#" class="content-filter__toggle"></a>
+						<ul class="content-filter__list">
+								<li class="content-filter__item content-filter__item--active"><a href="baseball_team-main.html" class="content-filter__link"><small>삼성 라이온즈</small>메인</a></li>
+								<li class="content-filter__item "><a href="baseball_team-ranking.html" class="content-filter__link"><small>삼성 라이온즈</small>순위</a></li>
+								<li class="content-filter__item "><a href="baseball_team-lastResults.html" class="content-filter__link"><small>삼성 라이온즈</small>지난 경기 결과</a></li>
+								<li class="content-filter__item "><a href="baseball_team-schedule.html" class="content-filter__link"><small>삼성 라이온즈</small>경기 일정</a></li>
+							</ul>
+					</div>
+				</nav>
+				<!-- Team Filter / End -->
+		
+				<div class="row">
+		
+					<!-- Content -->
+					<div class="content col-lg-8">
+		
+						<div class="widget widget--sidebar alc-event-box-score-container card card--no-paddings">
+							<header class="card__header">
+								<h4>경기</h4>
+								<a href="_hockey_event-overview.html" class="btn btn-default btn-xs">더 보기</a>
+							</header>
+							<div class="card__content">
+						
+								<!-- Event Box Score -->
+								<div class="alc-event-box-score">
+						
+									<!-- Score -->
+									<section class="alc-event-box-score__score alc-event-box-score__section">
+										<header class="alc-event-box-score__section-header">
+											<h5 class="alc-event-box-score__section-title">Final Score</h5>
+											<div class="alc-event-box-score__section-info">2025 시즌</div>
+											<div class="alc-event-box-score__section-info">2025/02/24 (월)</div>
+										</header>
+										<div class="alc-event-box-score__section-content">
+						
+											<div class="alc-event-box-score__score-result">
+												<div class="alc-event-box-score__score-team">
+													<figure class="alc-event-box-score__score-team-logo">
+														<img src="assets/images/hockey/samples/logos/alchemists-md.png" alt="The Alchemists">
+													</figure>
+													<div class="alc-event-box-score__score-team-info">
+														<div class="alc-event-box-score__score-team-meta">California</div>
+														<h5 class="alc-event-box-score__score-team-name">The Alchemists</h5>
+													</div>
+												</div>
+												<div class="alc-event-box-score__score-team">
+													<figure class="alc-event-box-score__score-team-logo">
+														<img src="assets/images/hockey/samples/logos/ocean-kings-md.png" alt="Ocean Kings">
+													</figure>
+													<div class="alc-event-box-score__score-team-info">
+														<div class="alc-event-box-score__score-team-meta">Miami</div>
+														<h5 class="alc-event-box-score__score-team-name">Ocean Kings</h5>
+													</div>
+												</div>
+						
+												<div class="alc-event-box-score__score-outcome">
+													<div class="alc-event-box-score__score-outcome-team alc-event-box-score__score-outcome-team--winner">9</div>
+													<div class="alc-event-box-score__score-outcome-team ">0</div>
+													<div class="alc-event-box-score__score-outcome-separator">
+														<div class="alc-circle-progress alc-circle-progress--xs js-alc-circle-progress alc-circle-progress--bar-primary alc-circle-progress--circle-blue" data-value="0
+														" data-hide-value="true" data-label="종료"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+									<!-- Score / End -->
+						
+									<!-- Scoreboard -->
+									<section class="alc-event-box-score__scoreboard alc-event-box-score__section">
+										<div class="table-responsive">
+											<table class="table table-thead-color alc-event-box-score__scoreboard-table">
+												<thead>
+													<tr>
+														<th>Scoreboard</th>
+														<th>1</th>
+														<th>2</th>
+														<th>3</th>
+														<th>4</th>
+														<th>5</th>
+														<th>6</th>
+														<th>7</th>
+														<th>8</th>
+														<th>9</th>
+														<th>10</th>
+														<th>11</th>
+														<th>12</th>
+														<th>R</th>
+														<th>H</th>
+														<th>E</th>
+														<th>B</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr class="alc-team-winner">
+														<td class="alc-name"><strong>The Alchemists</strong> 11 - 2 - 0 (1)</td>
+														<td>1</td>
+														<td>1</td>
+														<td>1</td>
+														<td>1</td>
+														<td>1</td>
+														<td>1</td>
+														<td>1</td>
+														<td>1</td>
+														<td>1</td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td class="r">9</td>
+														<td class="h">9</td>
+														<td class="e">0</td>
+														<td class="b">9</td>
+													</tr>
+													<tr>
+														<td class="alc-name"><strong>Ocean Kings</strong> 0 - 0 - 13 (10)</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td class="r">0</td>
+														<td class="h">2</td>
+														<td class="e">3</td>
+														<td class="b">4</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</section>
+									<!-- Scoreboard / End -->
+						
+									<!-- Statistics -->
+									<section class="alc-event-box-score__statistics alc-event-box-score__section">
+										<header class="alc-event-box-score__section-header">
+											<h5 class="alc-event-box-score__section-title">Game Statistics</h5>
+										</header>
+										<div class="alc-event-box-score__section-content">
+											<div class="alc-event-box-score__statistics-grid">
+						
+												<!-- Statistic: Total Shots -->
+												<div class="alc-event-box-score__statistics-item">
+													<div class="progress-bar-wrapper progress-bar-wrapper--labels-top">
+														<div class="progress-labels">
+															<div class="progress-labels__value">9</div>
+															<div class="progress-labels__value">2</div>
+															<div class="progress-labels__title">안타</div>
+														</div>
+														<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+															<div class="progress__bar" style="width: 80%;" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<!-- Statistic: Total Shots / End -->
+												<!-- Statistic: Hits -->
+												<div class="alc-event-box-score__statistics-item">
+													<div class="progress-bar-wrapper progress-bar-wrapper--labels-top">
+														<div class="progress-labels">
+															<div class="progress-labels__value">1</div>
+															<div class="progress-labels__value">0</div>
+															<div class="progress-labels__title">홈런</div>
+														</div>
+														<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+															<div class="progress__bar" style="width: 100%;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<!-- Statistic: Hits / End -->
+												<!-- Statistic: Penalty Minutes -->
+												<div class="alc-event-box-score__statistics-item">
+													<div class="progress-bar-wrapper progress-bar-wrapper--labels-top">
+														<div class="progress-labels">
+															<div class="progress-labels__value">0</div>
+															<div class="progress-labels__value">0</div>
+															<div class="progress-labels__title">도루</div>
+														</div>
+														<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+															<div class="progress__bar" style="width: 50%;" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<!-- Statistic: Penalty Minutes / End -->
+												<!-- Statistic: Givaways -->
+												<div class="alc-event-box-score__statistics-item">
+													<div class="progress-bar-wrapper progress-bar-wrapper--labels-top">
+														<div class="progress-labels">
+															<div class="progress-labels__value">2</div>
+															<div class="progress-labels__value">11</div>
+															<div class="progress-labels__title">삼진</div>
+														</div>
+														<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+															<div class="progress__bar" style="width: 13%;" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<!-- Statistic: Givaways / End -->
+												<!-- Statistic: Takeaways -->
+												<div class="alc-event-box-score__statistics-item">
+													<div class="progress-bar-wrapper progress-bar-wrapper--labels-top">
+														<div class="progress-labels">
+															<div class="progress-labels__value">2</div>
+															<div class="progress-labels__value">2</div>
+															<div class="progress-labels__title">병살</div>
+														</div>
+														<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+															<div class="progress__bar" style="width: 50%;" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<!-- Statistic: Takeaways / End -->
+												<!-- Statistic: Faceoffs Won -->
+												<div class="alc-event-box-score__statistics-item">
+													<div class="progress-bar-wrapper progress-bar-wrapper--labels-top">
+														<div class="progress-labels">
+															<div class="progress-labels__value">0</div>
+															<div class="progress-labels__value">3</div>
+															<div class="progress-labels__title">실책</div>
+														</div>
+														<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+															<div class="progress__bar" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<!-- Statistic: Faceoffs Won / End -->
+						
+											</div>
+										</div>
+									</section>
+									<!-- Statistics / End -->
+						
+									<!-- Game Leaders -->
+									<section class="alc-event-box-score__leaders alc-event-box-score__section" id="hof-pick-top3">
+										<header class="alc-event-box-score__section-header">
+											<h5 class="alc-event-box-score__section-title">HOF PICK TOP3 기록</h5>
+										</header>
+										<div class="alc-leaders-list">
+											<div class="alc-leaders-list__item">
+												<div class="alc-leaders-list__player">
+													<div class="alc-leaders-list__player-container">
+														<figure class="alc-leaders-list__player-img" >
+															<img src="assets/images/hockey/samples/event-player-1-42x35.png" alt="Connor Starkson">
+														</figure>
+														<div class="alc-icon alc-icon--medal alc-icon--medal-gold"></div>
+													</div>
+													<div class="alc-leaders-list__player-info">
+														<h5 class="alc-leaders-list__player-name">구자욱 <span class="alc-leaders-list__player-position">(RF)</span></h5>
+														<div class="alc-leaders-list__player-team">삼성 라이온즈</div>
+													</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">4</div>
+													<div class="alc-leaders-list__stat-label">타수</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">1</div>
+													<div class="alc-leaders-list__stat-label">안타</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0</div>
+													<div class="alc-leaders-list__stat-label">홈런</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0</div>
+													<div class="alc-leaders-list__stat-label">타점</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">1</div>
+													<div class="alc-leaders-list__stat-label">볼넷</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0.250</div>
+													<div class="alc-leaders-list__stat-label">타율</div>
+												</div>
+											</div>
+											
+											<div class="alc-leaders-list__item">
+												<div class="alc-leaders-list__player">
+													<div class="alc-leaders-list__player-container">
+														<figure class="alc-leaders-list__player-img" style="--decor-color: #1b96ff">
+															<img src="assets/images/hockey/samples/event-player-2-42x35.png" alt="Markus Ragnor">
+														</figure>
+														<div class="alc-icon alc-icon--medal alc-icon--medal-silver"></div>
+													</div>
+													<div class="alc-leaders-list__player-info">
+														<h5 class="alc-leaders-list__player-name">Markus Ragnor <span class="alc-leaders-list__player-position">(C)</span></h5>
+														<div class="alc-leaders-list__player-team">Ocean Kings</div>
+													</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">4</div>
+													<div class="alc-leaders-list__stat-label">타수</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">1</div>
+													<div class="alc-leaders-list__stat-label">안타</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0</div>
+													<div class="alc-leaders-list__stat-label">홈런</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0</div>
+													<div class="alc-leaders-list__stat-label">타점</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">1</div>
+													<div class="alc-leaders-list__stat-label">볼넷</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0.250</div>
+													<div class="alc-leaders-list__stat-label">타율</div>
+												</div>
+											</div>
+											<div class="alc-leaders-list__item">
+												<div class="alc-leaders-list__player">
+													<div class="alc-leaders-list__player-container">
+														<figure class="alc-leaders-list__player-img" >
+															<img src="assets/images/hockey/samples/event-player-1-42x35.png" alt="Leon Krasmarov">
+														</figure>
+														<div class="alc-icon alc-icon--medal alc-icon--medal-bronze"></div>
+													</div>
+													<div class="alc-leaders-list__player-info">
+														<h5 class="alc-leaders-list__player-name">Leon Krasmarov <span class="alc-leaders-list__player-position">(G)</span></h5>
+														<div class="alc-leaders-list__player-team">The Alchemists</div>
+													</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">4</div>
+													<div class="alc-leaders-list__stat-label">타수</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">1</div>
+													<div class="alc-leaders-list__stat-label">안타</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0</div>
+													<div class="alc-leaders-list__stat-label">홈런</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0</div>
+													<div class="alc-leaders-list__stat-label">타점</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">1</div>
+													<div class="alc-leaders-list__stat-label">볼넷</div>
+												</div>
+												<div class="alc-leaders-list__stat">
+													<div class="alc-leaders-list__stat-value">0.250</div>
+													<div class="alc-leaders-list__stat-label">타율</div>
+												</div>
+											</div>
+										</div>
+									</section>
+									<!-- Game Leaders / End -->
+								</div>
+								<!-- Event Box Score / End -->
+						
+							</div>
+						</div>
+		
+						<!-- Widget: Latest Results -->
+						<div class="widget widget--sidebar card card--has-table">
+							<div class="widget__title card__header">
+								<h4>지난 경기</h4>
+								<a href="_hockey_team-last-results.html" class="btn btn-default btn-xs">더 보기</a>
+							</div>
+							<div class="widget__content card__content">
+								<div class="table-responsive">
+									<table class="table table-hover table-thead-color team-result">
+										<thead>
+											<tr>
+												<th class="team-result__date">날짜</th>
+												<th class="team-result__vs">경기 결과</th>
+												<th class="team-result__competition">구장</th>
+												<th class="team-result__stats">Stats</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="team-result__date">03/08</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/sharks-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">SRK</h6>
+																<span class="team-meta__place">( 22 - 36 - 4 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/alchemists-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ALC</h6>
+																<span class="team-meta__place">( 32 - 27 - 8 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score ">2</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score team-result__score--win">4</span>
+															
+														</div>
+													</div>
+												</td>
+						
+												<td class="team-result__competition">West Hockey League</td>
+						
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+											</tr>
+											<tr>
+												<td class="team-result__date">03/01</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/alchemists-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ALC</h6>
+																<span class="team-meta__place">( 24 - 30 - 4 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/lucky-clovers-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">CLO</h6>
+																<span class="team-meta__place">( 41 - 34 - 9 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score ">5</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score team-result__score--win">7</span>
+															
+														</div>
+													</div>
+												</td>
+						
+												<td class="team-result__competition">West Hockey League</td>
+						
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+											</tr>
+											<tr>
+												<td class="team-result__date">02/22</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/red-wings-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">RWG</h6>
+																<span class="team-meta__place">( 29 - 24 - 6 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/alchemists-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ALC</h6>
+																<span class="team-meta__place">( 24 - 23 - 4 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score team-result__score--win">6</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score ">3</span>
+															
+														</div>
+													</div>
+												</td>
+						
+												<td class="team-result__competition">Atlantic Playoffs</td>
+						
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+											</tr>
+											<tr>
+												<td class="team-result__date">02/15</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/alchemists-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ALC</h6>
+																<span class="team-meta__place">( 24 - 30 - 4 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/draconians-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">DRC</h6>
+																<span class="team-meta__place">( 41 - 34 - 9 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score team-result__score--win">8</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score ">5</span>
+															
+														</div>
+													</div>
+												</td>
+						
+												<td class="team-result__competition">West Hockey League</td>
+						
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+											</tr>
+											<tr>
+												<td class="team-result__date">02/22</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/ocean-kings-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">OCK</h6>
+																<span class="team-meta__place">( 25 - 29 - 3 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/alchemists-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ALC</h6>
+																<span class="team-meta__place">( 39 - 32 - 12 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score ">6</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score team-result__score--win">8</span>
+															
+														</div>
+													</div>
+												</td>
+						
+												<td class="team-result__competition">Atlantic Playoffs</td>
+						
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+											</tr>
+											<tr>
+												<td class="team-result__date">01/31</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/alchemists-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ALC</h6>
+																<span class="team-meta__place">( 31 - 39 - 9 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/pirates-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">LAP</h6>
+																<span class="team-meta__place">( 32 - 29 - 5 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score team-result__score--win">9</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score ">7</span>
+															
+														</div>
+													</div>
+												</td>
+						
+												<td class="team-result__competition">Atlantic Playoffs</td>
+						
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+											</tr>
+											<tr>
+												<td class="team-result__date">01/24</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/icarus-wings-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ICW</h6>
+																<span class="team-meta__place">( 20 - 31 - 5 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/alchemists-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ALC</h6>
+																<span class="team-meta__place">( 33 - 29 - 7 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score ">3</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score team-result__score--win">6</span>
+															
+														</div>
+													</div>
+												</td>
+						
+												<td class="team-result__competition">Atlantic Playoffs</td>
+						
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+											</tr>
+											<tr>
+												<td class="team-result__date">01/18</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/alchemists-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">ALC</h6>
+																<span class="team-meta__place">( 21 - 26 - 4 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img src="assets/images/hockey/samples/logos/aqua-keyes-sm.png" alt="">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name">AQK</h6>
+																<span class="team-meta__place">( 39 - 41 - 8 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score ">2</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score team-result__score--win">5</span>
+															
+														</div>
+													</div>
+												</td>
+						
+												<td class="team-result__competition">Atlantic Playoffs</td>
+						
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- Widget: Latest Results / End -->
+		
+						<!-- Widget: Stats Slider Full width -->
+						<aside class="widget card widget--sidebar widget-stats-slider">
+							<div class="widget__title card__header">
+								<!-- Team Stats Slider -->
+								<div class="swiper alc-team-stats-slider-nav js-alc-team-stats-nav">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><h4>2020 - 21 Overall Stats</h4></div>
+										<div class="swiper-slide"><h4>2019 - 20 Overall Stats</h4></div>
+										<div class="swiper-slide"><h4>2018 - 19 Overall Stats</h4></div>
+										<div class="swiper-slide"><h4>2017 - 18 Overall Stats</h4></div>
+										<div class="swiper-slide"><h4>2016 - 17 Overall Stats</h4></div>
+										<div class="swiper-slide"><h4>2015 - 16 Overall Stats</h4></div>
+									</div>
+								</div>
+								<!-- Team Stats Slider / End -->
+						
+								<!-- Team Stats Navigation -->
+								<nav class="alc-team-stats-slider__header">
+									<div class="alc-team-stats-slider__arrows">
+										<div class="js-alc-team-stats-button-prev swiper-button-prev swiper-button--fa"></div>
+										<div class="js-alc-team-stats-button-next swiper-button-next swiper-button--fa"></div>
+									</div>
+								</nav>
+								<!-- Team Stats Navigation / End -->
+							</div>
+							<div class="widget__content-secondary">
+						
+								<!-- Stats Slider -->
+								<div class="alc-team-stats-slider">
+									<div class="alc-team-stats-slider__content">
+										<!-- Career Stats Slider -->
+										<div class="swiper alc-team-stats-slider-main js-alc-team-stats-slides">
+											<div class="swiper-wrapper">
+						
+												<!-- Slide: Season 2020 - 21 -->
+												<div class="swiper-slide">
+													<div class="alc-stats-slider__stats-primary alc-stats-list alc-stats-list--3cols-sm">
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">4.8<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 2.1</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">안타</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="80" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">52.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--negative">- 8.6</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">홈런</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="40" data-bar-color="#f21956">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">34.1<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 5.6</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">타점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="75" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">2.9<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 0.7</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">경기 당 득점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="80" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Slide: Season 2020 - 21 / End -->
+						
+												<!-- Slide: Season 2019 - 20 -->
+												<div class="swiper-slide">
+													<div class="alc-stats-slider__stats-primary alc-stats-list alc-stats-list--3cols-sm">
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">4.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 1.3</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">안타</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="60" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">35.5<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--negative">- 2.5</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">홈런</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="20" data-bar-color="#f21956">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">41.6<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 4.1</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">타점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="40" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">1.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 0.9</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">경기 당 득점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="50" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Slide: Season 2019 - 20 / End -->
+						
+												<!-- Slide: Season 2018 - 19 -->
+												<div class="swiper-slide">
+													<div class="alc-stats-slider__stats-primary alc-stats-list alc-stats-list--3cols-sm">
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">4.8<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 2.1</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">안타</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="80" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">52.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--negative">- 8.6</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">홈런</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="40" data-bar-color="#f21956">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">34.1<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 5.6</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">타점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="75" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">2.9<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 0.7</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">경기 당 득점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="80" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Slide: Season 2018 - 19 / End -->
+						
+												<!-- Slide: Season 2017 - 18 -->
+												<div class="swiper-slide">
+													<div class="alc-stats-slider__stats-primary alc-stats-list alc-stats-list--3cols-sm">
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">4.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 1.3</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">안타</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="60" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">35.5<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--negative">- 2.5</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">홈런</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="20" data-bar-color="#f21956">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">41.6<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 4.1</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">타점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="40" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">1.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 0.9</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">경기 당 득점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="50" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Slide: Season 2017 - 18 / End -->
+						
+												<!-- Slide: Season 2016 - 17 -->
+												<div class="swiper-slide">
+													<div class="alc-stats-slider__stats-primary alc-stats-list alc-stats-list--3cols-sm">
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">4.8<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 2.1</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">안타</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="80" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">52.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--negative">- 8.6</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">홈런</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="40" data-bar-color="#f21956">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">34.1<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 5.6</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">타점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="75" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">2.9<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 0.7</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">경기 당 득점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="80" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Slide: Season 2016 - 17 / End -->
+						
+												<!-- Slide: Season 2015 - 16 -->
+												<div class="swiper-slide">
+													<div class="alc-stats-slider__stats-primary alc-stats-list alc-stats-list--3cols-sm">
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">4.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 1.3</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">안타</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="60" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">35.5<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--negative">- 2.5</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">홈런</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="20" data-bar-color="#f21956">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">41.6<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 4.1</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">타점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="40" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+														<div class="alc-stats-list__item alc-stat-block">
+															<header class="alc-stat-block__header">
+																<h3 class="alc-stat-block__title">1.2<sup class="alc-stat-block__title-diff alc-stat-block__title-diff--positive">+ 0.9</sup></h3>
+															</header>
+															<div class="alc-stat-block__label">경기 당 득점</div>
+															<div class="alc-stat-block__bar">
+																<div class="circular__bar" data-percent="50" data-bar-color="#00e6e3">
+																	<span class="circular__percents circular__percents--chart"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Slide: Season 2015 - 16 / End -->
+						
+											</div>
+										</div>
+										<!-- Career Stats Slider / End -->
+									</div>
+								</div>
+								<!-- Stats Slider / End -->
+						
+							</div>
+						</aside>
+						<!-- Widget: Stats Slider Full width / End -->
+		
+						<div class="row">
+							<div class="col-lg-6">
+		
+								<!-- Widget: Team History Table -->
+								<div class="widget widget--sidebar card card--has-table" id="myWidget">
+									<div class="widget__title card__header">
+										<h4>Team History</h4>
+										<form action="_hockey_team-standings.html">
+											<button type="submit" class="btn btn-default btn-xs">더 보기</button>
+										</form>
+									</div>
+									<div class="widget__content card__content">
+										<div class="table-responsive">
+											<table class="table table-hover table-thead-color alc-table-stats alc-table-stats--compact alc-table-stats__team-history">
+												<thead>
+													<tr>
+														<th class="alc-table-stats__cell-year">시즌</th>
+														<th class="alc-table-stats__cell-ranking">순위</th>
+														<th class="alc-table-stats__cell-win">승</th>
+														<th class="alc-table-stats__cell-lose">무</th>
+														<th class="alc-table-stats__cell-goals">패</th>
+														<th class="alc-table-stats__cell-winperen">승률</th>
+														<th class="alc-table-stats__cell-gameback">승차</th>
+														<th class="alc-table-stats__cell-avg">타율</th>
+														<th class="alc-table-stats__cell-opb">출루율</th>
+														<th class="alc-table-stats__cell-slg">장타율</th>
+														<th class="alc-table-stats__cell-ops">OPS</th>
+														<th class="alc-table-stats__cell-wrc+">wRC+</th>
+														<th class="alc-table-stats__cell-war">WAR</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="alc-align-start alc-highlight-sm">
+															2024
+															<span class="alc-txt-xs d-block">Regular Season</span>
+														</td>
+														<td class="alc-table-stats__cell-ranking">1</td>
+														<td class="alc-table-stats__cell-w">90</td>
+														<td class="alc-table-stats__cell-d">10</td>
+														<td class="alc-table-stats__cell-l">44</td>
+														<td class="alc-table-stats__cell-winper">0.672</td>
+														<td class="alc-table-stats__cell-gameback">0</td>
+														<td class="alc-table-stats__cell-avg">0.301</td>
+														<td class="alc-table-stats__cell-opb">0.369</td>
+														<td class="alc-table-stats__cell-slg">0.459</td>
+														<td class="alc-table-stats__cell-ops">0.828</td>
+														<td class="alc-table-stats__cell-wrc+">114.1</td>
+														<td class="alc-table-stats__cell-war">28.06</td>
+													</tr>
+													<tr>
+														<td class="alc-align-start alc-highlight-sm">
+															2023
+															<span class="alc-txt-xs d-block">Regular Season</span>
+														</td>
+														<td class="alc-table-stats__cell-ranking">1</td>
+														<td class="alc-table-stats__cell-w">90</td>
+														<td class="alc-table-stats__cell-d">10</td>
+														<td class="alc-table-stats__cell-l">44</td>
+														<td class="alc-table-stats__cell-winper">0.672</td>
+														<td class="alc-table-stats__cell-gameback">0</td>
+														<td class="alc-table-stats__cell-avg">0.301</td>
+														<td class="alc-table-stats__cell-opb">0.369</td>
+														<td class="alc-table-stats__cell-slg">0.459</td>
+														<td class="alc-table-stats__cell-ops">0.828</td>
+														<td class="alc-table-stats__cell-wrc+">114.1</td>
+														<td class="alc-table-stats__cell-war">28.06</td>
+													</tr>
+													<tr>
+														<td class="alc-align-start alc-highlight-sm">
+															2022
+															<span class="alc-txt-xs d-block">Regular Season</span>
+														</td>
+														<td class="alc-table-stats__cell-ranking">1</td>
+														<td class="alc-table-stats__cell-w">90</td>
+														<td class="alc-table-stats__cell-d">10</td>
+														<td class="alc-table-stats__cell-l">44</td>
+														<td class="alc-table-stats__cell-winper">0.672</td>
+														<td class="alc-table-stats__cell-gameback">0</td>
+														<td class="alc-table-stats__cell-avg">0.301</td>
+														<td class="alc-table-stats__cell-opb">0.369</td>
+														<td class="alc-table-stats__cell-slg">0.459</td>
+														<td class="alc-table-stats__cell-ops">0.828</td>
+														<td class="alc-table-stats__cell-wrc+">114.1</td>
+														<td class="alc-table-stats__cell-war">28.06</td>
+													</tr>
+													<tr>
+														<td class="alc-align-start alc-highlight-sm">
+															2021
+															<span class="alc-txt-xs d-block">Regular Season</span>
+														</td>
+														<td class="alc-table-stats__cell-ranking">1</td>
+														<td class="alc-table-stats__cell-w">90</td>
+														<td class="alc-table-stats__cell-d">10</td>
+														<td class="alc-table-stats__cell-l">44</td>
+														<td class="alc-table-stats__cell-winper">0.672</td>
+														<td class="alc-table-stats__cell-gameback">0</td>
+														<td class="alc-table-stats__cell-avg">0.301</td>
+														<td class="alc-table-stats__cell-opb">0.369</td>
+														<td class="alc-table-stats__cell-slg">0.459</td>
+														<td class="alc-table-stats__cell-ops">0.828</td>
+														<td class="alc-table-stats__cell-wrc+">114.1</td>
+														<td class="alc-table-stats__cell-war">28.06</td>
+													</tr>
+													<tr>
+														<td class="alc-align-start alc-highlight-sm">
+															2020
+															<span class="alc-txt-xs d-block">Regular Season</span>
+														</td>
+														<td class="alc-table-stats__cell-ranking">1</td>
+														<td class="alc-table-stats__cell-w">90</td>
+														<td class="alc-table-stats__cell-d">10</td>
+														<td class="alc-table-stats__cell-l">44</td>
+														<td class="alc-table-stats__cell-winper">0.672</td>
+														<td class="alc-table-stats__cell-gameback">0</td>
+														<td class="alc-table-stats__cell-avg">0.301</td>
+														<td class="alc-table-stats__cell-opb">0.369</td>
+														<td class="alc-table-stats__cell-slg">0.459</td>
+														<td class="alc-table-stats__cell-ops">0.828</td>
+														<td class="alc-table-stats__cell-wrc+">114.1</td>
+														<td class="alc-table-stats__cell-war">28.06</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<!-- Widget: Team History Table / End -->	
+							</div>
+						</div>
+		
+						<!-- Widget: Goals History -->
+						<aside class="widget card widget--sidebar widget-goals-history">
+							<div class="widget__title card__header card__header--has-legend">
+								<h4>History 그래프</h4>
+								<!-- 셀렉트 고정되게 바꿔야됩니다 작아들면 위 글씨가 안보임(History 그래프) -->
+									<select name="select-default" id="select-default" class="form-control" style="width: 30%; height: 50px; border-radius: 0; font-size: 12px; margin-left: -250px; color: black;">
+										<option value="타율">타율</option>
+										<option value="출루율">출루율</option>
+										<option value="장타율">장타율</option>
+										<option value="OPS">OPS</option>
+										<option value="wRC+">wRC+</option>
+										<option value="안타">안타</option>
+										<option value="홈런">홈런</option>
+										<option value="도루">도루</option>
+										<option value="타점">타점</option>
+									</select>	
+								<div id="js-alc-goals-history-legend-hockey" class="chart-legend chart-legend--goals-history"></div>
+							</div>
+							<div class="widget__content card__content">
+								<canvas id="js-alc-goals-history-hockey" class="alc-goals-history-hockey" height="123"></canvas>
+							</div>
+						</aside>
+						<!-- Widget: Goals History / End -->
+						<div class="widget widget--sidebar card card--has-table">
+							<div class="widget__title card__header">
+								<h4>구장 파크팩터</h4>
+								<!-- <form action="_hockey_team-standings.html">
+									<button type="submit" class="btn btn-default btn-xs">더 보기</button>
+								</form> -->
+							</div>
+							<div class="widget__content card__content">
+								<div class="table-responsive">
+									<table class="table table-hover table-thead-color alc-table-stats alc-table-stats--compact alc-table-stats__team-history">
+										<thead>
+											<tr>
+												<th class="alc-table-stats__cell-year">시즌</th>
+												<th class="alc-table-stats__cell-g">경기</th>
+												<th class="alc-table-stats__cell-r">득점</th>
+												<th class="alc-table-stats__cell-1b">단타</th>
+												<th class="alc-table-stats__cell-2b">2루타</th>
+												<th class="alc-table-stats__cell-3b">3루타</th>
+												<th class="alc-table-stats__cell-hr">홈런</th>
+												<th class="alc-table-stats__cell-longhit">장타</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">2024</td>
+												<td class="alc-table-stats__cell-g">144</td>
+												<td class="alc-table-stats__cell-r" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">946</td>
+												<td class="alc-table-stats__cell-1b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1004</td>
+												<td class="alc-table-stats__cell-2b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">997</td>
+												<td class="alc-table-stats__cell-3b" style="background-color: #e74c3c; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1051</td>
+												<td class="alc-table-stats__cell-hr" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">743</td>
+												<td class="alc-table-stats__cell-longhit" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1002</td>												
+												
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">2024</td>
+												<td class="alc-table-stats__cell-g">144</td>
+												<td class="alc-table-stats__cell-r" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">946</td>
+												<td class="alc-table-stats__cell-1b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1004</td>
+												<td class="alc-table-stats__cell-2b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">997</td>
+												<td class="alc-table-stats__cell-3b" style="background-color: #e74c3c; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1051</td>
+												<td class="alc-table-stats__cell-hr" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">743</td>
+												<td class="alc-table-stats__cell-longhit" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1002</td>
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">2024</td>
+												<td class="alc-table-stats__cell-g">144</td>
+												<td class="alc-table-stats__cell-r" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">946</td>
+												<td class="alc-table-stats__cell-1b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1004</td>
+												<td class="alc-table-stats__cell-2b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">997</td>
+												<td class="alc-table-stats__cell-3b" style="background-color: #e74c3c; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1051</td>
+												<td class="alc-table-stats__cell-hr" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">743</td>
+												<td class="alc-table-stats__cell-longhit" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1002</td>
+												
+												
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">2024</td>
+												<td class="alc-table-stats__cell-g">144</td>
+												<td class="alc-table-stats__cell-r" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">946</td>
+												<td class="alc-table-stats__cell-1b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1004</td>
+												<td class="alc-table-stats__cell-2b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">997</td>
+												<td class="alc-table-stats__cell-3b" style="background-color: #e74c3c; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1051</td>
+												<td class="alc-table-stats__cell-hr" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">743</td>
+												<td class="alc-table-stats__cell-longhit" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1002</td>																
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">2024</td>
+												<td class="alc-table-stats__cell-g">144</td>
+												<td class="alc-table-stats__cell-r" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">946</td>
+												<td class="alc-table-stats__cell-1b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1004</td>
+												<td class="alc-table-stats__cell-2b" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">997</td>
+												<td class="alc-table-stats__cell-3b" style="background-color: #e74c3c; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1051</td>
+												<td class="alc-table-stats__cell-hr" style="background-color: #3498db; color: white; text-align: center; font-weight: bold; border: 1px solid white;">743</td>
+												<td class="alc-table-stats__cell-longhit" style="background-color: #95a5a6; color: white; text-align: center; font-weight: bold; border: 1px solid white;">1002</td>																																	
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- Widget: Team History Table / End -->
+		
+					</div>
+					<!-- Content / End -->
+		
+					<!-- Sidebar -->
+					<div class="sidebar col-lg-4">
+		
+						<!-- Widget: Standings -->
+						<aside class="widget card widget--sidebar widget-standings">
+							<div class="widget__title card__header">
+								<h4>순위</h4>
+								<a href="_hockey_team-standings.html" class="btn btn-default btn-xs">더 보기</a>
+							</div>
+							<div class="widget__content card__content">
+								<div class="table-responsive" style="overflow-x: hidden;">
+									<table class="table table-hover table-thead-color table-standings">
+										<thead>
+											<tr>
+												<th class="alc-td__position">순위</th>
+												<th class="alc-td__g" style="white-space: nowrap;">경기</th>
+												<th class="alc-td__win">승</th>
+												<th class="alc-td__win">무</th>
+												<th class="alc-td__loss">패</th>
+												<th class="alc-td__winper">승률</th>
+											</tr>
+										</thead>
+										<tbody>
+						
+											<tr style="background-color: rgb(197, 225, 250);">
+												<td class="team-standings__team-pos">
+													<div class="team-meta">
+														<figure class="team-meta__logo">
+															<img src="assets/images/hockey/samples/logos/pirates-xs.png" alt="">
+														</figure>
+														<div class="team-meta__info">
+															<h6 class="team-meta__name">삼성</h6>
+														</div>
+													</div>
+												</td>
+												<td class="team-standings__g">144</td>
+												<td class="team-standings__w">100</td>
+												<td class="team-standings__d">0</td>
+												<td class="team-standings__l">44</td>
+												<td class="team-standings__winper">0.700</td>
+											</tr>
+											<tr >
+												<td class="team-standings__team-pos">
+													<div class="team-meta">
+														<figure class="team-meta__logo">
+															<img src="assets/images/hockey/samples/logos/sharks-xs.png" alt="">
+														</figure>
+														<div class="team-meta__info">
+															<span class="team-meta__place">Tampa Bay</span>
+															<h6 class="team-meta__name">Sharks</h6>
+														</div>
+													</div>
+												</td>
+												<td class="team-standings__g">144</td>
+												<td class="team-standings__w">100</td>
+												<td class="team-standings__d">0</td>
+												<td class="team-standings__l">44</td>
+												<td class="team-standings__winper">0.700</td>
+											</tr>
+											<tr class="highlighted">
+												<td class="team-standings__team-pos">
+													<div class="team-meta">
+														<figure class="team-meta__logo">
+															<img src="assets/images/hockey/samples/logos/alchemists-xs.png" alt="">
+														</figure>
+														<div class="team-meta__info">
+															<span class="team-meta__place">California</span>
+															<h6 class="team-meta__name">The Alchemists</h6>
+														</div>
+													</div>
+												</td>
+												<td class="team-standings__g">144</td>
+												<td class="team-standings__w">100</td>
+												<td class="team-standings__d">0</td>
+												<td class="team-standings__l">44</td>
+												<td class="team-standings__winper">0.700</td>
+											</tr>
+											<tr >
+												<td class="team-standings__team-pos">
+													<div class="team-meta">
+														<figure class="team-meta__logo">
+															<img src="assets/images/hockey/samples/logos/ocean-kings-xs.png" alt="">
+														</figure>
+														<div class="team-meta__info">
+															<span class="team-meta__place">Miami</span>
+															<h6 class="team-meta__name">Ocean Kings</h6>
+														</div>
+													</div>
+												</td>
+												<td class="team-standings__g">144</td>
+												<td class="team-standings__w">100</td>
+												<td class="team-standings__d">0</td>
+												<td class="team-standings__l">44</td>
+												<td class="team-standings__winper">0.700</td>
+											</tr>
+											<tr >
+												<td class="team-standings__team-pos">
+													<div class="team-meta">
+														<figure class="team-meta__logo">
+															<img src="assets/images/hockey/samples/logos/red-wings-xs.png" alt="">
+														</figure>
+														<div class="team-meta__info">
+															<span class="team-meta__place">Buffalo</span>
+															<h6 class="team-meta__name">Red Wings</h6>
+														</div>
+													</div>
+												</td>
+												<td class="team-standings__g">144</td>
+												<td class="team-standings__w">100</td>
+												<td class="team-standings__d">0</td>
+												<td class="team-standings__l">44</td>
+												<td class="team-standings__winper">0.700</td>
+											</tr>
+											<tr >
+												<td class="team-standings__team-pos">
+													<div class="team-meta">
+														<figure class="team-meta__logo">
+															<img src="assets/images/hockey/samples/logos/lucky-clovers-xs.png" alt="">
+														</figure>
+														<div class="team-meta__info">
+															<span class="team-meta__place">Boston</span>
+															<h6 class="team-meta__name">Lucky Clovers</h6>
+														</div>
+													</div>
+												</td>
+												<td class="team-standings__g">144</td>
+												<td class="team-standings__w">100</td>
+												<td class="team-standings__d">0</td>
+												<td class="team-standings__l">44</td>
+												<td class="team-standings__winper">0.700</td>
+											</tr>
+											<tr >
+												<td class="team-standings__team-pos">
+													<div class="team-meta">
+														<figure class="team-meta__logo">
+															<img src="assets/images/hockey/samples/logos/draconians-xs.png" alt="">
+														</figure>
+														<div class="team-meta__info">
+															<span class="team-meta__place">Chicago</span>
+															<h6 class="team-meta__name">Draconians</h6>
+														</div>
+													</div>
+												</td>
+												<td class="team-standings__g">144</td>
+												<td class="team-standings__w">100</td>
+												<td class="team-standings__d">0</td>
+												<td class="team-standings__l">44</td>
+												<td class="team-standings__winper">0.700</td>
+											</tr>
+											<tr >
+												<td class="team-standings__team-pos">
+													<div class="team-meta">
+														<figure class="team-meta__logo">
+															<img src="assets/images/hockey/samples/logos/bloody-wave-xs.png" alt="">
+														</figure>
+														<div class="team-meta__info">
+															<span class="team-meta__place">Denver</span>
+															<h6 class="team-meta__name">Bloody Wave</h6>
+														</div>
+													</div>
+												</td>
+												<td class="team-standings__g">144</td>
+												<td class="team-standings__w">100</td>
+												<td class="team-standings__d">0</td>
+												<td class="team-standings__l">44</td>
+												<td class="team-standings__winper">0.700</td>
+											</tr>
+						
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</aside>
+						<!-- Widget: Standings / End -->
+		
+						<!-- Widget: Future Events -->
+						<aside class="widget widget--sidebar card card--no-paddings alc-widget-events-future">
+							<div class="widget__title card__header">
+								<h4>다음 경기</h4>
+								<a href="_hockey_team-schedule.html" class="btn btn-default btn-xs">더 보기</a>
+							</div>
+							<div class="widget__content card__content">
+						
+								<!-- Future Events -->
+								<div class="alc-events-future">
+									<!-- Primary Event -->
+									<div class="alc-events-future__primary alc-primary-event">
+										<div class="alc-primary-event__heading alc-event-heading">
+											<h6 class="alc-event-heading__league">2025 정규시즌</h6>
+											<time datetime="2022-04-01" class="alc-event-heading__date">4월 1일(화)</time>
+										</div>
+										<div class="alc-primary-event__details">
+											<!-- Team #1 -->
+											<div class="alc-primary-event-team">
+												<figure class="alc-primary-event-team__logo">
+													<img src="assets/images/hockey/samples/logos/alchemists-md.png" alt="Team Logo">
+												</figure>
+												<h5 class="alc-primary-event-team__name">The Alchemists</h5>
+												<div class="alc-primary-event-team__meta">15-20-0 (1위)</div>
+												<div class="alc-primary-event-team__form-events sp-form-events">
+													<a href="#" class="sp-form-event-link sp-form-event-link--win">W</a>
+													<a href="#" class="sp-form-event-link sp-form-event-link--loss">L</a>
+													<a href="#" class="sp-form-event-link sp-form-event-link--win">W</a>
+													<a href="#" class="sp-form-event-link sp-form-event-link--win">W</a>
+													<a href="#" class="sp-form-event-link sp-form-event-link--loss">L</a>
+												</div>
+											</div>
+											<!-- Team #1 / End -->
+											<!-- Team #2 -->
+											<div class="alc-primary-event-team">
+												<figure class="alc-primary-event-team__logo">
+													<img src="assets/images/hockey/samples/logos/pirates-md.png" alt="Team Logo">
+												</figure>
+												<h5 class="alc-primary-event-team__name">L.A. Pirates</h5>
+												<div class="alc-primary-event-team__meta">15-20-0 (1위)</div>
+												<div class="alc-primary-event-team__form-events sp-form-events">
+													<a href="#" class="sp-form-event-link sp-form-event-link--loss">L</a>
+													<a href="#" class="sp-form-event-link sp-form-event-link--loss">L</a>
+													<a href="#" class="sp-form-event-link sp-form-event-link--win">W</a>
+													<a href="#" class="sp-form-event-link sp-form-event-link--win">W</a>
+													<a href="#" class="sp-form-event-link sp-form-event-link--win">W</a>
+												</div>
+											</div>
+											<!-- Team #2 / End -->
+											<div class="alc-primary-event-meta">
+												<div class="alc-primary-event-meta__divider">VS</div>
+												<time class="alc-primary-event-meta__time" datetime="2022-04-01">18:30</time>
+												<div class="alc-primary-event-meta__status">Home</div>
+												<div class="alc-primary-event-meta__tickets"><a href="#">자세히 보기</a></div>
+											</div>
+										</div>
+										<div class="alc-primary-event__countdown">
+											<div class="alc-countdown-plain js-countdown-plain" data-date="March 1, 2022 21:00:00"></div>
+										</div>
+									</div>
+									<!-- Primary Event / End -->
+						
+									<!-- Secondary Events -->
+									<div class="alc-events-future__secondary alc-secondary-events">
+										<div class="table-responsive">
+											<table class="table table-hover table-thead-color team-schedule">
+												<thead>
+													<tr>
+														<th class="team-schedule__versus">Versus</th>
+														<th class="team-schedule__date">Date</th>
+														<th class="team-schedule__time">Time</th>
+														<th class="team-schedule__status">Status</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="team-schedule__versus">
+															<div class="team-meta">
+																<figure class="team-meta__logo">
+																	<img src="assets/images/hockey/samples/logos/sharks-xs.png" alt="Sharks">
+																</figure>
+																<div class="team-meta__info">
+																	<span class="team-meta__place">Tampa Bay</span>
+																	<h6 class="team-meta__name">Sharks</h6>
+																</div>
+															</div>
+														</td>
+														<td class="team-schedule__date">04/08</td>
+														<td class="team-schedule__time">10:00 PM</td>
+														<td class="team-schedule__status">Away</td>
+													</tr>
+													<tr>
+														<td class="team-schedule__versus">
+															<div class="team-meta">
+																<figure class="team-meta__logo">
+																	<img src="assets/images/hockey/samples/logos/red-wings-xs.png" alt="Red Wings">
+																</figure>
+																<div class="team-meta__info">
+																	<span class="team-meta__place">Buffalo</span>
+																	<h6 class="team-meta__name">Red Wings</h6>
+																</div>
+															</div>
+														</td>
+														<td class="team-schedule__date">04/15</td>
+														<td class="team-schedule__time">9:30 PM</td>
+														<td class="team-schedule__status">Home</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- Secondary Events / End -->
+								</div>
+								<!-- Future Events / End -->
+						
+								<!-- Match Preview -->
+								<!-- Match Preview / End -->
+						
+							</div>
+						</aside>
+						<!-- Widget: Future Events / End -->
+		
+						<!-- Widget: Featured Player -->
+						<aside class="widget card card--no-paddings widget--sidebar alc-widget-player-featured">
+							<div class="widget__title card__header">
+								<h4>2025 삼성 HOF PICK PLAYER</h4>
+								<a href="baseball_player-main.html" class="btn btn-xs btn-default btn-icon">더 보기</a>
+							</div>
+							<div class="widget__content card__content">
+						
+								<!-- Player -->
+								<div class="alc-player-featured">
+									<div class="alc-player-featured__primary">
+										<div class="alc-player-featured__primary-body">
+											<div class="alc-player-featured__primary-player-img">
+												<img src="assets/images/hockey/samples/player-featured.png" alt=" Starkson">
+											</div>
+											<div class="alc-player-featured__primary-player-bg effect-duotone effect-duotone--primary"></div>
+						
+											<!-- Player Aside -->
+											<div class="alc-player-featured__primary-player-aside">
+												<div class="alc-circle-progress alc-circle-progress--xs js-alc-circle-progress" data-value="75" data-label="픽률 %"></div>
+												<!-- Player Awards -->
+												<div class="alc-player-awards-slider-container">
+													<div class="swiper alc-player-awards-slider js-alc-player-awards-slider">
+														<div class="swiper-wrapper">
+															<div class="swiper-slide">
+																<img src="assets/images/hockey/icon-award-secondary.svg" class="alc-player-awards-slider__award-icon" alt="">
+																<div class="alc-player-awards-slider__label">Award</div>
+																<div class="alc-player-awards-slider__title">2014 West League MVP</div>
+															</div>
+															<div class="swiper-slide">
+																<img src="assets/images/hockey/icon-award-primary.svg" class="alc-player-awards-slider__award-icon" alt="">
+																<div class="alc-player-awards-slider__label">Award</div>
+																<div class="alc-player-awards-slider__title">Player of the Month</div>
+															</div>
+															<div class="swiper-slide">
+																<img src="assets/images/hockey/icon-award-secondary.svg" class="alc-player-awards-slider__award-icon" alt="">
+																<div class="alc-player-awards-slider__label">Award</div>
+																<div class="alc-player-awards-slider__title">Spiegel Memorial Cup</div>
+															</div>
+															<div class="swiper-slide">
+																<img src="assets/images/hockey/icon-award-primary.svg" class="alc-player-awards-slider__award-icon" alt="">
+																<div class="alc-player-awards-slider__label">Award</div>
+																<div class="alc-player-awards-slider__title">Elric MVP Award</div>
+															</div>
+														</div>
+													</div>
+													<!-- Slider navigation -->
+													<div class="js-alc-player-awards-slider__button-prev alc-player-awards-slider__button-prev swiper-button-prev swiper-button--xs swiper-button--fa"></div>
+													<div class="js-alc-player-awards-slider__button-next alc-player-awards-slider__button-next swiper-button-next swiper-button--xs swiper-button--fa"></div>
+													<!-- Slider navigation / End -->
+												</div>
+												<!-- Player Awards / End -->
+											</div>
+											<!-- Player Aside / End -->
+						
+										</div>
+										<div class="alc-player-featured__primary-meta">
+											<h3 class="alc-player-featured__primary-meta-header">
+												<span class="alc-player-featured__primary-meta__number">5.</span>
+												<span class="alc-player-featured__primary-meta__lname">구자욱</span>
+											</h3>
+											<dl class="alc-player-featured__primary-meta-list">
+												<dt class="alc-player-featured__primary-meta-label">Team:</dt>
+												<dd class="alc-player-featured__primary-meta-value">The Alchemists</dd>
+												<dt class="alc-player-featured__primary-meta-label">Position:</dt>
+												<dd class="alc-player-featured__primary-meta-value">Center</dd>
+											</dl>
+											<div class="alc-player-featured__primary-meta-icon">
+												<div class="alc-icon alc-icon--medal"></div>
+											</div>
+										</div>
+									</div>
+									<div class="alc-player-featured__secondary">
+										<div class="alc-player-featured__stats">
+											<ul class="alc-player-featured__stats-list">
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">경기</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">144</div>
+													</li>
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">타수</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">493</div>
+													</li>
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">안타</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">169</div>
+													</li>
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">홈런</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">33</div>
+													</li>
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">타점</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">115</div>
+													</li>
+											</ul>
+											<ul class="alc-player-featured__stats-list">
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">타율</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">0.343</div>
+													</li>
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">츨루율</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">0.417</div>
+													</li>
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">장타율</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">0.627</div>
+													</li>
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">OPS</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">1.044</div>
+													</li>
+													<li class="alc-player-featured__stats-item">
+														<div class="alc-player-featured__stats-item-meta">
+															<h6 class="alc-player-featured__stats-item-title">WAR</h6>
+															<div class="alc-player-featured__stats-item-desc">2025</div>
+														</div>
+														<div class="alc-player-featured__stats-item-value">5.69</div>
+													</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- Player / End -->
+							</div>
+						</aside>
+											<!-- Team Leaders -->
+						<!-- Widget: Team Leaders -->
+						<aside class="widget widget--sidebar card card--has-table widget-leaders">
+							<div class="widget__title card__header card__header--has-btn">
+								<h4>주요 타이틀</h4>
+							</div>
+							<div class="widget__content card__content">						
+								<!-- Tabs Nav -->
+								<ul class="nav nav-tabs nav-tabs--clean" role="tablist">
+									<li class="nav-item"><a class="nav-link active" href="#leaders-offensive" aria-controls="leaders-offensive" role="tab" data-toggle="tab">공격</a></li>
+									<li class="nav-item"><a class="nav-link" href="#leaders-goaltending" aria-controls="leaders-goaltending" role="tab" data-toggle="tab">Goaltending</a></li>
+								</ul>
+						
+								<!-- Tab Panes -->
+								<div class="tab-content">
+						
+									<div role="tabpanel" class="tab-pane fade show active" id="leaders-offensive">
+										<!-- Leader: Offense -->
+										<div class="table-responsive">
+											<table class="table team-leader">
+												<tbody>
+													<tr>
+														<th class="team-leader__type">타율</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>0.336</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">홈런</th>
+														<th class="team-leader__hr"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded">
+																		<img src="assets/images/hockey/samples/player-36x36-02.jpg" alt="Marcos Valdez">
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Marcos Valdez</h5>
+																</div>
+															</div>
+														</td>
+														<td>32</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">타점</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>132</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">득점</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>99</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">도루</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>43</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">출루율</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>0.447</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">장타율</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>0.573</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">OPS</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>1.336</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">wRC+</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>143.2</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">war</th>
+														<th class="team-leader__avg"></th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+														<td>5.93</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!-- Leader: Offense / End -->
+									</div>
+						
+									<div role="tabpanel" class="tab-pane fade" id="leaders-goaltending">
+										<!-- Leader: Goaltending -->
+										<div class="table-responsive">
+											<table class="table team-leader">
+												<tbody>
+													<tr>
+														<th class="team-leader__type">Goals</th>
+														<th class="team-leader__pos">Pos</th>
+														<th class="team-leader__games">Games</th>
+														<th class="team-leader__goals">G</th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded">
+																		<img src="assets/images/hockey/samples/player-36x36-01.jpg" alt="Connor Starkson">
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Connor Starkson</h5>
+																</div>
+															</div>
+														</td>
+						
+														<td>RW</td>
+														<td>24</td>
+														<td>33</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">Points</th>
+														<th class="team-leader__pos">Pos</th>
+														<th class="team-leader__games">Games</th>
+														<th class="team-leader__pts">PTS</th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Jack Daustin</h5>
+																</div>
+															</div>
+														</td>
+						
+														<td>C</td>
+														<td>24</td>
+														<td>124</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">Plus / Minus</th>
+														<th class="team-leader__pos">Pos</th>
+														<th class="team-leader__games">Games</th>
+														<th class="team-leader__plus-minus">+/-</th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">Sean Lawsenster</h5>
+																</div>
+															</div>
+														</td>
+						
+														<td>LW</td>
+														<td>23</td>
+														<td>+31</td>
+													</tr>
+													<tr>
+														<th class="team-leader__type">Assists</th>
+														<th class="team-leader__pos">Pos</th>
+														<th class="team-leader__games">Games</th>
+														<th class="team-leader__assists">A</th>
+													</tr>
+													<tr>
+														<td class="team-leader__player">
+															<div class="team-leader__player-info">
+																	<figure class="team-leader__player-img team-leader__player-img-36x36 team-leader__player-img-rounded team-leader__player-img-placeholder">
+																		<svg role="img" class="df-icon df-icon--helmet">
+																			<use xlink:href="assets/images/hockey/icons-hockey.svg#helmet"/>
+																		</svg>
+																	</figure>
+																<div class="team-leader__player-inner">
+																	<h5 class="team-leader__player-name">David Johaness</h5>
+																</div>
+															</div>
+														</td>
+						
+														<td>D</td>
+														<td>22</td>
+														<td>45</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!-- Leader: Goaltending / End -->
+									</div>						
+								</div>
+								<!-- Tab Panes / End -->										
+							</div>
+						</aside>
+						<!-- Widget: Team Leaders / End -->
+						<!-- Team Leaders / End -->
+						<!-- Widget: Featured Player / End -->
+					</div>
+					<!-- Sidebar / End -->
+				</div>
+			</div>
+		</div>
+		<!-- Content / End -->
+		
+
+		<!-- Footer
+		================================================== -->
+		<footer id="footer" class="footer">
+		
+			<!-- Widget: Instagram Section -->
+			<aside class="widget widget-instagram">
+				<div class="widget__content">
+					<ul id="instagram-feed-section" class="widget-instagram__list widget-instagram__list-section widget-instagram__list-section--skewed">
+						<li class="widget-instagram__item">
+							<a href="#" class="widget-instagram__link-wrapper" target="_blank">
+								<span class="widget-instagram__plus-sign">
+									<img src="assets/images/hockey/samples/instagram-img-1.jpg" class="widget-instagram__img" alt="Image 1" />
+								</span>
+							</a>
+						</li>
+						<li class="widget-instagram__item">
+							<a href="#" class="widget-instagram__link-wrapper" target="_blank">
+								<span class="widget-instagram__plus-sign">
+									<img src="assets/images/hockey/samples/instagram-img-2.jpg" class="widget-instagram__img" alt="Image 2" />
+								</span>
+							</a>
+						</li>
+						<li class="widget-instagram__item">
+							<a href="#" class="widget-instagram__link-wrapper" target="_blank">
+								<span class="widget-instagram__plus-sign">
+									<img src="assets/images/hockey/samples/instagram-img-3.jpg" class="widget-instagram__img" alt="Image 3" />
+								</span>
+							</a>
+						</li>
+						<li class="widget-instagram__item">
+							<a href="#" class="widget-instagram__link-wrapper" target="_blank">
+								<span class="widget-instagram__plus-sign">
+									<img src="assets/images/hockey/samples/instagram-img-4.jpg" class="widget-instagram__img" alt="Image 4" />
+								</span>
+							</a>
+						</li>
+						<li class="widget-instagram__item">
+							<a href="#" class="widget-instagram__link-wrapper" target="_blank">
+								<span class="widget-instagram__plus-sign">
+									<img src="assets/images/hockey/samples/instagram-img-5.jpg" class="widget-instagram__img" alt="Image 5" />
+								</span>
+							</a>
+						</li>
+						<li class="widget-instagram__item">
+							<a href="#" class="widget-instagram__link-wrapper" target="_blank">
+								<span class="widget-instagram__plus-sign">
+									<img src="assets/images/hockey/samples/instagram-img-6.jpg" class="widget-instagram__img" alt="Image 6" />
+								</span>
+							</a>
+						</li>
+						<li class="widget-instagram__item widget-instagram__item--logo">
+							<a href="_hockey_index.html"><img src="assets/images/hockey/logo-footer.png" srcset="assets/images/hockey/logo-footer@2x.png 2x" alt="Alchemists" class="widget-instagram__item__logo"></a>
+						</li>
+					</ul>
+				</div>
+			</aside>
+			<!-- Widget: Instagram Section / End -->
+		
+			<!-- Footer Widgets -->
+			<div class="footer-widgets">
+				<div class="footer-widgets__inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-4">
+								<!-- Widget: Links -->
+								<aside class="widget widget--footer widget_nav_menu">
+									<h4 class="widget__title">Alchemists Links</h4>
+									<div class="widget__content">
+										<div class="row">
+											<div class="col">
+												<ul class="widget__list">
+													<li><a href="_hockey_index.html">Homepage v1</a></li>
+													<li><a href="_hockey_index-2.html">Homepage v2</a></li>
+													<li><a href="_hockey_blog-1.html">News Page v1</a></li>
+													<li><a href="_hockey_blog-2.html">News Page v2</a></li>
+													<li><a href="_hockey_blog-3.html">News Page v3</a></li>
+													<li><a href="_hockey_blog-post-1.html">Post Page v1</a></li>
+													<li><a href="_hockey_blog-post-2.html">Post Page v2</a></li>
+													<li><a href="_hockey_blog-post-3.html">Post Page v3</a></li>
+												</ul>
+											</div>
+											<div class="col">
+												<ul class="widget__list">
+													<li><a href="_hockey_event-calendar.html">Scores Calendar</a></li>
+													<li><a href="_hockey_features-tickets.html">Buy Tickets</a></li>
+													<li><a href="_hockey_blog-post-video.html">Video Player</a></li>
+													<li><a href="_hockey_page-event.html">Event Page</a></li>
+													<li><a href="_hockey_page-contacts.html">Contact Page</a></li>
+													<li><a href="_hockey_features-search-results.html">Search Results</a></li>
+													<li><a href="_hockey_features-shortcodes.html">Shortcodes</a></li>
+													<li><a href="_hockey_shop-login.html">Login / Register</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</aside>
+								<!-- Widget: Links / End -->
+							</div>
+							<div class="col-lg-2">
+								<!-- Widget: Links -->
+								<aside class="widget widget--footer widget_nav_menu">
+									<h4 class="widget__title">Team Pages</h4>
+									<div class="widget__content">
+										<ul class="widget__list">
+											<li><a href="_hockey_team-overview.html">Overview</a></li>
+											<li><a href="_hockey_team-roster.html">Roster</a></li>
+											<li><a href="_hockey_team-standings.html">Standings</a></li>
+											<li><a href="_hockey_team-last-results.html">Latest Results</a></li>
+											<li><a href="_hockey_team-schedule.html">Schedule</a></li>
+										</ul>
+									</div>
+								</aside>
+								<!-- Widget: Links / End -->
+							</div>
+							<div class="col-lg-2">
+								<!-- Widget: Links -->
+								<aside class="widget widget--footer widget_nav_menu">
+									<h4 class="widget__title">Player Pages</h4>
+									<div class="widget__content">
+										<ul class="widget__list">
+											<li><a href="_hockey_player-overview.html">Overview</a></li>
+											<li><a href="_hockey_player-stats.html">Career Stats</a></li>
+											<li><a href="_hockey_player-gameslog.html">Games Log</a></li>
+											<li><a href="_hockey_player-awards.html">Awards</a></li>
+											<li><a href="_hockey_player-bio-news.html">Bio and News</a></li>
+											<li><a href="_hockey_player-gallery.html">Gallery</a></li>
+										</ul>
+									</div>
+								</aside>
+								<!-- Widget: Links / End -->
+							</div>
+							<div class="col-lg-2">
+								<!-- Widget: Links -->
+								<aside class="widget widget--footer widget_nav_menu">
+									<h4 class="widget__title">Match Full Stats</h4>
+									<div class="widget__content">
+										<ul class="widget__list">
+											<li><a href="_hockey_event-overview.html">Overview</a></li>
+											<li><a href="_hockey_event-box-score.html">Box Score</a></li>
+											<li><a href="_hockey_event-play-by-play.html">Play-by-Play</a></li>
+											<li><a href="_hockey_event-team-stats.html">Team Stats</a></li>
+											<li><a href="_hockey_event-news-recap.html">News Recap</a></li>
+											<li><a href="_hockey_event-videos.html">Videos</a></li>
+										</ul>
+									</div>
+								</aside>
+								<!-- Widget: Links / End -->
+							</div>
+							<div class="col-lg-2">
+								<!-- Widget: Links -->
+								<aside class="widget widget--footer widget_nav_menu">
+									<h4 class="widget__title">The Shop</h4>
+									<div class="widget__content">
+										<ul class="widget__list">
+											<li><a href="_hockey_shop-grid-fullwidth.html">Main Shop</a></li>
+											<li><a href="_hockey_shop-grid-sidebar.html">Shop + Sidebar Grid</a></li>
+											<li><a href="_hockey_shop-list-sidebar.html">Shop + Sidebar List</a></li>
+											<li><a href="_hockey_shop-product.html">Product Page</a></li>
+											<li><a href="_hockey_shop-cart.html">Shopping Cart</a></li>
+											<li><a href="_hockey_shop-checkout.html">Checkout</a></li>
+											<li><a href="_hockey_shop-wishlist.html">Wishlist</a></li>
+											<li><a href="_hockey_shop-account.html">Your Account</a></li>
+										</ul>
+									</div>
+								</aside>
+								<!-- Widget: Links / End -->
+							</div>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+			<!-- Footer Widgets / End -->
+		
+			<!-- Footer Secondary -->
+			<div class="footer-secondary">
+				<div class="container">
+					<div class="footer-secondary__inner">
+						<div class="row">
+							<div class="col-lg-6">
+								<!-- Social Links -->
+								<ul class="social-links social-links--btn social-links--btn-plus">
+									<li class="social-links__item">
+										<a href="#" class="social-links__link social-links__link--facebook">
+											<i class="fab fa-facebook"></i>
+											<span class="social-links__label">Facebook</span>
+											<span class="social-links__icon"><i class="fas fa-plus"></i></span>
+										</a>
+									</li>
+									<li class="social-links__item">
+										<a href="#" class="social-links__link social-links__link--twitter">
+											<i class="fab fa-twitter"></i>
+											<span class="social-links__label">Twitter</span>
+											<span class="social-links__icon"><i class="fas fa-plus"></i></span>
+										</a>
+									</li>
+									<li class="social-links__item">
+										<a href="#" class="social-links__link social-links__link--instagram">
+											<i class="fab fa-instagram"></i>
+											<span class="social-links__label">Instagram</span>
+											<span class="social-links__icon"><i class="fas fa-plus"></i></span>
+										</a>
+									</li>
+								</ul>
+								<!-- Social Links / End -->
+							</div>
+							<div class="col-lg-6">
+								<!-- Sponsors -->
+								<div class="sponsors-slider">
+									<h6 class="sponsors-slider__title">Our Sponsors:</h6>
+									<div class="sponsors-slider__items">
+										<!-- Slider main container -->
+										<div class="swiper sponsors-slider__container js-alc-sponsors-slider">
+											<div class="swiper-wrapper">
+												<div class="swiper-slide">
+													<a href="#"><img src="assets/images/hockey/sponsor-logo-1.png" alt="HTML5"></a>
+												</div>
+												<div class="swiper-slide">
+													<a href="#"><img src="assets/images/hockey/sponsor-logo-2.png" alt="Google Fonts"></a>
+												</div>
+												<div class="swiper-slide">
+													<a href="#"><img src="assets/images/hockey/sponsor-logo-3.png" alt="SportsPress"></a>
+												</div>
+												<div class="swiper-slide">
+													<a href="#"><img src="assets/images/hockey/sponsor-logo-4.png" alt="Envato"></a>
+												</div>
+											</div>
+										</div>
+										<!-- Slider main container / End -->
+										<!-- Slider navigation -->
+										<div class="js-alc-sponsors-slider__button-prev swiper-button-prev swiper-button--xs swiper-button--fa"></div>
+										<div class="js-alc-sponsors-slider__button-next swiper-button-next swiper-button--xs swiper-button--fa"></div>
+										<!-- Slider navigation / End -->
+									</div>
+								</div>
+								<!-- Sponsors / End -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer Secondary / End -->
+		</footer>
+		<!-- Footer / End -->
+
+	</div>
+
+	<!-- Javascript Files
+	================================================== -->
+	<!-- Core JS -->
+	<script src="/hof/template/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="/hof/template/assets/vendor/jquery/jquery-migrate.min.js"></script>
+	<script src="/hof/template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/hof/template/assets/vendor/swiper/js/swiper-bundle.min.js"></script>
+	<script src="/hof/template/assets/js/core.js"></script>
+	
+	<!-- Vendor JS -->
+	
+	<!-- Template JS -->
+	<script src="/hof/template/assets/js/init.js"></script>
+	<script src="/hof/template/assets/js/custom.js"></script>
+
+</body>
+</html>

@@ -651,7 +651,7 @@
 		
 							<!-- Account Navigation -->
 							<ul class="nav-account">
-								<li class="nav-account__item">
+								<li class="nav-account__item" th:if="${session.sessHofSeq != null}">
 									<a href="baseball_user-main.html">Dugout</a>
 									<ul class="main-nav__sub">
 										<li><a href="baseball_user-stats.html">연도별 기록</a></li>

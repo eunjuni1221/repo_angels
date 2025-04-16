@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -184,6 +183,44 @@ public class UserController extends BaseController{
 	public String hofUsrChangePassword() {
 		
 		return "hof/user/baseball_profile-changePassword";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/hof/hofUsrChangePasswordProc")
+	public Map<String, Object> hofUsrChangePassword(UserDto dto, HttpSession session) {
+	    Map<String, Object> returnMap = new HashMap<>();
+
+	    String sessSeq = (String) session.getAttribute("sessHofSeq");
+
+	    if (sessSeq == null) {
+	        returnMap.put("rt", "sessionExpired");
+	        return returnMap;
+	    }
+
+	    dto.setUrSeq(sessSeq);
+	    UserDto currentUser = userService.selectOne(dto);
+
+	    if (currentUser == null) {
+	        returnMap.put("rt", "userNotFound");
+	        return returnMap;
+	    }
+
+	    if (!matchesBcrypt(dto.getUrPassword(), currentUser.getUrPassword(), 10)) {
+	        returnMap.put("rt", "wrongCurrentPassword");
+	        return returnMap;
+	    }
+
+	    if (dto.getUrNewPassword() == null || dto.getUrNewPassword().trim().isEmpty()) {
+	        returnMap.put("rt", "newPasswordEmpty");
+	        return returnMap;
+	    }
+
+	    String newEncodedPassword = encodeBcrypt(dto.getUrNewPassword(), 10);
+	    dto.setUrPassword(newEncodedPassword);
+	    userService.updatePassword(dto);
+
+	    returnMap.put("rt", "success");
+	    return returnMap;
 	}
 	
 	@RequestMapping(value = "/hof/hofUsrChangeEmail")

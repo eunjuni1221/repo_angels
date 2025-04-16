@@ -20,12 +20,20 @@ public class UserDto {
 	private String emailID;
 	private String email;
 	private String urPassword;
+	private String urNewPassword;
 	private LocalDateTime urRegTime;
 	private LocalDateTime urModTime;
 
 	
 	
 	
+	
+	public String getUrNewPassword() {
+		return urNewPassword;
+	}
+	public void setUrNewPassword(String urNewPassword) {
+		this.urNewPassword = urNewPassword;
+	}
 	public String getUrNickname() {
 		return urNickname;
 	}
