@@ -48,7 +48,12 @@
 		    email,
 		    urPassword,
 		    urRegTime,
-		    urModTime
+		    urModTime,
+		    urPostNumber,
+		    urAddress,
+		    urDetailAddress,
+		    urLatitude,
+		    urLongitude
 		from user
 		where 1=1 
 		<include refid="selectCommon"></include>
@@ -105,7 +110,12 @@
 			emailID,
 		    email,
 		    urPassword,
-		    urRegTime
+		    urRegTime,
+		    urPostNumber,
+		    urAddress,
+		    urDetailAddress,
+		    urLatitude,
+		    urLongitude
 	) values (
 		1,
 		0,
@@ -120,6 +130,11 @@
 		#{email},
 		#{urPassword},
 		NOW()
+		#{urPostNumber},
+		#{urAddress},
+		#{urDetailAddress},
+		#{urLatitude},
+		#{urLongitude}
 	)
 		<selectKey resultType= "String" keyProperty="urSeq" order="AFTER">
 			SELECT last_insert_id()
