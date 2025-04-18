@@ -242,6 +242,50 @@ public class UserController extends BaseController{
 		return "hof/user/baseball_profile-changePhoneNumber";
 	}
 	
+	@RequestMapping(value = "/hof/hofUsrChangeAddress")
+	public String hofUsrChangeAddress() {
+		
+		return "hof/user/hofUsrChangeAddress";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/hof/hofUsrChangeAddressProc")
+	public Map<String, Object> hofUsrChangeAddress(UserDto dto, HttpSession session) {
+	    Map<String, Object> returnMap = new HashMap<>();
+
+	    String sessSeq = (String) session.getAttribute("sessHofSeq");
+
+	    if (sessSeq == null) {
+	        returnMap.put("rt", "sessionExpired");
+	        return returnMap;
+	    }
+
+	    dto.setUrSeq(sessSeq);
+	    UserDto currentUser = userService.selectOne(dto);
+
+	    if (currentUser == null) {
+	        returnMap.put("rt", "userNotFound");
+	        return returnMap;
+	    }
+
+	    if (!matchesBcrypt(dto.getUrPassword(), currentUser.getUrPassword(), 10)) {
+	        returnMap.put("rt", "wrongCurrentPassword");
+	        return returnMap;
+	    }
+
+	    if (dto.getUrNewPassword() == null || dto.getUrNewPassword().trim().isEmpty()) {
+	        returnMap.put("rt", "newPasswordEmpty");
+	        return returnMap;
+	    }
+
+	    String newEncodedPassword = encodeBcrypt(dto.getUrNewPassword(), 10);
+	    dto.setUrPassword(newEncodedPassword);
+	    userService.updatePassword(dto);
+
+	    returnMap.put("rt", "success");
+	    return returnMap;
+	}
+	
 //	@ResponseBody
 //	@RequestMapping(value = "/login/passwordCheckXdmProc")
 //	public Map<String, Object> passwordCheckXdmProc(UserDto dto) throws Exception {
