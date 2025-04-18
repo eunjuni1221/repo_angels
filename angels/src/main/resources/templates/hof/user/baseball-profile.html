@@ -122,6 +122,20 @@
 											</button>
 										</a>
 									</div>
+									<div class="form-group form-group--floating-label">
+										<input type="email" class="form-control" id="account-email" th:value="${list.urPostNumber}" disabled>
+										<label class="control-label" for="account-email">우편번호</label>
+										<a href="/hof/hofUsrChangeEmail">
+											<button href="" class="btn btn-primary-inverse btn-lg" style="position: absolute; top: 0; right: 0; height: 51px; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 0px; display: flex; align-items: center; justify-content: center; white-space: nowrap;">
+												이메일 변경
+											</button>
+										</a>
+									</div>
+									<div class="form-group form-group--floating-label">
+										<input type="text" class="form-control" id="account-ID" th:value="${list.urAddress + list.urDetailAddress}" disabled>
+										<label class="control-label" for="account-email">주소</label>
+									</div>
+									<div id="map" style="width:300px;height:300px;margin-top:10px;margin-bottom:20px;display:block;"></div>
 									<div class="text-left" style="margin-bottom: 20px;">
 										<a href="/hof/hofUsrChangePassword">
 											<button class="btn btn-md btn-primary-inverse">비밀번호 수정</button>
@@ -174,6 +188,28 @@
 	<script src="/hof/template/assets/js/init.js"></script>
 	<script src="/hof/template/assets/js/custom.js"></script>
 	<script src="/hof/template/assets/js/hoflogout.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3ea77320e4a8b54e15aa47ed240f05de&libraries=services"></script>
+	
+	<script>
+		window.onload = function () {
+		  var mapContainer = document.getElementById('map');
+		  var mapOption = {
+		    center: new kakao.maps.LatLng(37.566826, 126.9786567),
+		    level: 5
+		  };
+
+		  var map = new kakao.maps.Map(mapContainer, mapOption);
+		  var geocoder = new kakao.maps.services.Geocoder();
+		  var marker = new kakao.maps.Marker({
+		    position: new kakao.maps.LatLng(37.566826, 126.9786567),
+		    map: map
+		  });
+
+		  // sample3_execDaumPostcode 함수도 이 안에 넣거나, 이 시점 이후 실행되도록
+		};
+	</script>
 
 </body>
 </html>

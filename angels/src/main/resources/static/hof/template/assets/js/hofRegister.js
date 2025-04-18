@@ -1,6 +1,82 @@
 let isIdChecked = false;
 let isNicknameChecked = false;
 
+var element_wrap = document.getElementById('wrap');
+	    var mapContainer = document.getElementById('map');
+	    var mapOption = {
+	        center: new kakao.maps.LatLng(37.566826, 126.9786567),
+	        level: 5
+	    };
+	    var map = new kakao.maps.Map(mapContainer, mapOption);
+	    var geocoder = new kakao.maps.services.Geocoder();
+	    var marker = new kakao.maps.Marker({
+	        position: new kakao.maps.LatLng(37.566826, 126.9786567),
+	        map: map
+	    });
+
+	    function foldDaumPostcode() {
+	        element_wrap.style.display = 'none';
+	    }
+
+	    function sample3_execDaumPostcode() {
+	        var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+	        new daum.Postcode({
+	            oncomplete: function(data) {
+	                var addr = '';
+	                var extraAddr = '';
+
+	                if (data.userSelectedType === 'R') {
+	                    addr = data.roadAddress;
+	                } else {
+	                    addr = data.jibunAddress;
+	                }
+
+	                if (data.userSelectedType === 'R') {
+	                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+	                        extraAddr += data.bname;
+	                    }
+	                    if (data.buildingName !== '' && data.apartment === 'Y') {
+	                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+	                    }
+	                    if (extraAddr !== '') {
+	                        extraAddr = ' (' + extraAddr + ')';
+	                    }
+	                }
+
+	                document.getElementById('urPostNumber').value = data.zonecode;
+	                document.getElementById('urAddress').value = addr + extraAddr;
+	                document.getElementById('urDetailAddress').focus();
+
+	                element_wrap.style.display = 'none';
+	                document.body.scrollTop = currentScroll;
+
+	                // 지도 표시
+	                geocoder.addressSearch(addr, function(results, status) {
+	                    if (status === kakao.maps.services.Status.OK) {
+	                        var result = results[0];
+	                        var coords = new kakao.maps.LatLng(result.y, result.x);
+
+	                        mapContainer.style.display = "block";
+
+	                        setTimeout(function () {
+	                            map.relayout();
+	                            map.setCenter(coords);
+	                            marker.setPosition(coords);
+	                        }, 200);
+	                    }
+	                });
+	            },
+	            onresize: function(size) {
+	                element_wrap.style.height = size.height + 'px';
+	            },
+	            width: '100%',
+	            height: '100%'
+	        }).embed(element_wrap);
+
+	        element_wrap.style.display = 'block';
+	    }
+		
+		
 // 아이디 유효성 + 중복 체크
 document.getElementById("urID").addEventListener("blur", function () {
 	checkFieldAndSendRequest(
@@ -160,11 +236,32 @@ document.getElementById("btnSave").onclick = function (event) {
 
 	function validation() {
 		let isValid = true;
-
-		if (nicknameInfo) {
-			nicknameInfo.style.display = "none";
+		
+		// 우편번호 공백 검사
+		let postNumberField = document.getElementById("urPostNumber");
+		let postNumberError = document.getElementById("urPostNumberError");
+		if (!postNumberField.value.trim()) {
+			postNumberError.textContent = "우편번호를 입력해주세요.";
+			postNumberError.style.display = "block";
+			postNumberField.classList.add("is-invalid");  // 빨간색 테두리 추가
+			isValid = false;
+		} else {
+			postNumberField.classList.remove("is-invalid");  // 정상 입력 시 빨간색 테두리 제거
 		}
 
+		// 주소 공백 검사
+		let addressField = document.getElementById("urAddress");
+		let addressError = document.getElementById("urAddressError");
+		if (!addressField.value.trim()) {
+			addressError.textContent = "주소를 입력해주세요.";
+			addressError.style.display = "block";
+			addressField.classList.add("is-invalid");  // 빨간색 테두리 추가
+			isValid = false;
+		} else {
+			addressField.classList.remove("is-invalid");  // 정상 입력 시 빨간색 테두리 제거
+		}
+
+		
 		function checkField(fieldId, errorId, errorMessageEmpty, errorMessageInvalid, regex = null) {
 			const field = document.getElementById(fieldId);
 			const errorField = document.getElementById(errorId);
@@ -275,10 +372,12 @@ document.getElementById("phoneNumber").addEventListener("input", function (e) {
 
 	if (input.length < 4) {
 		formatted = input;
-	} else if (input.length < 8) {
-		formatted = input.substr(0, 3) + '-' + input.substr(3);
+	} else if (input.length < 7) {
+		formatted = input.slice(0, 3) + '-' + input.slice(3);
+	} else if (input.length < 11) {
+		formatted = input.slice(0, 3) + '-' + input.slice(3, 6) + '-' + input.slice(6);
 	} else {
-		formatted = input.substr(0, 3) + '-' + input.substr(3, 4) + '-' + input.substr(7, 4);
+		formatted = input.slice(0, 3) + '-' + input.slice(3, 7) + '-' + input.slice(7, 11);
 	}
 
 	e.target.value = formatted;

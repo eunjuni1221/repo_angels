@@ -23,11 +23,45 @@ public class UserDto {
 	private String urNewPassword;
 	private LocalDateTime urRegTime;
 	private LocalDateTime urModTime;
-
+	private String urPostNumber;
+	private String urAddress;
+	private String urDetailAddress;
+	private String urLatitude;
+	private String urLongitude;
 	
 	
 	
 	
+	public String getUrPostNumber() {
+		return urPostNumber;
+	}
+	public void setUrPostNumber(String urPostNumber) {
+		this.urPostNumber = urPostNumber;
+	}
+	public String getUrAddress() {
+		return urAddress;
+	}
+	public void setUrAddress(String urAddress) {
+		this.urAddress = urAddress;
+	}
+	public String getUrDetailAddress() {
+		return urDetailAddress;
+	}
+	public void setUrDetailAddress(String urDetailAddress) {
+		this.urDetailAddress = urDetailAddress;
+	}
+	public String getUrLatitude() {
+		return urLatitude;
+	}
+	public void setUrLatitude(String urLatitude) {
+		this.urLatitude = urLatitude;
+	}
+	public String getUrLongitude() {
+		return urLongitude;
+	}
+	public void setUrLongitude(String urLongitude) {
+		this.urLongitude = urLongitude;
+	}
 	public String getUrNewPassword() {
 		return urNewPassword;
 	}

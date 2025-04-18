@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.angels.module.Base.BaseController;
+import com.angels.module.mail.MailService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -18,6 +20,8 @@ public class UserController extends BaseController{
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	MailService mailService;
 
 	@RequestMapping(value = "/user/UserXdmList")
 	public String userXdmList(Model model, UserVo vo, UserDto dto) throws Exception {
@@ -49,11 +53,14 @@ public class UserController extends BaseController{
 	}
 	
 	@RequestMapping(value = "/user/UserHofInst")
-	public String userHofInst(UserDto dto) {
+	public String userHofInst(UserDto dto) throws Exception {
 		
 		dto.setUrPassword(encodeBcrypt(dto.getUrPassword(), 10));
-
+		
 		userService.insert(dto);
+		
+		mailService.sendMailWelcome();
+		
 		System.out.println(dto.getUrSeq());
 		System.out.println(dto.getUrDelNy());
 		System.out.println(dto.getUrName());

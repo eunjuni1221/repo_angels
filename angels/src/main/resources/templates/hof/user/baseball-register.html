@@ -129,34 +129,24 @@
 											<label class="control-label" for="email">이메일 선택 <span style="color: red;">*</span></label>
 										</div>
 									</div>
-									<div class="form-group form-group--floating-label" style="margin-top: -20px;"> 
-										<input type="id" class="form-control" id="urPostNumber" name="urPostNumber" placeholder="닉네임 *" maxlength="15" disabled>
-										<label class="control-label"  for="urPostNumber">우편번호 <span style="color: red;">*</span></label>
-										<button type="button" onclick="sample3_execDaumPostcode()" id="btnPostCheck" class="btn btn-primary-inverse btn-lg btn-block" style="position: absolute; top: 0; right: 0; height: 100%; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 4px; font-size: 14px; border-radius: 0;">우편번호 확인</button>								
+									<div class="form-group form-group--floating-label" style="margin-top: -20px; position: relative;">
+									    <input type="text" class="form-control" id="urPostNumber" name="urPostNumber" placeholder="우편번호 *" maxlength="15" readonly>
+									    <label class="control-label" for="urPostNumber">우편번호 <span style="color: red;">*</span></label>
+									    <button type="button" onclick="sample3_execDaumPostcode()" id="btnPostCheck" class="btn btn-primary-inverse btn-lg btn-block" style="position: absolute; top: 0; right: 0; height: 52px; width: 30%; background-color: #573ccb; border: 1px solid #573ccb; color: #fff; border-radius: 4px; font-size: 14px; border-radius: 0; white-space: nowrap;">우편번호 확인</button>
+									    <small id="urPostNumberError" class="text-danger" style="display: none;">우편번호를 입력해주세요.</small>
 									</div>
 									<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-									<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+										<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 									</div>
-									<div class="form-group form-group--floating-label">
-										<input type="text" class="form-control" id="urAddress" name="urAddress" placeholder="비밀번호 확인 *" disabled>
-										<label class="control-label" for="urAddress">주소 <span style="color: red;">*</span></label>
-										<small id="urPasswordCheckError" class="text-danger" style="display: none;">닉네임을 입력해주세요.</small>
+									<div class="form-group form-group--floating-label" style="position: relative;">
+									    <input type="text" class="form-control" id="urAddress" name="urAddress" placeholder="주소 *" readonly>
+									    <label class="control-label" for="urAddress">주소 <span style="color: red;">*</span></label>
+									    <small id="urAddressError" class="text-danger" style="display: none;">주소를 입력해주세요.</small>
 									</div>
 									<div id="map" style="width:300px;height:300px;margin-top:10px;display:none;"></div>
 									<div class="form-group form-group--floating-label">
-										<input type="password" class="form-control" id="urDetailAddress" name="urDetailAddress" placeholder="비밀번호 확인 *">
+										<input type="text" class="form-control" id="urDetailAddress" name="urDetailAddress" placeholder="비밀번호 확인 *">
 										<label class="control-label" for="urDetailAddress">상세 주소 <span style="color: red;">*</span></label>
-										<small id="urPasswordCheckError" class="text-danger" style="display: none;">닉네임을 입력해주세요.</small>
-									</div>
-									<div class="form-group form-group--floating-label">
-										<input type="password" class="form-control" id="urLatitude" name="urLatitude" placeholder="비밀번호 확인 *">
-										<label class="control-label" for="urLatitude">비밀번호 확인 <span style="color: red;">*</span></label>
-										<small id="urPasswordCheckError" class="text-danger" style="display: none;">닉네임을 입력해주세요.</small>
-									</div>
-									<div class="form-group form-group--floating-label">
-										<input type="password" class="form-control" id="urLongitude" name="urLongitude" placeholder="비밀번호 확인 *">
-										<label class="control-label" for="urLongitude">비밀번호 확인 <span style="color: red;">*</span></label>
-										<small id="urPasswordCheckError" class="text-danger" style="display: none;">닉네임을 입력해주세요.</small>
 									</div>
 									<div class="form-group form-group--sm" style="margin-top: 10px;">
 										<button href="button" class="btn btn-primary-inverse btn-lg btn-block" id="btnSave">회원가입</button>
@@ -212,86 +202,10 @@
 	<!-- Template JS -->
 	<script src="/hof/template/assets/js/init.js"></script>
 	<script src="/hof/template/assets/js/custom.js"></script>
-	<script src="/hof/template/assets/js/hofRegister.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3ea77320e4a8b54e15aa47ed240f05de&libraries=services"></script>
-
-	<script>
-	    var element_wrap = document.getElementById('wrap');
-	    var mapContainer = document.getElementById('map');
-	    var mapOption = {
-	        center: new kakao.maps.LatLng(37.566826, 126.9786567),
-	        level: 5
-	    };
-	    var map = new kakao.maps.Map(mapContainer, mapOption);
-	    var geocoder = new kakao.maps.services.Geocoder();
-	    var marker = new kakao.maps.Marker({
-	        position: new kakao.maps.LatLng(37.566826, 126.9786567),
-	        map: map
-	    });
-
-	    function foldDaumPostcode() {
-	        element_wrap.style.display = 'none';
-	    }
-
-	    function sample3_execDaumPostcode() {
-	        var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
-	        new daum.Postcode({
-	            oncomplete: function(data) {
-	                var addr = '';
-	                var extraAddr = '';
-
-	                if (data.userSelectedType === 'R') {
-	                    addr = data.roadAddress;
-	                } else {
-	                    addr = data.jibunAddress;
-	                }
-
-	                if (data.userSelectedType === 'R') {
-	                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
-	                        extraAddr += data.bname;
-	                    }
-	                    if (data.buildingName !== '' && data.apartment === 'Y') {
-	                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-	                    }
-	                    if (extraAddr !== '') {
-	                        extraAddr = ' (' + extraAddr + ')';
-	                    }
-	                }
-
-	                document.getElementById('urPostNumber').value = data.zonecode;
-	                document.getElementById('urAddress').value = addr + extraAddr;
-	                document.getElementById('urDetailAddress').focus();
-
-	                element_wrap.style.display = 'none';
-	                document.body.scrollTop = currentScroll;
-
-	                // 지도 표시
-	                geocoder.addressSearch(addr, function(results, status) {
-	                    if (status === kakao.maps.services.Status.OK) {
-	                        var result = results[0];
-	                        var coords = new kakao.maps.LatLng(result.y, result.x);
-
-	                        mapContainer.style.display = "block";
-
-	                        setTimeout(function () {
-	                            map.relayout();
-	                            map.setCenter(coords);
-	                            marker.setPosition(coords);
-	                        }, 200);
-	                    }
-	                });
-	            },
-	            onresize: function(size) {
-	                element_wrap.style.height = size.height + 'px';
-	            },
-	            width: '100%',
-	            height: '100%'
-	        }).embed(element_wrap);
-
-	        element_wrap.style.display = 'block';
-	    }
-	</script>
+	<script src="/hof/template/assets/js/hofRegister.js"></script>
+	
 
 </body>
 </html>
