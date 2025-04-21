@@ -261,30 +261,28 @@ public class UserController extends BaseController{
 	    }
 
 	    dto.setUrSeq(sessSeq);
-	    UserDto currentUser = userService.selectOne(dto);
 
-	    if (currentUser == null) {
-	        returnMap.put("rt", "userNotFound");
+	    // 우편번호와 주소만 필수로 체크하고, 상세 주소는 선택적으로 처리
+	    if (dto.getUrPostNumber() == null || dto.getUrPostNumber().trim().isEmpty() ||
+	        dto.getUrAddress() == null || dto.getUrAddress().trim().isEmpty()) {
+	        returnMap.put("rt", "addressIncomplete");
 	        return returnMap;
 	    }
 
-	    if (!matchesBcrypt(dto.getUrPassword(), currentUser.getUrPassword(), 10)) {
-	        returnMap.put("rt", "wrongCurrentPassword");
-	        return returnMap;
+	    // urDetailAddress가 null 또는 빈 값이어도 업데이트 진행하도록 변경
+	    // 만약 상세 주소가 공백이 아니라면, 그 값을 포함하여 업데이트를 수행합니다.
+	    if (dto.getUrDetailAddress() != null && !dto.getUrDetailAddress().trim().isEmpty()) {
+	        userService.updateAddress(dto);
+	    } else {
+	        // 상세 주소가 없으면 상세 주소 필드를 null로 설정하여 업데이트
+	        dto.setUrDetailAddress(null);
+	        userService.updateAddress(dto);
 	    }
-
-	    if (dto.getUrNewPassword() == null || dto.getUrNewPassword().trim().isEmpty()) {
-	        returnMap.put("rt", "newPasswordEmpty");
-	        return returnMap;
-	    }
-
-	    String newEncodedPassword = encodeBcrypt(dto.getUrNewPassword(), 10);
-	    dto.setUrPassword(newEncodedPassword);
-	    userService.updatePassword(dto);
 
 	    returnMap.put("rt", "success");
 	    return returnMap;
 	}
+
 	
 //	@ResponseBody
 //	@RequestMapping(value = "/login/passwordCheckXdmProc")

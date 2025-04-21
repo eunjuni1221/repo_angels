@@ -61,6 +61,9 @@ public class UserService {
 	public int updatePhoneNumber (UserDto userDto) {
 		return userDao.updatePhoneNumber(userDto);
 	}
+	public int updateAddress (UserDto userDto) {
+		return userDao.updateAddress(userDto);
+	}
 	public int passwordCheck(UserDto userDto) {
 		return userDao.passwordCheck(userDto);
 	}

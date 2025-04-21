@@ -25,6 +25,7 @@ public interface UserDao {
 	public int updatePassword(UserDto userDto);
 	public int updateEmail(UserDto userDto);
 	public int updatePhoneNumber(UserDto userDto);
+	public int updateAddress(UserDto userDto);
 	public int passwordCheck(UserDto userDto);
 	public int phoneNumberCheck(UserDto userDto);
 	public int telecomCheck(UserDto userDto);

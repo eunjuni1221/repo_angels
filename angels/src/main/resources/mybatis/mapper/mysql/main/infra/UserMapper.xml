@@ -217,6 +217,7 @@
 	<update id="updatePassword">
 	update user set
 		urPassword = #{urPassword}
+		urModTime = now()
 	where
 		urSeq = #{urSeq}
 	</update>
@@ -233,6 +234,16 @@
 	update user set
 		telecom = #{telecom}
 		phoneNumber = #{phoneNumber}
+	where
+		urSeq = #{urSeq}
+	</update>
+	
+	<update id="updateAddress">
+	update user set
+		 	urPostNumber = #{urPostNumber},
+		    urAddress = #{urAddress},
+		    urDetailAddress = #{urDetailAddress},
+		    urModTime = now()
 	where
 		urSeq = #{urSeq}
 	</update>
