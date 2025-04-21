@@ -164,6 +164,7 @@
 			user
 		WHERE 1=1
 			AND urID = #{urID}
+			AND urDelNy = 0
 	
 	</select>
 	
@@ -266,5 +267,10 @@
 	    WHERE telecom = #{telecom}
 	</select>
 	
+		<delete id="uelete">
+	Update user set
+		urDelNy = 1
+	where urSeq = #{urSeq}
+	</delete>
 
 </mapper>

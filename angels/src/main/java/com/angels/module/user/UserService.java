@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.angels.module.code.CodeDto;
+
 
 
 @Service
@@ -72,6 +74,10 @@ public class UserService {
 	}
 	public int telecomCheck(UserDto userDto) {
 		return userDao.telecomCheck(userDto);
+	}
+
+	public int uelete(CodeDto codeDto) {
+		return userDao.uelete(codeDto);
 	}
 
 }

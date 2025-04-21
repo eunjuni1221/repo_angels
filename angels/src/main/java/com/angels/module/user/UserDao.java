@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.angels.module.code.CodeDto;
 import com.angels.module.team.TeamDto;
 
 @Repository
@@ -29,6 +30,8 @@ public interface UserDao {
 	public int passwordCheck(UserDto userDto);
 	public int phoneNumberCheck(UserDto userDto);
 	public int telecomCheck(UserDto userDto);
+	public int uelete(CodeDto codeDto);
+
 
 
 

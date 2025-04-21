@@ -72,7 +72,7 @@
 											<a href="baseball-myPage.html">마이페이지</a>
 										</li>
 										<li class="df-account-navigation__link">
-											<a href="baseball-secession.html">탈퇴하기</a>
+											<a href="/hof/hofUsrSecession">탈퇴하기</a>
 										</li>
 									</ul>
 								</nav>
@@ -195,8 +195,8 @@
 	        var map = new kakao.maps.Map(mapContainer, mapOption);
 	        var geocoder = new kakao.maps.services.Geocoder();
 
-	        // Thymeleaf에서 사용자 주소 + 상세주소를 문자열로 가져옴
-	        var userAddress = [[${'"' + list.urAddress + list.urDetailAddress + '"'}]];
+	        // 사용자 주소 문자열 합치기
+			var userAddress = [[${'"' + list.urAddress + '' + list.urDetailAddress + '"'}]];
 
 	        if (userAddress && userAddress.trim() !== "") {
 	            geocoder.addressSearch(userAddress, function(result, status) {

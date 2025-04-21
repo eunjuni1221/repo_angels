@@ -3,6 +3,8 @@ document.getElementById("changeAddressBtn").addEventListener("click", function (
 
     const postNumber = document.getElementById("urPostNumber");
     const address = document.getElementById("urAddress");
+	const detailAddress = document.getElementById("urDetailAddress");
+
 
     const postNumberError = document.getElementById("urPostNumberError");
     const addressError = document.getElementById("urAddressError");
@@ -38,8 +40,8 @@ document.getElementById("changeAddressBtn").addEventListener("click", function (
         type: 'POST',
         data: {
             urPostNumber: postNumber.value.trim(),
-            urAddress: address.value.trim()
-            // 상세주소는 전송하지 않음
+            urAddress: address.value.trim(),
+            urDetailAddress: detailAddress.value.trim()
         },
         success: function (res) {
             if (res.rt === 'success') {

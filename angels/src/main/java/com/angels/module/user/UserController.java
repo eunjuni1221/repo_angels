@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -281,6 +280,67 @@ public class UserController extends BaseController{
 
 	    returnMap.put("rt", "success");
 	    return returnMap;
+	}
+	
+	@RequestMapping(value = "/hof/hofUsrSecession")
+	public String hofUsrSecession(HttpSession httpSession, UserDto dto, Model model) {
+		dto.setUrSeq((String) httpSession.getAttribute("sessHofSeq"));
+		model.addAttribute("list", userService.selectOne(dto));
+		return "hof/user/hofUsrSecession";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/hof/hofUsrSecessionPasswordProc")
+	public Map<String, Object> hofUsrSecessionPasswordProc(UserDto dto, HttpSession session) {
+	    Map<String, Object> returnMap = new HashMap<>();
+	    
+	    System.out.println("hi");
+
+	    String sessSeq = (String) session.getAttribute("sessHofSeq");
+	    if (sessSeq == null) {
+	        returnMap.put("rt", "sessionExpired");
+	        return returnMap;
+	    }
+
+	    // 유저 정보 조회
+	    dto.setUrSeq(sessSeq);
+	    UserDto userFromDb = userService.selectOne(dto);
+
+	    if (userFromDb == null) {
+	        returnMap.put("rt", "notFound");
+	        return returnMap;
+	    }
+
+	    // 비밀번호 비교
+	    if (!matchesBcrypt(dto.getUrPassword(), userFromDb.getUrPassword(), 10)) {
+	        returnMap.put("rt", "wrongPassword");
+	        return returnMap;
+	    }
+
+	    // 탈퇴 처리
+	    userService.uelete(dto);
+
+	    returnMap.put("rt", "success");
+	    return returnMap;
+	}
+
+
+
+
+	
+	@RequestMapping(value = "/hof/hofUsrSecessionPassword")
+	public String hofUsrSecessionPassword(UserDto dto) {
+		
+		return "hof/user/hofUsrSecessionPassword";
+	}
+
+	
+	@RequestMapping(value = "/hof/hofUsrGoodbye")
+	public String hofUsrGoodbye(HttpSession session) {
+		
+	    session.invalidate();  // 세션 종료
+
+	    return "hof/user/hofUsrGoodbye";  // 탈퇴 완료 페이지로 이동
 	}
 
 	

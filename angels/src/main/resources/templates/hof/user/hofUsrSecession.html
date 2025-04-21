@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{hof/include/hofHead :: head}"></div>
+
+		<!-- Page Heading
+		================================================== -->
+		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-6">
+						<div class="page-heading__inner page-heading__inner--highlight">
+							<h1 class="page-heading__title">탈퇴하기</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page Heading / End -->
+		
+		
+		<!-- Content
+		================================================== -->
+		<div class="site-content">
+			<div class="container">
+		
+				<div class="row">
+		
+					<div class="col-lg-4">
+		
+						<!-- Account Navigation -->
+						<div class="card">
+							<div class="card__content">
+								<div class="df-account-user">
+									<figure class="df-account-user__avatar">
+										<img src="assets/images/hockey/samples/avatar-17.jpg" alt="">
+									</figure>
+									<div class="df-account-user__body">
+										<div class="df-account-user__header">
+											<h4 class="df-account-user__title" th:text="${list.urName}">Iron_Hockey_V</h4>
+											<div class="df-account-user__subtitle" th:text="${list.urNickname}">Robert Stark</div>
+										</div>
+										<ul class="df-account-user__info">
+											<li class="df-account-user__info-item">
+												<span class="df-account-user__info-item-label">Posts:</span>
+												<span class="df-account-user__info-item-value">0</span>
+											</li>
+											<li class="df-account-user__info-item">
+												<span class="df-account-user__info-item-label">Likes:</span>
+												<span class="df-account-user__info-item-value">0</span>
+											</li>
+											<li class="df-account-user__info-item">
+												<span class="df-account-user__info-item-label">Topics:</span>
+												<span class="df-account-user__info-item-value">0</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<nav class="df-account-navigation">
+									<ul>
+										<li class="df-account-navigation__link">
+											<a href="baseball-profile.html">프로필</a>
+										</li>
+										<li class="df-account-navigation__link">
+											<a href="baseball-myPage.html">마이페이지</a>
+										</li>
+										<li class="df-account-navigation__link df-account-navigation__link--active">
+											<a href="/hof/hofUsrSecession">탈퇴하기</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<!-- Account Navigation / End -->
+					</div>
+		
+					<div class="col-lg-8">
+		
+						<!-- Account Settings -->
+						<div class="card">
+							<div class="card__header">
+								<h4>탈퇴 확인서</h4>
+							</div>
+							<div class="card__content">
+								<!-- Register Form -->
+								<form action="#">
+									<label class="checkbox checkbox-inline"  style="font-size: 20px;">
+										<input type="checkbox" id="checkAll">전체 동의하기
+										<span class="checkbox-indicator"></span>
+									</label>
+									<br>
+									<label class="checkbox checkbox-inline check-label" style="font-size: 20px; margin-top: 30px; cursor: pointer; position: relative;">
+										<input type="checkbox" id="agree-withdrawal" class="check-item check-required" value="agree_withdrawal" style="opacity: 0; width: 16px; height: 16px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); cursor: pointer;">
+										<span class="checkbox-indicator"></span>
+										탈퇴에 동의합니다 <span style="color: red;">(필수)</span>
+									</label>
+									<br>
+									<label class="checkbox checkbox-inline check-label" style="font-size: 20px; margin-top: 30px; cursor: pointer; position: relative;">
+										<input type="checkbox" id="agree-terms" class="check-item check-required" value="agree_terms" style="opacity: 0; width: 16px; height: 16px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); cursor: pointer;">
+										<span class="checkbox-indicator"></span>
+										이용약관에 동의 <span style="color: red;">(필수)</span>
+									</label>
+									<br>
+									<label class="checkbox checkbox-inline check-label" style="font-size: 20px; margin-top: 30px; cursor: pointer; position: relative;">
+										<input type="checkbox" id="agree-privacy" class="check-item check-required" value="agree_privacy" style="opacity: 0; width: 16px; height: 16px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); cursor: pointer;">
+										<span class="checkbox-indicator"></span>
+										개인정보 수집 및 이용에 동의 <span style="color: red;">(필수)</span>
+									</label>
+									<div class="content-box">
+										<h4>개인정보 수집 총칙</h4>
+										<p>여기에 이용약관 총칙 내용이 들어갑니다.</p>
+										<p>제1조 (목적) 이 약관은 회사가 제공하는 모든 서비스의 이용조건 및 절차에 관한 사항을 규정합니다.</p>
+										<p>제2조 (정의) 이 약관에서 사용하는 용어의 정의는 다음과 같습니다...</p>
+										<p>제3조 (이용계약의 성립) 회원가입 신청 시 본 약관에 동의하면 이용계약이 성립됩니다.</p>
+									  </div>
+									  <div class="form-group form-group--floating-label">
+										<select name="select-default" id="select-default" class="form-control">
+											<option value="">선택</option>
+											<option value="Canada">재미없음</option>
+											<option value="Italy">광고가 많음</option>
+											<option value="Spain">서비스가 불친절함</option>
+											<option value="Greece">기타</option>
+										</select>
+										<label class="control-label" for="select-default">탈퇴사유</label>									
+									</div>
+									<small id="reasonError" class="text-danger" style="font-size: 13px; display: none;">탈퇴 사유를 선택해주세요</small>
+									<small id="seError" class="text-danger" style="font-size: 13px; display: none;">탈퇴동의를 해주세요</small>
+									<button type="button" class="btn btn-primary-inverse btn-lg btn-block" id="nextBtn" style="display: block;">다음</button>
+								</form>
+								<!-- Register Form / End -->
+		
+							</div>
+						</div>
+						</div>
+						<!-- Account Settings / End -->
+					</div>
+				</div>
+		
+			</div>
+		</div>
+		<!-- Content / End -->
+		
+
+
+
+	<div th:replace="~{hof/include/hofFooter :: footer}"></div>
+	<div th:replace="~{hof/include/hofJs :: js}"></div>
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	    const nextButton = document.querySelector("#nextBtn");
+	    const personalInfoCheckbox = document.querySelector("#agree-privacy"); // ✅ 수정
+	    const seError = document.querySelector("#seError");
+	    const selectBox = document.querySelector("#select-default");
+	    const reasonError = document.querySelector("#reasonError");
+
+	    const allAgreeCheckbox = document.querySelector("#checkAll"); // ✅ 수정
+	    const agreeCheckboxes = document.querySelectorAll(".check-item.check-required"); // ✅ 수정
+
+	    // ✅ 전체 동의 체크 시 하위 체크박스 모두 반영
+	    if (allAgreeCheckbox) {
+	        allAgreeCheckbox.addEventListener("change", function () {
+	            agreeCheckboxes.forEach(function (cb) {
+	                cb.checked = allAgreeCheckbox.checked;
+	            });
+	        });
+	    }
+
+	    // ✅ 개별 체크박스 해제 시 전체 동의 해제
+	    agreeCheckboxes.forEach(function (cb) {
+	        cb.addEventListener("change", function () {
+	            const allChecked = Array.from(agreeCheckboxes).every(chk => chk.checked);
+	            allAgreeCheckbox.checked = allChecked;
+	        });
+	    });
+
+	    // ✅ 다음 버튼 클릭 시 벨리데이션 확인
+	    nextButton.addEventListener("click", function () {
+	        let isValid = true;
+
+	        // (1) 개인정보 수집 체크 여부
+	        if (!personalInfoCheckbox || !personalInfoCheckbox.checked) {
+	            seError.style.display = "block";
+	            isValid = false;
+	        } else {
+	            seError.style.display = "none";
+	        }
+
+	        // (2) 탈퇴 사유 선택 여부
+	        if (!selectBox || selectBox.value.trim() === "") {
+	            reasonError.style.display = "block";
+	            isValid = false;
+	        } else {
+	            reasonError.style.display = "none";
+	        }
+
+	        // ✅ 조건 모두 통과 시 이동
+	        if (isValid) {
+	            window.location.href = "/hof/hofUsrSecessionPassword";
+	        }
+	    });
+	});
+	</script>
+
+
+
+
+
+</body>
+</html>
