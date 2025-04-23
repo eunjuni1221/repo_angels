@@ -2,9 +2,10 @@ package com.angels.module.player;
 
 import java.util.List;
 
-import com.angels.module.team.TeamDto;
+import com.angels.module.Base.BaseDao;
+import com.angels.module.Base.BaseDto;
 
-public interface PlayerDao {
+public interface PlayerDao extends BaseDao{
 
 	public List<PlayerDto> selectList(PlayerVo playerVo);
 	public List<PlayerDto> selectTeam();
@@ -20,4 +21,6 @@ public interface PlayerDao {
 	public int uelete(PlayerDto playerDto);
 	public int delete(PlayerDto playerDto);
 	public int update(PlayerDto playerDto);
+	public int insertUploaded(BaseDto dto);
+
 }

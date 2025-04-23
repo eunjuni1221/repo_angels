@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.angels.module.Base.BaseDao;
+import com.angels.module.Base.BaseDto;
 import com.angels.module.code.CodeDto;
-import com.angels.module.team.TeamDto;
 
 @Repository
-public interface UserDao {
+public interface UserDao extends BaseDao{
 	
 	public List<UserDto> selectList(UserVo userVo);
 	public UserDto selectOne(UserDto userDto);
@@ -31,6 +32,7 @@ public interface UserDao {
 	public int phoneNumberCheck(UserDto userDto);
 	public int telecomCheck(UserDto userDto);
 	public int uelete(CodeDto codeDto);
+	public int insertUploaded(BaseDto dto);
 
 
 

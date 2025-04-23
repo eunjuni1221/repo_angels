@@ -54,11 +54,23 @@ public class UserController extends BaseController{
 	@RequestMapping(value = "/user/UserHofInst")
 	public String userHofInst(UserDto dto) throws Exception {
 		
+		Thread thread = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				try {
+					mailService.sendMailWelcome();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		thread.start();
+		
 		dto.setUrPassword(encodeBcrypt(dto.getUrPassword(), 10));
 		
 		userService.insert(dto);
 		
-		mailService.sendMailWelcome();
 		
 		System.out.println(dto.getUrSeq());
 		System.out.println(dto.getUrDelNy());
@@ -77,7 +89,7 @@ public class UserController extends BaseController{
 	}
 
 	@RequestMapping(value = "/user/UserXdmUpdt")
-	public String userXdmUpdt(UserDto dto) {
+	public String userXdmUpdt(UserDto dto) throws Exception {
 		System.out.println(dto.getUrSeq());
 		userService.update(dto);
 		return "redirect:UserXdmList";
@@ -191,6 +203,15 @@ public class UserController extends BaseController{
 		return "hof/user/baseball_profile-changePassword";
 	}
 	
+
+	@ResponseBody
+	@RequestMapping(value = "/hof/hofUsrChangeimgProc")
+	public Map<String, Object> hofUsrChangeimgProc(UserDto dto) throws Exception {
+	    Map<String, Object> returnMap = new HashMap<>();
+	    userService.insertUploaded(dto);
+	    return returnMap;
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/hof/hofUsrChangePasswordProc")
 	public Map<String, Object> hofUsrChangePassword(UserDto dto, HttpSession session) {
@@ -294,8 +315,6 @@ public class UserController extends BaseController{
 	public Map<String, Object> hofUsrSecessionPasswordProc(UserDto dto, HttpSession session) {
 	    Map<String, Object> returnMap = new HashMap<>();
 	    
-	    System.out.println("hi");
-
 	    String sessSeq = (String) session.getAttribute("sessHofSeq");
 	    if (sessSeq == null) {
 	        returnMap.put("rt", "sessionExpired");

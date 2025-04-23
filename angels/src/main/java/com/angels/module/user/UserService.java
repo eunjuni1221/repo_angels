@@ -5,15 +5,21 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.angels.module.Base.BaseDto;
+import com.angels.module.Base.BaseService;
 import com.angels.module.code.CodeDto;
 
 
 
 @Service
-public class UserService {
+public class UserService extends BaseService{
 	
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	private AmazonS3Client amazonS3Client;
 	
 	public List<UserDto> selectList(UserVo userVo) {
 		return userDao.selectList(userVo);
@@ -21,8 +27,8 @@ public class UserService {
 	public UserDto selectOne(UserDto userDto) {
 		return userDao.selectOne(userDto);
 	}
-	public int insert (UserDto codeGroupDto) {
-		return userDao.insert(codeGroupDto);
+	public int insert (UserDto userDto) {
+		return userDao.insert(userDto);
 	}
 	public int selectOneCount(UserVo userVo) {
 		return userDao.selectOneCount(userVo);
@@ -75,9 +81,16 @@ public class UserService {
 	public int telecomCheck(UserDto userDto) {
 		return userDao.telecomCheck(userDto);
 	}
-
-	public int uelete(CodeDto codeDto) {
-		return userDao.uelete(codeDto);
+	public int insertUploaded(UserDto userDto) throws Exception {
+		uploadFilesToS3(
+				userDto.getUploadImg1()
+    			, userDto
+    			, "applGoodsUploaded"
+    			, userDto.getUploadImg1Type()
+    			, userDto.getUploadImg1MaxNumber()
+    			, userDto.getUrSeq()
+    			, userDao
+    			, amazonS3Client);
+		return 1;		
 	}
-
 }

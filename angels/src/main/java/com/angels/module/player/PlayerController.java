@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.angels.module.Base.BaseController;
+import com.angels.module.user.UserDto;
+import com.angels.module.user.UserService;
 
 @Controller
 public class PlayerController extends BaseController {
 	
 	@Autowired
 	PlayerService playerService;
+	
+	@Autowired
+	UserService userService;
 	
 	@RequestMapping(value="/player/PlayerXdmList")
 	public String playerXdmList(Model model, PlayerVo vo) throws Exception {
@@ -50,8 +55,8 @@ public class PlayerController extends BaseController {
 	}
 	
 	@RequestMapping(value = "/player/PlayerXdmInst")
-	public String playerXdmInst(PlayerDto playerDto) {
-		playerService.insert(playerDto);	
+	public String playerXdmInst(PlayerDto playerDto) throws Exception {
+		playerService.insert(playerDto);		
 		return "redirect:PlayerXdmList";
 	}
 	

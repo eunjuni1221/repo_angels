@@ -314,5 +314,10 @@
 	delete from player
 	where pySeq = #{pySeq}
 	</delete>
+	
+	<insert id="insertUploaded">
+		<include refid="Base.insertUploaded"></include>
+	</insert>
+	
  </mapper>
  

@@ -1,18 +1,20 @@
 package com.angels.module.team;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.PostConstruct;
+import com.amazonaws.services.s3.AmazonS3Client;
 
 @Service
 public class TeamService {
 	
 	@Autowired
 	TeamDao teamDao;
+	
+	@Autowired
+	private AmazonS3Client amazonS3Client;
 	
 	public List<TeamDto> selectList(TeamVo teamVo) {
 		return teamDao.selectList(teamVo);
@@ -21,7 +23,17 @@ public class TeamService {
 		return teamDao.selectOneCount(teamVo);
 	}
 	public int insert(TeamDto teamdto) {
-		return teamDao.insert(teamdto);
+		teamDao.insert(teamdto);
+//    	uploadFilesToS3(
+//    			teamdto.getUploadImg1()
+//    			, teamdto
+//    			, "infrBannerUploaded"
+//    			, teamdto.getUploadImg1Type()
+//    			, teamdto.getUploadImg1MaxNumber()
+//    			, teamdto.getIfbnSeq()
+//    			, teamDao
+//    			, amazonS3Client);
+    	return 1; 
 	}
 	public List<TeamDto> league(){
 		return teamDao.league();

@@ -20,5 +20,11 @@ public class UtilDateTime {
 	public static String add59TimeString(String date) {
 		return date + " 23:59:59";
 	}
+	
+	public static String nowString() {
+	    LocalDateTime now = LocalDateTime.now();
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    return now.format(formatter);
+	}
 
 }

@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
 
-public class PlayerDto {
+import com.angels.module.Base.BaseDto;
+
+public class PlayerDto extends BaseDto{
 
 	private String pySeq;
 	private String pyGivenName;

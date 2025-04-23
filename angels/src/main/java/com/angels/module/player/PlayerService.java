@@ -5,13 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.angels.module.team.TeamDto;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.angels.module.Base.BaseService;
 
 @Service
-public class PlayerService {
+public class PlayerService extends BaseService {
 	
 	@Autowired
 	PlayerDao playerDao;
+	
+	@Autowired
+	private AmazonS3Client amazonS3Client;
 	
 	public List<PlayerDto> selectList(PlayerVo playerVo) {
 		return playerDao.selectList(playerVo);
@@ -22,8 +26,18 @@ public class PlayerService {
 	public int selectOneCount(PlayerVo playerVo) {
 		return playerDao.selectOneCount(playerVo);
 	}
-	public int insert(PlayerDto playerDto) {
-		return playerDao.insert(playerDto);
+	public int insert(PlayerDto playerDto) throws Exception {
+		playerDao.insert(playerDto);
+		uploadFilesToS3(
+				playerDto.getUploadImg1()
+    			, playerDto
+    			, "applGoodsUploaded"
+    			, playerDto.getUploadImg1Type()
+    			, playerDto.getUploadImg1MaxNumber()
+    			, playerDto.getPySeq()
+    			, playerDao
+    			, amazonS3Client);
+		return 1;
 	}
 	public List<PlayerDto> selectPosition(){
 		return playerDao.selectPosition();

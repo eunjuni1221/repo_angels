@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
 
-public class UserDto {
+import com.angels.module.Base.BaseDto;
+
+public class UserDto extends BaseDto{
 	
 	private String urSeq;
 	private Integer urUse;
