@@ -32,7 +32,7 @@
 							<div class="card__content">
 								<div class="df-account-user">
 									<figure class="df-account-user__avatar">
-										<img src="/hof/template/assets/images/userbasicimg.png" alt="">
+										<img src="/hof/template/assets/images/userbasicimg.png" alt="" class="img">
 									</figure>
 									<div class="df-account-user__body">
 										<div class="df-account-user__header">
@@ -145,7 +145,7 @@
 								</div>
 								<div class="form-group form-group--upload-photo mb-0">
 									<div class="form-group__photo">
-										<img src="/hof/template/assets/images/userbasicimg.png" alt="">
+										<img src="/hof/template/assets/images/userbasicimg.png" alt="" class="img">
 									</div>
 									<div class="form-group__upload-btn">
 										<label class="btn btn-default btn-xs btn-file">
@@ -215,12 +215,47 @@
 	
 	<script>
 		var inImg = document.getElementById("inImg");
+		var showImg = $(".img");
+		
 		inImg.addEventListener('change', function(e){
-			var file = e.target.files[0];
-			var reader = new FileReader();
+				
+			const file = e.target.files[0];
+			const reader = new FileReader();
+			
+			reader.onload = function(el) {
+				showImg.attr("src", el.target.result);
+			}
+			
 			reader.readAsDataURL(file);
-			alert();
+			
+			
+			$.ajax({
+			        async: true,
+			        cache: false,
+			        type: "post",
+			        url: "",
+			        data: {
+			            "urID": $("#urID").val(),
+			            "urPassword": $("#urPassword").val(),
+			            "autoLogin": $("#autoLogin").is(":checked")
+			        },
+			        success: function (response) {
+			            if (response.rt == "success") {
+			                location.href = "/mainHof";
+			            } else {
+			                $("#idGroup").addClass("has-error");
+			                $("#passwordGroup").addClass("has-error");
 
+			                document.getElementById("modalAlertTitle").innerText = "경고";
+			                document.getElementById("modalAlertBody").innerText = "아이디 또는 비밀번호가 일치하지 않습니다 아이디와 비밀번호를 정확히 입력해주세요";
+			                $("#modalAlert").modal("show");
+			            }
+			        },
+			        error: function (jqXHR, textStatus, errorThrown) {
+			            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			        }
+			    });
+			
 		});
 		
 
