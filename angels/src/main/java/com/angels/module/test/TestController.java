@@ -18,7 +18,7 @@ public class TestController {
 	@RequestMapping(value = "/publicCorona1JsonNodeList")
 	public String publicCorona1JsonNodeList(Model model) throws Exception {
 		
-		String apiUrl = "http://apis.data.go.kr/1471000/CovidDagnsRgntProdExprtStusService/getMmCovidDagnsRgntExprtStusInq?serviceKey=K8O11LWEIzDbMuR60pj4uB7RoZ2wSElxqur99Tjokrq8OvcaGQiK%2FAIpaAEXbn8AwW68eB9QWPbFge7C88RRBg%3D%3D&numOfRows=3&pageNo=1&type=json";
+		String apiUrl = "https://statsapi.mlb.com/api/v1/teams?sportId=1";
 		
 		URL url = new URL(apiUrl);
 		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();

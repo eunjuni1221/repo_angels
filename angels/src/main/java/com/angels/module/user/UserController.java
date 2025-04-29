@@ -343,10 +343,6 @@ public class UserController extends BaseController{
 	    return returnMap;
 	}
 
-
-
-
-	
 	@RequestMapping(value = "/hof/hofUsrSecessionPassword")
 	public String hofUsrSecessionPassword(UserDto dto) {
 		
@@ -361,7 +357,15 @@ public class UserController extends BaseController{
 
 	    return "hof/user/hofUsrGoodbye";  // 탈퇴 완료 페이지로 이동
 	}
-
+	
+	@ResponseBody // ajax 받고 자동으로 ajax로 보내주고
+	@RequestMapping(value = "/hof/hofChangeImageProc")
+	public void hofChangeImageProc(UserDto dto) throws Exception {
+	    
+		userService.selectOneCountImage(dto);			
+	    userService.insertUploaded(dto);
+    
+	}
 	
 //	@ResponseBody
 //	@RequestMapping(value = "/login/passwordCheckXdmProc")

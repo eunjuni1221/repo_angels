@@ -33,6 +33,8 @@ public interface UserDao extends BaseDao{
 	public int telecomCheck(UserDto userDto);
 	public int uelete(CodeDto codeDto);
 	public int insertUploaded(BaseDto dto);
+	public int selectOneCountImage (UserDto userDto);
+
 
 
 

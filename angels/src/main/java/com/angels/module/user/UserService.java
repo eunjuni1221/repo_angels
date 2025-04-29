@@ -85,12 +85,15 @@ public class UserService extends BaseService{
 		uploadFilesToS3(
 				userDto.getUploadImg1()
     			, userDto
-    			, "applGoodsUploaded"
+    			, "applgoodsuploaded"
     			, userDto.getUploadImg1Type()
     			, userDto.getUploadImg1MaxNumber()
     			, userDto.getUrSeq()
     			, userDao
     			, amazonS3Client);
 		return 1;		
+	}
+	public int selectOneCountImage(UserDto userDto) {
+		return userDao.selectOneCountImage(userDto);
 	}
 }

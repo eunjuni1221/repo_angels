@@ -201,11 +201,28 @@
 		    urAddress,
 		    urDetailAddress,
 		    urLatitude,
-		    urLongitude
+		    urLongitude,
+		 	(SELECT path from applgoodsuploaded where 1=1 AND pseq = #{urSeq} AND type = 1 AND delNy = 0) as path
 				from
 				user 		
 				where 1=1
-			AND urSeq = #{urSeq}				
+			AND urSeq = #{urSeq}
+					
+	</select>
+	
+	<select id="selectOneCountImage" resultType="Integer">
+	
+	Select count(*)
+	from 
+	applgoodsuploaded
+	where 1=1
+	AND
+	pseq = #{urSeq}
+	AND
+	delNy = 0
+	AND
+	type = 1
+	
 	</select>
 	
 	<update id="updateID">
