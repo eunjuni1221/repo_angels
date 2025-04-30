@@ -159,7 +159,8 @@
 		    urID,
 		    urPassword,
 		    urRegTime,
-		    urPostNumber
+		    urPostNumber,
+		    (SELECT path From applgoodsuploaded WHERE 1=1 AND pseq = (Select urSeq From user where urID = #{urID}) AND delNy = 0 AND type = 1) as path
 		FROM
 			user
 		WHERE 1=1
@@ -224,6 +225,15 @@
 	type = 1
 	
 	</select>
+	
+	<update id="updateImg">
+	
+	UPDATE applgoodsuploaded set
+		delNy = 1
+	Where
+		pseq = #{urSeq}
+	
+	</update>
 	
 	<update id="updateID">
 	update user set

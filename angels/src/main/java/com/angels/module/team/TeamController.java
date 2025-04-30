@@ -1,5 +1,12 @@
 package com.angels.module.team;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.angels.module.Base.BaseController;
 import com.angels.module.code.CodeService;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class TeamController extends BaseController{
@@ -48,12 +57,13 @@ public class TeamController extends BaseController{
 	return "xdm/team/TeamXdmForm"; 
 	}
 	
-	@RequestMapping(value = "/team/TeamXdmInst")
-	public String teamXdmInst(TeamDto teamDto) {
-		teamService.insert(teamDto);
-		
-		return "redirect:TeamXdmList";
-	}
+//	@RequestMapping(value = "/team/TeamXdmInst")
+//	public String teamXdmInst(TeamDto teamDto) {
+//		teamService.insert(teamDto);
+//		
+//		return "redirect:TeamXdmList";
+//	}
+	
 	@RequestMapping(value = "/team/TeamXdmUpdt")
 	public String teamXdmUpdt(TeamDto teamDto) {
 		teamService.update(teamDto);
@@ -84,4 +94,47 @@ public class TeamController extends BaseController{
 		
 	return "hof/team/baseball_team-main"; 
 	}
+	
+	@RequestMapping(value = "/team/TeamXdmInst") 
+	public String teamXdmInst() throws Exception {
+		 // MLB API 호출
+	    String apiUrl = "https://statsapi.mlb.com/api/v1/teams?sportId=1";
+	    URL url = new URL(apiUrl);
+	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	    conn.setRequestMethod("GET");
+
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	    StringBuilder response = new StringBuilder();
+	    String line;
+	    while ((line = reader.readLine()) != null) {
+	        response.append(line);
+	    }
+	    reader.close();
+	    conn.disconnect();
+
+	    // JSON 파싱
+	    ObjectMapper objectMapper = new ObjectMapper();
+	    JsonNode root = objectMapper.readTree(response.toString());
+	    JsonNode teams = root.get("teams");
+
+	    for (JsonNode team : teams) {
+	        TeamDto dto = new TeamDto();
+	        dto.setTmSeq(team.get("id").asText());
+	        dto.setTmName(team.get("name").asText());
+	        dto.setTmAbbreviation(team.get("abbreviation").asText());
+	        dto.setTmLocation(team.get("locationName").asText());
+	        dto.setTmClubName(team.get("teamName").asText());
+	        dto.setTmStPlay(team.get("firstYearOfPlay").asText());
+	        dto.setTmActive(1);
+	        dto.setTmDelNy(0);
+	        dto.setTmRegTime(LocalDateTime.now().toString());
+
+
+
+	        teamService.insert(dto); // <-- 요거 호출!
+	    }
+
+	    return "redirect:TeamXdmList";
+	}
+	
 }

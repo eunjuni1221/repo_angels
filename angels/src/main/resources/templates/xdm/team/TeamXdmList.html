@@ -136,33 +136,40 @@
                     <tr>
                       <th><input type="checkbox" id="selectAll"></th>
                       <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">사용 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">코드 번호 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">리그 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">소속 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">팀 이름(연고지) <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">팀 이름(구단명) <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">팀 약어 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">참가 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">삭제 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">풀네임 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀명 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">약어 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">연고지 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">코드 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">파일코드 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">창단연도 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">로고경로 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
                     </tr>
                   </thead>
                   <tbody>
 					<tr th:if="${#lists.isEmpty(list)}">
-						<td colspan="10">
+						<td colspan="15">
 							<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
 						</td>
 					</tr>
 					<tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
 					  <td><input type="checkbox" class="row-checkbox"></td>
 					  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
-					  <td th:text="${list.tmUse == 1 ? 'Y' : 'N'}"></td>
 					  <td th:text="${list.tmSeq}"></td>
-					  <td th:text="${@codeService.selectOneCachedCode(list.tmLeague)}"></td>
-					  <td th:text="${@codeService.selectOneCachedCode(list.tmDiv)}"></td>
-					  <td class="|tmHomeName align-middle fw-semi-bold ${list.tmHomeNameKor}|"><a href="javascript:void(0);" th:text="|${list.tmHomeName} (${list.tmHomeNameKor})|" th:attr="onclick=|goForm('${list.tmSeq}')|"></a></td>
-					  <td th:text="|${list.tmName} (${list.tmNameKor})|"></td>			  
-					  <td th:text="${list.tmNameAb}"></td>
+					  <td th:text="${list.tmActive == 1 ? 'Y' : 'N'}"></td>
+					  <td th:text="${list.tmDelNy == 1 ? 'Y' : 'N'}"></td>
+					  <td th:text="${list.tmName}"></td>
+					  <td th:text="${list.tmClubName}"></td>
+					  <td class="tmAbbreviation align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.tmAbbreviation}" th:attr="onclick=|goForm('${list.tmSeq}')|"></a></td>
+					  <td th:text="${list.tmLocation}"></td>
+					  <td th:text="${list.tmCode}"></td>
+					  <td th:text="${list.tmFileCode}"></td>
+					  <td th:text="${list.tmStPlay}"></td>
+					  <td th:text="${list.tmLogoUrl}"></td>
 					  <td th:text="${list.tmRegTime}"></td>
 					  <td th:text="${list.tmModTime}"></td>
 					</tr>

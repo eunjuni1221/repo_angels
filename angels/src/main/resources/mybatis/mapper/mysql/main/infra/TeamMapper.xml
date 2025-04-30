@@ -11,7 +11,7 @@
 		WHERE
 		    1=1
 		    
-		<if test="shUseNy != null and !shUseNy.equals('')">AND tmUse = #{shUseNy}</if>
+		<if test="shUseNy != null and !shUseNy.equals('')">AND tmActive = #{shUseNy}</if>
         <if test="shDelNy != null and !shDelNy.equals('')">AND tmDelNy = #{shDelNy}</if>
  				
 			<choose>
@@ -36,18 +36,18 @@
   	<select id="selectList" resultMap="resultMapObj">
 	SELECT
 		tmSeq,
-		tmUse,
+		tmName,
+		tmClubName,
+		tmAbbreviation,
+		tmLocation,
+		tmCode,
+		tmFileCode,
+		tmStPlay,
+		tmActive,
 		tmDelNy,
-		tmHomeName,
-	    tmName,
-	    tmNameAb,
-	    tmHomeNameKor,
-	    tmNameKor,
-	    tmLogo,
-	    tmLeague,
-	    tmDiv,
-	    tmRegTime,
-	    tmModTime    
+		tmLogoUrl,
+		tmRegTime,
+		tmModTime  
 <include refid="selectCommon"></include>
 	order by tmSeq desc
 	limit #{rowNumToShow} offset #{startRnumForMysql}
@@ -78,27 +78,35 @@
 	
 	<insert id="insert" parameterType="com.angels.module.team.TeamDto">
 	INSERT INTO team (
-		tmUse,
+		tmSeq,
+		tmName,
+		tmClubName,
+		tmAbbreviation,
+		tmLocation,
+		tmCode,
+		tmFileCode,
+		tmStPlay,
+		tmActive,
 		tmDelNy,
-		tmLeague,
-		tmDiv,
-		tmHomeName,
-	    tmName,
-	    tmHomeNameKor,
-	    tmNameKor,
-	    tmNameAb,
-	    tmRegTime
+		tmLogoUrl,
+		tmRegTime,
+		tmModTime
 	) values (
-		#{tmUse},
-		0,
-		#{tmLeague},
-		#{tmDiv},
-		#{tmHomeName},
+		#{tmSeq},
 		#{tmName},
-		#{tmHomeNameKor},
-		#{tmNameKor},
-		#{tmNameAb},
-		NOW()
+		#{tmClubName},
+		#{tmAbbreviation},
+		#{tmLocation},
+		#{tmCode},
+		#{tmFileCode},
+		#{tmStPlay},
+		1,
+		0,
+		#{tmDelNy},
+		#{tmLogoUrl},
+		#{tmRegTime},
+		#{tmModTime}
+
 	)
 		<selectKey resultType= "String" keyProperty="tmSeq" order="AFTER">
 			SELECT last_insert_id()

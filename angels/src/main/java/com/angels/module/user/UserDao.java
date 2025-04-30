@@ -34,6 +34,7 @@ public interface UserDao extends BaseDao{
 	public int uelete(CodeDto codeDto);
 	public int insertUploaded(BaseDto dto);
 	public int selectOneCountImage (UserDto userDto);
+	public int updateImg(UserDto userDto);
 
 
 

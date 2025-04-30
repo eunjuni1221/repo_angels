@@ -1,26 +1,20 @@
 package com.angels.module.team;
 
-import java.time.LocalDateTime;
-
 public class TeamDto {
 	
 	private String tmSeq;
-	private int tmUse;
-	private int tmDelNy;
-	private String tmHomeName;
 	private String tmName;
-	private String tmNameAb;
-	private String tmHomeNameKor;
-	private String tmNameKor;
-	private String tmEstYear;
-	private Integer tmLeague;
-	private Integer tmDiv;
-	private LocalDateTime tmRegTime;
-	private LocalDateTime tmModTime;
-	
-	private String cdName;
-	private String cdSeq;
-	
+	private String tmClubName;
+	private String tmAbbreviation;
+	private String tmLocation;
+	private String tmCode;
+	private String tmFileCode;
+	private String tmStPlay;
+	private Integer tmActive;
+	private Integer tmDelNy;
+	private String tmLogoUrl;
+	private String tmRegTime;
+	private String tmModTime;
 	
 	public String getTmSeq() {
 		return tmSeq;
@@ -28,91 +22,79 @@ public class TeamDto {
 	public void setTmSeq(String tmSeq) {
 		this.tmSeq = tmSeq;
 	}
-	public int getTmUse() {
-		return tmUse;
-	}
-	public void setTmUse(int tmUse) {
-		this.tmUse = tmUse;
-	}
-	public int getTmDelNy() {
-		return tmDelNy;
-	}
-	public void setTmDelNy(int tmDelNy) {
-		this.tmDelNy = tmDelNy;
-	}
 	public String getTmName() {
 		return tmName;
 	}
 	public void setTmName(String tmName) {
 		this.tmName = tmName;
 	}
-	public String getTmNameAb() {
-		return tmNameAb;
+	public String getTmClubName() {
+		return tmClubName;
 	}
-	public void setTmNameAb(String tmNameAb) {
-		this.tmNameAb = tmNameAb;
+	public void setTmClubName(String tmClubName) {
+		this.tmClubName = tmClubName;
 	}
-	public String getTmNameKor() {
-		return tmNameKor;
+	public String getTmAbbreviation() {
+		return tmAbbreviation;
 	}
-	public void setTmNameKor(String tmNameKor) {
-		this.tmNameKor = tmNameKor;
+	public void setTmAbbreviation(String tmAbbreviation) {
+		this.tmAbbreviation = tmAbbreviation;
 	}
-	public String getTmEstYear() {
-		return tmEstYear;
+	public String getTmLocation() {
+		return tmLocation;
 	}
-	public void setTmEstYear(String tmEstYear) {
-		this.tmEstYear = tmEstYear;
+	public void setTmLocation(String tmLocation) {
+		this.tmLocation = tmLocation;
 	}
-	public Integer getTmLeague() {
-		return tmLeague;
+	public String getTmCode() {
+		return tmCode;
 	}
-	public void setTmLeague(Integer tmLeague) {
-		this.tmLeague = tmLeague;
+	public void setTmCode(String tmCode) {
+		this.tmCode = tmCode;
 	}
-	public Integer getTmDiv() {
-		return tmDiv;
+	public String getTmFileCode() {
+		return tmFileCode;
 	}
-	public void setTmDiv(Integer tmDiv) {
-		this.tmDiv = tmDiv;
+	public void setTmFileCode(String tmFileCode) {
+		this.tmFileCode = tmFileCode;
 	}
-	public LocalDateTime getTmRegTime() {
+	public String getTmStPlay() {
+		return tmStPlay;
+	}
+	public void setTmStPlay(String tmStPlay) {
+		this.tmStPlay = tmStPlay;
+	}
+	public Integer getTmActive() {
+		return tmActive;
+	}
+	public void setTmActive(Integer tmActive) {
+		this.tmActive = tmActive;
+	}
+	public Integer getTmDelNy() {
+		return tmDelNy;
+	}
+	public void setTmDelNy(Integer tmDelNy) {
+		this.tmDelNy = tmDelNy;
+	}
+	public String getTmLogoUrl() {
+		return tmLogoUrl;
+	}
+	public void setTmLogoUrl(String tmLogoUrl) {
+		this.tmLogoUrl = tmLogoUrl;
+	}
+	public String getTmRegTime() {
 		return tmRegTime;
 	}
-	public void setTmRegTime(LocalDateTime tmRegTime) {
+	public void setTmRegTime(String tmRegTime) {
 		this.tmRegTime = tmRegTime;
 	}
-	public LocalDateTime getTmModTime() {
+	public String getTmModTime() {
 		return tmModTime;
 	}
-	public void setTmModTime(LocalDateTime tmModTime) {
+	public void setTmModTime(String tmModTime) {
 		this.tmModTime = tmModTime;
 	}
-	public String getTmHomeName() {
-		return tmHomeName;
-	}
-	public void setTmHomeName(String tmHomeName) {
-		this.tmHomeName = tmHomeName;
-	}
-	public String getTmHomeNameKor() {
-		return tmHomeNameKor;
-	}
-	public void setTmHomeNameKor(String tmHomeNameKor) {
-		this.tmHomeNameKor = tmHomeNameKor;
-	}
-	public String getCdName() {
-		return cdName;
-	}
-	public void setCdName(String cdName) {
-		this.cdName = cdName;
-	}
-	public String getCdSeq() {
-		return cdSeq;
-	}
-	public void setCdSeq(String cdSeq) {
-		this.cdSeq = cdSeq;
-	}
-	
+
 	
 	
 	

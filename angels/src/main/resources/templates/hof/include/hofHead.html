@@ -674,8 +674,9 @@
 									<ul class="main-nav__sub main-nav__sub--account">
 										<li class="main-nav__sub-heading">
 											<a href="/hof/hofUsrProfile">
-												Hello!
-												<img src="/hof/template/assets/images/userbasicimg.png" alt="" class="main-nav__sub-heading-avatar" style="width: 25px;">
+												Hello!&emsp;
+												<img th:if="${session.sessHofImg == null}" src="/hof/template/assets/images/userbasicimg.png" alt="" class="img" style="width: 25px;">
+												<img th:if="${session.sessHofImg != null}" th:src="${session.sessHofImg}" alt="" class="img" style="width: 25px;">
 												<span class="highlight" th:text="${session.sessHofNickname}"></span>
 											</a>
 										</li>

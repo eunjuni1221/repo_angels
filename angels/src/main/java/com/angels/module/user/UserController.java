@@ -148,6 +148,7 @@ public class UserController extends BaseController{
 			httpSession.setAttribute("sessHofName", rtUserDto.getUrName());
 			httpSession.setAttribute("sessHofNickname", rtUserDto.getUrNickname());
 			httpSession.setAttribute("sessHofId", rtUserDto.getUrID());
+			httpSession.setAttribute("sessHofImg", rtUserDto.getPath());
 						
 		} else {
 			returnMap.put("rt", "false");
@@ -360,11 +361,23 @@ public class UserController extends BaseController{
 	
 	@ResponseBody // ajax 받고 자동으로 ajax로 보내주고
 	@RequestMapping(value = "/hof/hofChangeImageProc")
-	public void hofChangeImageProc(UserDto dto) throws Exception {
-	    
-		userService.selectOneCountImage(dto);			
+	public void hofChangeImageProc(UserDto dto, HttpSession httpSession) throws Exception {
+
+		if(userService.selectOneCountImage(dto) > 0) { // selectOneCountImage에 결과값은 0이므로 있는지 없는지만 확인하면 되기때문에 숫자로
+			userService.updateImg(dto);
+		}
+		
 	    userService.insertUploaded(dto);
-    
+		httpSession.setAttribute("sessHofImg", dto.getPath());
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/hof/hofDeleteImageProc")
+	public void hofDeleteImageProc(UserDto dto, HttpSession httpSession) {
+		userService.updateImg(dto);
+		httpSession.setAttribute("sessHofImg", null);
+
 	}
 	
 //	@ResponseBody

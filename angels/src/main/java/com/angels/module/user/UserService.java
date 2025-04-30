@@ -96,4 +96,7 @@ public class UserService extends BaseService{
 	public int selectOneCountImage(UserDto userDto) {
 		return userDao.selectOneCountImage(userDto);
 	}
+	public int updateImg (UserDto userDto) {
+		return userDao.updateImg(userDto);
+	}
 }

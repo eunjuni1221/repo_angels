@@ -134,7 +134,7 @@
 										<input type="hidden" name="urAddress" th:value="${list.urAddress ?: ''}">
 										<input type="hidden" name="urDetailAddress" th:value="${list.urDetailAddress ?: ''}">
 									</div>
-									<div id="map" style="width:300px;height:300px;margin-top:10px;margin-bottom:20px;display:block;"></div>
+									<div id="map" style="width:100%;height:300px;margin-top:10px;margin-bottom:20px;display:block;"></div>
 									<div class="text-left" style="margin-bottom: 20px;">
 										<a href="/hof/hofUsrChangePassword">
 											<button class="btn btn-md btn-primary-inverse">비밀번호 수정</button>
@@ -153,8 +153,11 @@
 										<label class="btn btn-default btn-xs btn-file">
 											Browse a photo... <input type="file" class="d-none" id="inImg" accept="image/*">
 										</label>
+										<label class="btn btn-danger btn-xs btn-file">
+											삭제<button type="button" class="d-none" id="delImg"></button>
+										</label>
 										<div class="form-group__label d-block">
-											<span>100x100px 최소 해상도</span>
+											<span>100x100 최소 해상도</span>
 										</div>
 									</div>
 								</div>
@@ -257,9 +260,26 @@
 			
 		});
 		
-
-		
+		$("#delImg").on("click", function(){
+			
+			$.ajax({
+					        async: true, // 동기화Ny
+					        cache: false,
+					        type: "post", // post: 주소 안보임 get: 주소 보임(seq)
+					        url: "/hof/hofDeleteImageProc", // 컨트롤러 주소
+					        data: {"urSeq" : /*[[${session.sessHofSeq}]]*/}, // 가지고갈 데이터들
+																		
+					        success: function (response) { // 컨트롤러에서 갔다와서 행동을 취할것들
+								showImg.attr("src", "/hof/template/assets/images/userbasicimg.png");
+					        },
+					        error: function (jqXHR, textStatus, errorThrown) {
+					            alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+					        }
+					    });
+		})
+				
 	</script>
+	
 
 
 </body>
