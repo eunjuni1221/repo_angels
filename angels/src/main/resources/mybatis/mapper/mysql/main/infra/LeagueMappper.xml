@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angels.module.league.LeagueDao">
+
+<resultMap id="resultMapObj" type="com.angels.module.league.LeagueDto"></resultMap>
+
+<select id="selectList" resultMap="resultMapObj">
+	SELECT
+		lgSeq,
+		lgName,
+		lgAbbreviation,  
+		lgDelNy,  
+		lgSeasonState, 
+		lgActive, 
+		lgRegTime,  
+		lgModTime 		
+		
+		FROM
+	 		league
+		WHERE 1=1
+		ORDER BY stSeq DESC	
+		limit #{rowNumToShow} offset #{startRnumForMysql}	
+	</select>
+		
+		<insert id="insert">
+	INSERT INTO league (
+		lgSeq,
+		lgName,
+		lgAbbreviation,  
+		lgDelNy,  
+		lgSeasonState, 
+		lgActive, 
+		lgRegTime,  
+		lgModTime
+				
+	) values (
+		#{lgSeq},
+		#{lgName},
+		#{lgAbbreviation},
+		0,
+		#{lgSeasonState},
+		1,
+		#{lgRegTime},
+		#{lgModTime}
+
+	)
+	
+	<selectKey resultType="String" keyProperty="lgSeq" order="AFTER">
+		SELECT last_insert_id()
+	</selectKey>
+	</insert>
+	
+		<select id="selectOneCount" resultType="Integer">
+	
+	Select count(*)
+		from
+	  league
+		WHERE 1=1
+	</select>
+
+</mapper>
