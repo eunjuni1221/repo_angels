@@ -136,6 +136,7 @@
                     <tr>
                       <th><input type="checkbox" id="selectAll"></th>
                       <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">SEQ <i class="fa-solid fa-sort"></i></th>
 					  <th class="sortable">참가 <i class="fa-solid fa-sort"></i></th>
 					  <th class="sortable">삭제 <i class="fa-solid fa-sort"></i></th>
                       <th class="sortable">풀네임 <i class="fa-solid fa-sort"></i></th>
@@ -203,7 +204,8 @@
                   <div class="d-flex gap-1">
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>                        
+					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-primary" onclick="insertTeams()"><i class="fa fa-database"></i></button>                        
 				  </div>
                 </div>
         
@@ -337,7 +339,28 @@
 		    form.submit();
 		}		
 	</script>
-			
+	
+	<script>
+	  function insertTeams() {
+	    if (confirm("MLB API로부터 팀 데이터를 가져와서 DB에 저장할까요?")) {
+	      fetch('/team/TeamXdmInst', {
+	        method: 'GET'
+	      })
+	      .then(response => {
+	        if (response.redirected) {
+	          // 컨트롤러에서 리다이렉트 → 팀 리스트로 이동
+	          window.location.href = response.url;
+	        } else {
+	          alert("등록이 완료되었습니다.");
+	        }
+	      })
+	      .catch(error => {
+	        alert("에러 발생: " + error);
+	      });
+	    }
+	  }
+	</script>
+
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->
 <div th:replace="~{xdm/include/footer :: footer}"></div>

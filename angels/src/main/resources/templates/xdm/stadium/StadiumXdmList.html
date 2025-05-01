@@ -126,31 +126,37 @@
                     <tr>
                       <th><input type="checkbox" id="selectAll"></th>
                       <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">사용 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">팀 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">코드 번호 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">야구장(영문) <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">야구장(한글) <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">Seq <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">야구장 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">도시 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">주 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">주(약어) <i class="fa-solid fa-sort"></i></th>
 					  <th class="sortable">주소<i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">지붕타입 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">활성 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">삭제 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
                     </tr>
                   </thead>
                   <tbody>
 					<tr th:if="${#lists.isEmpty(list)}">
-						<td colspan="12">
+						<td colspan="13">
 							<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
 						</td>
 					</tr>
 					<tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
 					  <td><input type="checkbox" class="row-checkbox"></td>
 					  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
-					  <td th:text="${list.stUse == 1 ? 'Y' : 'N'}"></td>
-					  <td th:text="${list.tmNameAb}"></td>
 					  <td th:text="${list.stSeq}"></td>
 					  <td class="stName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.stName}" th:attr="onclick=|goForm('${list.stSeq}')|"></a></td>
-					  <td th:text="${list.stNameKor}"></td>
-					  <td th:text="${list.stAdress}"></td>
+					  <td th:text="${list.stCity}"></td>
+					  <td th:text="${list.stState}"></td>
+					  <td th:text="${list.stStateAbbr}"></td>
+					  <td th:text="${list.stAddress}"></td>
+					  <td th:text="${list.stRoofType}"></td>
+					  <td th:text="${list.stActive == 1 ? 'Y' : 'N'}"></td>
+					  <td th:text="${list.stDelNy == 1 ? 'Y' : 'N'}"></td>
 					  <td th:text="${list.stRegTime}"></td>	
 					  <td th:text="${list.stModTime}"></td>			  		  
 					</tr>
@@ -184,7 +190,8 @@
                   <div class="d-flex gap-1">
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
-					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>                    
+					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button> 
+					<button type="button" class="btn btn-primary" onclick="insertStadiums()"><i class="fa fa-database"></i></button>                        
 				  </div>
                 </div>
         
@@ -316,6 +323,26 @@
 		    form.submit();
 		}
 		
+	</script>
+	<script>
+	  function insertStadiums() {
+	    if (confirm("MLB API로부터 경기장 데이터를 가져와서 DB에 저장할까요?")) {
+	      fetch('/stadium/stadiumXdmInst', {
+	        method: 'GET'
+	      })
+	      .then(response => {
+	        if (response.redirected) {
+	          // 컨트롤러에서 리다이렉트 → 팀 리스트로 이동
+	          window.location.href = response.url;
+	        } else {
+	          alert("등록이 완료되었습니다.");
+	        }
+	      })
+	      .catch(error => {
+	        alert("에러 발생: " + error);
+	      });
+	    }
+	  }
 	</script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

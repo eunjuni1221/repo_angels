@@ -40,12 +40,12 @@
 									<div class="alc-ticket__primary-content">
 										<div class="alc-ticket__header">
 											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
+												<img th:src="${team.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="TeamLogo">
 												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
 												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
 											</div>
 											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title" th:text="${item?.tmName}">삼성 라이온즈</h3>
+												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
 											</hgroup>
 										</div>
 										<div class="alc-ticket__cta">

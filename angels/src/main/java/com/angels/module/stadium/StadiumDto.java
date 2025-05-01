@@ -5,107 +5,84 @@ import java.time.LocalDateTime;
 public class StadiumDto {
 	
 	private String stSeq;
-	private int stUse;
-	private int stDelNy;
 	private String stName;
-	private String stNameKor;
-	private String stAdress;
-	private LocalDateTime stRegTime;
-	private LocalDateTime stModTime;
-
-	private String team_tmSeq;
-	private String tmNameAb;
-    private String tmSeq;
-
+	private String stCity;
+	private String stState;
+	private String stStateAbbr;
+	private String stAddress;
+	private String stRoofType;
+	private Integer stActive;
+	private Integer stDelNy;
+	private String stRegTime;
+	private String stModTime;
+	
+	
 	public String getStSeq() {
 		return stSeq;
 	}
-
 	public void setStSeq(String stSeq) {
 		this.stSeq = stSeq;
 	}
-	
-
-	public int getStUse() {
-		return stUse;
-	}
-
-	public void setStUse(int stUse) {
-		this.stUse = stUse;
-	}
-
-	public int getStDelNy() {
-		return stDelNy;
-	}
-
-	public void setStDelNy(int stDelNy) {
-		this.stDelNy = stDelNy;
-	}
-
 	public String getStName() {
 		return stName;
 	}
-
 	public void setStName(String stName) {
 		this.stName = stName;
 	}
-
-	public String getStNameKor() {
-		return stNameKor;
+	public String getStCity() {
+		return stCity;
 	}
-
-	public void setStNameKor(String stNameKor) {
-		this.stNameKor = stNameKor;
+	public void setStCity(String stCity) {
+		this.stCity = stCity;
 	}
-
-	public String getStAdress() {
-		return stAdress;
+	public String getStState() {
+		return stState;
 	}
-
-	public void setStAdress(String stAdress) {
-		this.stAdress = stAdress;
+	public void setStState(String stState) {
+		this.stState = stState;
 	}
-
-	public String getTeam_tmSeq() {
-		return team_tmSeq;
+	public String getStStateAbbr() {
+		return stStateAbbr;
 	}
-
-	public void setTeam_tmSeq(String team_tmSeq) {
-		this.team_tmSeq = team_tmSeq;
+	public void setStStateAbbr(String stStateAbbr) {
+		this.stStateAbbr = stStateAbbr;
 	}
-
-	public LocalDateTime getStRegTime() {
+	public String getStAddress() {
+		return stAddress;
+	}
+	public void setStAddress(String stAddress) {
+		this.stAddress = stAddress;
+	}
+	public String getStRoofType() {
+		return stRoofType;
+	}
+	public void setStRoofType(String stRoofType) {
+		this.stRoofType = stRoofType;
+	}
+	public Integer getStActive() {
+		return stActive;
+	}
+	public void setStActive(Integer stActive) {
+		this.stActive = stActive;
+	}
+	public Integer getStDelNy() {
+		return stDelNy;
+	}
+	public void setStDelNy(Integer stDelNy) {
+		this.stDelNy = stDelNy;
+	}
+	public String getStRegTime() {
 		return stRegTime;
 	}
-
-	public void setStRegTime(LocalDateTime stRegTime) {
+	public void setStRegTime(String stRegTime) {
 		this.stRegTime = stRegTime;
 	}
-
-	public LocalDateTime getStModTime() {
+	public String getStModTime() {
 		return stModTime;
 	}
-
-	public void setStModTime(LocalDateTime stModTime) {
+	public void setStModTime(String stModTime) {
 		this.stModTime = stModTime;
 	}
-
-	public String getTmNameAb() {
-		return tmNameAb;
-	}
-
-	public void setTmNameAb(String tmNameAb) {
-		this.tmNameAb = tmNameAb;
-	}
-
-	public String getTmSeq() {
-		return tmSeq;
-	}
-
-	public void setTmSeq(String tmSeq) {
-		this.tmSeq = tmSeq;
-	}
-	
 	
 	
 	

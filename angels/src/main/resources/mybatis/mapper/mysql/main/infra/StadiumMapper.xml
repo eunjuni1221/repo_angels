@@ -7,22 +7,22 @@
 
 	<sql id="selectCommon">
 		from
-	  stadium s left join team tm ON s.team_tmSeq = tm.tmSeq
+	  venue
 		WHERE 1=1
 		    
-		<if test="shUseNy != null and !shUseNy.equals('')">AND s.stUse = #{shUseNy}</if>
-        <if test="shDelNy != null and !shDelNy.equals('')">AND s.stDelNy = #{shDelNy}</if>
+		<if test="shUseNy != null and !shUseNy.equals('')">AND stActive = #{shUseNy}</if>
+        <if test="shDelNy != null and !shDelNy.equals('')">AND stDelNy = #{shDelNy}</if>
  				
 			<choose>
-				<when test="shOptionDate == 1">AND s.stRegTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-				<when test="shOptionDate == 2">AND s.stModTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 1">AND stRegTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND stModTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 			</choose>
 				
         <choose>
-            <when test="shOption == 1">AND s.stSeq = #{shValue}</when>
-            <when test="shOption == 2">AND s.stName LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 3">AND s.stNameKor LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 4">AND s.stAdress LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 1">AND stSeq = #{shValue}</when>
+            <when test="shOption == 2">AND stName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND stNameKor LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND stAdress LIKE CONCAT('%',#{shValue},'%')</when>
         </choose>
         
         <if test="shTeamOption != null and !shTeamOption.equals('')">AND tmSeq = #{shTeamOption}</if>
@@ -31,22 +31,24 @@
 
 	<select id="selectList" resultMap="resultMapObj">
 	SELECT	
-		tm.tmNameAb,
-	    s.stSeq,
-	    s.stUse,
-	    s.stDelNy,
-	    s.stName,
-	    s.stNameKor,
-	    s.stAdress,
-	    s.stRegTime,
-	    s.stModTime
+		stSeq,
+		stName,
+		stCity,
+		stState,
+		stStateAbbr,
+		stAddress,
+		stRoofType,
+		stActive,
+		stDelNy,
+		stRegTime,
+		stModTime	
 	
 <include refid="selectCommon"></include>
-		ORDER BY s.stSeq DESC	
+		ORDER BY stSeq DESC	
 		limit #{rowNumToShow} offset #{startRnumForMysql}	
 	</select>
 	
-	<select id="selectTeam" resultMap="resultMapObj">
+<!-- 	<select id="selectTeam" resultMap="resultMapObj">
 	
 		select
 			tmNameAb,
@@ -55,27 +57,35 @@
 			team
 		where 1=1
 		
-	</select>
+	</select> -->
 	
 		<insert id="insert">
-	INSERT INTO stadium (
-		stDelNy,
-		stUse,
+	INSERT INTO venue (
+		stSeq,
 		stName,
-		stNameKor,
-		stAdress,	
-		team_tmSeq,
-		stRegTime
-		
-		
+		stCity,
+		stState,
+		stStateAbbr,
+		stAddress,
+		stRoofType,
+		stActive,
+		stDelNy,
+		stRegTime,
+		stModTime
+				
 	) values (
-		0,
-		#{stUse},
+		#{stSeq},
 		#{stName},
-		#{stNameKor},
-		#{stAdress},
-		#{team_tmSeq},
-		NOW()
+		#{stCity},
+		#{stState},
+		#{stStateAbbr},
+		#{stAddress},
+		#{stRoofType},
+		1,
+		0,
+		#{stRegTime},
+		#{stModTime}
+
 	)
 	
 	<selectKey resultType="String" keyProperty="stSeq" order="AFTER">

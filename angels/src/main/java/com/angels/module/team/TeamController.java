@@ -84,8 +84,7 @@ public class TeamController extends BaseController{
 	}
 	@RequestMapping(value = "/team/TeamHofMainList")
 	public String teamHofMainList(Model model, TeamDto dto) {
-		dto.setTmSeq("1");
-		model.addAttribute("item", teamService.selectOne(dto));
+		
 	return "hof/team/baseball_team-mainmain"; 
 	}
 	
@@ -118,6 +117,7 @@ public class TeamController extends BaseController{
 	    JsonNode teams = root.get("teams");
 
 	    for (JsonNode team : teams) {
+		    String logoUrl = "https://www.mlbstatic.com/team-logos/team-baseball/" + team.get("fileCode").asText() + ".svg";
 	        TeamDto dto = new TeamDto();
 	        dto.setTmSeq(team.get("id").asText());
 	        dto.setTmName(team.get("name").asText());
@@ -125,6 +125,7 @@ public class TeamController extends BaseController{
 	        dto.setTmLocation(team.get("locationName").asText());
 	        dto.setTmClubName(team.get("teamName").asText());
 	        dto.setTmStPlay(team.get("firstYearOfPlay").asText());
+	        dto.setTmLogoUrl(logoUrl);
 	        dto.setTmActive(1);
 	        dto.setTmDelNy(0);
 	        dto.setTmRegTime(LocalDateTime.now().toString());
