@@ -7,7 +7,10 @@
 
 		<sql id="selectCommon">
 			FROM
-		    team
+		    team t
+		LEFT JOIN division d ON t.division_dvSeq = d.dvSeq
+		LEFT JOIN league l ON t.league_lgSeq = l.lgSeq
+		LEFT JOIN venue v ON t.venue_stSeq = v.stSeq
 		WHERE
 		    1=1
 		    
@@ -35,19 +38,25 @@
 
   	<select id="selectList" resultMap="resultMapObj">
 	SELECT
-		tmSeq,
-		tmName,
-		tmClubName,
-		tmAbbreviation,
-		tmLocation,
-		tmCode,
-		tmFileCode,
-		tmStPlay,
-		tmActive,
-		tmDelNy,
-		tmLogoUrl,
-		tmRegTime,
-		tmModTime  
+		t.tmSeq,
+        t.tmName,
+        t.tmClubName,
+        t.tmAbbreviation,
+        t.tmLocation,
+        t.tmCode,
+        t.tmFileCode,
+        t.tmStPlay,
+        t.tmActive,
+        t.tmDelNy,
+        t.tmLogoUrl,
+        t.tmRegTime,
+        t.tmModTime,
+        t.division_dvSeq,
+        t.league_lgSeq,
+        t.venue_stSeq,
+        d.dvNameAb,
+        l.lgAbbreviation,
+        v.stName
 <include refid="selectCommon"></include>
 	order by tmSeq desc
 	limit #{rowNumToShow} offset #{startRnumForMysql}
@@ -90,7 +99,10 @@
 		tmDelNy,
 		tmLogoUrl,
 		tmRegTime,
-		tmModTime
+		tmModTime,
+		division_dvSeq,
+	    league_lgSeq,
+	    venue_stSeq
 	) values (
 		#{tmSeq},
 		#{tmName},
@@ -104,8 +116,11 @@
 		0,
 		#{tmLogoUrl},
 		#{tmRegTime},
-		#{tmModTime}
-
+		#{tmModTime},
+		#{division_dvSeq},
+		#{league_lgSeq},
+		#{venue_stSeq}
+		
 	)
 		<selectKey resultType= "String" keyProperty="tmSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -134,7 +149,8 @@
 	    tmLeague,
 	    tmDiv,
 	    tmRegTime,
-	    tmModTime 
+	    tmModTime,
+	     
 		    from
 		    	team
 		    	where 1=1
@@ -166,6 +182,19 @@
 	delete from team
 	where tmSeq = #{tmSeq}
 	</delete>
+	
+	 	<select id="selectHofList" resultMap="resultMapObj">
+	SELECT
+		t.tmSeq,
+        t.tmName,
+        t.tmLogoUrl,
+        d.dvNameAb
+               
+        FROM
+		    team t
+		LEFT JOIN division d ON t.division_dvSeq = d.dvSeq
+		    	   
+	</select>
 	
 	
 </mapper>

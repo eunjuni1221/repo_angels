@@ -14,6 +14,7 @@ public interface TeamDao {
 	public TeamDto selectOne(TeamDto teamDto);
 	public int uelete(TeamDto teamDto);
 	public int delete(TeamDto teamDto);
+	public List<TeamDto> selectHofList();
 	
 
 }

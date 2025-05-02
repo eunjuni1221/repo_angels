@@ -16,6 +16,13 @@ public class TeamDto {
 	private String tmRegTime;
 	private String tmModTime;
 	
+	private String division_dvSeq;
+	private String league_lgSeq;
+	private String venue_stSeq;
+	private String dvNameAb;
+	private String lgAbbreviation;
+	private String stName;
+	
 	public String getTmSeq() {
 		return tmSeq;
 	}
@@ -94,6 +101,43 @@ public class TeamDto {
 	public void setTmModTime(String tmModTime) {
 		this.tmModTime = tmModTime;
 	}
+	public String getDivision_dvSeq() {
+		return division_dvSeq;
+	}
+	public void setDivision_dvSeq(String division_dvSeq) {
+		this.division_dvSeq = division_dvSeq;
+	}
+	public String getLeague_lgSeq() {
+		return league_lgSeq;
+	}
+	public void setLeague_lgSeq(String league_lgSeq) {
+		this.league_lgSeq = league_lgSeq;
+	}
+	public String getVenue_stSeq() {
+		return venue_stSeq;
+	}
+	public void setVenue_stSeq(String venue_stSeq) {
+		this.venue_stSeq = venue_stSeq;
+	}
+	public String getDvNameAb() {
+		return dvNameAb;
+	}
+	public void setDvNameAb(String dvNameAb) {
+		this.dvNameAb = dvNameAb;
+	}
+	public String getLgAbbreviation() {
+		return lgAbbreviation;
+	}
+	public void setLgAbbreviation(String lgAbbreviation) {
+		this.lgAbbreviation = lgAbbreviation;
+	}
+	public String getStName() {
+		return stName;
+	}
+	public void setStName(String stName) {
+		this.stName = stName;
+	}
+	
 
 	
 	

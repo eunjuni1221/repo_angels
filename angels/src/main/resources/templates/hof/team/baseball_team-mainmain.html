@@ -34,98 +34,17 @@
 					<div class="card__content">
 						<div class="row">
 							<!-- 2행 5열 구조 -->
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
+							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;" th:each="list : ${list}" th:if="${list.dvNameAb == 'NLE'}">
 								<!-- Ticket 반복 10개 생성 -->
 								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
 									<div class="alc-ticket__primary-content">
 										<div class="alc-ticket__header">
 											<div class="alc-ticket__header-logo">
-												<img th:src="${team.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="TeamLogo">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
+												<img th:src="${list.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="" style="width: 150px;">
 												<div class="alc-ticket__header-bg"></div>
 											</div>
 											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
+												<h3 class="alc-ticket__header-title" th:text="${list.tmName}">삼성 라이온즈</h3>
 											</hgroup>
 										</div>
 										<div class="alc-ticket__cta">
@@ -142,98 +61,16 @@
 					<div class="card__content">
 						<div class="row">
 							<!-- 2행 5열 구조 -->
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
+							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;" th:each="list : ${list}" th:if="${list.dvNameAb == 'NLC'}">
 								<!-- Ticket 반복 10개 생성 -->
 								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
 									<div class="alc-ticket__primary-content">
 										<div class="alc-ticket__header">
 											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
+												<img th:src="${list.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="" style="width: 150px;">
 											</div>
 											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
+												<h3 class="alc-ticket__header-title" th:text="${list.tmName}">삼성 라이온즈</h3>
 											</hgroup>
 										</div>
 										<div class="alc-ticket__cta">
@@ -250,98 +87,16 @@
 					<div class="card__content">
 						<div class="row">
 							<!-- 2행 5열 구조 -->
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
+							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;" th:each="list : ${list}" th:if="${list.dvNameAb == 'NLW'}">
 								<!-- Ticket 반복 10개 생성 -->
 								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
 									<div class="alc-ticket__primary-content">
 										<div class="alc-ticket__header">
 											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
+												<img th:src="${list.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="" style="width: 150px;">
 											</div>
 											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
+												<h3 class="alc-ticket__header-title" th:text="${list.tmName}">삼성 라이온즈</h3>
 											</hgroup>
 										</div>
 										<div class="alc-ticket__cta">
@@ -358,18 +113,16 @@
 					<div class="card__content">
 						<div class="row">
 							<!-- 2행 5열 구조 -->
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
+							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;" th:each="list : ${list}" th:if="${list.dvNameAb == 'ALE'}">
 								<!-- Ticket 반복 10개 생성 -->
 								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
 									<div class="alc-ticket__primary-content">
 										<div class="alc-ticket__header">
 											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
+												<img th:src="${list.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="" style="width: 150px;">
 											</div>
 											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
+												<h3 class="alc-ticket__header-title" th:text="${list.tmName}">삼성 라이온즈</h3>
 											</hgroup>
 										</div>
 										<div class="alc-ticket__cta">
@@ -377,87 +130,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
+							</div>						
 						</div>
 					</div>
 					<div class="card__header">
@@ -466,98 +139,16 @@
 					<div class="card__content">
 						<div class="row">
 							<!-- 2행 5열 구조 -->
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
+							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;" th:each="list : ${list}" th:if="${list.dvNameAb == 'ALC'}">
 								<!-- Ticket 반복 10개 생성 -->
 								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
 									<div class="alc-ticket__primary-content">
 										<div class="alc-ticket__header">
 											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
+												<img th:src="${list.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="" style="width: 150px;">
 											</div>
 											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
+												<h3 class="alc-ticket__header-title" th:text="${list.tmName}">삼성 라이온즈</h3>
 											</hgroup>
 										</div>
 										<div class="alc-ticket__cta">
@@ -574,98 +165,16 @@
 					<div class="card__content">
 						<div class="row">
 							<!-- 2행 5열 구조 -->
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
+							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;" th:each="list : ${list}" th:if="${list.dvNameAb == 'ALW'}">
 								<!-- Ticket 반복 10개 생성 -->
 								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
 									<div class="alc-ticket__primary-content">
 										<div class="alc-ticket__header">
 											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
+												<img th:src="${list.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="" style="width: 150px;">
 											</div>
 											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
-											</hgroup>
-										</div>
-										<div class="alc-ticket__cta">
-											<a href="_hockey_team-overview.html" class="alc-ticket__cta-link btn btn-primary">더 보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 col-md-6 col-lg-2" style="flex: 0 0 20%; max-width: 20%;">
-								<!-- Ticket 반복 10개 생성 -->
-								<div class="alc-ticket alc-ticket--2 alc-ticket--shape-square mb-20">
-									<div class="alc-ticket__primary-content">
-										<div class="alc-ticket__header">
-											<div class="alc-ticket__header-logo">
-												<img src="assets/images/hockey/samples/logos/league-logo.png" class="alc-ticket__header-logo-img" alt="">
-												<!-- 밑에 코드 팀 별로 색깔 바꿔야 함 -->
-												<div class="alc-ticket__header-bg effect-duotone effect-duotone--warning"></div>
-											</div>
-											<hgroup class="alc-ticket__header-hgroup">
-												<h3 class="alc-ticket__header-title">삼성 라이온즈</h3>
+												<h3 class="alc-ticket__header-title" th:text="${list.tmName}">삼성 라이온즈</h3>
 											</hgroup>
 										</div>
 										<div class="alc-ticket__cta">

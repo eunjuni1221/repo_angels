@@ -41,7 +41,7 @@ public class LeagueController extends BaseController{
 	
 	@RequestMapping(value = "/league/LeagueXdmInst")
 	public String leagueXdmInst() throws Exception {
-	    String apiUrl = "https://statsapi.mlb.com/api/v1/venues?sportId=1&hydrate=location,fieldInfo,timezone"; // MLB 구장 전체 API
+	    String apiUrl = "https://statsapi.mlb.com/api/v1/league";
 	    URL url = new URL(apiUrl);
 	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	    conn.setRequestMethod("GET");
@@ -55,41 +55,28 @@ public class LeagueController extends BaseController{
 	    reader.close();
 	    conn.disconnect();
 
-	    // JSON 파싱
 	    ObjectMapper objectMapper = new ObjectMapper();
 	    JsonNode root = objectMapper.readTree(response.toString());
-	    JsonNode venues = root.get("venues");
+	    JsonNode leagues = root.get("leagues");
 
-	    for (JsonNode venue : venues) {
+	    for (JsonNode league : leagues) {
 	        LeagueDto dto = new LeagueDto();
-	        dto.setStSeq(venue.get("id").asText());
-	        dto.setStName(venue.get("name").asText());
 
-	        JsonNode location = venue.get("location");
-	        if (location != null) {
-	            dto.setStCity(location.has("city") ? location.get("city").asText() : null);
-	            dto.setStState(location.has("state") ? location.get("state").asText() : null);
-	            dto.setStStateAbbr(location.has("stateAbbrev") ? location.get("stateAbbrev").asText() : null);
-	            dto.setStAddress(location.has("address1") ? location.get("address1").asText() : null);
-	        }
+	        dto.setLgSeq(league.get("id").asText());
+	        dto.setLgName(league.get("name").asText());
+	        dto.setLgAbbreviation(league.has("abbreviation") ? league.get("abbreviation").asText() : null);
+	        dto.setLgSeasonState(league.has("seasonState") ? league.get("seasonState").asText() : null);
+	        dto.setLgActive(league.has("active") && league.get("active").asBoolean() ? 1 : 0);
+	        dto.setLgDelNy(0);
+	        dto.setLgRegTime(LocalDateTime.now().toString());
+	        dto.setLgModTime(LocalDateTime.now().toString());
 
-	        JsonNode fieldInfo = venue.get("fieldInfo");
-	        if (fieldInfo != null && fieldInfo.has("roofType")) {
-	            dto.setStRoofType(fieldInfo.get("roofType").asText());
-	        } else {
-	            dto.setStRoofType(null);
-	        }
-
-	        dto.setStActive(venue.has("active") && venue.get("active").asBoolean() ? 1 : 0);
-	        dto.setStDelNy(0);
-	        dto.setStRegTime(LocalDateTime.now().toString());
-	        dto.setStModTime(LocalDateTime.now().toString());
-
-	        leagueService.insert(dto); // 실제 DB 저장
+	        leagueService.insert(dto);
 	    }
 
 	    return "redirect:/league/LeagueXdmList";
 	}
+
 	
 }
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angels.module.division.DivisionDao">
+
+<resultMap id="resultMapObj" type="com.angels.module.division.DivisionDto"></resultMap>
+
+<select id="selectList" resultMap="resultMapObj">
+	SELECT
+		  d.dvSeq,    
+		  d.dvName,  
+		  d.dvNameAb, 
+	      d.dvActive,  
+	      d.dvDelNy, 
+	      d.dvRegTime,  
+		  d.dvModTime,  
+		  d.league_lgSeq,
+		  l.lgAbbreviation   		
+		
+		FROM
+	 		division d
+	 	LEFT JOIN
+	 		league l on d.league_lgSeq = l.lgSeq
+		WHERE 1=1
+		ORDER BY dvSeq DESC	
+		limit #{rowNumToShow} offset #{startRnumForMysql}	
+	</select>
+		
+		<insert id="insert">
+	INSERT INTO division (
+		  dvSeq,    
+		  dvName,  
+		  dvNameAb, 
+	      dvActive,  
+	      dvDelNy, 
+	      dvRegTime,  
+		  dvModTime,  
+		  league_lgSeq
+		  
+				
+	) values (
+		#{dvSeq},
+		#{dvName},
+		#{dvNameAb},
+		1,
+		0,
+		#{dvRegTime},
+		#{dvModTime},
+		#{league_lgSeq}
+
+	)
+	
+<!-- 	<selectKey resultType="String" keyProperty="dvSeq" order="AFTER">
+		SELECT last_insert_id()
+	</selectKey> -->
+	</insert>
+	
+		<select id="selectOneCount" resultType="Integer">
+	
+	Select count(*)
+		from
+	  division
+		WHERE 1=1
+	</select>
+
+</mapper>

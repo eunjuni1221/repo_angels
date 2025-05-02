@@ -22,4 +22,8 @@ public class LeagueService {
 	public int selectOneCount(LeagueVo leagueVo) {
 		return leagueDao.selectOneCount(leagueVo);
 	}
+
+	public boolean exists(String lgSeq) {
+	    return leagueDao.exists(lgSeq) > 0;
+	}
 }

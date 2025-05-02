@@ -41,4 +41,7 @@ public class TeamService {
 	public TeamDto selectOne(TeamDto teamDto) {
 		return teamDao.selectOne(teamDto);
 	}
+	public List<TeamDto> selectHofList(){
+		return teamDao.selectHofList();
+	}
 }

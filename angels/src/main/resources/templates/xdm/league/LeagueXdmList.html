@@ -138,7 +138,7 @@
                   </thead>
                   <tbody>
 					<tr th:if="${#lists.isEmpty(list)}">
-						<td colspan="9">
+						<td colspan="10">
 							<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
 						</td>
 					</tr> 
@@ -148,7 +148,7 @@
 					  <td th:text="${list.lgActive == 1 ? 'Y' : 'N'}"></td>
 					  <td th:text="${list.lgDelNy == 1 ? 'Y' : 'N'}"></td>
 					  <td th:text="${list.lgSeq}"></td>
-					  <td class="lgName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.lgName}" th:attr="onclick=|goForm('${list.stSeq}')|"></a></td>
+					  <td class="lgName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.lgName}" th:attr="onclick=|goForm('${list.lgSeq}')|"></a></td>
 					  <td th:text="${list.lgAbbreviation}"></td>
 					  <td th:text="${list.lgSeasonState}"></td>
 					  <td th:text="${list.lgRegTime}"></td>	
@@ -185,7 +185,7 @@
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
 					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button> 
-					<button type="button" class="btn btn-primary" onclick="insertStadiums()"><i class="fa fa-database"></i></button>                        
+					<button type="button" class="btn btn-primary" onclick="insertLeagues()"><i class="fa fa-database"></i></button>                        
 				  </div>
                 </div>
         
@@ -279,32 +279,32 @@
 		let form = document.querySelector("form[name=formList]");
 		goList = function (thisPage) {
 		    document.querySelector("input[name=thisPage]").value = thisPage;
-		    form.action = "/stadium/StadiumXdmList";
+		    form.action = "/league/LeagueXdmList";
 		    form.submit();
 		}
 	</script>
 	<script>
 		document.getElementById("btnSearch").onclick = function () {
-		    form.action = "/stadium/StadiumXdmList";
+		    form.action = "/league/LeagueXdmList";
 		    form.submit();
 		};
 	</script>
 	
 	<script>
 		document.getElementById("btnRefresh").onclick = function () {
-		    location = "/stadium/StadiumXdmList";
+		    location = "/league/LeagueXdmList";
 		}			
 	</script>
 
 	<script>
 		document.getElementById("changeRowNum").onchange = function () {
 		    document.getElementById("rowNumToShow").value = document.getElementById("changeRowNum").value;
-		    form.action = "/stadium/StadiumXdmList";
+		    form.action = "/league/LeagueXdmList";
 		    form.submit();
 		}			
 	</script>
 	<script>
-		let seq = document.querySelector("input[name=stSeq]");
+		let seq = document.querySelector("input[name=lgSeq]");
 		
 		document.getElementById("btnForm").onclick = function () {
 		    goForm(0);
@@ -313,15 +313,15 @@
 
 		goForm = function (keyValue) {
 		    seq.value = keyValue;
-		    form.action = "/stadium/StadiumXdmForm";
+		    form.action = "/league/LeagueXdmList";
 		    form.submit();
 		}
 		
 	</script>
 	<script>
-	  function insertStadiums() {
-	    if (confirm("MLB API로부터 경기장 데이터를 가져와서 DB에 저장할까요?")) {
-	      fetch('/stadium/stadiumXdmInst', {
+	  function insertLeagues() {
+	    if (confirm("MLB API로부터 리그 데이터를 가져와서 DB에 저장할까요?")) {
+	      fetch('/league/LeagueXdmInst', {
 	        method: 'GET'
 	      })
 	      .then(response => {

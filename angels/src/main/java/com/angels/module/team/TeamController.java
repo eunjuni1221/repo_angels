@@ -85,18 +85,20 @@ public class TeamController extends BaseController{
 	@RequestMapping(value = "/team/TeamHofMainList")
 	public String teamHofMainList(Model model, TeamDto dto) {
 		
-	return "hof/team/baseball_team-mainmain"; 
+		model.addAttribute("list", teamService.selectHofList());
+		
+		return "hof/team/baseball_team-mainmain"; 
 	}
 	
 	@RequestMapping(value = "/team/TeamHofMain")
 	public String teamHofMain(Model model, TeamDto dto) {
 		
-	return "hof/team/baseball_team-main"; 
+		return "hof/team/baseball_team-main"; 
 	}
 	
-	@RequestMapping(value = "/team/TeamXdmInst") 
+	@RequestMapping(value = "/team/TeamXdmInst")
 	public String teamXdmInst() throws Exception {
-		 // MLB API 호출
+	    // MLB API 호출
 	    String apiUrl = "https://statsapi.mlb.com/api/v1/teams?sportId=1";
 	    URL url = new URL(apiUrl);
 	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -117,7 +119,8 @@ public class TeamController extends BaseController{
 	    JsonNode teams = root.get("teams");
 
 	    for (JsonNode team : teams) {
-		    String logoUrl = "https://www.mlbstatic.com/team-logos/team-baseball/" + team.get("fileCode").asText() + ".svg";
+	        String logoUrl = "https://www.mlbstatic.com/team-logos/team-baseball/" + team.get("fileCode").asText() + ".svg";
+	        
 	        TeamDto dto = new TeamDto();
 	        dto.setTmSeq(team.get("id").asText());
 	        dto.setTmName(team.get("name").asText());
@@ -130,12 +133,25 @@ public class TeamController extends BaseController{
 	        dto.setTmDelNy(0);
 	        dto.setTmRegTime(LocalDateTime.now().toString());
 
+	        // 추가된 부분: league, division, venue FK 처리
+	        if (team.has("league") && team.get("league").has("id")) {
+	            dto.setLeague_lgSeq(team.get("league").get("id").asText());
+	        }
 
+	        if (team.has("division") && team.get("division").has("id")) {
+	            dto.setDivision_dvSeq(team.get("division").get("id").asText());
+	        }
 
-	        teamService.insert(dto); // <-- 요거 호출!
+	        if (team.has("venue") && team.get("venue").has("id")) {
+	            dto.setVenue_stSeq(team.get("venue").get("id").asText());
+	        }
+
+	        // DB 저장
+	        teamService.insert(dto);
 	    }
 
 	    return "redirect:TeamXdmList";
 	}
+
 	
 }
