@@ -92,7 +92,7 @@ public class TeamController extends BaseController{
 	
 	@RequestMapping(value = "/team/TeamHofMain")
 	public String teamHofMain(Model model, TeamDto dto) {
-		
+		model.addAttribute("item", teamService.selectOne(dto));
 		return "hof/team/baseball_team-main"; 
 	}
 	

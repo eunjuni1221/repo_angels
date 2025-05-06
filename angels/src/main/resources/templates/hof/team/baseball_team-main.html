@@ -12,15 +12,6 @@
 							<h1 class="page-heading__title">메인</h1>
 						</div>
 					</div>
-					<div class="col-6">
-						<div class="page-heading__inner ml-auto">
-							<ol class="page-heading__breadcrumb breadcrumb">
-								<li class="breadcrumb-item"><a href="baseball-main.html">Home</a></li>
-								<li class="breadcrumb-item"><a href="baseball_team-mainmain.html">팀 메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">삼성 라이온즈</li>
-							</ol>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -38,19 +29,46 @@
 					<!-- Team Header -->
 					<div class="alc-team-info-banner__header">
 						<div class="alc-team-info-banner__team-label">Team Name</div>
-						<h1 class="alc-team-info-banner__team-title">삼성 라이온즈</h1>
+						<h1 class="alc-team-info-banner__team-title" th:text="${item.tmName}">삼성 라이온즈</h1>
 					</div>
 					<!-- Team Header / End -->
 				
 					<!-- Team Logo -->
 					<div class="alc-team-info-banner__logo">
-						<img src="assets/images/hockey/samples/team-single-logo.png" alt="">
+						<img th:src="${item.tmLogoUrl}" class="alc-ticket__header-logo-img" alt="" style="width: 60%;">
 					</div>
 					<!-- Team Logo / End -->
 				
 					<!-- Meta Info -->
 					<div class="alc-team-info-banner__meta">
 						<ul class="alc-team-info-banner__list-info list-info">
+							<li class="list-info__item">
+								<div class="list-info__label">창단연도</div>
+								<div class="list-info__value" th:text="${item.tmStPlay}"></div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">약어</div>
+								<div class="list-info__value" th:text="${item.tmAbbreviation}"></div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">디비전</div>
+								<div class="list-info__value" th:switch="${item.dvNameAb}">
+									<span th:case="'NLW'">NL WEST</span>
+									<span th:case="'NLE'">NL EAST</span>
+									<span th:case="'NLC'">NL CENTRAL</span>
+									<span th:case="'ALW'">AL WEST</span>
+									<span th:case="'ALE'">AL EAST</span>
+									<span th:case="'ALC'">AL CENTRAL</span>
+								</div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">경기장</div>
+								<div class="list-info__value" th:text="${item.stName}"></div>
+							</li>
+							<li class="list-info__item">
+								<div class="list-info__label">시즌 기록 (승차)</div>
+								<div class="list-info__value">11 - 2 - 0 (0)</div>
+							</li>
 							<li class="list-info__item">
 								<div class="list-info__label">시즌 기록 (승차)</div>
 								<div class="list-info__value">11 - 2 - 0 (0)</div>

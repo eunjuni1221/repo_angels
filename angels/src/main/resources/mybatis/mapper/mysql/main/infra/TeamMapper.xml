@@ -103,6 +103,7 @@
 		division_dvSeq,
 	    league_lgSeq,
 	    venue_stSeq
+	    
 	) values (
 		#{tmSeq},
 		#{tmName},
@@ -137,22 +138,28 @@
 	
 	  <select id="selectOne" resultMap="resultMapObj">
    		SELECT	
-		tmSeq,
-		tmUse,
-		tmDelNy,
-		tmHomeName,
-	    tmName,
-	    tmNameAb,
-	    tmHomeNameKor,
-	    tmNameKor,
-	    tmLogo,
-	    tmLeague,
-	    tmDiv,
-	    tmRegTime,
-	    tmModTime,
-	     
+		t.tmSeq,
+		t.tmName,
+		t.tmClubName,
+		t.tmAbbreviation,
+		t.tmLocation,
+		t.tmCode,
+		t.tmFileCode,
+		t.tmStPlay,
+		t.tmActive,
+		t.tmDelNy,
+		t.tmLogoUrl,
+		t.tmRegTime,
+		t.tmModTime,
+		t.division_dvSeq,
+		d.dvNameAb,
+	    t.league_lgSeq,
+	    t.venue_stSeq,
+	    v.stName   
 		    from
-		    	team
+		    	team t
+		    	LEFT JOIN division d ON t.division_dvSeq = d.dvSeq
+		    	LEFT JOIN venue v ON t.venue_stSeq = v.stSeq
 		    	where 1=1
 		    AND tmSeq = #{tmSeq}
    </select>
