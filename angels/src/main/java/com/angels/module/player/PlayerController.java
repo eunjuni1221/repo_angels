@@ -7,6 +7,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
+import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -182,13 +183,18 @@ public class PlayerController extends BaseController {
 		model.addAttribute("selectTeam",playerService.selectTeam());
 		model.addAttribute("selectPosition",playerService.selectPosition());
 		
-		
-		
-		vo.setParamsPaging(playerService.selectOneCount(vo));
-		
-	
-		model.addAttribute("list", playerService.selectHofList(vo));
-		model.addAttribute("searched", true);
+		 boolean isSearched = vo.getShTeamOption() != null && !vo.getShTeamOption().isEmpty()
+                 || vo.getShPosition() != null && !vo.getShPosition().isEmpty()
+                 || vo.getShValue() != null && !vo.getShValue().isEmpty();
+
+			if (isSearched) {
+			   vo.setParamsPaging(playerService.selectOneCount(vo));
+			   model.addAttribute("list", playerService.selectHofList(vo));
+			   model.addAttribute("searched", true);
+			} else {
+			   model.addAttribute("list", Collections.emptyList());
+			   model.addAttribute("searched", false);
+			}
 
 		return "hof/player/baseball_player-search";
 	}
