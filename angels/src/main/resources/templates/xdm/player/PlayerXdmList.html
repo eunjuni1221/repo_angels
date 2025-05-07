@@ -38,7 +38,7 @@
                   <div class="card card-primary card-outline" style="display: inline-block; width: 100%;">
                     <div class="card-header"><h3 class="card-title">Player</h3></div>
                     <div class="card-body"> 
-                      <div class="container-fluid">
+                      <!--<div class="container-fluid">
                         <div class="row row-cols-6 g-2">
                           <div class="col">
 							<select id="shDelNy" name="shDelNy" class="form-select form-select-sm" style="width: 100%;">
@@ -100,8 +100,8 @@
 						  <div class="col">
 						  <select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
 						  	<option value="" th:selected="${vo.shOption == null}">검색구분</option>
-						  	<option value="1" th:selected="${vo.shOption == 1}">코드 번호</option>
-						  	<option value="2" th:selected="${vo.shOption == 2}">성(영문)</option>
+						  	<option value="1" th:selected="${vo.shOption == 1}">코드</option>
+						  	<option value="2" th:selected="${vo.shOption == 2}">소속팀</option>
 						  	<option value="3" th:selected="${vo.shOption == 3}">이름(영문)</option>
 						  	<option value="4" th:selected="${vo.shOption == 4}">본명(영문)</option>
 						  	<option value="5" th:selected="${vo.shOption == 5}">성(한글)</option>
@@ -149,7 +149,7 @@
 							</button>
                           </div>                                           
                         </div>
-                      </div>
+                      </div>-->
                     </div>
                   </div>
                 </div>
@@ -182,73 +182,77 @@
 			          <tr>
 			            <th><input type="checkbox" id="selectAll"></th>
 			            <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
-						<th class="sortable">사용 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">팀 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">코드 번호 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">이름(영문) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">성(영문) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">본명(영문) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">성(한글) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">이름(한글) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">본명(한글) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">별명 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">생일 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">나이 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">출생지 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">국적 <i class="fa-solid fa-sort"></i></th>
-						<th class="sortable">포지션 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">투 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">타 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">코드 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">현역 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">삭제 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">팀Seq <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">소속팀 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">박스스코어용 이름 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">풀네임 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">이름 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">성 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">생년월일 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">나이 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">출생도시 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">출생국가 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">키 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">몸무게 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">투구 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">타격 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">데뷔 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">별명 <i class="fa-solid fa-sort"></i></th>
 			            <th class="sortable">등번호 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">키(cm) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">키(ft) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">몸무게(kg) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">몸무게(lb) <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">출신교 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">데뷔일 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">드래프트 <i class="fa-solid fa-sort"></i></th>
-			            <th class="sortable">status <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">사진 <i class="fa-solid fa-sort"></i></th>
+						<th class="sortable">슬러그 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">포지션 코드 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">포지션 이름 <i class="fa-solid fa-sort"></i></th>
+			            <th class="sortable">포지션 약어 <i class="fa-solid fa-sort"></i></th>
 			            <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
 			            <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
+
 			          </tr>
 			        </thead>
 			        <tbody>
 			          <tr th:if="${#lists.isEmpty(list)}">
-			            <td colspan="30">
+			            <td colspan="29">
 			              <p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
 			            </td>
 			          </tr>
 			          <tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
 			            <td><input type="checkbox" class="row-checkbox"></td>
 			            <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
-						<td th:text="${list.pyUse == 1 ? 'Y' : 'N'}"></td>
-			            <td th:text="${list.tmNameAb}"></td>
-			            <td th:text="${list.pySeq}"></td>
-			            <td th:text="${list.pyGivenName}"></td>
-			            <td class="pyFamilyName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.pyFamilyName}" th:attr="onclick=|goForm('${list.pySeq}')|"></a></td>
-			            <td th:text="${list.pyOriName}"></td>
-			            <td th:text="${list.pyFamliyNameKor}"></td>  
-			            <td th:text="${list.pyGivenNameKor}"></td>
-			            <td th:text="${list.pyOriNameKor}"></td>
-			            <td th:text="${list.nickName}"></td>
-			            <td th:text="${list.birthday}"></td>
-			            <td th:text="${list.age}"></td>
-						<td th:text="${list.homeTown}"></td>
-			            <td th:text="${@codeService.selectOneCachedCode(list.nationality)}"></td>
+						<td th:text="${list.pySeq}"></td>
+						<td th:text="${list.pyActive == 1 ? 'Y' : 'N'}"></td>						
+						<td th:text="${list.pyDelNy == 1 ? 'Y' : 'N'}"></td>
+						<td th:text="${list.team_tmSeq}"></td>
+						<td th:text="${list.tmAbbreviation}"></td>
+						<td th:text="${list.pyBoxScoreName}"></td>
+						<td class="pyFullName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.pyFullName}" th:attr="onclick=|goForm('${list.pySeq}')|"></a></td>					
+			            <td th:text="${list.pyFirstname}"></td>
+			            <td th:text="${list.pyLastName}"></td>
+			            <td th:text="${list.pyBirthDay}"></td>
+						<td th:text="${list.pyAge}"></td>
+			            <td th:text="${list.pyBirthCity}"></td>  
+			            <td th:text="${list.pyBirthCountry}"></td>
+			            <td th:text="${list.pyHeight}"></td>
+			            <td th:text="${list.pyWeight}"></td>
+			            <td th:text="${list.pyPitch}"></td>
+						<td th:text="${list.pyBat}"></td>
+						<td th:text="${list.pyDebut}"></td>
+<!--			            <td th:text="${@codeService.selectOneCachedCode(list.nationality)}"></td>
 						<td th:text="${@codeService.selectOneCachedCode(list.position)}"></td>
 			            <td th:text="${@codeService.selectOneCachedCode(list.throwHand)}"></td>
-			            <td th:text="${@codeService.selectOneCachedCode(list.batHand)}"></td>
-			            <td th:text="${list.jerseyNumber}"></td>
-			            <td th:text="${list.heightCm}"></td>
-			            <td th:text="${list.heightFt}"></td>
-			            <td th:text="${list.weightKg}"></td>
-			            <td th:text="${list.weightLb}"></td>
-			            <td th:text="${list.finalSchoolHistory}"></td>
-			            <td th:text="${list.debut}"></td>
-			            <td th:text="${list.Draft}"></td>
-			            <td th:text="${@codeService.selectOneCachedCode(list.status)}"></td>
+			            <td th:text="${@codeService.selectOneCachedCode(list.batHand)}"></td>-->
+			            <td th:text="${list.pyNickName}"></td>
+			            <td th:text="${list.pyJersey}"></td>
+			            <td th:text="${list.pyPhoto}"></td>
+						<td th:text="${list.pyNameSlug}"></td>
+						<td th:text="${list.pyPositionCode}"></td>
+						<td th:text="${list.pyPositionName}"></td>
+						<td th:text="${list.pyPositionAbbr}"></td>
 			            <td th:text="${list.pyRegTime}"></td>
-			            <td th:text="${list.pyModTime}"></td>                         
+			            <td th:text="${list.pyModTime}"></td>
+
 			          </tr>
 			        </tbody>
 			      </table>
@@ -283,6 +287,7 @@
 			        <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
 			        <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
 			        <button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-primary" onclick="insertPlayers()"><i class="fa fa-database"></i></button>      
 			      </div>
 			    </div>
 			  </div>
@@ -415,6 +420,26 @@
 		}
 		
 	</script>
+	<script>
+		  function insertPlayers() {
+		    if (confirm("MLB API로부터 선수 데이터를 가져와서 DB에 저장할까요?")) {
+		      fetch('/player/PlayerXdmInst', {
+		        method: 'GET'
+		      })
+		      .then(response => {
+		        if (response.redirected) {
+		          // 컨트롤러에서 리다이렉트 → 팀 리스트로 이동
+		          window.location.href = response.url;
+		        } else {
+		          alert("등록이 완료되었습니다.");
+		        }
+		      })
+		      .catch(error => {
+		        alert("에러 발생: " + error);
+		      });
+		    }
+		  }
+		</script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->
 <div th:replace="~{xdm/include/footer :: footer}"></div>

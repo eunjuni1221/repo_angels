@@ -20,6 +20,9 @@ public class PlayerService extends BaseService {
 	public List<PlayerDto> selectList(PlayerVo playerVo) {
 		return playerDao.selectList(playerVo);
 	}
+	public List<PlayerDto> selectHofList(PlayerVo playerVo) {
+		return playerDao.selectHofList(playerVo);
+	}
 	public List<PlayerDto> selectTeam() {
 		return playerDao.selectTeam();
 	}
@@ -27,17 +30,18 @@ public class PlayerService extends BaseService {
 		return playerDao.selectOneCount(playerVo);
 	}
 	public int insert(PlayerDto playerDto) throws Exception {
-		playerDao.insert(playerDto);
-		uploadFilesToS3(
-				playerDto.getUploadImg1()
-    			, playerDto
-    			, "applGoodsUploaded"
-    			, playerDto.getUploadImg1Type()
-    			, playerDto.getUploadImg1MaxNumber()
-    			, playerDto.getPySeq()
-    			, playerDao
-    			, amazonS3Client);
-		return 1;
+//		playerDao.insert(playerDto);
+//		uploadFilesToS3(
+//				playerDto.getUploadImg1()
+//    			, playerDto
+//    			, "applGoodsUploaded"
+//    			, playerDto.getUploadImg1Type()
+//    			, playerDto.getUploadImg1MaxNumber()
+//    			, playerDto.getPySeq()
+//    			, playerDao
+//    			, amazonS3Client);
+//		return 1;
+		return playerDao.insert(playerDto);
 	}
 	public List<PlayerDto> selectPosition(){
 		return playerDao.selectPosition();

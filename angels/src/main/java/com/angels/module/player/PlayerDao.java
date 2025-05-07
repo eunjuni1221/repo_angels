@@ -8,6 +8,7 @@ import com.angels.module.Base.BaseDto;
 public interface PlayerDao extends BaseDao{
 
 	public List<PlayerDto> selectList(PlayerVo playerVo);
+	public List<PlayerDto> selectHofList(PlayerVo playerVo);
 	public List<PlayerDto> selectTeam();
 	public int selectOneCount(PlayerVo playerVo);
 	public int insert(PlayerDto playerDto);

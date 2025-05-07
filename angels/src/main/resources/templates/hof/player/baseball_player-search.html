@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"><head>
+
+<div th:replace="~{hof/include/hofHead :: head(activeMenu='MLB')}"></div>
+
+		<!-- Page Heading
+		================================================== -->
+		<input type="hidden" name="pySeq"/>
+		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-6">
+						<div class="page-heading__inner page-heading__inner--highlight">
+							<h1 class="page-heading__title">선수 조회 / HOF PICk</h1>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="page-heading__inner ml-auto">
+							<ol class="page-heading__breadcrumb breadcrumb">
+								<li class="breadcrumb-item"><a href="_hockey_index.html">Home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">News V1</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page Heading / End -->
+		
+		
+		<!-- Post Filter -->
+		<div class="post-filter post-filter--outline" style="width: 80%; margin: 0 auto; margin-top: 20px;">
+			<div class="container">
+				<div class="conatainer__header">
+					<h4>선수 검색</h4>
+				</div>
+				<form action="/player/PlayerHofSearch" method="get" class="post-filter__form" id="searchForm">
+					<div class="post-filter__select">
+						<label class="post-filter__label">팀</label>
+						<select class="cs-select cs-skin-border" id="shTeamOption" name="shTeamOption">
+							<option value="" selected>선택</option>
+							<option th:selected="${list.tmSeq} ==${vo.shTeamOption}" th:each="list:${selectTeam}" th:text="${list.tmAbbreviation}" th:value="${list.tmSeq}"></option>
+						</select>
+					</div>
+					<div class="post-filter__select">
+						<label class="post-filter__label">포지션</label>
+						<select class="cs-select cs-skin-border" id="shPosition" name="shPosition">
+						    <option value="" selected>선택</option>
+							<option th:each="list : ${selectPosition}" th:value="${list.pyPositionCode}" th:text="${list.pyPositionAbbr}" th:selected="${vo.shPosition == list.pyPositionCode}"></option>
+						</select>
+					</div>
+					<div class="post-filter__select">
+						<input type="text" class="form-control" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" placeholder="선수명" style="height: 44px;">
+					</div>
+					<div class="post-filter__submit">
+						<button type="button" class="btn btn-info btn-block" id="btnSearch">검색</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- Post Filter / End -->
+		<div class="card card--has-table" th:if="${searched}" style="width: 80%; margin: 0 auto; margin-top: 20px; margin-bottom: 20px;">
+			<div class="card__header">
+				<h4>검색결과</h4>
+			</div>
+			<div class="card__content">
+				<div class="table-responsive">
+					<table class="table table-thead-color table-hover game-player-result game-player-result--stats">
+						<thead>
+							<tr>
+								<th class="game-player-result__season">등번호</th>
+								<th class="game-player-result__season">현역</th>
+								<th class="game-player-result__team">선수명</th>
+								<th class="game-player-result__g">소속팀</th>
+								<th class="game-player-result__pa">포지션</th>
+								<th class="game-player-result__born">생년월일</th>
+								<th class="game-player-result__born">나이</th>
+								<th class="game-player-result__T/B">투/타</th>
+								<th class="game-player-result__hofpick">HOF PICK 하기</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${#lists.isEmpty(list)}">
+								<td colspan="9">
+									<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
+								</td>
+							</tr>
+							<tr th:if="${searched != null and searched and !#lists.isEmpty(list)}" th:each="list : ${list}">
+									<td th:text="${list.pyJersey}">47</td>
+									<td th:text="${list.pyActive == 1 ? 'Y' : 'N'}">Y</a></td>
+									<td class="pyFullName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.pyFullName}" th:attr="onclick=|goForm('${list.pySeq}')|"></a></td>
+									<td th:text="${list.tmAbbreviation}">이젠</td>
+									<td th:text="${list.pyPositionAbbr}">RF</td>
+									<td th:text="${list.pyBirthDay}">2001.12.21</td>
+									<td th:text="${list.pyAge}">23</td>
+									<td th:text="${list.pyPitch} + ' / ' + ${list.pyBat}">좌투좌타</td>
+									<td class="game-player-result__hofpick">
+										<a href="https://예시링크.com" target="_blank" style="text-decoration: none; color: inherit;" th:if="${list.pyPositionAbbr != 'P'}">
+											<i class="fa-solid fa-baseball-bat-ball"></i>
+										</a>
+									</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- Career Statistics / End -->
+
+	<div th:replace="~{hof/include/hofFooter :: footer}"></div>		
+	<div th:replace="~{hof/include/hofJs :: js}"></div>
+	<script>
+		document.getElementById("btnSearch").onclick = function () {
+		    document.getElementById("searchForm").submit();
+		};
+	</script>		
+
+
+</body>
+</html>

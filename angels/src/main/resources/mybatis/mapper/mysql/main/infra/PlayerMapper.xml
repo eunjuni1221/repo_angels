@@ -8,25 +8,25 @@
 	<sql id="selectCommon">
 
 	
-		<if test="shUseNy != null and !shUseNy.equals('')">AND p.pyUse = #{shUseNy}</if>
+<!--  		<if test="shUseNy != null and !shUseNy.equals('')">AND p.pyUse = #{shUseNy}</if>
         <if test="shDelNy != null and !shDelNy.equals('')">AND p.pyDelNy = #{shDelNy}</if>
         <if test="shTeamOption != null and !shTeamOption.equals('')">AND tmSeq = #{shTeamOption}</if>
         <if test="shPosition != null and !shPosition.equals('')">AND p.position = #{shPosition}</if>
-        <if test="shStatus != null and !shStatus.equals('')">AND p.status = #{shStatus}</if>
+         <if test="shStatus != null and !shStatus.equals('')">AND p.status = #{shStatus}</if>
         <if test="shThrow != null and !shThrow.equals('')">AND p.throwHand = #{shThrow}</if>
         <if test="shBat != null and !shBat.equals('')">AND p.batHand = #{shBat}</if>
-        <if test="shNation != null and !shNation.equals('')">AND p.nationality = #{shNation}</if>
+        <if test="shNation != null and !shNation.equals('')">AND p.nationality = #{shNation}</if> -->
         
         
  				
-			<choose>
+<!-- 			<choose>
 				<when test="shOptionDate == 1">AND p.pyRegTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 				<when test="shOptionDate == 2">AND p.pyModTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-			</choose>
+			</choose> -->
 			
 
 <!-- 생일, 데뷔일 keep -->
-         <choose>
+<!--          <choose>
             <when test="shOption == 1">AND p.pySeq = #{shValue}</when>
             <when test="shOption == 2">AND p.pyGivenName LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 3">AND p.pyFamilyName LIKE CONCAT('%',#{shValue},'%')</when>
@@ -43,57 +43,68 @@
             <when test="shOption == 14">AND p.weightLb LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 15">AND p.finalSchoolHistory LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 16">AND p.Draft LIKE CONCAT('%',#{shValue},'%')</when>
-        </choose>
+        </choose> -->
         
-			<choose>
+<!-- 			<choose>
 				<when test="shOptionYear == 1">AND p.debut BETWEEN #{shYearStart} AND #{shYearEnd}</when>
 				<when test="shOptionYear == 2">AND p.birthday BETWEEN #{shYearStart} AND #{shYearEnd}</when>
-			</choose>
+			</choose> -->
+			
+
         
+        <if test="shTeamOption != null and shTeamOption != ''">
+   			AND p.team_tmSeq = #{shTeamOption}
+		</if>
+
+		<if test="shPosition != null and shPosition != ''">
+		    AND p.pyPositionCode = #{shPosition}
+		</if>
+
+		<if test="shValue != null and shValue != ''">
+		    AND p.pyFullName LIKE CONCAT('%', #{shValue}, '%')
+		</if>
 	</sql>
 
   	<select id="selectList" resultMap="resultMapObj">
   		SELECT
-			tm.tmNameAb,
-			p.pyUse,
 			p.pySeq,
-		    p.pyGivenName,
-		    p.pyFamilyName,
-		    p.pyOriName,
-		    p.pyFamliyNameKor,
-		    p.pyGivenNameKor,
-		    p.pyOriNameKor,
-			p.nickName,
-		    p.birthday,
-		    p.homeTown,
-		    p.position,
-		    p.nationality,
-			p.throwHand,
-		    p.batHand,
-		    p.jerseyNumber,
-		    p.heightCm,
-		    p.heightFt,
-		    p.weightKg,
-		    p.weightLb,
-		    p.finalSchoolHistory,
-		    p.debut,
-		    p.Draft,
-		    p.status,
+		    p.pyFullName,
+		    p.pyFirstname,
+		    p.pyLastName,
+		    p.pyNameSlug,
+		    p.pyBirthDay,
+		    p.pyBirthCity,
+		    p.pyBirthCountry,
+		    p.pyHeight,
+		    p.pyWeight,
+		    p.pyBat,
+		    p.pyPitch,
+		    p.pyDebut,
+		    p.pyDelNy,
+		    p.pyNickName,
+		    p.pyBoxScoreName,
+		    p.pyAge,
+		    p.pyJersey,
+		    p.pyPhoto,
+		    p.pyPositionCode,
+		    p.pyPositionName,
+		    p.pyPositionAbbr,
+		    p.pyActive,
 		    p.pyRegTime,
 		    p.pyModTime,
-		    p.pyDelNy
+		    p.team_tmSeq,
+		    t.tmAbbreviation
 		 
-	from 
-	player p left join team tm ON p.team_tmSeq = tm.tmSeq
-	where 1=1		
-	<include refid="selectCommon"></include>
-		 order by p.pySeq desc
-		limit #{rowNumToShow} offset #{startRnumForMysql}	
+			FROM 
+			player p left join team t on p.team_tmSeq = t.tmSeq
+			where 1=1		
+		 	order by p.pySeq desc
+			limit #{rowNumToShow} offset #{startRnumForMysql}	
  	</select>
  	
- 	<select id="selectTeam" resultMap="resultMapObj">
+ 	 <select id="selectTeam" resultMap="resultMapObj">
 		select
-			tmNameAb,
+			tmAbbreviation,
 		    tmSeq
 		from
 			team
@@ -101,18 +112,54 @@
  	</select>
  	
  	<select id="selectPosition" resultMap="resultMapObj">
-		select
-			cdName,
-			cdSeq
+		select DISTINCT 
+			pyPositionAbbr,
+			pyPositionCode
 		from
-			code
+			player
 		where 1=1
-		 and codeGroup_cgSeq=5
-		order by cdSeq desc  	
  	
  	</select>
  	
- 	 <select id="selectThrowHand" resultMap="resultMapObj">
+ 	  	<select id="selectHofList" resultMap="resultMapObj">
+  		SELECT
+			p.pySeq,
+		    p.pyFullName,
+		    p.pyFirstname,
+		    p.pyLastName,
+		    p.pyNameSlug,
+		    p.pyBirthDay,
+		    p.pyBirthCity,
+		    p.pyBirthCountry,
+		    p.pyHeight,
+		    p.pyWeight,
+		    p.pyBat,
+		    p.pyPitch,
+		    p.pyDebut,
+		    p.pyDelNy,
+		    p.pyNickName,
+		    p.pyBoxScoreName,
+		    p.pyAge,
+		    p.pyJersey,
+		    p.pyPhoto,
+		    p.pyPositionCode,
+		    p.pyPositionName,
+		    p.pyPositionAbbr,
+		    p.pyActive,
+		    p.pyRegTime,
+		    p.pyModTime,
+		    p.team_tmSeq,
+		    t.tmAbbreviation
+		 
+			FROM 
+			player p left join team t on p.team_tmSeq = t.tmSeq
+			where 1=1
+			<include refid="selectCommon"></include>				
+		 	order by p.pySeq desc
+		 	
+		 </select>
+ 	
+<!--  	 <select id="selectThrowHand" resultMap="resultMapObj">
 		select
 			cdName,
 			cdSeq
@@ -122,9 +169,9 @@
 		 and codeGroup_cgSeq=6
 		order by cdSeq desc  	
  	
- 	</select>
+ 	</select> -->
  	
- 	 <select id="selectBatHand" resultMap="resultMapObj">
+<!--  	 <select id="selectBatHand" resultMap="resultMapObj">
 		select
 			cdName,
 			cdSeq
@@ -134,9 +181,9 @@
 		 and codeGroup_cgSeq=7
 		order by cdSeq desc  	
  	
- 	</select>
+ 	</select> -->
  	
-  	 <select id="selectNationality" resultMap="resultMapObj">
+<!--   	 <select id="selectNationality" resultMap="resultMapObj">
 		select
 			cdName,
 			cdSeq
@@ -146,9 +193,9 @@
 		 and codeGroup_cgSeq=8
 		order by cdSeq desc  	
  	
- 	</select>
+ 	</select> -->
  	
-  	 <select id="selectStatus" resultMap="resultMapObj">
+<!--   	 <select id="selectStatus" resultMap="resultMapObj">
 		select
 			cdName,
 			cdSeq
@@ -158,66 +205,89 @@
 		 and codeGroup_cgSeq=10
 		order by cdSeq desc  	
  	
- 	</select>
+ 	</select> -->
  	
 <insert id="insert" parameterType="com.angels.module.player.PlayerDto">
 	INSERT INTO player (
-		team_tmSeq,
-		pyUse,
-		pyDelNy,
-		pySeq,
-	    pyGivenName,
-	    pyFamilyName,
-	    pyOriName,
-	    pyFamliyNameKor,
-	    pyGivenNameKor,
-	    pyOriNameKor,
-		nickName,
-	    birthday,
-	    homeTown,
-	    nationality,
-	    position,
-		throwHand,
-	    batHand,
-	    jerseyNumber,
-	    heightCm,
-	    heightFt,
-	    weightKg,
-	    weightLb,
-	    finalSchoolHistory,
-	    debut,
-	    Draft,
-	    status,
-	    pyRegTime
+			pySeq,
+		    pyFullName,
+		    pyFirstname,
+		    pyLastName,
+		    pyNameSlug,
+		    pyBirthDay,
+		    pyBirthCity,
+		    pyBirthCountry,
+		    pyHeight,
+		    pyWeight,
+		    pyBat,
+		    pyPitch,
+		    pyDebut,
+		    pyDelNy,
+		    pyNickName,
+		    pyBoxScoreName,
+		    pyAge,
+		    pyJersey,
+		    pyPhoto,
+		    pyPositionCode,
+		    pyPositionName,
+		    pyPositionAbbr,
+		    pyActive,
+		    pyRegTime,
+		    pyModTime,
+		    team_tmSeq
 	) values (
-		#{team_tmSeq},
-		#{pyUse},
-		0,
 		#{pySeq},
-		#{pyGivenName},
-		#{pyFamilyName},
-		#{pyOriName},
-		#{pyFamliyNameKor},
-		#{pyGivenNameKor},
-		#{pyOriNameKor},
-		#{nickName},
-		#{birthday},
-		#{homeTown},
-		#{nationality},
-		#{position},
-		#{throwHand},
-		#{batHand},
-		#{jerseyNumber},
-		#{heightCm},
-		#{heightFt},
-		#{weightKg},
-		#{weightLb},
-		#{finalSchoolHistory},
-		#{debut},
-		#{Draft},
-		#{status},
-		NOW()
+		#{pyFullName},
+		#{pyFirstname},
+		#{pyLastName},
+		#{pyNameSlug},
+		#{pyBirthDay},
+		#{pyBirthCity},
+		#{pyBirthCountry},
+		#{pyHeight},
+		#{pyWeight},
+		#{pyBat},
+		#{pyPitch},
+		#{pyDebut},
+		0,
+		#{pyNickName},
+		#{pyBoxScoreName},
+		#{pyAge},
+		#{pyJersey},
+		#{pyPhoto},
+		#{pyPositionCode},
+		#{pyPositionName},
+		#{pyPositionAbbr},
+		#{pyActive},
+		#{pyRegTime},
+		#{pyModTime},
+		#{team_tmSeq}
 	)
+		ON DUPLICATE KEY UPDATE
+	    pyFullName = VALUES(pyFullName),
+	    pyFirstname = VALUES(pyFirstname),
+	    pyLastName = VALUES(pyLastName),
+	    pyNameSlug = VALUES(pyNameSlug),
+	    pyBirthDay = VALUES(pyBirthDay),
+	    pyBirthCity = VALUES(pyBirthCity),
+	    pyBirthCountry = VALUES(pyBirthCountry),
+	    pyHeight = VALUES(pyHeight),
+	    pyWeight = VALUES(pyWeight),
+	    pyBat = VALUES(pyBat),
+	    pyPitch = VALUES(pyPitch),
+	    pyDebut = VALUES(pyDebut),
+	    pyActive = VALUES(pyActive),
+	    pyDelNy = VALUES(pyDelNy),
+	    pyNickName = VALUES(pyNickName),
+	    pyBoxScoreName = VALUES(pyBoxScoreName),
+	    pyAge = VALUES(pyAge),
+	    pyJersey = VALUES(pyJersey),
+	    pyPhoto = VALUES(pyPhoto),
+	    pyPositionCode = VALUES(pyPositionCode),
+	    pyPositionName = VALUES(pyPositionName),
+	    pyPositionAbbr = VALUES(pyPositionAbbr),
+	    pyModTime = VALUES(pyModTime),
+	    team_tmSeq = VALUES(team_tmSeq)
 		<selectKey resultType= "String" keyProperty="pySeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
@@ -228,9 +298,9 @@
 	
 	Select count(*)
 	from 
-	player p left join team tm ON p.team_tmSeq = tm.tmSeq
+	player p left join team t ON p.team_tmSeq = t.tmSeq
 	where 1=1
-<include refid="selectCommon"/>
+<!-- <include refid="selectCommon"/> -->
 	
 	</select>
 	
