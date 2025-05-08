@@ -7,7 +7,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
-import java.util.Collections;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -180,22 +180,32 @@ public class PlayerController extends BaseController {
 	public String playerHofSearch(@ModelAttribute("vo") PlayerVo vo, Model model, PlayerDto dto) {
 		setSearch(vo);
 	
-		model.addAttribute("selectTeam",playerService.selectTeam());
-		model.addAttribute("selectPosition",playerService.selectPosition());
-		
-		 boolean isSearched = vo.getShTeamOption() != null && !vo.getShTeamOption().isEmpty()
-                 || vo.getShPosition() != null && !vo.getShPosition().isEmpty()
-                 || vo.getShValue() != null && !vo.getShValue().isEmpty();
 
-			if (isSearched) {
-			   vo.setParamsPaging(playerService.selectOneCount(vo));
-			   model.addAttribute("list", playerService.selectHofList(vo));
-			   model.addAttribute("searched", true);
-			} else {
-			   model.addAttribute("list", Collections.emptyList());
-			   model.addAttribute("searched", false);
-			}
+	    model.addAttribute("selectTeam", playerService.selectTeam());
+	    model.addAttribute("selectPosition", playerService.selectPosition());
 
-		return "hof/player/baseball_player-search";
+	    // 검색 값이 있는지 체크
+	    boolean isSearch = vo.getShTeamOption() != null && !vo.getShTeamOption().isEmpty()
+	                    || vo.getShPosition() != null && !vo.getShPosition().isEmpty()
+	                    || vo.getShValue() != null && !vo.getShValue().isEmpty();
+
+	    if (isSearch) {
+	        vo.setParamsPaging(playerService.selectOneCount(vo));
+	        model.addAttribute("list", playerService.selectHofList(vo));
+	        model.addAttribute("searched", true);
+	    } else {
+	        // 검색 안 했으면 빈 리스트 + searched = true로 내려줌
+	        model.addAttribute("list", new ArrayList<>());
+	        model.addAttribute("searched", true);
+	    }
+
+	    return "hof/player/baseball_player-search";
 	}
+	
+	@RequestMapping(value = "/player/PlayerHofMain")
+	public String teamHofMain(Model model, PlayerDto dto) {
+		model.addAttribute("item", playerService.selectOne(dto));
+		return "hof/player/baseball_player-main"; 
+	}
+	
 }

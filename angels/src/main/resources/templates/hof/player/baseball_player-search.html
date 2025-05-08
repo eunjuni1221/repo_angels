@@ -5,7 +5,6 @@
 
 		<!-- Page Heading
 		================================================== -->
-		<input type="hidden" name="pySeq"/>
 		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
 			<div class="container">
 				<div class="row justify-content-between">
@@ -53,15 +52,17 @@
 						<input type="text" class="form-control" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" placeholder="선수명" style="height: 44px;">
 					</div>
 					<div class="post-filter__submit">
-						<button type="button" class="btn btn-info btn-block" id="btnSearch">검색</button>
+						<button type="button" class="btn btn-info" id="btnSearch"><i class="fa fa-search"></i></button>
 					</div>
-				</form>
+					<div class="post-filter__submit">
+						<button type="button" class="btn btn-info" id="btnReset"><i class="fa fa-rotate-right"></i></button>
+					</div>
 			</div>
 		</div>
 		<!-- Post Filter / End -->
 		<div class="card card--has-table" th:if="${searched}" style="width: 80%; margin: 0 auto; margin-top: 20px; margin-bottom: 20px;">
 			<div class="card__header">
-				<h4>검색결과</h4>
+				<h4 th:utext="'검색결과: <span style=\'color:red;\'>' + ${vo.totalRows} + '</span>명'">검색결과</h4>
 			</div>
 			<div class="card__content">
 				<div class="table-responsive">
@@ -86,23 +87,26 @@
 								</td>
 							</tr>
 							<tr th:if="${searched != null and searched and !#lists.isEmpty(list)}" th:each="list : ${list}">
-									<td th:text="${list.pyJersey}">47</td>
-									<td th:text="${list.pyActive == 1 ? 'Y' : 'N'}">Y</a></td>
-									<td class="pyFullName align-middle fw-semi-bold"><a href="javascript:void(0);" th:text="${list.pyFullName}" th:attr="onclick=|goForm('${list.pySeq}')|"></a></td>
-									<td th:text="${list.tmAbbreviation}">이젠</td>
-									<td th:text="${list.pyPositionAbbr}">RF</td>
-									<td th:text="${list.pyBirthDay}">2001.12.21</td>
-									<td th:text="${list.pyAge}">23</td>
-									<td th:text="${list.pyPitch} + ' / ' + ${list.pyBat}">좌투좌타</td>
-									<td class="game-player-result__hofpick">
-										<a href="https://예시링크.com" target="_blank" style="text-decoration: none; color: inherit;" th:if="${list.pyPositionAbbr != 'P'}">
-											<i class="fa-solid fa-baseball-bat-ball"></i>
-										</a>
-									</td>
+								<td th:text="${list.pyJersey}">47</td>
+								<td th:text="${list.pyActive == 1 ? 'Y' : 'N'}">Y</a></td>
+								<td class="pyFullName align-middle fw-semi-bold"><a th:href="@{/player/PlayerHofMain(pySeq=${list.pySeq})}" th:text="${list.pyFullName}"></a></td>
+								<td th:text="${list.tmAbbreviation}">이젠</td>
+								<td th:text="${list.pyPositionAbbr}">RF</td>
+								<td th:text="${list.pyBirthDay}">2001.12.21</td>
+								<td th:text="${list.pyAge}">23</td>
+								<td th:text="${list.pyPitch} + ' / ' + ${list.pyBat}">좌투좌타</td>
+								<td class="game-player-result__hofpick">
+									<a href="https://예시링크.com" target="_blank" style="text-decoration: none; color: inherit;" th:if="${list.pyPositionAbbr != 'P'}">
+										<i class="fa-solid fa-baseball-bat-ball"></i>
+									</a>
+								</td>
 							</tr>
+						</tbody>
 					</table>
 				</div>
 			</div>
+			</form>
+
 		</div>
 		<!-- Career Statistics / End -->
 
@@ -112,8 +116,22 @@
 		document.getElementById("btnSearch").onclick = function () {
 		    document.getElementById("searchForm").submit();
 		};
-	</script>		
 
+		
+		document.getElementById("btnReset").onclick = function () {
+		    window.location.href = "/player/PlayerHofSearch";
+		};
+	</script>		
+	
+	<script>
+		// goForm을 명시적으로 전역 함수로 선언
+		function goForm(keyValue) {
+		    seq.value = keyValue;
+		    form.action = "/player/PlayerHofMain";
+		    form.submit();
+		}
+	</script>
+		
 
 </body>
 </html>

@@ -118,6 +118,7 @@
 		from
 			player
 		where 1=1
+		ORDER BY pyPositionCode ASC
  	
  	</select>
  	
@@ -300,44 +301,42 @@
 	from 
 	player p left join team t ON p.team_tmSeq = t.tmSeq
 	where 1=1
-<!-- <include refid="selectCommon"/> -->
+ <include refid="selectCommon"/>
 	
 	</select>
 	
 	   <select id="selectOne" resultMap="resultMapObj">
    		SELECT	
-			tm.tmNameAb,
-			p.pyUse,
 			p.pySeq,
-		    p.pyGivenName,
-		    p.pyFamilyName,
-		    p.pyOriName,
-		    p.pyFamliyNameKor,
-		    p.pyGivenNameKor,
-		    p.pyOriNameKor,
-			p.nickName,
-		    p.birthday,
-		    p.homeTown,
-		    p.position,
-		    p.nationality,
-			p.throwHand,
-		    p.batHand,
-		    p.jerseyNumber,
-		    p.heightCm,
-		    p.heightFt,
-		    p.weightKg,
-		    p.weightLb,
-		    p.finalSchoolHistory,
-		    p.debut,
-		    p.Draft,
-		    p.status,
+		    p.pyFullName,
+		    p.pyFirstname,
+		    p.pyLastName,
+		    p.pyNameSlug,
+		    p.pyBirthDay,
+		    p.pyBirthCity,
+		    p.pyBirthCountry,
+		    p.pyHeight,
+		    p.pyWeight,
+		    p.pyBat,
+		    p.pyPitch,
+		    p.pyDebut,
+		    p.pyDelNy,
+		    p.pyNickName,
+		    p.pyBoxScoreName,
+		    p.pyAge,
+		    p.pyJersey,
+		    p.pyPhoto,
+		    p.pyPositionCode,
+		    p.pyPositionName,
+		    p.pyPositionAbbr,
+		    p.pyActive,
 		    p.pyRegTime,
 		    p.pyModTime,
-		    p.pyDelNy,
-		    p.team_tmSeq
+		    p.team_tmSeq,
+		    t.tmAbbreviation
 		 
-			from 
-			player p left join team tm ON p.team_tmSeq = tm.tmSeq
+			FROM 
+			player p left join team t on p.team_tmSeq = t.tmSeq
 			where 1=1		
 		    AND p.pySeq = #{pySeq}
    </select>
