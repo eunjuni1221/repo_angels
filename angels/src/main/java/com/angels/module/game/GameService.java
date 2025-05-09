@@ -14,5 +14,8 @@ public class GameService {
 	public List<GameDto> selectList(GameVo gameVo) {
 	return gameDao.selectList(gameVo);
 	}
+	public int selectOneCount(GameVo gameVo) {
+		return gameDao.selectOneCount(gameVo);
+	}
 	
 }

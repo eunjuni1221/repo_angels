@@ -13,10 +13,14 @@ public class GameController {
 		
 	@RequestMapping(value="/game/GameXdmList")
 	public String gameXdmList(Model model, GameVo vo) throws Exception{
-		setSearch(vo);
 		
+		vo.setParamsPaging(gameService.selectOneCount(vo));
+			
+		if(vo.getTotalRows() > 0) {
 		model.addAttribute("list", gameService.selectList(vo));
+		}
 		
+		model.addAttribute("vo", vo);
 		return "xdm/game/GameXdmList";
 	}
 
