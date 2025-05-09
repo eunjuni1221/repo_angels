@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angels.module.game.GameDao">
+
+<resultMap id="resultMapObj" type="com.angels.module.game.GameDto"></resultMap>
+
+<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			g.gmSeq,
+		    g.gmGuid,
+		    g.gmSeason,
+		    g.gmDate,
+		    g.gmOfDate,
+		    g.gmState,
+		    g.gmDeState,
+		    g.gmStatusCode,
+		    g.gmDayNight,
+		    g.gmScInnings,
+		    g.gmIsTie,
+		    g.gmSeriesDesc,
+		    g.gmDoubleheader,
+		    g.gmType,
+		    g.gmRegTime,
+		    g.gmModTime,
+		    g.venue_stSeq,
+		    g.homeTeam_tmSeq,
+		    g.awayTeam_tmSeq,
+		    v.stName,
+		    v.stCity,
+		    hm.tmName,
+		    hm.tmClubName,
+		    hm.tmAbbreviation,
+		    hm.tmLogoUrl,
+			aw.tmName,
+		    aw.tmClubName,
+		    aw.tmAbbreviation,
+		    aw.tmLogoUrl
+		   FROM game g
+		LEFT JOIN team hm ON g.homeTeam_tmSeq = hm.tmSeq
+		LEFT JOIN team aw ON g.awayTeam_tmSeq = aw.tmSeq
+		LEFT JOIN venue v ON g.venue_stSeq = v.stSeq
+		where 1=1
+</select>
+
+</mapper>

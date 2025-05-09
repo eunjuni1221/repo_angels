@@ -1,0 +1,18 @@
+package com.angels.module.game;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class GameService {
+	
+	@Autowired
+	GameDao gameDao;
+	
+	public List<GameDto> selectList(GameVo gameVo) {
+	return gameDao.selectList(gameVo);
+	}
+	
+}

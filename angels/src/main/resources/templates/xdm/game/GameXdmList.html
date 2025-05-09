@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	
+	<div th:replace="~{xdm/include/head :: head}"></div>
+	<form name="formList" id="formList" method="post" autocomplete="off">
+	  	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
+	  	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+		<input type="hidden" name="gmSeq"/>
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          <div class="container-fluid">
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6"><h3 class="mb-0">GAME</h3></div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Game</li>
+                </ol>
+              </div>
+            </div>
+            <!--end::Row-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid p-0">
+            <!-- Timelime example  -->
+            <div class="row">
+              <div class="col-12">
+                <!-- The icons -->
+                <div class="col-12">
+                  <div class="card card-primary card-outline" style="display: inline-block; width: 100%;">
+                    <div class="card-header"><h3 class="card-title">Game</h3></div>
+                    <div class="card-body"> 
+                     <!-- <div class="container-fluid">
+                        <div class="row row-cols-5 g-2">
+                          <div class="col">
+							<select id="shDelNy" name="shDelNy" class="form-select form-select-sm" style="width: 100%;">
+							  <option value="" th:selected="${vo.shDelNy == null}">삭제여부</option>
+							  <option value="1" th:selected="${vo.shDelNy == 1}">Y</option>
+							  <option value="0" th:selected="${vo.shDelNy == 0}">N</option>   
+							</select>
+                          </div>
+                          <div class="col">
+							<select name="shUseNy" id="shUseNy" class="form-select form-select-sm" style="width: 100%;">
+								<option value="" th:selected="${vo.shUseNy == null}">사용여부</option>
+								<option value="1" th:selected="${vo.shUseNy == 1}">Y</option>
+								<option value="0" th:selected="${vo.shUseNy == 0}">N</option>
+							</select>
+                          </div>
+                          <div class="col">
+							<select id="shOptionDate" name="shOptionDate" class="form-select form-select-sm" style="width: 100%;">
+								<option value="" th:selected="${vo.shOptionDate == null}">날짜</option>
+								<option value="1" th:selected="${vo.shOptionDate == 1}">등록일</option>
+								<option value="2" th:selected="${vo.shOptionDate == 2}">수정일</option>
+							</select>
+                          </div>
+						  <div class="col">
+						  <input type="text" id="shDateStart" name="shDateStart" th:value="${#strings.substring(vo.shDateStart, 0, 10)}" placeholder="시작일" class="form-control form-control-sm" autocomplete="off">
+						  </div>
+						  <div class="col">
+						    <input type="text" id="shDateEnd" name="shDateEnd" th:value="${#strings.substring(vo.shDateEnd, 0, 10)}" placeholder="종료일" class="form-control form-control-sm" autocomplete="off">
+						  </div>
+						  </div>
+						<div class="row row-cols-5 g-2 mt-0">		
+						  <div class="col">
+							<select id="shLeagueOption" name="shLeagueOption" class="form-select form-select-sm">  
+							<option value="">리그 선택</option>
+							<option th:selected="${list.cdSeq} ==${vo.shLeagueOption}" th:each="list : ${@codeService.selectListCachedCode(3)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+							</select>
+						  </div>
+						  <div class="col">
+							  <select id="shDivOption" name="shDivOption" class="form-select form-select-sm">  
+							  <option value="">리그 선택</option>
+							  <option th:selected="${list.cdSeq} ==${vo.shDivOption}" th:each="list : ${@codeService.selectListCachedCode(4)}" th:value="${list.cdSeq}" th:text="${list.cdName}"></option>
+							  </select>
+						  </div>
+						  <div class="col">
+						  <select id="shOption" name="shOption" class="form-select form-select-sm" style="width: 100%;">
+						  	<option value="" th:selected="${vo.shOption == null}">검색구분</option>
+						  	<option value="1" th:selected="${vo.shOption == 1}">코드 번호</option>
+						  	<option value="2" th:selected="${vo.shOption == 2}">팀 이름(연고지, 영문)</option>
+						  	<option value="3" th:selected="${vo.shOption == 3}">팀 이름(구단명, 영문)</option>
+						  	<option value="4" th:selected="${vo.shOption == 4}">팀 이름(연고지, 한글)</option>
+						  	<option value="5" th:selected="${vo.shOption == 5}">팀 이름(구단명, 한글)</option>
+						  	<option value="6" th:selected="${vo.shOption == 6}">팀 약어</option>
+						  </select>
+						  </div>    
+                          <div class="col">
+                            <input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" class="form-control form-control-sm" placeholder="검색어">
+                          </div>
+                          <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-light btn-sm" id="btnSearch">
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>                          
+                            <button type="button" class="btn btn-light btn-sm" id="btnRefresh">
+                              <i class="fa-solid fa-rotate-right"></i>
+                            </button>
+                          </div>                                           
+						</div>
+                      </div>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!--end::Container-->
+        </div>
+              <!-- 📌 테이블 추가 -->
+              <div class="border p-3 rounded shadow-sm bg-white mt-3" style="display: inline-block; width: 100%;">
+				<div class="d-flex justify-content-between align-items-center" th:fragment="totalAndRowNum">
+				  <h4 class="mb-0" th:text="'Total: '+${vo.totalRows}"></h4>
+                  
+                  <!-- 선택 박스 (기존 코드에 추가) -->
+				  <select class="form-select form-select-md" style="width: 200px;" id="changeRowNum" name="changeRowNum">
+				    <option value="5" th:selected="${vo.rowNumToShow eq 5}">5</option>
+				    <option value="10" th:selected="${vo.rowNumToShow eq 10}">10</option>
+				    <option value="30" th:selected="${vo.rowNumToShow eq 30}">30</option>
+				    <option value="50" th:selected="${vo.rowNumToShow eq 50}">50</option>
+				    <option value="80" th:selected="${vo.rowNumToShow eq 80}">80</option>
+				  <option value="100" th:selected="${vo.rowNumToShow eq 100}">100</option>
+				  </select>
+                </div>
+              
+                <table class="table table-bordered mt-2" style="width: 100%;">
+                  <thead class="table-light">
+                    <tr>
+                      <th><input type="checkbox" id="selectAll"></th>
+                      <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">SEQ <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">참가 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">삭제 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">풀네임 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">팀명 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">약어 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">연고지 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">코드 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">파일코드 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">창단연도 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">로고 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">dvSeq <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">디비전 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">lgSeq <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">리그 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">stSeq <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">경기장 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+					<tr th:if="${#lists.isEmpty(list)}">
+						<td colspan="21">
+							<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
+						</td>
+					</tr>
+					<tr th:if="${!#lists.isEmpty(list)}" th:each="list : ${list}">
+					  <td><input type="checkbox" class="row-checkbox"></td>
+					  <td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}"></td>
+					  <td th:text="${list.gmSeq}"></td>
+					  <td th:text="${list.gmGuid}"></td>
+					  <td th:text="${list.gmSeason}"></td>
+					  <td th:text="${list.gmDate}"></td>
+					  <td th:text="${list.gmOfDate}"></td>
+					  <td th:text="${list.gmState}"></td>
+					  <td th:text="${list.gmDeState}"></td>
+					  <td th:text="${list.gmStatusCode}"></td>
+					  <td th:text="${list.gmDayNight}"></td>
+					  <td th:text="${list.gmScInnings}"></td>
+					  <td th:text="${list.gmIsTie}"></td>
+					  <td th:text="${list.gmSeriesDesc}"></td>
+					  <td th:text="${list.gmDoubleheader}"></td>
+					  <td th:text="${list.gmType}"></td>
+					  <td th:text="${list.gmRegTime}"></td>
+					  <td th:text="${list.gmModTime}"></td>
+					  <td th:text="${list.venue_stSeq}"></td>
+					  <td th:text="${list.homeTeam_tmSeq}"></td>
+					  <td th:text="${list.awayTeam_tmSeq}"></td>
+					  <td th:text="${list.stName}"></td>
+					  <td th:text="${list.stCity}"></td>
+					  <td th:text="${list.tmName}"></td>
+					  <td th:text="${list.tmClubName}"></td>
+					  <td th:text="${list.tmAbbreviation}"></td>
+					  <td th:text="${list.tmLogoUrl}"></td>
+					  <td th:text="${list.tmName}"></td>
+					  <td th:text="${list.tmClubName}"></td>
+					  <td th:text="${list.tmAbbreviation}"></td>
+					  <td th:text="${list.tmLogoUrl}"></td>
+					</tr>
+                  </tbody>
+                </table>
+        
+                <!-- 페이지네이션 & 버튼 -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div class="d-flex gap-1">
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                  </div>
+                  
+				  <nav aria-label="Page navigation example">
+				    <ul class="pagination">
+				      <li th:if="${vo.startPage gt vo.pageNumToShow}" style="cursor: pointer;" class="page-item">
+				        <a class="page-link"href="javascript:goList(${vo.startPage - 1})" th:attr="onclick=|goList('${vo.startPage - 1}')|" aria-label="Previous">
+				          <span aria-hidden="true">&laquo;</span>
+				        </a>
+				      </li>
+				      <li th:each="num: ${#numbers.sequence(vo.startPage, vo.endPage)}" th:classappend="${num eq vo.thisPage} ? active : ''" class="page-item"  style="cursor: pointer;">
+				  	<a class="page-link" th:attr="onclick=|goList('${num}')|" th:text="${num}"><!--${i.index} --></a></li>
+				      <li th:if="${vo.endPage ne vo.totalPages}" class="page-item" style="cursor: pointer;">
+				        <a class="page-link" th:attr="onclick=|goList('${vo.endPage + 1}')|" aria-label="Next">
+				          <span aria-hidden="true">&raquo;</span>
+				        </a>
+				      </li>
+				    </ul>
+				  </nav>
+        
+                  <div class="d-flex gap-1">
+                    <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
+                    <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
+					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-primary" onclick="insertTeams()"><i class="fa fa-database"></i></button>                        
+				  </div>
+                </div>
+        
+              </div>
+              <!-- 📌 테이블 끝 -->
+        
+            </div>
+          </div>
+        </div>
+        <!--end::App Content-->
+      </main>
+	</form>
+      <!--end::App Main-->
+      <!--begin::Footer-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
+      integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ="
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="/xdm/template/AdminLTE/js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+	<script src="/xdm/jquery/jquery-3.7.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (sidebarWrapper && typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== 'undefined') {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+  document.getElementById("selectAll").addEventListener("change", function () {
+    let checkboxes = document.querySelectorAll(".row-checkbox");
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = this.checked;
+    });
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".sortable").forEach(header => {
+      header.addEventListener("click", function () {
+        const table = header.closest("table");
+        const tbody = table.querySelector("tbody");
+        const index = Array.from(header.parentNode.children).indexOf(header);
+        const order = header.dataset.order = -(header.dataset.order || -1);
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        
+        rows.sort((rowA, rowB) => {
+          const cellA = rowA.children[index].textContent.trim();
+          const cellB = rowB.children[index].textContent.trim();
+          return order * (isNaN(cellA - cellB) ? cellA.localeCompare(cellB) : cellA - cellB);
+        });
+        
+        tbody.append(...rows);
+        
+        table.querySelectorAll(".sortable i").forEach(icon => {
+          icon.className = "fa-solid fa-sort";
+        });
+        
+        const icon = header.querySelector("i");
+        icon.className = order === 1 ? "fa-solid fa-sort-up" : "fa-solid fa-sort-down";
+      });
+    });
+  });
+    </script>
+	<script>
+		let form = document.querySelector("form[name=formList]");
+		goList = function (thisPage) {
+		    document.querySelector("input[name=thisPage]").value = thisPage;
+		    form.action = "/game/GameXdmList";
+		    form.submit();
+		}
+	</script>
+	
+	<script>
+		document.getElementById("btnSearch").onclick = function () {
+		    form.action = "/game/GameXdmList";
+		    form.submit();
+		};
+	</script>
+	
+	<script>
+		document.getElementById("btnRefresh").onclick = function () {
+		    location = "/game/GameXdmList";
+		}			
+	</script>
+
+	<script>
+		document.getElementById("changeRowNum").onchange = function () {
+		    document.getElementById("rowNumToShow").value = document.getElementById("changeRowNum").value;
+		    form.action = "/game/GameXdmList";
+		    form.submit();
+		}			
+	</script>
+	
+	<script type="text/javascript">
+		let seq = document.querySelector("input[name=gmSeq]");
+		
+		document.getElementById("btnForm").onclick = function () {
+		    goForm(0);
+		}
+
+
+		goForm = function (keyValue) {
+		    seq.value = keyValue;
+		    form.action = "/team/TeamXdmForm";
+		    form.submit();
+		}		
+	</script>
+	
+	<script>
+	  function insertTeams() {
+	    if (confirm("MLB API로부터 팀 데이터를 가져와서 DB에 저장할까요?")) {
+	      fetch('/team/TeamXdmInst', {
+	        method: 'GET'
+	      })
+	      .then(response => {
+	        if (response.redirected) {
+	          // 컨트롤러에서 리다이렉트 → 팀 리스트로 이동
+	          window.location.href = response.url;
+	        } else {
+	          alert("등록이 완료되었습니다.");
+	        }
+	      })
+	      .catch(error => {
+	        alert("에러 발생: " + error);
+	      });
+	    }
+	  }
+	</script>
+
+    <!--end::OverlayScrollbars Configure-->
+    <!--end::Script-->
+<div th:replace="~{xdm/include/footer :: footer}"></div>
+
