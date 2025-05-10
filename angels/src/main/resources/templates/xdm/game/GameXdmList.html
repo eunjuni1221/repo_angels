@@ -238,7 +238,7 @@
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
 					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>
-					<button type="button" class="btn btn-primary" onclick="insertTeams()"><i class="fa fa-database"></i></button>                        
+					<button type="button" class="btn btn-primary" onclick="insertGames()"><i class="fa fa-database"></i></button>                        
 				  </div>
                 </div>
         
@@ -374,9 +374,9 @@
 	</script>
 	
 	<script>
-	  function insertTeams() {
-	    if (confirm("MLB API로부터 팀 데이터를 가져와서 DB에 저장할까요?")) {
-	      fetch('/team/TeamXdmInst', {
+	  function insertGames() {
+	    if (confirm("MLB API로부터 경기 데이터를 가져와서 DB에 저장할까요?")) {
+	      fetch('/game/GameXdmInst', {
 	        method: 'GET'
 	      })
 	      .then(response => {

@@ -53,5 +53,53 @@
 		where 1=1
 	
 	</select>
+	
+	<insert id="insert" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO game (
+	    gmSeq,
+	    gmGuid,
+	    gmSeason,
+	    gmDate,
+	    gmOfDate,
+	    gmState,
+	    gmDeState,
+	    gmStatusCode,
+	    gmDayNight,
+	    gmScInnings,
+	    gmIsTie,
+	    gmSeriesDesc,
+	    gmDoubleheader,
+	    gmType,
+	    gmRegTime,
+	    gmModTime,
+	    venue_stSeq,
+	    homeTeam_tmSeq,
+	    awayTeam_tmSeq
+	) VALUES (
+	    #{gmSeq},
+	    #{gmGuid},
+	    #{gmSeason},
+	    #{gmDate},
+	    #{gmOfDate},
+	    #{gmState},
+	    #{gmDeState},
+	    #{gmStatusCode},
+	    #{gmDayNight},
+	    #{gmScInnings},
+	    #{gmIsTie},
+	    #{gmSeriesDesc},
+	    #{gmDoubleheader},
+	    #{gmType},
+	    #{gmRegTime},
+	    #{gmModTime},
+	    #{venue_stSeq},       
+	    #{homeTeam_tmSeq},
+	    #{awayTeam_tmSeq}
+	)
+
+		<selectKey resultType= "String" keyProperty="gmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 
 </mapper>

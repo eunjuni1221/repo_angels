@@ -14,7 +14,7 @@ public class GameDto {
 	private Integer gmScInnings; 
 	private Integer gmIsTie; 
 	private String gmSeriesDesc; 
-	private Integer gmDoubleheader; 
+	private String gmDoubleheader; 
 	private String gmType; 
 	private String gmRegTime; 
 	private String gmModTime; 
@@ -102,10 +102,10 @@ public class GameDto {
 	public void setGmSeriesDesc(String gmSeriesDesc) {
 		this.gmSeriesDesc = gmSeriesDesc;
 	}
-	public Integer getGmDoubleheader() {
+	public String getGmDoubleheader() {
 		return gmDoubleheader;
 	}
-	public void setGmDoubleheader(Integer gmDoubleheader) {
+	public void setGmDoubleheader(String gmDoubleheader) {
 		this.gmDoubleheader = gmDoubleheader;
 	}
 	public String getGmType() {

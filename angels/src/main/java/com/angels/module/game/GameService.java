@@ -17,5 +17,8 @@ public class GameService {
 	public int selectOneCount(GameVo gameVo) {
 		return gameDao.selectOneCount(gameVo);
 	}
+	public int insert(GameDto gameDto) {
+		return gameDao.insert(gameDto);
+	}
 	
 }
