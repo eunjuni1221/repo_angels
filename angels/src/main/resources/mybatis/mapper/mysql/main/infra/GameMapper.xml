@@ -28,14 +28,14 @@
 		    g.awayTeam_tmSeq,
 		    v.stName,
 		    v.stCity,
-		    hm.tmName,
-		    hm.tmClubName,
-		    hm.tmAbbreviation,
-		    hm.tmLogoUrl,
-			aw.tmName,
-		    aw.tmClubName,
-		    aw.tmAbbreviation,
-		    aw.tmLogoUrl
+		    hm.tmName AS home_tmName,
+		    hm.tmClubName AS home_tmClubName,
+		    hm.tmAbbreviation AS home_tmAbbreviation,
+		    hm.tmLogoUrl AS home_tmLogoUrl,
+		    aw.tmName AS away_tmName,
+		    aw.tmClubName AS away_tmClubName,
+		    aw.tmAbbreviation AS away_tmAbbreviation,
+		    aw.tmLogoUrl AS away_tmLogoUrl
 		   FROM game g
 		LEFT JOIN team hm ON g.homeTeam_tmSeq = hm.tmSeq
 		LEFT JOIN team aw ON g.awayTeam_tmSeq = aw.tmSeq
@@ -97,9 +97,6 @@
 	    #{awayTeam_tmSeq}
 	)
 
-		<selectKey resultType= "String" keyProperty="gmSeq" order="AFTER">
-			SELECT last_insert_id()
-		</selectKey>
 	</insert>
 
 </mapper>

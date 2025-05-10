@@ -34,74 +34,71 @@ public class GameController {
 	}
 	
 	@RequestMapping("/game/GameXdmInst")
-	public String gameXdmInst() throws Exception {
-	    String apiUrl = "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2025";
-	    URL url = new URL(apiUrl);
-	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-	    conn.setRequestMethod("GET");
+    public String gameXdmInst() throws Exception {
+        String apiUrl = "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2025";
+        URL url = new URL(apiUrl);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
 
-	    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-	    StringBuilder response = new StringBuilder();
-	    String line;
-	    while ((line = reader.readLine()) != null) {
-	        response.append(line);
-	    }
-	    reader.close();
-	    conn.disconnect();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        StringBuilder response = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+        reader.close();
+        conn.disconnect();
 
-	    ObjectMapper mapper = new ObjectMapper();
-	    JsonNode root = mapper.readTree(response.toString());
-	    JsonNode dates = root.get("dates");
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(response.toString());
+        JsonNode dates = root.get("dates");
 
-	    for (JsonNode dateNode : dates) {
-	        JsonNode games = dateNode.get("games");
-	        for (JsonNode game : games) {
-	            JsonNode homeTeam = game.path("teams").path("home").path("team");
-	            JsonNode awayTeam = game.path("teams").path("away").path("team");
+        int totalCount = 0;
+        int successCount = 0;
 
-	            // ✅ MLB 팀 (AL/NL) 체크
-	            JsonNode homeLeague = game.path("teams").path("home").path("league");
-	            JsonNode awayLeague = game.path("teams").path("away").path("league");
+        for (JsonNode dateNode : dates) {
+            JsonNode games = dateNode.get("games");
+            for (JsonNode game : games) {
+                totalCount++;
 
-	            boolean isMLBHome = homeLeague.has("id") && 
-	                                (homeLeague.get("id").asInt() == 103 || homeLeague.get("id").asInt() == 104);
-	            boolean isMLBAway = awayLeague.has("id") && 
-	                                (awayLeague.get("id").asInt() == 103 || awayLeague.get("id").asInt() == 104);
+                GameDto dto = new GameDto();
 
-	            if (!isMLBHome || !isMLBAway) {
-	                continue; // MLB 리그(AL/NL) 아닌 팀 경기 skip
-	            }
+                dto.setGmSeq(game.get("gamePk").asText());
+                dto.setGmGuid(game.has("gameGuid") ? game.get("gameGuid").asText() : null);
+                dto.setGmSeason(game.get("season").asText());
+                dto.setGmDate(game.has("gameDate") ? game.get("gameDate").asText().replace("Z", "") : null);
+                dto.setGmOfDate(game.has("officialDate") ? game.get("officialDate").asText() : null);
+                dto.setGmState(game.path("status").path("abstractGameState").asText(null));
+                dto.setGmDeState(game.path("status").path("detailedState").asText(null));
+                dto.setGmStatusCode(game.path("status").path("statusCode").asText(null));
+                dto.setGmDayNight(game.path("dayNight").asText(null));
+                dto.setGmScInnings(game.has("scheduledInnings") ? game.get("scheduledInnings").asInt() : null);
+                dto.setGmIsTie(game.has("isTie") ? (game.get("isTie").asBoolean() ? 1 : 0) : 0);
+                dto.setGmSeriesDesc(game.path("seriesDescription").asText(null));
+                dto.setGmDoubleheader(game.has("doubleHeader") ? game.get("doubleHeader").asText() : null);
+                dto.setGmType(game.path("gameType").asText(null));
 
-	            GameDto dto = new GameDto();
+                dto.setVenue_stSeq(game.path("venue").path("id").asText(null));
+                dto.setHomeTeam_tmSeq(game.path("teams").path("home").path("team").path("id").asText(null));
+                dto.setAwayTeam_tmSeq(game.path("teams").path("away").path("team").path("id").asText(null));
 
-	            dto.setGmSeq(game.get("gamePk").asText());
-	            dto.setGmGuid(game.has("gameGuid") ? game.get("gameGuid").asText() : null);
-	            dto.setGmSeason(game.get("season").asText());
-	            dto.setGmDate(game.has("gameDate") ? game.get("gameDate").asText().replace("Z", "") : null);
-	            dto.setGmOfDate(game.has("officialDate") ? game.get("officialDate").asText() : null);
-	            dto.setGmState(game.path("status").path("abstractGameState").asText(null));
-	            dto.setGmDeState(game.path("status").path("detailedState").asText(null));
-	            dto.setGmStatusCode(game.path("status").path("statusCode").asText(null));
-	            dto.setGmDayNight(game.path("dayNight").asText(null));
-	            dto.setGmScInnings(game.has("scheduledInnings") ? game.get("scheduledInnings").asInt() : null);
-	            dto.setGmIsTie(game.has("isTie") ? (game.get("isTie").asBoolean() ? 1 : 0) : 0);
-	            dto.setGmSeriesDesc(game.path("seriesDescription").asText(null));
-	            dto.setGmDoubleheader(game.has("doubleHeader") ? game.get("doubleHeader").asText() : null);
-	            dto.setGmType(game.path("gameType").asText(null));
+                dto.setGmRegTime(LocalDateTime.now().toString());
+                dto.setGmModTime(LocalDateTime.now().toString());
 
-	            dto.setVenue_stSeq(game.path("venue").path("id").asText(null));
-	            dto.setHomeTeam_tmSeq(homeTeam.path("id").asText(null));
-	            dto.setAwayTeam_tmSeq(awayTeam.path("id").asText(null));
+                try {
+                    gameService.insert(dto);
+                    successCount++;
+                    System.out.println("✅ INSERT 성공: gamePk = " + dto.getGmSeq());
+                } catch (Exception e) {
+                    System.out.println("❌ INSERT 실패: gamePk = " + dto.getGmSeq() + ", error = " + e.getMessage());
+                }
+            }
+        }
 
-	            dto.setGmRegTime(LocalDateTime.now().toString());
-	            dto.setGmModTime(LocalDateTime.now().toString());
+        System.out.println("🏁 MLB 경기 수집 완료 | 총: " + totalCount + "개, 성공: " + successCount + "개");
 
-	            gameService.insert(dto);
-	        }
-	    }
-
-	    return "redirect:xdm/game/GameXdmList";
-	}
+        return "redirect:/game/GameXdmList";
+    }
 
 }
 
