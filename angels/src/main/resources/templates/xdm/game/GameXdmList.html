@@ -137,29 +137,40 @@
                       <th><input type="checkbox" id="selectAll"></th>
                       <th class="sortable"># <i class="fa-solid fa-sort"></i></th>
 					  <th class="sortable">SEQ <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">참가 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">삭제 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">풀네임 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">팀명 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">약어 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">연고지 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">코드 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">파일코드 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">창단연도 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">로고 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmGuid <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmSeason <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">gmDate <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">gmOfDate <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">gmState <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">gmDeState <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">gmStatusCode <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmDayNight <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmScInnings <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmIsTie <i class="fa-solid fa-sort"></i></th>
 					  <th class="sortable">dvSeq <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">디비전 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">lgSeq <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">리그 <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">stSeq <i class="fa-solid fa-sort"></i></th>
-					  <th class="sortable">경기장 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">등록일 <i class="fa-solid fa-sort"></i></th>
-                      <th class="sortable">수정일 <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmSeriesDesc <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmDoubleheader <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmType <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">venue_stSeq <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">stName <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">stCity <i class="fa-solid fa-sort"></i></th>
+                      <th class="sortable">homeTeam_tmSeq <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">tmName <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">tmClubName <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">tmAbbreviation <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">tmLogoUrl <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">awayTeam_tmSeq <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">tmName <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">tmClubName <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">tmAbbreviation <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">tmLogoUrl <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmRegTime <i class="fa-solid fa-sort"></i></th>
+					  <th class="sortable">gmModTime <i class="fa-solid fa-sort"></i></th>
                     </tr>
                   </thead>
                   <tbody>
 					<tr th:if="${#lists.isEmpty(list)}">
-						<td colspan="21">
+						<td colspan="32">
 							<p class="fs-0" style="padding-top: 20px; text-align: center;">NO DATA</p>
 						</td>
 					</tr>
@@ -180,21 +191,21 @@
 					  <td th:text="${list.gmSeriesDesc}"></td>
 					  <td th:text="${list.gmDoubleheader}"></td>
 					  <td th:text="${list.gmType}"></td>
-					  <td th:text="${list.gmRegTime}"></td>
-					  <td th:text="${list.gmModTime}"></td>
 					  <td th:text="${list.venue_stSeq}"></td>
-					  <td th:text="${list.homeTeam_tmSeq}"></td>
-					  <td th:text="${list.awayTeam_tmSeq}"></td>
 					  <td th:text="${list.stName}"></td>
 					  <td th:text="${list.stCity}"></td>
+					  <td th:text="${list.homeTeam_tmSeq}"></td>
 					  <td th:text="${list.tmName}"></td>
 					  <td th:text="${list.tmClubName}"></td>
 					  <td th:text="${list.tmAbbreviation}"></td>
 					  <td th:text="${list.tmLogoUrl}"></td>
+					  <td th:text="${list.awayTeam_tmSeq}"></td>					  
 					  <td th:text="${list.tmName}"></td>
 					  <td th:text="${list.tmClubName}"></td>
 					  <td th:text="${list.tmAbbreviation}"></td>
 					  <td th:text="${list.tmLogoUrl}"></td>
+					  <td th:text="${list.gmRegTime}"></td>
+					  <td th:text="${list.gmModTime}"></td>
 					</tr>
                   </tbody>
                 </table>
