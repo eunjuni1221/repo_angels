@@ -41,6 +41,8 @@
 		LEFT JOIN team aw ON g.awayTeam_tmSeq = aw.tmSeq
 		LEFT JOIN venue v ON g.venue_stSeq = v.stSeq
 		where 1=1
+		limit #{rowNumToShow} offset #{startRnumForMysql}	
+		
 </select>
 
 	<select id="selectOneCount" resultType="Integer">
