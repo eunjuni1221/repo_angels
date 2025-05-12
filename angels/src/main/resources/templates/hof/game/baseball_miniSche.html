@@ -70,7 +70,7 @@
 			  <button class="nav-date-btn" id="prevButton" title="이전 날짜">
 			    <i class="fas fa-angle-left"></i>
 			  </button>
-			  <button class="nav-date-main btn btn-light shadow-sm px-4 py-2 mx-3" id="dateButton">
+			  <button class="nav-date-main btn btn-light shadow-sm px-4 py-2 mx-3" id="dateButton" name="dateButton">
 			    2025-03-08 <i class="far fa-calendar-alt ml-2"></i>
 			  </button>
 			  <button class="nav-date-btn" id="nextButton" title="다음 날짜">
@@ -93,6 +93,8 @@
 												<th class="team-result__date">날짜</th>
 												<th class="team-result__vs">경기</th>
 												<th class="team-result__outcome">시간</th>
+												<th class="team-result__outcome">상태</th>
+												<th class="team-result__outcome">상세</th>
 												<th class="team-result__mvp">경기장</th>
 												<th class="team-result__stats">기록</th>
 												<th class="team-result__stats">HOF PICK</th>
@@ -132,9 +134,9 @@
 														</div>
 													</div>
 												</td>		
-												<td class="team-result__outcome" th:text="${#strings.substring(list.gmDate, 10, 16)}">
-													
-												</td>
+												<td class="team-result__outcome" th:text="${#strings.substring(list.gmDate, 10, 16)}"></td>
+												<td class="team-result__outcome" th:text="${list.gmState}"></td>
+												<td class="team-result__outcome" th:text="${list.gmDeState}"></td>
 												<td class="team-result__mvp">
 													<ul class="alc-match-player-info">
 														<li class="alc-match-player-info__item" th:text="${list.stName}">C. Starkson</li>
@@ -157,6 +159,31 @@
 		<!-- Content / End -->
 		<div th:replace="~{hof/include/hofFooter :: footer}"></div>		
 		<div th:replace="~{hof/include/hofJs :: js}"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+
+<script>
+	jQuery.datetimepicker.setLocale('ko');
+
+	jQuery('#dateButton').datetimepicker({
+	 i18n:{
+	  de:{
+	   months:[
+	    '1월','2월','3월','4월',
+	    '5월','6월','7월','8월',
+	    '9월','10월','11월','12월',
+	   ],
+	   dayOfWeek:[
+	    "일.", "월", "화", "수",
+	    "목", "금", "토.",
+	   ]
+	  }
+	 },
+	 timepicker:false,
+	 format:'Y.m.d'
+	});
+
+</script>
+
 
 </body>
 </html>
