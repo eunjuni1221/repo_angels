@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"><head>
+
+<div th:replace="~{hof/include/hofHead :: head(activeMenu='MLB')}"></div>
+<style>	
+	.nav-date-btn {
+	  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+	  border: 1px solid #ced4da;
+	  color: #495057;
+	  font-size: 1.25rem;
+	  width: 40px;
+	  height: 40px;
+	  border-radius: 50%;
+	  transition: all 0.2s ease-in-out;
+	  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+	}
+
+	.nav-date-btn:hover {
+	  background: #6C4DEE;
+	  color: white;
+	  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+	  transform: translateY(-2px);
+	}
+
+	.nav-date-main {
+	  font-weight: 500;
+	  font-size: 1rem;
+	  border-radius: 50px;
+	  background-color: #f8f9fa !important;  /* 배경 고정 */
+	  color: #212529 !important;            /* 글자색 고정 */
+	  border: 1px solid #dee2e6;
+	  transition: box-shadow 0.3s ease;
+	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	}
+
+	.nav-date-main:hover,
+	.nav-date-main:focus,
+	.nav-date-main:active {
+	  background-color: #f8f9fa !important;
+	  color: #212529 !important;
+	  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	  text-decoration: none;
+	  outline: none;
+	}
+
+</style>
+
+		<!-- Search Panel / End -->
+
+		<!-- Page Heading
+		================================================== -->
+		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-6">
+						<div class="page-heading__inner page-heading__inner--highlight">
+							<h1 class="page-heading__title">스케쥴</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page Heading / End -->
+		
+		
+		<!-- Content
+		================================================== -->
+		<div class="site-content">
+			<div class="date-container d-flex justify-content-center align-items-center mb-4">
+			  <button class="nav-date-btn" id="prevButton" title="이전 날짜">
+			    <i class="fas fa-angle-left"></i>
+			  </button>
+			  <button class="nav-date-main btn btn-light shadow-sm px-4 py-2 mx-3" id="dateButton">
+			    2025-03-08 <i class="far fa-calendar-alt ml-2"></i>
+			  </button>
+			  <button class="nav-date-btn" id="nextButton" title="다음 날짜">
+			    <i class="fas fa-angle-right"></i>
+			  </button>
+			</div>
+			<div class="container">		
+				<div class="row">
+					<div class="col-lg-12">
+						<!-- Team Latest Results -->
+						<div class="card card--has-table">
+							<div class="card__header">
+								<h4>지난 경기결과</h4>
+							</div>
+							<div class="card__content">
+								<div class="table-responsive">
+									<table class="table table-hover table-thead-color team-result">
+										<thead>
+											<tr>
+												<th class="team-result__date">날짜</th>
+												<th class="team-result__vs">경기</th>
+												<th class="team-result__outcome">시간</th>
+												<th class="team-result__mvp">경기장</th>
+												<th class="team-result__stats">기록</th>
+												<th class="team-result__stats">HOF PICK</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="list : ${list}">
+												<td class="team-result__date" th:text="${#strings.substring(list.gmDate, 0, 10)}">03/08</td>
+												<td class="team-result__vs">
+													<div class="team-result__teams-wrapper">
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img th:src="${list.away_tmLogoUrl}" alt="" style="width: 30px; height: 30px;">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name" th:text="${list.away_tmAbbreviation}">SRK</h6>
+																<span class="team-meta__place">( 22 - 36 - 4 ) (1위)</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<!-- Team -->
+														<div class="team-meta">
+															<figure class="team-meta__logo team-meta__logo--sm">
+																<img th:src="${list.home_tmLogoUrl}" alt="" style="width: 30px; height: 30px;">
+															</figure>
+															<div class="team-meta__info">
+																<h6 class="team-meta__name" th:text="${list.home_tmAbbreviation}">ALC</h6>
+																<span class="team-meta__place">( 32 - 27 - 8 )</span>
+															</div>
+														</div>
+														<!-- Team / End -->
+														<div class="team-result__teams-score">
+															<span class="team-result__score ">2</span>
+															&nbsp;&nbsp;-&nbsp;&nbsp;
+															<span class="team-result__score team-result__score--win">4</span>															
+														</div>
+													</div>
+												</td>		
+												<td class="team-result__outcome" th:text="${#strings.substring(list.gmDate, 10, 16)}">
+													
+												</td>
+												<td class="team-result__mvp">
+													<ul class="alc-match-player-info">
+														<li class="alc-match-player-info__item" th:text="${list.stName}">C. Starkson</li>
+													</ul>
+												</td>
+												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+												<td class="team-result__stats"><a href="#"><i class="fa-solid fa-baseball-bat-ball"></i></a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- Team Latest Results / End -->		
+					</div>		
+				</div>		
+			</div>
+		</div>
+		
+		<!-- Content / End -->
+		<div th:replace="~{hof/include/hofFooter :: footer}"></div>		
+		<div th:replace="~{hof/include/hofJs :: js}"></div>
+
+</body>
+</html>

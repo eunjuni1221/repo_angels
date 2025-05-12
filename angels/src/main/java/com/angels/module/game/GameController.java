@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,71 +37,94 @@ public class GameController extends BaseController{
 	}
 	
 	@RequestMapping("/game/GameXdmInst")
-    public String gameXdmInst() throws Exception {
-        String apiUrl = "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2025";
-        URL url = new URL(apiUrl);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
+	public String gameXdmInst() throws Exception {
+	    String apiUrl = "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2025";
+	    URL url = new URL(apiUrl);
+	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	    conn.setRequestMethod("GET");
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        StringBuilder response = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            response.append(line);
-        }
-        reader.close();
-        conn.disconnect();
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	    StringBuilder response = new StringBuilder();
+	    String line;
+	    while ((line = reader.readLine()) != null) {
+	        response.append(line);
+	    }
+	    reader.close();
+	    conn.disconnect();
 
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(response.toString());
-        JsonNode dates = root.get("dates");
+	    ObjectMapper mapper = new ObjectMapper();
+	    JsonNode root = mapper.readTree(response.toString());
+	    JsonNode dates = root.get("dates");
 
-        int totalCount = 0;
-        int successCount = 0;
+	    int totalCount = 0;
+	    int successCount = 0;
 
-        for (JsonNode dateNode : dates) {
-            JsonNode games = dateNode.get("games");
-            for (JsonNode game : games) {
-                totalCount++;
+	    for (JsonNode dateNode : dates) {
+	        JsonNode games = dateNode.get("games");
+	        for (JsonNode game : games) {
+	            totalCount++;
 
-                GameDto dto = new GameDto();
+	            // ✅ 정규시즌만 필터링
+	            String gameType = game.path("gameType").asText("");
+	            if (!"R".equals(gameType)) {
+	                continue;
+	            }
 
-                dto.setGmSeq(game.get("gamePk").asText());
-                dto.setGmGuid(game.has("gameGuid") ? game.get("gameGuid").asText() : null);
-                dto.setGmSeason(game.get("season").asText());
-                dto.setGmDate(game.has("gameDate") ? game.get("gameDate").asText().replace("Z", "") : null);
-                dto.setGmOfDate(game.has("officialDate") ? game.get("officialDate").asText() : null);
-                dto.setGmState(game.path("status").path("abstractGameState").asText(null));
-                dto.setGmDeState(game.path("status").path("detailedState").asText(null));
-                dto.setGmStatusCode(game.path("status").path("statusCode").asText(null));
-                dto.setGmDayNight(game.path("dayNight").asText(null));
-                dto.setGmScInnings(game.has("scheduledInnings") ? game.get("scheduledInnings").asInt() : null);
-                dto.setGmIsTie(game.has("isTie") ? (game.get("isTie").asBoolean() ? 1 : 0) : 0);
-                dto.setGmSeriesDesc(game.path("seriesDescription").asText(null));
-                dto.setGmDoubleheader(game.has("doubleHeader") ? game.get("doubleHeader").asText() : null);
-                dto.setGmType(game.path("gameType").asText(null));
+	            // ✅ 경기 시간 KST로 변환
+	            String gmDateUtc = game.path("gameDate").asText(null); // UTC 시간
+	            String gmDateKst = null;
+	            if (gmDateUtc != null) {
+	                Instant instant = Instant.parse(gmDateUtc);
+	                LocalDateTime kstTime = instant.atZone(ZoneId.of("Asia/Seoul")).toLocalDateTime();
+	                gmDateKst = kstTime.toString(); // yyyy-MM-ddTHH:mm:ss
+	            }
 
-                dto.setVenue_stSeq(game.path("venue").path("id").asText(null));
-                dto.setHomeTeam_tmSeq(game.path("teams").path("home").path("team").path("id").asText(null));
-                dto.setAwayTeam_tmSeq(game.path("teams").path("away").path("team").path("id").asText(null));
+	            GameDto dto = new GameDto();
 
-                dto.setGmRegTime(LocalDateTime.now().toString());
-                dto.setGmModTime(LocalDateTime.now().toString());
+	            dto.setGmSeq(game.get("gamePk").asText());
+	            dto.setGmGuid(game.has("gameGuid") ? game.get("gameGuid").asText() : null);
+	            dto.setGmSeason(game.get("season").asText());
+	            dto.setGmDate(gmDateKst); // ✅ 한국 시간으로 세팅
+	            dto.setGmOfDate(game.has("officialDate") ? game.get("officialDate").asText() : null);
+	            dto.setGmState(game.path("status").path("abstractGameState").asText(null));
+	            dto.setGmDeState(game.path("status").path("detailedState").asText(null));
+	            dto.setGmStatusCode(game.path("status").path("statusCode").asText(null));
+	            dto.setGmDayNight(game.path("dayNight").asText(null));
+	            dto.setGmScInnings(game.has("scheduledInnings") ? game.get("scheduledInnings").asInt() : null);
+	            dto.setGmIsTie(game.has("isTie") ? (game.get("isTie").asBoolean() ? 1 : 0) : 0);
+	            dto.setGmSeriesDesc(game.path("seriesDescription").asText(null));
+	            dto.setGmDoubleheader(game.has("doubleHeader") ? game.get("doubleHeader").asText() : null);
+	            dto.setGmType(gameType);
 
-                try {
-                    gameService.insert(dto);
-                    successCount++;
-                    System.out.println("✅ INSERT 성공: gamePk = " + dto.getGmSeq());
-                } catch (Exception e) {
-                    System.out.println("❌ INSERT 실패: gamePk = " + dto.getGmSeq() + ", error = " + e.getMessage());
-                }
-            }
-        }
+	            dto.setVenue_stSeq(game.path("venue").path("id").asText(null));
+	            dto.setHomeTeam_tmSeq(game.path("teams").path("home").path("team").path("id").asText(null));
+	            dto.setAwayTeam_tmSeq(game.path("teams").path("away").path("team").path("id").asText(null));
 
-        System.out.println("🏁 MLB 경기 수집 완료 | 총: " + totalCount + "개, 성공: " + successCount + "개");
+	            dto.setGmRegTime(LocalDateTime.now().toString());
+	            dto.setGmModTime(LocalDateTime.now().toString());
 
-        return "redirect:/game/GameXdmList";
-    }
+	            try {
+	                gameService.insert(dto);
+	                successCount++;
+	                System.out.println("✅ INSERT 성공: gamePk = " + dto.getGmSeq());
+	            } catch (Exception e) {
+	                System.out.println("❌ INSERT 실패: gamePk = " + dto.getGmSeq() + ", error = " + e.getMessage());
+	            }
+	        }
+	    }
+
+	    System.out.println("🏁 MLB 정규시즌 경기 수집 완료 | 총: " + totalCount + "개 중 성공: " + successCount + "개");
+
+	    return "redirect:/game/GameXdmList";
+	}
+
+	
+	@RequestMapping("/game/GameHofMinList")
+	public String gameHofMinList(Model model) {
+		model.addAttribute("list", gameService.selectHofList());
+		
+		return "hof/game/baseball_miniSche";
+	}
 
 }
 

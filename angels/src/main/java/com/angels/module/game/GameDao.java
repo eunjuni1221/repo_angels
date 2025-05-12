@@ -7,4 +7,5 @@ public interface GameDao {
 	public List<GameDto> selectList(GameVo gameVo);
 	public int selectOneCount(GameVo gameVo);
 	public int insert(GameDto gameDto);
+	public List<GameDto> selectHofList();
 }

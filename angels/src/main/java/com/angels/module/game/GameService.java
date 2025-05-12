@@ -12,7 +12,7 @@ public class GameService {
 	GameDao gameDao;
 	
 	public List<GameDto> selectList(GameVo gameVo) {
-	return gameDao.selectList(gameVo);
+		return gameDao.selectList(gameVo);
 	}
 	public int selectOneCount(GameVo gameVo) {
 		return gameDao.selectOneCount(gameVo);
@@ -20,5 +20,7 @@ public class GameService {
 	public int insert(GameDto gameDto) {
 		return gameDao.insert(gameDto);
 	}
-	
+	public List<GameDto> selectHofList(){
+		return gameDao.selectHofList();
+	}
 }
