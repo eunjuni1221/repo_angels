@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<tr th:if="${#lists.isEmpty(list)}">
+	<td colspan="8">
+		<p class="fs-0" style="padding-top: 20px; text-align: center;">NO GAME</p>
+	</td>
+</tr>
+<tr th:each="list : ${list}" th:if="${!#lists.isEmpty(list)}">
+	<td class="team-result__date" th:text="${#strings.substring(list.gmDate, 0, 10)}">03/08</td>
+	<td class="team-result__vs">
+		<div class="team-result__teams-wrapper">
+			<!-- Team -->
+			<div class="team-meta">
+				<figure class="team-meta__logo team-meta__logo--sm">
+					<img th:src="${list.away_tmLogoUrl}" alt="" style="width: 30px; height: 30px;">
+				</figure>
+				<div class="team-meta__info">
+					<h6 class="team-meta__name" th:text="${list.away_tmAbbreviation}">SRK</h6>
+					<span class="team-meta__place">( 22 - 36 - 4 ) (1위)</span>
+				</div>
+			</div>
+			<!-- Team / End -->
+			<!-- Team -->
+			<div class="team-meta">
+				<figure class="team-meta__logo team-meta__logo--sm">
+					<img th:src="${list.home_tmLogoUrl}" alt="" style="width: 30px; height: 30px;">
+				</figure>
+				<div class="team-meta__info">
+					<h6 class="team-meta__name" th:text="${list.home_tmAbbreviation}">ALC</h6>
+					<span class="team-meta__place">( 32 - 27 - 8 )</span>
+				</div>
+			</div>
+			<!-- Team / End -->
+			<div class="team-result__teams-score">
+				<span class="team-result__score ">2</span>
+				&nbsp;&nbsp;-&nbsp;&nbsp;
+				<span class="team-result__score team-result__score--win">4</span>															
+			</div>
+		</div>
+	</td>		
+	<td class="team-result__outcome" th:text="${#strings.substring(list.gmDate, 10, 16)}"></td>
+	<td class="team-result__outcome" th:text="${list.gmState}"></td>
+	<td class="team-result__outcome" th:text="${list.gmDeState}"></td>
+	<td class="team-result__mvp">
+		<ul class="alc-match-player-info">
+			<li class="alc-match-player-info__item" th:text="${list.stName}">C. Starkson</li>
+		</ul>
+	</td>
+	<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
+	<td class="team-result__stats"><a href="#"><i class="fa-solid fa-baseball-bat-ball"></i></a></td>
+</tr>
+</html>

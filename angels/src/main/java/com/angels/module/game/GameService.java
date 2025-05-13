@@ -20,7 +20,7 @@ public class GameService {
 	public int insert(GameDto gameDto) {
 		return gameDao.insert(gameDto);
 	}
-	public List<GameDto> selectHofList(){
-		return gameDao.selectHofList();
+	public List<GameDto> selectHofList(GameDto gameDto){
+		return gameDao.selectHofList(gameDto);
 	}
 }

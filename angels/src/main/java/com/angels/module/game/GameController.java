@@ -8,10 +8,12 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.angels.module.Base.BaseController;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -119,11 +121,16 @@ public class GameController extends BaseController{
 	}
 
 	
+	
 	@RequestMapping("/game/GameHofMinList")
-	public String gameHofMinList(Model model) {
-		model.addAttribute("list", gameService.selectHofList());
-		
+	public String gameHofMinList() {
 		return "hof/game/baseball_miniSche";
+	}
+	
+	@RequestMapping("/game/GameHofMinListProc")
+	public String gameHofMinListProc(Model model, GameDto dto) {
+		model.addAttribute("list", gameService.selectHofList(dto));
+		return "hof/game/baseball_miniScheTwo";
 	}
 
 }

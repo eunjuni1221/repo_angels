@@ -67,13 +67,11 @@
 		================================================== -->
 		<div class="site-content">
 			<div class="date-container d-flex justify-content-center align-items-center mb-4">
-			  <button class="nav-date-btn" id="prevButton" title="이전 날짜">
+			  <button class="nav-date-btn" id="prevButton" title="이전 날짜" value="0" onclick="changeDay(this)">
 			    <i class="fas fa-angle-left"></i>
 			  </button>
-			  <button class="nav-date-main btn btn-light shadow-sm px-4 py-2 mx-3" id="dateButton" name="dateButton">
-			    2025-03-08 <i class="far fa-calendar-alt ml-2"></i>
-			  </button>
-			  <button class="nav-date-btn" id="nextButton" title="다음 날짜">
+			  <input class="nav-date-main btn btn-light shadow-sm px-4 py-2 mx-3" id="dateButton" name="dateButton" onchange="dateList()"/>
+			  <button class="nav-date-btn" id="nextButton" title="다음 날짜" value="1" onclick="changeDay(this)">
 			    <i class="fas fa-angle-right"></i>
 			  </button>
 			</div>
@@ -100,51 +98,8 @@
 												<th class="team-result__stats">HOF PICK</th>
 											</tr>
 										</thead>
-										<tbody>
-											<tr th:each="list : ${list}">
-												<td class="team-result__date" th:text="${#strings.substring(list.gmDate, 0, 10)}">03/08</td>
-												<td class="team-result__vs">
-													<div class="team-result__teams-wrapper">
-														<!-- Team -->
-														<div class="team-meta">
-															<figure class="team-meta__logo team-meta__logo--sm">
-																<img th:src="${list.away_tmLogoUrl}" alt="" style="width: 30px; height: 30px;">
-															</figure>
-															<div class="team-meta__info">
-																<h6 class="team-meta__name" th:text="${list.away_tmAbbreviation}">SRK</h6>
-																<span class="team-meta__place">( 22 - 36 - 4 ) (1위)</span>
-															</div>
-														</div>
-														<!-- Team / End -->
-														<!-- Team -->
-														<div class="team-meta">
-															<figure class="team-meta__logo team-meta__logo--sm">
-																<img th:src="${list.home_tmLogoUrl}" alt="" style="width: 30px; height: 30px;">
-															</figure>
-															<div class="team-meta__info">
-																<h6 class="team-meta__name" th:text="${list.home_tmAbbreviation}">ALC</h6>
-																<span class="team-meta__place">( 32 - 27 - 8 )</span>
-															</div>
-														</div>
-														<!-- Team / End -->
-														<div class="team-result__teams-score">
-															<span class="team-result__score ">2</span>
-															&nbsp;&nbsp;-&nbsp;&nbsp;
-															<span class="team-result__score team-result__score--win">4</span>															
-														</div>
-													</div>
-												</td>		
-												<td class="team-result__outcome" th:text="${#strings.substring(list.gmDate, 10, 16)}"></td>
-												<td class="team-result__outcome" th:text="${list.gmState}"></td>
-												<td class="team-result__outcome" th:text="${list.gmDeState}"></td>
-												<td class="team-result__mvp">
-													<ul class="alc-match-player-info">
-														<li class="alc-match-player-info__item" th:text="${list.stName}">C. Starkson</li>
-													</ul>
-												</td>
-												<td class="team-result__stats"><a href="#"><i class="alc-icon alc-icon--chart"></i></a></td>
-												<td class="team-result__stats"><a href="#"><i class="fa-solid fa-baseball-bat-ball"></i></a></td>
-											</tr>
+										<tbody id="trtr">
+											
 										</tbody>
 									</table>
 								</div>
@@ -164,24 +119,80 @@
 <script>
 	jQuery.datetimepicker.setLocale('ko');
 
-	jQuery('#dateButton').datetimepicker({
-	 i18n:{
-	  de:{
-	   months:[
-	    '1월','2월','3월','4월',
-	    '5월','6월','7월','8월',
-	    '9월','10월','11월','12월',
-	   ],
-	   dayOfWeek:[
-	    "일.", "월", "화", "수",
-	    "목", "금", "토.",
-	   ]
-	  }
-	 },
+	$('#dateButton').datetimepicker({
 	 timepicker:false,
-	 format:'Y.m.d'
+	 format:'Y-m-d',
+	 scrollInput:false
 	});
 
+</script>
+
+<script>
+	document.getElementById('dateButton').value = new Date().toISOString().substring(0, 10);
+	
+	function dateList(){
+		$.ajax({
+		    async: true,
+		    cache: false,
+		    type: "post",
+		    url: "/game/GameHofMinListProc",
+		    data: {
+		        "gmDate": $("#dateButton").val() // 왼쪽 자바단 변수, 우측이 html 				
+		    },
+		    success: function (response) {
+				$("#trtr").html(response);
+		    },
+		    error: function (jqXHR, textStatus, errorThrown) {
+		        alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		    }
+		});
+	}	
+	 dateList();
+	 
+	function changeDay(button){
+		let date = [];
+		let dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		date = $("#dateButton").val().split("-");
+		
+		let year = Number(date[0]);
+		let month = Number(date[1]);
+		let day = Number(date[2]);
+		
+		
+		if($(button).val() == 1) {
+			let maxDate;
+			
+			if(month == 2) {				
+				if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+					maxDate = 29;
+				} else {
+					maxDate = dateOfMonth[month - 1];
+				}
+			} else {
+				maxDate = dateOfMonth[month - 1];
+			}
+			
+			if(day + 1 > maxDate) {
+				if(month == 12) {
+					year++;
+					month = 1;
+				} else {
+					month++;
+				}
+				day = 1;
+			} else {
+				day++;
+			}
+			
+		} else {
+			
+		}
+		let text = year + "-" + month.toString().padStart(2, '0') + "-" + day.toString().padStart(2, '0');
+		$("#dateButton").val(text);
+		dateList();
+	
+	}	
+	 
 </script>
 
 
