@@ -151,49 +151,65 @@
 	 
 	function changeDay(button){
 		let date = [];
-		let dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-		date = $("#dateButton").val().split("-");
-		
-		let year = Number(date[0]);
-		let month = Number(date[1]);
-		let day = Number(date[2]);
-		
-		
-		if($(button).val() == 1) {
-			let maxDate;
-			
-			if(month == 2) {				
-				if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-					maxDate = 29;
+			let dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			date = $("#dateButton").val().split("-");
+
+			let year = Number(date[0]);
+			let month = Number(date[1]);
+			let day = Number(date[2]);
+
+			if ($(button).val() == 1) {
+				let maxDate;
+
+				if (month == 2) {
+					if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+						maxDate = 29;
+					} else {
+						maxDate = dateOfMonth[month - 1];
+					}
 				} else {
 					maxDate = dateOfMonth[month - 1];
 				}
-			} else {
-				maxDate = dateOfMonth[month - 1];
-			}
-			
-			if(day + 1 > maxDate) {
-				if(month == 12) {
-					year++;
-					month = 1;
+
+				if (day + 1 > maxDate) {
+					if (month == 12) {
+						year++;
+						month = 1;
+					} else {
+						month++;
+					}
+					day = 1;
 				} else {
-					month++;
+					day++;
 				}
-				day = 1;
-			} else {
-				day++;
+			} 
+			
+			else if ($(button).val() == 0) {
+				if (day - 1 < 1) {
+					if (month == 1) {
+						year--;
+						month = 12;
+					} else {
+						month--;
+					}
+
+					if (month == 2) {
+						if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+							day = 29;
+						} else {
+							day = dateOfMonth[month - 1];
+						}
+					} else {
+						day = dateOfMonth[month - 1];
+					}
+				} else {
+					day--;
+				}
 			}
-			
-		} else {
-			
-		}
-		let text = year + "-" + month.toString().padStart(2, '0') + "-" + day.toString().padStart(2, '0');
-		$("#dateButton").val(text);
-		dateList();
-		
-		if($(button).val() == 0){
-			
-		}
+
+			let text = year + "-" + month.toString().padStart(2, '0') + "-" + day.toString().padStart(2, '0');
+			$("#dateButton").val(text);
+			dateList();
 	}	
 	 
 </script>
