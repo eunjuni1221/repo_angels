@@ -8,4 +8,5 @@ public interface GameDao {
 	public int selectOneCount(GameVo gameVo);
 	public int insert(GameDto gameDto);
 	public List<GameDto> selectHofList(GameDto gameDto);
+	public int insertLineScore(GameDto gameDto);
 }

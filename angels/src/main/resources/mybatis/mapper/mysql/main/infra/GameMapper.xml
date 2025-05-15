@@ -141,4 +141,25 @@
 		
 </select>
 
+<insert id="insertLineScore" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO gamelinescore (
+		
+		lsInning,
+		lsHomeScore,
+		lsAwayScore,
+		lsRegTime,
+		lsModTime,
+		game_gmSeq
+		
+	) VALUES (
+	    #{lsInning},
+	    #{lsHomeScore},
+	    #{lsAwayScore},
+	    #{lsRegTime},
+	    #{lsModTime},
+	    #{game_gmSeq}
+	)
+</insert>
+
+
 </mapper>

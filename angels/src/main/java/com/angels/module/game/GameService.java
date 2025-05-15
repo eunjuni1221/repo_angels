@@ -23,4 +23,7 @@ public class GameService {
 	public List<GameDto> selectHofList(GameDto gameDto){
 		return gameDao.selectHofList(gameDto);
 	}
+	public int insertLineScore(GameDto gameDto) {
+		return gameDao.insertLineScore(gameDto);
+	}
 }

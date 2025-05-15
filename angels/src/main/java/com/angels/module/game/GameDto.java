@@ -1,7 +1,8 @@
 package com.angels.module.game;
 
 public class GameDto {
-
+	
+	// game 테이블
 	private String gmSeq;  
 	private String gmGuid; 
 	private String gmSeason; 
@@ -23,6 +24,7 @@ public class GameDto {
 	private String homeTeam_tmSeq; 
 	private String awayTeam_tmSeq;
 	
+	// game 테이블 LEFT JOIN
 	private String stName;
 	private String stCity;
 	private String tmName;
@@ -38,6 +40,15 @@ public class GameDto {
 	private String away_tmClubName;
 	private String away_tmAbbreviation;
 	private String away_tmLogoUrl;
+	
+	// gamelinescore 테이블
+	private String lsSeq;
+	private Integer lsInning;
+	private Integer lsHomeScore;
+	private Integer lsAwayScore;
+	private String lsRegTime;
+	private String lsModTime;
+	private String game_gmSeq;
 
 	
 	public String getGmSeq() {
@@ -237,6 +248,48 @@ public class GameDto {
 	}
 	public void setAway_tmLogoUrl(String away_tmLogoUrl) {
 		this.away_tmLogoUrl = away_tmLogoUrl;
+	}
+	public String getLsSeq() {
+		return lsSeq;
+	}
+	public void setLsSeq(String lsSeq) {
+		this.lsSeq = lsSeq;
+	}
+	public Integer getLsInning() {
+		return lsInning;
+	}
+	public void setLsInning(Integer lsInning) {
+		this.lsInning = lsInning;
+	}
+	public Integer getLsHomeScore() {
+		return lsHomeScore;
+	}
+	public void setLsHomeScore(Integer lsHomeScore) {
+		this.lsHomeScore = lsHomeScore;
+	}
+	public Integer getLsAwayScore() {
+		return lsAwayScore;
+	}
+	public void setLsAwayScore(Integer lsAwayScore) {
+		this.lsAwayScore = lsAwayScore;
+	}
+	public String getLsRegTime() {
+		return lsRegTime;
+	}
+	public void setLsRegTime(String lsRegTime) {
+		this.lsRegTime = lsRegTime;
+	}
+	public String getLsModTime() {
+		return lsModTime;
+	}
+	public void setLsModTime(String lsModTime) {
+		this.lsModTime = lsModTime;
+	}
+	public String getGame_gmSeq() {
+		return game_gmSeq;
+	}
+	public void setGame_gmSeq(String game_gmSeq) {
+		this.game_gmSeq = game_gmSeq;
 	}
 	
 	

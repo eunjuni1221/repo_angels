@@ -237,7 +237,8 @@
                     <button class="btn btn-primary"><i class="fa-solid fa-u"></i></button>
                     <button class="btn btn-success"><i class="fa-regular fa-file-excel"></i></button>
 					<button type="button" id="btnForm" class="btn btn-primary"><i class="fa fa-plus"></i></button>
-					<button type="button" class="btn btn-primary" onclick="insertGames()"><i class="fa fa-database"></i></button>                        
+					<button type="button" class="btn btn-primary" onclick="insertGames()"><i class="fa fa-database"></i></button>
+					<button type="button" class="btn btn-primary" onclick="insertGameLineScores()"><i class="fa-brands fa-line"></i></button>                        
 				  </div>
                 </div>
         
@@ -376,6 +377,27 @@
 	  function insertGames() {
 	    if (confirm("MLB API로부터 경기 데이터를 가져와서 DB에 저장할까요?")) {
 	      fetch('/game/GameXdmInst', {
+	        method: 'GET'
+	      })
+	      .then(response => {
+	        if (response.redirected) {
+	          // 컨트롤러에서 리다이렉트 → 팀 리스트로 이동
+	          window.location.href = response.url;
+	        } else {
+	          alert("등록이 완료되었습니다.");
+	        }
+	      })
+	      .catch(error => {
+	        alert("에러 발생: " + error);
+	      });
+	    }
+	  }
+	</script>
+	
+	<script>
+	  function insertGameLineScores() {
+	    if (confirm("MLB API로부터 경기 데이터를 가져와서 DB에 저장할까요?")) {
+	      fetch('/game/GameLineScoreXdmInst', {
 	        method: 'GET'
 	      })
 	      .then(response => {

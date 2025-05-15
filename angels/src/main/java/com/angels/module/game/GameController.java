@@ -7,13 +7,12 @@ import java.net.URL;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.List;
 
-import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.angels.module.Base.BaseController;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -132,6 +131,69 @@ public class GameController extends BaseController{
 		model.addAttribute("list", gameService.selectHofList(dto));
 		return "hof/game/baseball_miniScheTwo";
 	}
+	
+	@RequestMapping("/game/GameLineScoreInst")
+	public String gameLineScoreInst() throws Exception {
+	    List<GameDto> gameList = gameService.getGameList(); // 이미 저장된 경기 목록 (gmSeq 포함)
+	    int totalCount = 0;
+	    int successCount = 0;
+
+	    for (GameDto game : gameList) {
+	        String gamePk = game.getGmSeq(); // gmSeq가 String 타입이라고 가정
+	        String apiUrl = "https://statsapi.mlb.com/api/v1/game/" + gamePk + "/linescore";
+
+	        try {
+	            // 1. API 요청
+	            URL url = new URL(apiUrl);
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            conn.setRequestMethod("GET");
+
+	            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	            StringBuilder response = new StringBuilder();
+	            String line;
+	            while ((line = reader.readLine()) != null) {
+	                response.append(line);
+	            }
+	            reader.close();
+	            conn.disconnect();
+
+	            // 2. JSON 파싱
+	            ObjectMapper mapper = new ObjectMapper();
+	            JsonNode root = mapper.readTree(response.toString());
+	            JsonNode innings = root.get("innings");
+
+	            // 3. 이닝별로 insert
+	            int inningNumber = 1;
+	            for (JsonNode inning : innings) {
+	                GameDto dto = new GameDto();
+	                dto.setGame_gmSeq(gamePk); // 외래키 연결
+	                dto.setLsInning(inningNumber++);
+	                dto.setLsHomeScore(inning.path("home").path("runs").asInt());
+	                dto.setLsAwayScore(inning.path("away").path("runs").asInt());
+	                dto.setLsRegTime(LocalDateTime.now().toString());
+	                dto.setLsModTime(LocalDateTime.now().toString());
+
+	                try {
+	                    gameService.insert(dto); // gamelinescore insert
+	                    successCount++;
+	                } catch (Exception e) {
+	                    System.out.println("❌ INSERT 실패 (gmSeq = " + gamePk + "): " + e.getMessage());
+	                }
+	            }
+
+	            totalCount++;
+	            System.out.println("✅ linescore 수집 완료: gmSeq = " + gamePk);
+
+	        } catch (Exception e) {
+	            System.out.println("❌ API 요청 실패: gmSeq = " + gamePk + ", error = " + e.getMessage());
+	        }
+	    }
+
+	    System.out.println("🏁 linescore 수집 완료 | 총: " + totalCount + "개 중 성공: " + successCount + "개");
+	    return "redirect:/game/GameXdmList";
+	}
+
+
 
 }
 
