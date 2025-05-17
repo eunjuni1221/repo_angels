@@ -9,4 +9,6 @@ public interface GameDao {
 	public int insert(GameDto gameDto);
 	public List<GameDto> selectHofList(GameDto gameDto);
 	public int insertLineScore(GameDto gameDto);
+	public List<GameDto> listInstForLineScore(GameDto gameDto);
+	public int insertInningScore(GameDto gameDto);
 }

@@ -26,4 +26,10 @@ public class GameService {
 	public int insertLineScore(GameDto gameDto) {
 		return gameDao.insertLineScore(gameDto);
 	}
+	public List<GameDto> listInstForLineScore(GameDto gameDto) {
+		return gameDao.listInstForLineScore(gameDto);
+	}
+	public int insertInningScore(GameDto gameDto) {
+		return gameDao.insertInningScore(gameDto);
+	}
 }

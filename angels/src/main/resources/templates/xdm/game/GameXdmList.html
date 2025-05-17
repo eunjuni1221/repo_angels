@@ -396,16 +396,15 @@
 	
 	<script>
 	  function insertGameLineScores() {
-	    if (confirm("MLB API로부터 경기 데이터를 가져와서 DB에 저장할까요?")) {
-	      fetch('/game/GameLineScoreXdmInst', {
+	    if (confirm("MLB API로부터 경기 라인스코어를 수집하여 DB에 저장할까요?")) {
+	      fetch('/game/GameLineScoreInst', {
 	        method: 'GET'
 	      })
 	      .then(response => {
 	        if (response.redirected) {
-	          // 컨트롤러에서 리다이렉트 → 팀 리스트로 이동
 	          window.location.href = response.url;
 	        } else {
-	          alert("등록이 완료되었습니다.");
+	          alert("라인스코어 등록이 완료되었습니다.");
 	        }
 	      })
 	      .catch(error => {

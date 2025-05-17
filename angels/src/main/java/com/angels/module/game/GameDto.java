@@ -42,14 +42,28 @@ public class GameDto {
 	private String away_tmLogoUrl;
 	
 	// gamelinescore 테이블
-	private String lsSeq;
-	private Integer lsInning;
-	private Integer lsHomeScore;
-	private Integer lsAwayScore;
-	private String lsRegTime;
-	private String lsModTime;
+	private String glSeq;
+	private Integer glHomeRuns;
+	private Integer glHomeHits;
+	private Integer glHomeErrors;
+	private Integer glHomeLob;
+	private Integer glHomeWin;
+	private Integer glAwayRuns;
+	private Integer glAwayHits;
+	private Integer glAwayErrors;
+	private Integer glAwayLob;
+	private Integer glAwayWin;
+	private String glRegTime;
+	private String glModTime;
 	private String game_gmSeq;
-
+	
+	//gameInning
+	private String giSeq;
+	private Integer giInning;
+	private Integer giHomeScore;
+	private Integer giAwayScore;
+	private String giRegTime;
+	private String giModTime;
 	
 	public String getGmSeq() {
 		return gmSeq;
@@ -249,47 +263,125 @@ public class GameDto {
 	public void setAway_tmLogoUrl(String away_tmLogoUrl) {
 		this.away_tmLogoUrl = away_tmLogoUrl;
 	}
-	public String getLsSeq() {
-		return lsSeq;
+	public String getGlSeq() {
+		return glSeq;
 	}
-	public void setLsSeq(String lsSeq) {
-		this.lsSeq = lsSeq;
+	public void setGlSeq(String glSeq) {
+		this.glSeq = glSeq;
 	}
-	public Integer getLsInning() {
-		return lsInning;
+	public Integer getGlHomeRuns() {
+		return glHomeRuns;
 	}
-	public void setLsInning(Integer lsInning) {
-		this.lsInning = lsInning;
+	public void setGlHomeRuns(Integer glHomeRuns) {
+		this.glHomeRuns = glHomeRuns;
 	}
-	public Integer getLsHomeScore() {
-		return lsHomeScore;
+	public Integer getGlHomeHits() {
+		return glHomeHits;
 	}
-	public void setLsHomeScore(Integer lsHomeScore) {
-		this.lsHomeScore = lsHomeScore;
+	public void setGlHomeHits(Integer glHomeHits) {
+		this.glHomeHits = glHomeHits;
 	}
-	public Integer getLsAwayScore() {
-		return lsAwayScore;
+	public Integer getGlHomeErrors() {
+		return glHomeErrors;
 	}
-	public void setLsAwayScore(Integer lsAwayScore) {
-		this.lsAwayScore = lsAwayScore;
+	public void setGlHomeErrors(Integer glHomeErrors) {
+		this.glHomeErrors = glHomeErrors;
 	}
-	public String getLsRegTime() {
-		return lsRegTime;
+	public Integer getGlHomeLob() {
+		return glHomeLob;
 	}
-	public void setLsRegTime(String lsRegTime) {
-		this.lsRegTime = lsRegTime;
+	public void setGlHomeLob(Integer glHomeLob) {
+		this.glHomeLob = glHomeLob;
 	}
-	public String getLsModTime() {
-		return lsModTime;
+	public Integer getGlHomeWin() {
+		return glHomeWin;
 	}
-	public void setLsModTime(String lsModTime) {
-		this.lsModTime = lsModTime;
+	public void setGlHomeWin(Integer glHomeWin) {
+		this.glHomeWin = glHomeWin;
+	}
+	public Integer getGlAwayRuns() {
+		return glAwayRuns;
+	}
+	public void setGlAwayRuns(Integer glAwayRuns) {
+		this.glAwayRuns = glAwayRuns;
+	}
+	public Integer getGlAwayHits() {
+		return glAwayHits;
+	}
+	public void setGlAwayHits(Integer glAwayHits) {
+		this.glAwayHits = glAwayHits;
+	}
+	public Integer getGlAwayLob() {
+		return glAwayLob;
+	}
+	public void setGlAwayLob(Integer glAwayLob) {
+		this.glAwayLob = glAwayLob;
+	}
+	public Integer getGlAwayWin() {
+		return glAwayWin;
+	}
+	public void setGlAwayWin(Integer glAwayWin) {
+		this.glAwayWin = glAwayWin;
+	}
+	public String getGlRegTime() {
+		return glRegTime;
+	}
+	public void setGlRegTime(String glRegTime) {
+		this.glRegTime = glRegTime;
+	}
+	public String getGlModTime() {
+		return glModTime;
+	}
+	public void setGlModTime(String glModTime) {
+		this.glModTime = glModTime;
 	}
 	public String getGame_gmSeq() {
 		return game_gmSeq;
 	}
 	public void setGame_gmSeq(String game_gmSeq) {
 		this.game_gmSeq = game_gmSeq;
+	}
+	public String getGiSeq() {
+		return giSeq;
+	}
+	public void setGiSeq(String giSeq) {
+		this.giSeq = giSeq;
+	}
+	public Integer getGiInning() {
+		return giInning;
+	}
+	public void setGiInning(Integer giInning) {
+		this.giInning = giInning;
+	}
+	public Integer getGiHomeScore() {
+		return giHomeScore;
+	}
+	public void setGiHomeScore(Integer giHomeScore) {
+		this.giHomeScore = giHomeScore;
+	}
+	public Integer getGiAwayScore() {
+		return giAwayScore;
+	}
+	public void setGiAwayScore(Integer giAwayScore) {
+		this.giAwayScore = giAwayScore;
+	}
+	public String getGiRegTime() {
+		return giRegTime;
+	}
+	public void setGiRegTime(String giRegTime) {
+		this.giRegTime = giRegTime;
+	}
+	public String getGiModTime() {
+		return giModTime;
+	}
+	public void setGiModTime(String giModTime) {
+		this.giModTime = giModTime;
+	}
+	public Integer getGlAwayErrors() {
+		return glAwayErrors;
+	}
+	public void setGlAwayErrors(Integer glAwayErrors) {
+		this.glAwayErrors = glAwayErrors;
 	}
 	
 	
