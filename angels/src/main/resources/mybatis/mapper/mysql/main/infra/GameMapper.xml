@@ -102,44 +102,57 @@
 	</insert>
 	
 <select id="selectHofList" resultMap="resultMapObj">
-		SELECT
-			g.gmSeq,
-		    g.gmGuid,
-		    g.gmSeason,
-		    g.gmDate,
-		    g.gmOfDate,
-		    g.gmState,
-		    g.gmDeState,
-		    g.gmStatusCode,
-		    g.gmDayNight,
-		    g.gmScInnings,
-		    g.gmIsTie,
-		    g.gmSeriesDesc,
-		    g.gmDoubleheader,
-		    g.gmType,
-		    g.gmRegTime,
-		    g.gmModTime,
-		    g.venue_stSeq,
-		    g.homeTeam_tmSeq,
-		    g.awayTeam_tmSeq,
-		    v.stName,
-		    v.stCity,
-		    hm.tmName AS home_tmName,
-		    hm.tmClubName AS home_tmClubName,
-		    hm.tmAbbreviation AS home_tmAbbreviation,
-		    hm.tmLogoUrl AS home_tmLogoUrl,
-		    aw.tmName AS away_tmName,
-		    aw.tmClubName AS away_tmClubName,
-		    aw.tmAbbreviation AS away_tmAbbreviation,
-		    aw.tmLogoUrl AS away_tmLogoUrl
-		   FROM game g
-		LEFT JOIN team hm ON g.homeTeam_tmSeq = hm.tmSeq
-		LEFT JOIN team aw ON g.awayTeam_tmSeq = aw.tmSeq
-		LEFT JOIN venue v ON g.venue_stSeq = v.stSeq
-		where DATE(g.gmDate) = #{gmDate}
-		ORDER BY g.gmOfDate DESC
-		
+	SELECT
+		g.gmSeq,
+	    g.gmGuid,
+	    g.gmSeason,
+	    g.gmDate,
+	    g.gmOfDate,
+	    g.gmState,
+	    g.gmDeState,
+	    g.gmStatusCode,
+	    g.gmDayNight,
+	    g.gmScInnings,
+	    g.gmIsTie,
+	    g.gmSeriesDesc,
+	    g.gmDoubleheader,
+	    g.gmType,
+	    g.gmRegTime,
+	    g.gmModTime,
+	    g.venue_stSeq,
+	    g.homeTeam_tmSeq,
+	    g.awayTeam_tmSeq,
+	    
+	    -- 구장 정보
+	    v.stName,
+	    v.stCity,
+	    
+	    -- 홈팀 정보
+	    hm.tmName AS home_tmName,
+	    hm.tmClubName AS home_tmClubName,
+	    hm.tmAbbreviation AS home_tmAbbreviation,
+	    hm.tmLogoUrl AS home_tmLogoUrl,
+	    
+	    -- 어웨이팀 정보
+	    aw.tmName AS away_tmName,
+	    aw.tmClubName AS away_tmClubName,
+	    aw.tmAbbreviation AS away_tmAbbreviation,
+	    aw.tmLogoUrl AS away_tmLogoUrl,
+	    
+	    -- 양팀 점수 정보
+	    gl.glHomeRuns,
+	    gl.glAwayRuns
+
+	FROM game g
+	LEFT JOIN team hm ON g.homeTeam_tmSeq = hm.tmSeq
+	LEFT JOIN team aw ON g.awayTeam_tmSeq = aw.tmSeq
+	LEFT JOIN venue v ON g.venue_stSeq = v.stSeq
+	LEFT JOIN gamelinescore gl ON g.gmSeq = gl.game_gmSeq
+
+	WHERE DATE(g.gmDate) = #{gmDate}
+	ORDER BY g.gmOfDate DESC
 </select>
+
 
 <insert id="insertLineScore" parameterType="com.angels.module.game.GameDto">
 		INSERT INTO gamelinescore (
@@ -230,7 +243,6 @@
 	    #{giInning},
 	    #{giHomeScore},
 	    #{giAwayScore},
-	    #{glHomeWin},
 	    #{giRegTime},
 	    #{giModTime},
 	    #{game_gmSeq}

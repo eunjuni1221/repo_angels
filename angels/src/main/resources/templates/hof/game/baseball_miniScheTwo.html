@@ -33,9 +33,9 @@
 			</div>
 			<!-- Team / End -->
 			<div class="team-result__teams-score">
-				<span class="team-result__score " th:text="${list.home_tmAbbreviation}">2</span>
+				<span class="team-result__score" th:classappend="${list.glAwayRuns > list.glHomeRuns} ? ' team-result__score--win'" th:text="${list.glAwayRuns}">2</span>
 				&nbsp;&nbsp;-&nbsp;&nbsp;
-				<span class="team-result__score team-result__score--win">4</span>															
+				<span class="team-result__score" th:classappend="${list.glHomeRuns > list.glAwayRuns} ? ' team-result__score--win'" th:text="${list.glHomeRuns}">4</span>															
 			</div>
 		</div>
 	</td>		
