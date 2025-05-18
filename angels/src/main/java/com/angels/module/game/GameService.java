@@ -32,4 +32,7 @@ public class GameService {
 	public int insertInningScore(GameDto gameDto) {
 		return gameDao.insertInningScore(gameDto);
 	}
+	public List<GameDto> selectInningByGameSeq(GameDto gameDto) {
+		return gameDao.selectInningByGameSeq(gameDto);
+	}
 }
