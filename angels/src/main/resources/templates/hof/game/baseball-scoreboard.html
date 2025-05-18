@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"><head>
+
+<div th:replace="~{hof/include/hofHead :: head(activeMenu='MLB')}"></div>
+
+
+		<!-- Page Heading
+		================================================== -->
+		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-6">
+						<div class="page-heading__inner page-heading__inner--highlight">
+							<h1 class="page-heading__title">Player Career Stats</h1>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="page-heading__inner ml-auto">
+							<ol class="page-heading__breadcrumb breadcrumb">
+								<li class="breadcrumb-item"><a href="_hockey_index.html">Home</a></li>
+								<li class="breadcrumb-item"><a href="#">Alchemists</a></li>
+								<li class="breadcrumb-item"><a href="#">Connor Starkson</a></li>
+								<li class="breadcrumb-item active" aria-current="page">연도별 기록</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page Heading / End -->
+		
+		
+		<!-- Content
+		================================================== -->
+		<div class="site-content">
+			<div class="container">
+				<div class="date-container">
+					<button class="arrow-button" id="prevButton">◁</button>
+					<button class="date-button" id="dateButton">2025-03-08 <i class="fa-regular fa-calendar-days"></i></button>
+					<button class="arrow-button" id="nextButton">▷</button>
+				  </div>
+				  <div class="card card--clean mb-0">
+					<div class="card__header" style="margin-top: 20px;">
+						<h4>박스스코어</h4>
+						<a href="#" class="btn btn-default btn-xs">더보기</a>
+					</div>
+					<div class="card__content">
+						<aside class="widget widget--sidebar card card--clean widget-event-blocks" style="margin-top: -15px;">
+							<div class="widget__content card__content pt-0">
+								<div class="alc-event-block mb-0">
+						
+									<div class="alc-event-block__header" style="display: flex; align-items: center;">
+										<a href="#" class="btn btn-info btn-xs btn-icon--skewed" style="display: flex; align-items: center; order: -1;">
+											<span class="btn__txt" style="white-space: nowrap;">HOF PICK</span>                            
+											<span class="btn__icon">
+												<img src="assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
+											</span>
+										</a>        
+										<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;">라이온즈 파크</h4>
+										<time class="alc-event-block__header-time">18:30</time>
+									</div>						
+									<div class="alc-event-block__body">
+										<div class="alc-event-block__teams alc-event-block__teams--has-divider">
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/pirates-xs.png" alt="L.A. Pirates">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">KT</h5>
+															<div class="alc-event-block__team-subtitle">(17)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item " style="color: red;">0</div>
+												</div>					
+											</div>
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/ocean-kings-xs.png" alt="Ocean Kings">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">삼성</h5>
+															<div class="alc-event-block__team-subtitle">(12)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">X</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item " style="color: red;">8</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team--divider">
+												<div class="alc-event-block__team--divider-inner">vs</div>
+											</div>
+										</div>
+									</div>
+						
+									<div class="alc-event-block__footer alc-event-block__footer--skewed">
+										<div class="alc-event-block__footer-item alc-event-block__status">
+												<div class="alc-event-block__status-item alc-event-block__status-item--live">LIVE</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--period">9회초</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--time">현재 시간</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: red;">승:</span>&nbsp;오타니</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: blue;">패:</span>&nbsp;오타니</div>
+											</div>
+										<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
+											<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
+										</a>
+									</div>
+								</div>
+								<div class="alc-event-block mb-0">
+						
+									<div class="alc-event-block__header" style="display: flex; align-items: center;">
+										<a href="#" class="btn btn-info btn-xs btn-icon--skewed" style="display: flex; align-items: center; order: -1;">
+											<span class="btn__txt" style="white-space: nowrap;">HOF PICK</span>                            
+											<span class="btn__icon">
+												<img src="assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
+											</span>
+										</a>        
+										<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;">잠실 야구장</h4>
+										<time class="alc-event-block__header-time">18:30</time>
+									</div>						
+									<div class="alc-event-block__body">
+										<div class="alc-event-block__teams alc-event-block__teams--has-divider">
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/pirates-xs.png" alt="L.A. Pirates">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">LG</h5>
+															<div class="alc-event-block__team-subtitle">(17)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item " style="color: red;">0</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/ocean-kings-xs.png" alt="Ocean Kings">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">두산</h5>
+															<div class="alc-event-block__team-subtitle">(12)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">X</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item " style="color: red;">8</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team--divider">
+												<div class="alc-event-block__team--divider-inner">vs</div>
+											</div>
+										</div>
+									</div>
+						
+									<div class="alc-event-block__footer alc-event-block__footer--skewed">
+										<div class="alc-event-block__footer-item alc-event-block__status">
+												<div class="alc-event-block__status-item alc-event-block__status-item--live">LIVE</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--period">9회초</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--time">현재 시간</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: red;">승:</span>&nbsp;오타니</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: blue;">패:</span>&nbsp;오타니</div>
+										</div>
+										<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
+											<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="widget__content card__content pt-0">
+								<div class="alc-event-block mb-0">
+						
+									<div class="alc-event-block__header" style="display: flex; align-items: center;">
+										<a href="#" class="btn btn-info btn-xs btn-icon--skewed" style="display: flex; align-items: center; order: -1;">
+											<span class="btn__txt" style="white-space: nowrap;">HOF PICK</span>                            
+											<span class="btn__icon">
+												<img src="assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
+											</span>
+										</a>        
+										<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;">문학 야구장</h4>
+										<time class="alc-event-block__header-time">18:30</time>
+									</div>						
+									<div class="alc-event-block__body">
+										<div class="alc-event-block__teams alc-event-block__teams--has-divider">
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/pirates-xs.png" alt="L.A. Pirates">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">KIA</h5>
+															<div class="alc-event-block__team-subtitle">(17)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item " style="color: red;">0</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/ocean-kings-xs.png" alt="Ocean Kings">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">SSG</h5>
+															<div class="alc-event-block__team-subtitle">(12)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">X</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item " style="color: red;">8</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team--divider">
+												<div class="alc-event-block__team--divider-inner">vs</div>
+											</div>
+										</div>
+									</div>
+						
+									<div class="alc-event-block__footer alc-event-block__footer--skewed">
+										<div class="alc-event-block__footer-item alc-event-block__status">
+												<div class="alc-event-block__status-item alc-event-block__status-item--live">LIVE</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--period">9회초</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--time">현재 시간</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: red;">승:</span>&nbsp;오타니</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: blue;">패:</span>&nbsp;오타니</div>
+										</div>
+										<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
+											<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
+										</a>
+									</div>
+								</div>
+								<div class="alc-event-block mb-0">
+						
+									<div class="alc-event-block__header" style="display: flex; align-items: center;">
+										<a href="#" class="btn btn-info btn-xs btn-icon--skewed" style="display: flex; align-items: center; order: -1;">
+											<span class="btn__txt" style="white-space: nowrap;">HOF PICK</span>                            
+											<span class="btn__icon">
+												<img src="assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
+											</span>
+										</a>        
+										<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;">고척돔</h4>
+										<time class="alc-event-block__header-time">18:30</time>
+									</div>						
+									<div class="alc-event-block__body">
+										<div class="alc-event-block__teams alc-event-block__teams--has-divider">
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/pirates-xs.png" alt="L.A. Pirates">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">한화</h5>
+															<div class="alc-event-block__team-subtitle">(17)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item " style="color: red;">0</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/ocean-kings-xs.png" alt="Ocean Kings">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">키움</h5>
+															<div class="alc-event-block__team-subtitle">(12)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">X</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item " style="color: red;">8</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team--divider">
+												<div class="alc-event-block__team--divider-inner">vs</div>
+											</div>
+										</div>
+									</div>
+						
+									<div class="alc-event-block__footer alc-event-block__footer--skewed">
+										<div class="alc-event-block__footer-item alc-event-block__status">
+												<div class="alc-event-block__status-item alc-event-block__status-item--live">LIVE</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--period">9회초</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--time">현재 시간</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: red;">승:</span>&nbsp;오타니</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: blue;">패:</span>&nbsp;오타니</div>
+										</div>
+										<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
+											<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
+										</a>
+									</div>
+								</div>
+							</div>
+																<div class="widget__content card__content pt-0">
+								<div class="alc-event-block mb-0">
+						
+									<div class="alc-event-block__header" style="display: flex; align-items: center;">
+										<a href="#" class="btn btn-info btn-xs btn-icon--skewed" style="display: flex; align-items: center; order: -1;">
+											<span class="btn__txt" style="white-space: nowrap;">HOF PICK</span>                            
+											<span class="btn__icon">
+												<img src="assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
+											</span>
+										</a>        
+										<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;">사직 야구장</h4>
+										<time class="alc-event-block__header-time">18:30</time>
+									</div>						
+									<div class="alc-event-block__body">
+										<div class="alc-event-block__teams alc-event-block__teams--has-divider">
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/pirates-xs.png" alt="L.A. Pirates">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">NC</h5>
+															<div class="alc-event-block__team-subtitle">(17)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item " style="color: red;">0</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/ocean-kings-xs.png" alt="Ocean Kings">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">롯데</h5>
+															<div class="alc-event-block__team-subtitle">(12)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">X</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item " style="color: red;">8</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team--divider">
+												<div class="alc-event-block__team--divider-inner">vs</div>
+											</div>
+										</div>
+									</div>
+						
+									<div class="alc-event-block__footer alc-event-block__footer--skewed">
+										<div class="alc-event-block__footer-item alc-event-block__status">
+												<div class="alc-event-block__status-item alc-event-block__status-item--live">LIVE</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--period">9회초</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--time">현재 시간</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: red;">승:</span>&nbsp;오타니</div>
+												<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: blue;">패:</span>&nbsp;오타니</div>
+										</div>
+										<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
+											<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
+										</a>
+									</div>
+								</div>
+								<div class="alc-event-block mb-0">
+						
+									<div class="alc-event-block__header" style="display: flex; align-items: center;">
+										<a href="#" class="btn btn-info btn-xs btn-icon--skewed" style="display: flex; align-items: center; order: -1;">
+											<span class="btn__txt" style="white-space: nowrap;">HOF PICK</span>                            
+											<span class="btn__icon">
+												<img src="assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
+											</span>
+										</a>        
+										<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;">잠실 야구장</h4>
+										<time class="alc-event-block__header-time">18:30</time>
+									</div>						
+									<div class="alc-event-block__body">
+										<div class="alc-event-block__teams alc-event-block__teams--has-divider">
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/pirates-xs.png" alt="L.A. Pirates">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">LG</h5>
+															<div class="alc-event-block__team-subtitle">(17)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">0</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item ">-</div>
+														<div class="alc-event-block__team-scoreboard-item " style="color: red;">0</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team">
+						
+												<div class="alc-event-block__team-main">
+													<figure class="alc-event-block__team-logo">
+														<img src="assets/images/hockey/samples/logos/ocean-kings-xs.png" alt="Ocean Kings">
+													</figure>
+													<div class="alc-event-block__team-body">
+														<div class="alc-event-block__team-primary">
+															<h5 class="alc-event-block__team-title">두산</h5>
+															<div class="alc-event-block__team-subtitle">(12)</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="alc-event-block__team-scoreboard">
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">1</div>
+													<div class="alc-event-block__team-scoreboard-item ">X</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item ">-</div>
+													<div class="alc-event-block__team-scoreboard-item " style="color: red;">8</div>
+												</div>
+						
+											</div>
+											<div class="alc-event-block__team--divider">
+												<div class="alc-event-block__team--divider-inner">vs</div>
+											</div>
+										</div>
+									</div>
+						
+									<div class="alc-event-block__footer alc-event-block__footer--skewed">
+										<div class="alc-event-block__footer-item alc-event-block__status">
+												<div class="alc-event-block__status-item alc-event-block__status-item--live">LIVE</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--period">9회초</div>
+												<div class="alc-event-block__status-item alc-event-block__status-item--time">현재 시간</div>
+										</div>
+										<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
+											<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</div>		
+		</div>
+		
+		<div th:replace="~{hof/include/hofFooter :: footer}"></div>		
+		<div th:replace="~{hof/include/hofJs :: js}"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+</body>
+</html>

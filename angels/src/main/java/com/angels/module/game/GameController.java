@@ -222,6 +222,11 @@ public class GameController extends BaseController{
 
 	    return "redirect:/game/gameXdmList";
 	}
+	
+	@RequestMapping("/game/GameHofBoardList")
+	public String gameHofBoardList() {
+		return "hof/game/baseball-scoreboard";
+	}
 
 }
 

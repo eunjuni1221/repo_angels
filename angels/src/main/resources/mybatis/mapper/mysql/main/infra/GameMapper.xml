@@ -153,6 +153,17 @@
 	ORDER BY g.gmOfDate DESC
 </select>
 
+<select id="selectInningByGameSeq" resultMap="resultMapObj">
+    SELECT
+        giInning,
+        giHomeScore,
+        giAwayScore
+    FROM gameInning
+    WHERE game_gmSeq = #{gmSeq}
+    ORDER BY giInning
+
+</select>
+
 
 <insert id="insertLineScore" parameterType="com.angels.module.game.GameDto">
 		INSERT INTO gamelinescore (
