@@ -35,4 +35,7 @@ public class GameService {
 	public List<GameDto> selectInningByGameSeq(GameDto gameDto) {
 		return gameDao.selectInningByGameSeq(gameDto);
 	}
+	public List<GameDto> selectHofScoreList(GameDto gameDto) {
+		return gameDao.selectHofScoreList(gameDto);
+	}
 }

@@ -56,7 +56,7 @@
 											</span>
 										</a>        
 										<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;" th:text="${list.stName}">라이온즈 파크</h4>
-										<time class="alc-event-block__header-time">18:30</time>
+										<time class="alc-event-block__header-time" th:text="${#strings.substring(list.gmDate, 10, 16)}">18:30</time>
 									</div>						
 									<div class="alc-event-block__body">
 										<div class="alc-event-block__teams alc-event-block__teams--has-divider">

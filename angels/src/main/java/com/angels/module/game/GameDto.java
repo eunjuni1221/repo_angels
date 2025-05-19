@@ -1,5 +1,7 @@
 package com.angels.module.game;
 
+import java.util.List;
+
 public class GameDto {
 	
 	// game 테이블
@@ -64,6 +66,9 @@ public class GameDto {
 	private Integer giAwayScore;
 	private String giRegTime;
 	private String giModTime;
+	
+	private List<String> awayInningScores;
+	private List<String> homeInningScores;
 	
 	public String getGmSeq() {
 		return gmSeq;
@@ -382,6 +387,18 @@ public class GameDto {
 	}
 	public void setGlAwayErrors(Integer glAwayErrors) {
 		this.glAwayErrors = glAwayErrors;
+	}
+	public List<String> getAwayInningScores() {
+		return awayInningScores;
+	}
+	public void setAwayInningScores(List<String> awayInningScores) {
+		this.awayInningScores = awayInningScores;
+	}
+	public List<String> getHomeInningScores() {
+		return homeInningScores;
+	}
+	public void setHomeInningScores(List<String> homeInningScores) {
+		this.homeInningScores = homeInningScores;
 	}
 	
 	
