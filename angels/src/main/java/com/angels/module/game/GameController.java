@@ -226,6 +226,7 @@ public class GameController extends BaseController{
 	@RequestMapping("/game/GameHofBoardList")
 	public String gameHofBoardList(Model model, GameDto dto) {
 		model.addAttribute("list", gameService.selectHofScoreList(dto));
+		
 		return "hof/game/baseball-scoreboard";
 	}
 

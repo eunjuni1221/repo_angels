@@ -67,8 +67,8 @@ public class GameDto {
 	private String giRegTime;
 	private String giModTime;
 	
-	private List<String> awayInningScores;
-	private List<String> homeInningScores;
+	private List<GameDto> inningList;
+	
 	
 	public String getGmSeq() {
 		return gmSeq;
@@ -388,19 +388,5 @@ public class GameDto {
 	public void setGlAwayErrors(Integer glAwayErrors) {
 		this.glAwayErrors = glAwayErrors;
 	}
-	public List<String> getAwayInningScores() {
-		return awayInningScores;
-	}
-	public void setAwayInningScores(List<String> awayInningScores) {
-		this.awayInningScores = awayInningScores;
-	}
-	public List<String> getHomeInningScores() {
-		return homeInningScores;
-	}
-	public void setHomeInningScores(List<String> homeInningScores) {
-		this.homeInningScores = homeInningScores;
-	}
-	
-	
 	
 }
