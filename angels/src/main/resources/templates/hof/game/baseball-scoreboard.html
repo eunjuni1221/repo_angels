@@ -2,6 +2,48 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"><head>
 
 <div th:replace="~{hof/include/hofHead :: head(activeMenu='MLB')}"></div>
+<style>	
+	.nav-date-btn {
+	  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+	  border: 1px solid #ced4da;
+	  color: #495057;
+	  font-size: 1.25rem;
+	  width: 40px;
+	  height: 40px;
+	  border-radius: 50%;
+	  transition: all 0.2s ease-in-out;
+	  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+	}
+
+	.nav-date-btn:hover {
+	  background: #6C4DEE;
+	  color: white;
+	  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+	  transform: translateY(-2px);
+	}
+
+	.nav-date-main {
+	  font-weight: 500;
+	  font-size: 1rem;
+	  border-radius: 50px;
+	  background-color: #f8f9fa !important;  /* 배경 고정 */
+	  color: #212529 !important;            /* 글자색 고정 */
+	  border: 1px solid #dee2e6;
+	  transition: box-shadow 0.3s ease;
+	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	}
+
+	.nav-date-main:hover,
+	.nav-date-main:focus,
+	.nav-date-main:active {
+	  background-color: #f8f9fa !important;
+	  color: #212529 !important;
+	  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	  text-decoration: none;
+	  outline: none;
+	}
+
+</style>
 
 
 		<!-- Page Heading
@@ -27,113 +69,22 @@
 		================================================== -->
 		<div class="site-content">
 			<div class="container">
-				<div class="date-container">
-					<button class="arrow-button" id="prevButton">◁</button>
-					<button class="date-button" id="dateButton">2025-03-08 <i class="fa-regular fa-calendar-days"></i></button>
-					<button class="arrow-button" id="nextButton">▷</button>
-				  </div>
+				<div class="date-container d-flex justify-content-center align-items-center mb-4">
+				  <button class="nav-date-btn" id="prevButton" title="이전 날짜" value="0" onclick="changeDay(this)">
+				    <i class="fas fa-angle-left"></i>
+				  </button>
+				  <input class="nav-date-main btn btn-light shadow-sm px-4 py-2 mx-3" id="dateButton" name="dateButton" onchange="dateList()"/>
+				  <button class="nav-date-btn" id="nextButton" title="다음 날짜" value="1" onclick="changeDay(this)">
+				    <i class="fas fa-angle-right"></i>
+				  </button>
+				</div>
 				  <div class="card card--clean mb-0">
 					<div class="card__header" style="margin-top: 20px;">
 						<h4>박스스코어</h4>
 						<a href="#" class="btn btn-default btn-xs">더보기</a>
 					</div>
-					<div class="card__content" th:each="list : ${list}">
-						<aside class="widget widget--sidebar card card--clean widget-event-blocks" style="margin-top: -15px;">
-							<div class="widget__content card__content pt-0">
-								<div class="alc-event-block mb-0">					
-									<div class="alc-event-block__header" style="display: flex; align-items: center;">
-										<a href="#" class="btn btn-info btn-xs btn-icon--skewed" style="display: flex; align-items: center; order: -1;">
-											<span class="btn__txt" style="white-space: nowrap;">HOF PICK</span>                            
-											<span class="btn__icon">
-												<img src="/hof/template/assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
-											</span>
-										</a>        
-										<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;" th:text="${list.stName}">라이온즈 파크</h4>
-										<time class="alc-event-block__header-time" th:text="${#strings.substring(list.gmDate, 10, 16)}">18:30</time>
-									</div>						
-									<div class="alc-event-block__body">
-										<div class="alc-event-block__teams alc-event-block__teams--has-divider">
-											<div class="alc-event-block__team">
+					<div class="card__content" id="scoreBoard">
 						
-												<div class="alc-event-block__team-main">
-													<figure class="alc-event-block__team-logo">
-														<img th:src="${list.away_tmLogoUrl}" style="width: 30px; height: 30px;" alt="L.A. Pirates">
-													</figure>
-													<div class="alc-event-block__team-body">
-														<div class="alc-event-block__team-primary">
-															<h5 class="alc-event-block__team-title" th:text="${list.away_tmAbbreviation}">KT</h5>
-															<div class="alc-event-block__team-subtitle">(17)</div>
-														</div>
-													</div>
-												</div>
-						
-												<div class="alc-event-block__team-scoreboard">
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">0</div>
-														<div class="alc-event-block__team-scoreboard-item ">-</div>
-														<div class="alc-event-block__team-scoreboard-item ">-</div>
-														<div class="alc-event-block__team-scoreboard-item ">-</div>
-														<div class="alc-event-block__team-scoreboard-item " style="color: red;">0</div>
-												</div>					
-											</div>
-											<div class="alc-event-block__team">
-						
-												<div class="alc-event-block__team-main">
-													<figure class="alc-event-block__team-logo">
-														<img th:src="${list.home_tmLogoUrl}" style="width: 30px; height: 30px;" alt="Ocean Kings">
-													</figure>
-													<div class="alc-event-block__team-body">
-														<div class="alc-event-block__team-primary">
-															<h5 class="alc-event-block__team-title" th:text="${list.home_tmAbbreviation}">삼성</h5>
-															<div class="alc-event-block__team-subtitle">(12)</div>
-														</div>
-													</div>
-												</div>
-						
-												<div class="alc-event-block__team-scoreboard">
-													<div class="alc-event-block__team-scoreboard-item ">1</div>
-													<div class="alc-event-block__team-scoreboard-item ">1</div>
-													<div class="alc-event-block__team-scoreboard-item ">1</div>
-													<div class="alc-event-block__team-scoreboard-item ">1</div>
-													<div class="alc-event-block__team-scoreboard-item ">1</div>
-													<div class="alc-event-block__team-scoreboard-item ">1</div>
-													<div class="alc-event-block__team-scoreboard-item ">1</div>
-													<div class="alc-event-block__team-scoreboard-item ">1</div>
-													<div class="alc-event-block__team-scoreboard-item ">X</div>
-													<div class="alc-event-block__team-scoreboard-item ">-</div>
-													<div class="alc-event-block__team-scoreboard-item ">-</div>
-													<div class="alc-event-block__team-scoreboard-item ">-</div>
-													<div class="alc-event-block__team-scoreboard-item " style="color: red;">8</div>
-												</div>
-						
-											</div>
-											<div class="alc-event-block__team--divider">
-												<div class="alc-event-block__team--divider-inner">vs</div>
-											</div>
-										</div>
-									</div>
-										<div class="alc-event-block__footer alc-event-block__footer--skewed">
-											<div class="alc-event-block__footer-item alc-event-block__status">
-													<div class="alc-event-block__status-item alc-event-block__status-item--live">LIVE</div>
-													<div class="alc-event-block__status-item alc-event-block__status-item--period">9회초</div>
-													<div class="alc-event-block__status-item alc-event-block__status-item--time">현재 시간</div>\
-													<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: red;">승:</span>&nbsp;오타니</div>
-													<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: blue;">패:</span>&nbsp;오타니</div>
-											</div>
-											<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
-												<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
-											</a>
-									</div>
-								</div>
-							</div>
-						</aside>
 					</div>
 				</div>
 			</div>		
@@ -142,5 +93,104 @@
 		<div th:replace="~{hof/include/hofFooter :: footer}"></div>		
 		<div th:replace="~{hof/include/hofJs :: js}"></div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+		
+		<script>
+			jQuery.datetimepicker.setLocale('ko');
+
+			$('#dateButton').datetimepicker({
+			 timepicker:false,
+			 format:'Y-m-d',
+			 scrollInput:false
+			});
+
+		</script>
+		
+		<script>
+			document.getElementById('dateButton').value = new Date().toISOString().substring(0, 10);
+			
+			function dateList(){
+				$.ajax({
+				    async: true,
+				    cache: false,
+				    type: "post",
+				    url: "/game/GameHofBoardListProc",
+				    data: {
+				        "gmDate": $("#dateButton").val() // 왼쪽 자바단 변수, 우측이 html 				
+				    },
+				    success: function (response) {
+						$("#scoreBoard").html(response);
+				    },
+				    error: function (jqXHR, textStatus, errorThrown) {
+				        alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				    }
+				});
+			}	
+			 dateList();
+			 
+			function changeDay(button){
+				let date = [];
+					let dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+					date = $("#dateButton").val().split("-");
+
+					let year = Number(date[0]);
+					let month = Number(date[1]);
+					let day = Number(date[2]);
+
+					if ($(button).val() == 1) {
+						let maxDate;
+
+						if (month == 2) {
+							if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+								maxDate = 29;
+							} else {
+								maxDate = dateOfMonth[month - 1];
+							}
+						} else {
+							maxDate = dateOfMonth[month - 1];
+						}
+
+						if (day + 1 > maxDate) {
+							if (month == 12) {
+								year++;
+								month = 1;
+							} else {
+								month++;
+							}
+							day = 1;
+						} else {
+							day++;
+						}
+					} 
+					
+					else if ($(button).val() == 0) {
+						if (day - 1 < 1) {
+							if (month == 1) {
+								year--;
+								month = 12;
+							} else {
+								month--;
+							}
+
+							if (month == 2) {
+								if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+									day = 29;
+								} else {
+									day = dateOfMonth[month - 1];
+								}
+							} else {
+								day = dateOfMonth[month - 1];
+							}
+						} else {
+							day--;
+						}
+					}
+
+					let text = year + "-" + month.toString().padStart(2, '0') + "-" + day.toString().padStart(2, '0');
+					$("#dateButton").val(text);
+					dateList();
+			}	
+			 
+		</script>
+
 </body>
 </html>

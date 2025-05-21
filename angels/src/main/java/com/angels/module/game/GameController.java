@@ -223,13 +223,19 @@ public class GameController extends BaseController{
 	    return "redirect:/game/gameXdmList";
 	}
 	
+	
 	@RequestMapping("/game/GameHofBoardList")
 	public String gameHofBoardList(Model model, GameDto dto) {
-		model.addAttribute("list", gameService.selectHofScoreList(dto));
-		
+
 		return "hof/game/baseball-scoreboard";
 	}
 
+	@RequestMapping("/game/GameHofBoardListProc")
+	public String gameHofBoardListProc(Model model, GameDto dto) {
+		model.addAttribute("list", gameService.selectHofScoreList(dto));
+		model.addAttribute("inning", gameService.selectInningByGameSeq(dto));
+		return "hof/game/baseball-scoreboardTwo";
+	}
 }
 
 

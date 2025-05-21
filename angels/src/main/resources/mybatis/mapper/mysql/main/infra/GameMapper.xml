@@ -153,22 +153,6 @@
 	ORDER BY g.gmOfDate DESC
 </select>
 
-<select id="selectInningByGameSeq" resultMap="resultMapObj">
-    SELECT
- 		giSeq, 
- 		game_gmSeq, 
- 		giInning, 
- 		giHomeScore, 
- 		giAwayScore, 
- 		giRegTime, 
- 		giModTime
-    FROM gameInning
-    WHERE game_gmSeq = #{gmSeq}
-    ORDER BY giInning
-
-</select>
-
-
 <insert id="insertLineScore" parameterType="com.angels.module.game.GameDto">
 		INSERT INTO gamelinescore (
 		
@@ -288,6 +272,9 @@
 
 		v.stName,
 		v.stCity,
+		
+		gl.glHomeRuns,
+	    gl.glAwayRuns,
 
 		hm.tmName AS home_tmName,
 		hm.tmClubName AS home_tmClubName,
@@ -297,29 +284,38 @@
 		aw.tmName AS away_tmName,
 		aw.tmClubName AS away_tmClubName,
 		aw.tmAbbreviation AS away_tmAbbreviation,
-		aw.tmLogoUrl AS away_tmLogoUrl,
+		aw.tmLogoUrl AS away_tmLogoUrl
 
-		gl.glHomeRuns,
-		gl.glAwayRuns,
-
-		gi.giSeq,
-		gi.giInning,
-		gi.giHomeScore,
-		gi.giAwayScore,
-		gi.giRegTime,
-		gi.giModTime
 
 	FROM game g
 	LEFT JOIN team hm ON g.homeTeam_tmSeq = hm.tmSeq
 	LEFT JOIN team aw ON g.awayTeam_tmSeq = aw.tmSeq
 	LEFT JOIN venue v ON g.venue_stSeq = v.stSeq
 	LEFT JOIN gamelinescore gl ON g.gmSeq = gl.game_gmSeq
-	LEFT JOIN gameInning gi ON g.gmSeq = gi.game_gmSeq
+	<!-- LEFT JOIN gameInning gi ON g.gmSeq = gi.game_gmSeq -->
 
-	<!-- WHERE DATE(g.gmDate) = #{gmDate} -->
-	ORDER BY g.gmOfDate DESC, gi.giInning ASC
+	WHERE DATE(g.gmDate) = #{gmDate}
+	ORDER BY g.gmOfDate DESC, g.gmSeq DESC
+	
+	<!-- , gi.giInning ASC -->
 </select>
 
+<select id="selectInningByGameSeq" resultMap="resultMapObj">
+
+    SELECT 	
+ 		giSeq, 
+ 		game_gmSeq, 
+ 		giInning, 
+ 		giHomeScore, 
+ 		giAwayScore, 
+ 		giRegTime, 
+ 		giModTime
+    FROM gameInning
+    LEFT JOIN game g ON game_gmSeq = g.gmSeq
+	WHERE DATE(g.gmDate) = #{gmDate}
+    ORDER BY game_gmSeq DESC, giSeq ASC
+    
+</select>
 
 
 </mapper>

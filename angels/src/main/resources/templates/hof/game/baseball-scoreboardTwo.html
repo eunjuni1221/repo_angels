@@ -1,0 +1,82 @@
+
+<div th:if="${#lists.isEmpty(list)}" style="text-align: center; padding: 30px 0;">
+    <p class="fs-0">NO GAME</p>
+</div>
+
+<aside class="widget widget--sidebar card card--clean widget-event-blocks" style="margin-top: -15px;"  th:each="list : ${list}">
+	<div class="widget__content card__content pt-0">
+		<div class="alc-event-block mb-0">					
+			<div class="alc-event-block__header" style="display: flex; align-items: center;">
+				<a href="#" class="btn btn-info btn-xs btn-icon--skewed" style="display: flex; align-items: center; order: -1;">
+					<span class="btn__txt" style="white-space: nowrap;">HOF PICK</span>                            
+					<span class="btn__icon">
+						<img src="/hof/template/assets/images/baseball_Icon.png" alt="Baseball Icon" class="df-icon df-icon--helmet">
+					</span>
+				</a>        
+				<h4 class="alc-event-block__header-venue" style="margin-left: -55px; font-size: 85%;" th:text="${list.stName}">라이온즈 파크</h4>
+				<time class="alc-event-block__header-time" th:text="${#strings.substring(list.gmDate, 10, 16)}">18:30</time>
+			</div>						
+			<div class="alc-event-block__body">
+				<div class="alc-event-block__teams alc-event-block__teams--has-divider">
+					<div class="alc-event-block__team">
+
+						<div class="alc-event-block__team-main">
+							<figure class="alc-event-block__team-logo">
+								<img th:src="${list.away_tmLogoUrl}" style="width: 30px; height: 30px;" alt="L.A. Pirates">
+							</figure>
+							<div class="alc-event-block__team-body">
+								<div class="alc-event-block__team-primary">
+									<h5 class="alc-event-block__team-title" th:text="${list.away_tmAbbreviation}">KT</h5>
+									<div class="alc-event-block__team-subtitle">(17)</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="alc-event-block__team-scoreboard">
+								<div th:if="${list.gmSeq == inning.game_gmSeq}" class="alc-event-block__team-scoreboard-item " th:each="inning : ${inning}" th:text="${inning.giAwayScore}"></div>
+								<div class="alc-event-block__team-scoreboard-item " style="color: red;" th:text="${list.glAwayRuns}"></div>
+						</div>					
+					</div>
+					<div class="alc-event-block__team">
+
+						<div class="alc-event-block__team-main">
+							<figure class="alc-event-block__team-logo">
+								<img th:src="${list.home_tmLogoUrl}" style="width: 30px; height: 30px;" alt="Ocean Kings">
+							</figure>
+							<div class="alc-event-block__team-body">
+								<div class="alc-event-block__team-primary">
+									<h5 class="alc-event-block__team-title" th:text="${list.home_tmAbbreviation}">삼성</h5>
+									<div class="alc-event-block__team-subtitle">(12)</div>
+								</div>
+							</div>
+						</div>
+						<div class="alc-event-block__team-scoreboard">
+							<div th:each="inning : ${inning}" 
+							     th:if="${list.gmSeq == inning.game_gmSeq}" 
+							     class="alc-event-block__team-scoreboard-item"
+							     th:text="${(inning.giInning == 9 and inning.giHomeScore == 0 and list.glHomeRuns > list.glAwayRuns) ? 'X' : inning.giHomeScore}">
+							</div>
+							<div class="alc-event-block__team-scoreboard-item" style="color: red;" 
+							     th:text="${list.glHomeRuns}"></div>
+						</div>
+					</div>
+					<div class="alc-event-block__team--divider">
+						<div class="alc-event-block__team--divider-inner">vs</div>
+					</div>
+				</div>
+			</div>
+				<div class="alc-event-block__footer alc-event-block__footer--skewed">
+					<div class="alc-event-block__footer-item alc-event-block__status">
+							<div class="alc-event-block__status-item alc-event-block__status-item--live">LIVE</div>
+							<div class="alc-event-block__status-item alc-event-block__status-item--period">9회초</div>
+							<div class="alc-event-block__status-item alc-event-block__status-item--time">현재 시간</div>
+							<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: red;">승:</span>&nbsp;오타니</div>
+							<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: blue;">패:</span>&nbsp;오타니</div>
+					</div>
+					<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
+						<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
+					</a>
+			</div>
+		</div>
+	</div>
+</aside>
