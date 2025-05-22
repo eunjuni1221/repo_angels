@@ -3,10 +3,17 @@ package com.angels.module.team;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.List;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +24,8 @@ import com.angels.module.Base.BaseController;
 import com.angels.module.code.CodeService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class TeamController extends BaseController{
@@ -152,6 +161,82 @@ public class TeamController extends BaseController{
 
 	    return "redirect:TeamXdmList";
 	}
+	
+	@RequestMapping("/excelDownload")
+    public void excelDownload(TeamVo vo, HttpServletResponse httpServletResponse) throws Exception {
+		
+		setSearch(vo);
+		vo.setParamsPaging(teamService.selectOneCount(vo));
 
+		if (vo.getTotalRows() > 0) {
+			List<TeamDto> list = teamService.selectList(vo);
+			
+//			Workbook workbook = new HSSFWorkbook();	// for xls
+	        Workbook workbook = new XSSFWorkbook();
+	        Sheet sheet = workbook.createSheet("첫번째 시트");
+	        CellStyle cellStyle = workbook.createCellStyle();        
+	        Row row = null;
+	        Cell cell = null;
+	        int rowNum = 0;
+			
+//	        each column width setting
+	        sheet.setColumnWidth(0, 2100);
+	        sheet.setColumnWidth(1, 3100);
+
+//	        Header
+	        String[] tableHeader = {"팀명", "약어", "연고지", "리그", "수정일",""};
+
+	        row = sheet.createRow(rowNum++);
+			for(int i=0; i<tableHeader.length; i++) {
+				cell = row.createCell(i);
+	        	cellStyle.setAlignment(HorizontalAlignment.CENTER);
+	        	cell.setCellStyle(cellStyle);
+				cell.setCellValue(tableHeader[i]);
+			}
+
+//	        Body
+	        for (int i=0; i<list.size(); i++) {
+	            row = sheet.createRow(rowNum++);
+	            
+//	            String type: null 전달 되어도 ok
+//	            int, date type: null 시 오류 발생 하므로 null check
+//	            String type 이지만 정수형 데이터가 전체인 seq 의 경우 캐스팅
+	            
+	            cell = row.createCell(0);
+	        	cellStyle.setAlignment(HorizontalAlignment.CENTER);
+	        	cell.setCellStyle(cellStyle);
+	            cell.setCellValue(Integer.parseInt(list.get(i).getIfmName()));
+	            
+	            cell = row.createCell(1);
+	        	cellStyle.setAlignment(HorizontalAlignment.CENTER);
+	        	cell.setCellStyle(cellStyle);
+	        	cell.setCellValue(list.get(i).getIfcgName());
+	        	
+	            cell = row.createCell(2);
+	        	cellStyle.setAlignment(HorizontalAlignment.CENTER);
+	        	cell.setCellStyle(cellStyle);
+	        	cell.setCellValue(Integer.parseInt(list.get(i).getIfcdSeq()));
+	        	
+	            cell = row.createCell(3);
+	        	cellStyle.setAlignment(HorizontalAlignment.CENTER);
+	        	cell.setCellStyle(cellStyle);
+	        	cell.setCellValue(list.get(i).getIfcdSeqAnother());
+	            
+	            cell = row.createCell(4);
+	            cellStyle.setAlignment(HorizontalAlignment.CENTER);
+	            cell.setCellStyle(cellStyle);
+	            cell.setCellValue(list.get(i).getIfcdName());
+	            
+	            
+	        }
+
+	        httpServletResponse.setContentType("ms-vnd/excel");
+//	        httpServletResponse.setHeader("Content-Disposition", "attachment;filename=example.xls");	// for xls
+	        httpServletResponse.setHeader("Content-Disposition", "attachment;filename=example.xlsx");
+
+	        workbook.write(httpServletResponse.getOutputStream());
+	        workbook.close();
+		}
+    }
 	
 }
