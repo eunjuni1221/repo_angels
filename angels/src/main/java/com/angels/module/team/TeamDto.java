@@ -6,6 +6,7 @@ public class TeamDto {
 	private String tmName;
 	private String tmClubName;
 	private String tmAbbreviation;
+	private String tmCityName;
 	private String tmLocation;
 	private String tmCode;
 	private String tmFileCode;
@@ -136,6 +137,12 @@ public class TeamDto {
 	}
 	public void setStName(String stName) {
 		this.stName = stName;
+	}
+	public String getTmCityName() {
+		return tmCityName;
+	}
+	public void setTmCityName(String tmCityName) {
+		this.tmCityName = tmCityName;
 	}
 	
 

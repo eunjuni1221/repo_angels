@@ -33,15 +33,18 @@ public class GameDto {
 	private String tmClubName;
 	private String tmAbbreviation;
 	private String tmLogoUrl;
+	private String tmCityName;
 	
 	private String home_tmName;
 	private String home_tmClubName;
 	private String home_tmAbbreviation;
 	private String home_tmLogoUrl;
+	private String home_tmCityName;
 	private String away_tmName;
 	private String away_tmClubName;
 	private String away_tmAbbreviation;
 	private String away_tmLogoUrl;
+	private String away_tmCityName;
 	
 	// gamelinescore 테이블
 	private String glSeq;
@@ -387,6 +390,30 @@ public class GameDto {
 	}
 	public void setGlAwayErrors(Integer glAwayErrors) {
 		this.glAwayErrors = glAwayErrors;
+	}
+	public String getTmCityName() {
+		return tmCityName;
+	}
+	public void setTmCityName(String tmCityName) {
+		this.tmCityName = tmCityName;
+	}
+	public String getHome_tmCityName() {
+		return home_tmCityName;
+	}
+	public void setHome_tmCityName(String home_tmCityName) {
+		this.home_tmCityName = home_tmCityName;
+	}
+	public String getAway_tmCityName() {
+		return away_tmCityName;
+	}
+	public void setAway_tmCityName(String away_tmCityName) {
+		this.away_tmCityName = away_tmCityName;
+	}
+	public List<GameDto> getInningList() {
+		return inningList;
+	}
+	public void setInningList(List<GameDto> inningList) {
+		this.inningList = inningList;
 	}
 	
 }

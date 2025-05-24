@@ -41,20 +41,20 @@
 									<div class="alc-event-box-score__score-result">
 										<div class="alc-event-box-score__score-team">
 											<figure class="alc-event-box-score__score-team-logo">
-												<img src="assets/images/hockey/samples/logos/alchemists-md.png" alt="The Alchemists">
+												<img th:src="${item.away_tmLogoUrl}" alt="The Alchemists">
 											</figure>
 											<div class="alc-event-box-score__score-team-info">
-												<div class="alc-event-box-score__score-team-meta" h:text="${#lists.join(#lists.take(#strings.split(item.away_tmName, ' '), #strings.split(item.away_tmName, ' ').size() - 1), ' ')}">삼성</div>
+												<div class="alc-event-box-score__score-team-meta" th:text="${item.away_tmCityName}">삼성</div>
 												<h5 class="alc-event-box-score__score-team-name" th:text="${item.away_tmClubName}">라이온즈</h5>
 											</div>
 										</div>
 										<div class="alc-event-box-score__score-team">
 											<figure class="alc-event-box-score__score-team-logo">
-												<img src="assets/images/hockey/samples/logos/ocean-kings-md.png" alt="Ocean Kings">
+												<img th:src="${item.home_tmLogoUrl}" alt="Ocean Kings">
 											</figure>
 											<div class="alc-event-box-score__score-team-info">
-												<div class="alc-event-box-score__score-team-meta">Miami</div>
-												<h5 class="alc-event-box-score__score-team-name">Ocean Kings</h5>
+												<div class="alc-event-box-score__score-team-meta" th:text="${item.home_tmCityName}">Miami</div>
+												<h5 class="alc-event-box-score__score-team-name" th:text="${item.home_tmClubName}">Ocean Kings</h5>
 											</div>
 										</div>
 				
@@ -69,11 +69,11 @@
 				
 				
 									<div class="alc-event-box-score__score-decors">
-										<div class="alc-event-box-score__score-decor" >
-											<img src="assets/images/hockey/samples/logos/alchemists-lg.png" alt="The Alchemists" class="alc-event-box-score__score-decor-img">
+										<div class="alc-event-box-score__score-decor" style="--decor-color: yellow;">
+											<img th:src="${item.away_tmLogoUrl}" alt="The Alchemists" class="alc-event-box-score__score-decor-img">
 										</div>
-										<div class="alc-event-box-score__score-decor" style="--decor-color: #1b96ff;">
-											<img src="assets/images/hockey/samples/logos/ocean-kings-lg.png" alt="Ocean Kings" class="alc-event-box-score__score-decor-img">
+										<div class="alc-event-box-score__score-decor" style="--decor-color: rgb(0, 0, 160)">
+											<img th:src="${item.home_tmLogoUrl}" alt="Ocean Kings" class="alc-event-box-score__score-decor-img">
 										</div>
 									</div>
 								</div>

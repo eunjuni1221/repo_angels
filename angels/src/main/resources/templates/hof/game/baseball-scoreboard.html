@@ -102,7 +102,17 @@
 			 format:'Y-m-d',
 			 scrollInput:false
 			});
+			
 
+			// goForm을 명시적으로 전역 함수로 선언
+			function goForm(keyValue) {
+				// 동적으로 바뀌기 때문에 안으로 넣어줘야함
+				let form = document.getElementById("formList");
+				let seq = form.querySelector("input[name=gmSeq]");
+			    seq.value = keyValue;
+			    form.action = "/game/GameHofMain";
+			    form.submit();
+			}
 		</script>
 		
 		<script>
