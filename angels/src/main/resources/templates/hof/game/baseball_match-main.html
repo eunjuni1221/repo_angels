@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<div th:replace="~{hof/include/hofHead :: head(activeMenu='MLB')}"></div>
+
+		<!-- Page Heading
+		================================================== -->
+		<div class="page-heading page-heading--horizontal page-heading--title-highlight">
+			<div class="container">
+				<div class="row justify-content-between" style="height: 55px;">
+					<div class="col-6">
+						<div class="page-heading__inner page-heading__inner--highlight" >
+							<h1 class="page-heading__title">기록</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page Heading / End -->
+		
+		
+		<!-- Content
+		================================================== -->
+		<div class="site-content">
+			<div class="container">
+		
+				<div class="widget widget--sidebar alc-event-box-score-container card card--no-paddings mb-0">
+					<div class="card__content">
+				
+						<!-- Event Box Score -->
+						<div class="alc-event-box-score">
+				
+							<!-- Score -->
+							<section class="alc-event-box-score__score alc-event-box-score__section alc-event-box-score__score--lg">
+								<header class="alc-event-box-score__section-header">
+									<h5 class="alc-event-box-score__section-title" style="color: red;">3 회초</h5>
+									<div class="alc-event-box-score__section-info">정규시즌</div>
+									<div class="alc-event-box-score__section-info">2025/03/08 (토)</div>
+								</header>
+								<div class="alc-event-box-score__section-content">
+				
+									<div class="alc-event-box-score__score-result">
+										<div class="alc-event-box-score__score-team">
+											<figure class="alc-event-box-score__score-team-logo">
+												<img src="assets/images/hockey/samples/logos/alchemists-md.png" alt="The Alchemists">
+											</figure>
+											<div class="alc-event-box-score__score-team-info">
+												<div class="alc-event-box-score__score-team-meta" h:text="${#lists.join(#lists.take(#strings.split(item.away_tmName, ' '), #strings.split(item.away_tmName, ' ').size() - 1), ' ')}">삼성</div>
+												<h5 class="alc-event-box-score__score-team-name" th:text="${item.away_tmClubName}">라이온즈</h5>
+											</div>
+										</div>
+										<div class="alc-event-box-score__score-team">
+											<figure class="alc-event-box-score__score-team-logo">
+												<img src="assets/images/hockey/samples/logos/ocean-kings-md.png" alt="Ocean Kings">
+											</figure>
+											<div class="alc-event-box-score__score-team-info">
+												<div class="alc-event-box-score__score-team-meta">Miami</div>
+												<h5 class="alc-event-box-score__score-team-name">Ocean Kings</h5>
+											</div>
+										</div>
+				
+										<div class="alc-event-box-score__score-outcome">
+											<div class="alc-event-box-score__score-outcome-team alc-event-box-score__score-outcome-team--winner">7</div>
+											<div class="alc-event-box-score__score-outcome-team ">4</div>
+											<div class="alc-event-box-score__score-outcome-separator">
+												<div class="alc-circle-progress alc-circle-progress--xs js-alc-circle-progress alc-circle-progress--bar-primary alc-circle-progress--circle-blue" data-value="36" data-hide-value="true" data-label="Points"></div>
+											</div>
+										</div>
+									</div>
+				
+				
+									<div class="alc-event-box-score__score-decors">
+										<div class="alc-event-box-score__score-decor" >
+											<img src="assets/images/hockey/samples/logos/alchemists-lg.png" alt="The Alchemists" class="alc-event-box-score__score-decor-img">
+										</div>
+										<div class="alc-event-box-score__score-decor" style="--decor-color: #1b96ff;">
+											<img src="assets/images/hockey/samples/logos/ocean-kings-lg.png" alt="Ocean Kings" class="alc-event-box-score__score-decor-img">
+										</div>
+									</div>
+								</div>
+							</section>
+							<!-- Score / End -->
+				
+							<!-- Scoreboard -->
+							<section class="alc-event-box-score__scoreboard alc-event-box-score__scoreboard--lg alc-event-box-score__section">
+								<div class="table-responsive">
+									<table class="table table-thead-color alc-event-box-score__scoreboard-table">
+										<thead>
+											<tr>
+												<th>TEAM</th>
+												<th>1</th>
+												<th>2</th>
+												<th>3</th>
+												<th>4</th>
+												<th>5</th>
+												<th>6</th>
+												<th>7</th>
+												<th>8</th>
+												<th>9</th>
+												<th>10</th>
+												<th>11</th>
+												<th>R</th>
+												<th>H</th>
+												<th>E</th>
+												<th>B</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="alc-team-winner">
+												<td class="alc-name"><strong>삼성</strong> 10 - 0 - 0 (1위)</td>
+												<td>2</td>
+												<td>3</td>
+												<td>2</td>
+												<td>7</td>
+												<td>2</td>
+												<td>3</td>
+												<td>2</td>
+												<td>7</td>
+												<td>2</td>
+												<td>3</td>
+												<td>2</td>
+												<td style="font-weight: bold; color: red;">7</td>
+												<td style="font-weight: bold;">2</td>
+												<td style="font-weight: bold;">3</td>
+												<td style="font-weight: bold;">2</td>
+											</tr>
+											<tr >
+												<td class="alc-name"><strong>롯데</strong>  0 - 0 - 10 (10위)</td>
+												<td>2</td>
+												<td>3</td>
+												<td>2</td>
+												<td>7</td>
+												<td>2</td>
+												<td>3</td>
+												<td>2</td>
+												<td>7</td>
+												<td>2</td>
+												<td>3</td>
+												<td>2</td>
+												<td style="font-weight: bold; color: red;">7</td>
+												<td style="font-weight: bold;">2</td>
+												<td style="font-weight: bold;">3</td>
+												<td style="font-weight: bold;">2</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</section>
+							<!-- Scoreboard / End -->
+				
+				
+						</div>
+						<!-- Event Box Score / End -->
+				
+					</div>
+				</div>
+		
+				<!-- Event Filter -->
+				<nav class="content-filter content-filter--fit mb-40">
+					<div class="container">
+						<a href="#" class="content-filter__toggle"></a>
+						<ul class="content-filter__list">
+								<li class="content-filter__item "><a href="_hockey_event-overview.html" class="content-filter__link"><small>Match</small>메인</a></li>
+								<li class="content-filter__item content-filter__item--active"><a href="_hockey_event-box-score.html" class="content-filter__link"><small>Match</small>기록</a></li>
+								<li class="content-filter__item "><a href="_hockey_event-play-by-play.html" class="content-filter__link"><small>Match</small>중계</a></li>
+								<li class="content-filter__item "><a href="_hockey_event-team-stats.html" class="content-filter__link"><small>Match</small>라인업</a></li>
+						</ul>
+					</div>
+				</nav>
+				<!-- Event Filter / End -->
+		
+				<div class="row">
+		
+					<!-- Content -->
+					<div class="content col-lg-12">
+						<div class="widget card card--has-table widget--sidebar widget-matchup">
+							<div class="widget widget--sidebar card">
+								<div class="widget__title card__header">
+									<h4>경기 기록</h4>						
+								</div>
+								<div class="widget__content card__content">
+									<div class="alc-event-box-score__statistics-grid alc-event-box-score__statistics-grid--column-gap-lg">
+										<!-- Statistic: Total Shots -->
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">안타</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">28</div>
+													<div class="progress-labels__value">57</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 33%;" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Statistic: Hits -->
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">홈런</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">20</div>
+													<div class="progress-labels__value">16</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 55%;" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Statistic: Penalty Minutes -->
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">도루</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">5</div>
+													<div class="progress-labels__value">7</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 42%;" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Statistic: Givaways -->
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">삼진</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">26</div>
+													<div class="progress-labels__value">13</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 67%;" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Statistic: Takeaways -->
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">병살</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">8</div>
+													<div class="progress-labels__value">14</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 36%;" role="progressbar" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Statistic: Faceoffs Won -->
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">2루타</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">43</div>
+													<div class="progress-labels__value">29</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">3루타</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">43</div>
+													<div class="progress-labels__value">29</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">도루자</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">43</div>
+													<div class="progress-labels__value">29</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">폭투</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">43</div>
+													<div class="progress-labels__value">29</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="alc-event-box-score__statistics-item">
+											<div class="progress-bar-wrapper progress-bar-wrapper--labels-side">
+												<div class="progress-labels">
+													<div class="progress-labels__title">HOF 픽률</div>
+												</div>
+												<div class="progress-wrapper">
+													<div class="progress-labels__value">43</div>
+													<div class="progress-labels__value">29</div>
+													<div class="progress progress--lines progress--lines-sm" style="background-color: #1b96ff;">
+														<div class="progress__bar" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>								
+							</div>
+							<div class="widget__content card__content">
+								<div class="table-responsive">
+									<table class="table table table-hover alc-table-stats alc-table-stats--compact">
+										<tbody>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm" style="color: blue;">결승타</td>
+												<td class="alc-highlight-sm" style="text-align: center;">구자욱 (7회)</td>
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">홈런</td>
+												<td class="alc-highlight-sm" style="text-align: center;">구자욱 (7회)</td>
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">2루타</td>
+												<td class="alc-highlight-sm" style="text-align: center;">구자욱 (7회)</td>
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">실책</td>
+												<td class="alc-highlight-sm" style="text-align: center;">구자욱 (7회)</td>
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">병살타</td>
+												<td class="alc-highlight-sm" style="text-align: center;">구자욱 (7회)</td>
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">폭투</td>
+												<td class="alc-highlight-sm" style="text-align: center;">구자욱 (7회)</td>
+											</tr>
+											<tr>
+												<td class="alc-align-start alc-highlight-sm">심판</td>
+												<td class="alc-highlight-sm" style="text-align: center;">구자욱, 구자욱, 구자욱, 구자욱</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- Box Score - Team 0 -->
+						<div class="card card--has-table">
+							<div class="card__header card__header--has-team-info">
+								<div class="team-meta team-meta--lg">
+									<figure class="team-meta__logo">
+										<img src="assets/images/hockey/samples/logos/ocean-kings-sm.png" alt="Ocean Kings">
+									</figure>
+									<div class="team-meta__info">
+										<h6 class="team-meta__name">Ocean Kings</h6>
+									</div>
+								</div>
+							</div>
+							<div class="card__content">
+								<div class="table-responsive">
+									<table class="table table-thead-color table-hover game-player-result game-player-result--stats">
+										<thead>
+											<tr>
+												<th class="game-player-result__bP">타순/포지션</th>
+												<th class="game-player-result__player">선수명</th>
+												<th class="game-player-result__ab">타수</th>
+												<th class="game-player-result__r">득점</th>
+												<th class="game-player-result__h">안타</th>
+												<th class="game-player-result__rbi">타점</th>
+												<th class="game-player-result__hr">홈런</th>
+												<th class="game-player-result__bb">볼넷</th>
+												<th class="game-player-result__so">삼진</th>
+												<th class="game-player-result__sb">도루</th>
+												<th class="game-player-result__avg">타율</th>
+												<th class="game-player-result__1">1</th>
+												<th class="game-player-result__2">2</th>
+												<th class="game-player-result__3">3</th>
+												<th class="game-player-result__4">4</th>
+												<th class="game-player-result__5">5</th>
+												<th class="game-player-result__6">6</th>
+												<th class="game-player-result__7">7</th>
+												<th class="game-player-result__8">8</th>
+												<th class="game-player-result__9">9</th>
+												<th class="game-player-result__10">10</th>
+												<th class="game-player-result__11">11</th>
+											</tr>
+										</thead>
+										<tbody>	
+											<tr>
+												<td class="game-player-result__bP">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3">안타</td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6">안타</td>
+												<td class="game-player-result__7"></td>
+												<td class="game-player-result__8">안타</td>
+												<td class="game-player-result__9"></td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11"></td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1"></td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">2루타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7"></td>
+												<td class="game-player-result__8">안타</td>
+												<td class="game-player-result__9"></td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11"></td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2">안타</td>
+												<td class="game-player-result__3">안타</td>
+												<td class="game-player-result__4">안타</td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6">안타</td>
+												<td class="game-player-result__7"></td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9"></td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11"></td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP"><i class="fa-solid fa-arrow-up"><i class="fa-solid fa-arrow-down"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PH</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP"><i class="fa-solid fa-arrow-up"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PH</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="card card--has-table">
+							<div class="card__content">
+								<div class="table-responsive">
+									<table class="table table-thead-color table-hover game-player-result game-player-result--stats">
+										<thead>
+											<tr>
+												<th class="game-player-result__player" style="text-align: left;">선수명</th>
+												<th class="game-player-result__in">이닝</th>
+												<th class="game-player-result__ph">피안타</th>
+												<th class="game-player-result__er">실점</th>
+												<th class="game-player-result__prbi">자책</th>
+												<th class="game-player-result__bb">4사구</th>
+												<th class="game-player-result__k">삼진</th>
+												<th class="game-player-result__phr">피홈런</th>
+												<th class="game-player-result__bt">타자</th>
+												<th class="game-player-result__ab">타수</th>
+												<th class="game-player-result__tb">투구수</th>
+												<th class="game-player-result__era">평균자책</th>
+											</tr>
+										</thead>
+										<tbody>	
+											<tr>
+												<td class="game-player-result__player" style="text-align: left;">로건&nbsp;&nbsp;&nbsp;<span style="color: red;">승</span></td>
+												<td class="game-player-result__in">1</td>
+												<td class="game-player-result__ph">1</td>
+												<td class="game-player-result__er">1</td>
+												<td class="game-player-result__prbi">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__k">1</td>
+												<td class="game-player-result__phr">1</td>
+												<td class="game-player-result__bt">1</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__tb">1</td>
+												<td class="game-player-result__era">9.00</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__player" style="text-align: left;">로건</td>
+												<td class="game-player-result__in">1</td>
+												<td class="game-player-result__ph">1</td>
+												<td class="game-player-result__er">1</td>
+												<td class="game-player-result__prbi">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__k">1</td>
+												<td class="game-player-result__phr">1</td>
+												<td class="game-player-result__bt">1</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__tb">1</td>
+												<td class="game-player-result__era">9.00</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__player" style="text-align: left;">김광현&nbsp;&nbsp;&nbsp;<span style="color: grey;">세</span></td>
+												<td class="game-player-result__in">1</td>
+												<td class="game-player-result__ph">1</td>
+												<td class="game-player-result__er">1</td>
+												<td class="game-player-result__prbi">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__k">1</td>
+												<td class="game-player-result__phr">1</td>
+												<td class="game-player-result__bt">1</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__tb">1</td>
+												<td class="game-player-result__era">9.00</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="card card--has-table">
+							<div class="card__header card__header--has-team-info">
+								<div class="team-meta team-meta--lg">
+									<figure class="team-meta__logo">
+										<img src="assets/images/hockey/samples/logos/ocean-kings-sm.png" alt="Ocean Kings">
+									</figure>
+									<div class="team-meta__info">
+										<h6 class="team-meta__name">Ocean Kings</h6>
+									</div>
+								</div>
+							</div>
+							<div class="card__content">
+								<div class="table-responsive">
+									<table class="table table-thead-color table-hover game-player-result game-player-result--stats">
+										<thead>
+											<tr>
+												<th class="game-player-result__bP">타순/포지션</th>
+												<th class="game-player-result__player">선수명</th>
+												<th class="game-player-result__ab">타수</th>
+												<th class="game-player-result__r">득점</th>
+												<th class="game-player-result__h">안타</th>
+												<th class="game-player-result__rbi">타점</th>
+												<th class="game-player-result__hr">홈런</th>
+												<th class="game-player-result__bb">볼넷</th>
+												<th class="game-player-result__so">삼진</th>
+												<th class="game-player-result__sb">도루</th>
+												<th class="game-player-result__avg">타율</th>
+												<th class="game-player-result__1">1</th>
+												<th class="game-player-result__2">2</th>
+												<th class="game-player-result__3">3</th>
+												<th class="game-player-result__4">4</th>
+												<th class="game-player-result__5">5</th>
+												<th class="game-player-result__6">6</th>
+												<th class="game-player-result__7">7</th>
+												<th class="game-player-result__8">8</th>
+												<th class="game-player-result__9">9</th>
+												<th class="game-player-result__10">10</th>
+												<th class="game-player-result__11">11</th>
+											</tr>
+										</thead>
+										<tbody>	
+											<tr>
+												<td class="game-player-result__bP">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3">안타</td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6">안타</td>
+												<td class="game-player-result__7"></td>
+												<td class="game-player-result__8">안타</td>
+												<td class="game-player-result__9"></td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11"></td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1"></td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">2루타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7"></td>
+												<td class="game-player-result__8">안타</td>
+												<td class="game-player-result__9"></td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11"></td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2">안타</td>
+												<td class="game-player-result__3">안타</td>
+												<td class="game-player-result__4">안타</td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6">안타</td>
+												<td class="game-player-result__7"></td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9"></td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11"></td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP"><i class="fa-solid fa-arrow-up"><i class="fa-solid fa-arrow-down"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PH</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP"><i class="fa-solid fa-arrow-up"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PH</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__bP">9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RF</td>
+												<td class="game-player-result__player">구자욱</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__r">1</td>
+												<td class="game-player-result__h">1</td>
+												<td class="game-player-result__rbi">1</td>
+												<td class="game-player-result__hr">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__so">1</td>
+												<td class="game-player-result__sb">1</td>
+												<td class="game-player-result__avg">1.000</td>
+												<td class="game-player-result__1">안타</td>
+												<td class="game-player-result__2"></td>
+												<td class="game-player-result__3"></td>
+												<td class="game-player-result__4"></td>
+												<td class="game-player-result__5">안타</td>
+												<td class="game-player-result__6"></td>
+												<td class="game-player-result__7">희생번트</td>
+												<td class="game-player-result__8"></td>
+												<td class="game-player-result__9">안타</td>
+												<td class="game-player-result__10"></td>
+												<td class="game-player-result__11">안타</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="card card--has-table">
+							<div class="card__content">
+								<div class="table-responsive">
+									<table class="table table-thead-color table-hover game-player-result game-player-result--stats">
+										<thead>
+											<tr>
+												<th class="game-player-result__player" style="text-align: left;">선수명</th>
+												<th class="game-player-result__in">이닝</th>
+												<th class="game-player-result__ph">피안타</th>
+												<th class="game-player-result__er">실점</th>
+												<th class="game-player-result__prbi">자책</th>
+												<th class="game-player-result__bb">4사구</th>
+												<th class="game-player-result__k">삼진</th>
+												<th class="game-player-result__phr">피홈런</th>
+												<th class="game-player-result__bt">타자</th>
+												<th class="game-player-result__ab">타수</th>
+												<th class="game-player-result__tb">투구수</th>
+												<th class="game-player-result__era">평균자책</th>
+											</tr>
+										</thead>
+										<tbody>	
+											<tr>
+												<td class="game-player-result__player" style="text-align: left;">로건&nbsp;&nbsp;&nbsp;<span style="color: blue;">패</span></td>
+												<td class="game-player-result__in">1</td>
+												<td class="game-player-result__ph">1</td>
+												<td class="game-player-result__er">1</td>
+												<td class="game-player-result__prbi">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__k">1</td>
+												<td class="game-player-result__phr">1</td>
+												<td class="game-player-result__bt">1</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__tb">1</td>
+												<td class="game-player-result__era">9.00</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__player" style="text-align: left;">로건</td>
+												<td class="game-player-result__in">1</td>
+												<td class="game-player-result__ph">1</td>
+												<td class="game-player-result__er">1</td>
+												<td class="game-player-result__prbi">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__k">1</td>
+												<td class="game-player-result__phr">1</td>
+												<td class="game-player-result__bt">1</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__tb">1</td>
+												<td class="game-player-result__era">9.00</td>
+											</tr>
+											<tr>
+												<td class="game-player-result__player" style="text-align: left;">김광현&nbsp;&nbsp;&nbsp;</td>
+												<td class="game-player-result__in">1</td>
+												<td class="game-player-result__ph">1</td>
+												<td class="game-player-result__er">1</td>
+												<td class="game-player-result__prbi">1</td>
+												<td class="game-player-result__bb">1</td>
+												<td class="game-player-result__k">1</td>
+												<td class="game-player-result__phr">1</td>
+												<td class="game-player-result__bt">1</td>
+												<td class="game-player-result__ab">1</td>
+												<td class="game-player-result__tb">1</td>
+												<td class="game-player-result__era">9.00</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+			</div>
+		</div>
+		<!-- Content / End -->
+		
+			<!-- Widget: Instagram Section / End -->
+			<div th:replace="~{hof/include/hofFooter :: footer}"></div>
+			<div th:replace="~{hof/include/hofJs :: js}"></div>	
+
+</body>
+</html>

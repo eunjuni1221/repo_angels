@@ -3,6 +3,8 @@
     <p class="fs-0">NO GAME</p>
 </div>
 
+<form name="formList" id="formList" method="post" autocomplete="off">
+	<input type="hidden" name="gmSeq"/>
 <aside class="widget widget--sidebar card card--clean widget-event-blocks" style="margin-top: -15px;"  th:each="list : ${list}">
 	<div class="widget__content card__content pt-0">
 		<div class="alc-event-block mb-0">					
@@ -73,10 +75,22 @@
 							<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: red;">승:</span>&nbsp;오타니</div>
 							<div class="alc-event-block__status-item alc-event-block__status-winpit"><span style="color: blue;">패:</span>&nbsp;오타니</div>
 					</div>
-					<a href="_hockey_event-team-stats.html" class="alc-event-block__footer-item alc-event-block__stats">
+					<a href="javascript:void(0);" th:attr="onclick=|goForm('${list.gmSeq}')|" class="alc-event-block__footer-item alc-event-block__stats">
 						<span class="alc-event-block__footer-item-inner"><i class="alc-icon alc-icon--chart"></i>Stats</span>
 					</a>
 			</div>
 		</div>
 	</div>
 </aside>
+<script>
+	const form = document.getElementById("formList");
+	const seq = form.querySelector("input[name=gmSeq]");
+
+	// goForm을 명시적으로 전역 함수로 선언
+	function goForm(keyValue) {
+	    seq.value = keyValue;
+	    form.action = "/game/GameHofMain";
+	    form.submit();
+	}
+</script>
+

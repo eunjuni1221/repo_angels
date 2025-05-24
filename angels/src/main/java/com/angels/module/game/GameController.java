@@ -236,6 +236,14 @@ public class GameController extends BaseController{
 		model.addAttribute("inning", gameService.selectInningByGameSeq(dto));
 		return "hof/game/baseball-scoreboardTwo";
 	}
+	
+	@RequestMapping("/game/GameHofMain")
+	public String gameHofMain(Model model, GameDto dto) {
+		model.addAttribute("item", gameService.selectOneHofScore(dto));
+		model.addAttribute("inning", gameService.selectOneInningByGameSeq(dto));
+		return "hof/game/baseball_match-main";
+	}
+
 }
 
 
