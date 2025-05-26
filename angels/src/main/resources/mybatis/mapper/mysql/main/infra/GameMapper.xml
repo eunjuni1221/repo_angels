@@ -383,8 +383,8 @@
  		giModTime
     FROM gameInning
     LEFT JOIN game g ON game_gmSeq = g.gmSeq
-	WHERE 1=1
-	AND giSeq = #{giSeq}
+    WHERE gmSeq = #{gmSeq}  
+    ORDER BY game_gmSeq DESC, giSeq ASC
     
 </select>
 

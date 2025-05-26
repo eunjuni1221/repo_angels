@@ -59,8 +59,14 @@
 										</div>
 				
 										<div class="alc-event-box-score__score-outcome">
-											<div class="alc-event-box-score__score-outcome-team alc-event-box-score__score-outcome-team--winner">7</div>
-											<div class="alc-event-box-score__score-outcome-team ">4</div>
+											<!-- 원정팀 점수 -->
+											<div class="alc-event-box-score__score-outcome-team"
+											     th:classappend="${item.glAwayRuns > item.glHomeRuns} ? ' alc-event-box-score__score-outcome-team--winner'"
+											     th:text="${item.glAwayRuns}">7</div>
+											<!-- 홈팀 점수 -->
+											<div class="alc-event-box-score__score-outcome-team"
+											     th:classappend="${item.glHomeRuns > item.glAwayRuns} ? ' alc-event-box-score__score-outcome-team--winner'"
+											     th:text="${item.glHomeRuns}">4</div>
 											<div class="alc-event-box-score__score-outcome-separator">
 												<div class="alc-circle-progress alc-circle-progress--xs js-alc-circle-progress alc-circle-progress--bar-primary alc-circle-progress--circle-blue" data-value="36" data-hide-value="true" data-label="Points"></div>
 											</div>
@@ -69,10 +75,10 @@
 				
 				
 									<div class="alc-event-box-score__score-decors">
-										<div class="alc-event-box-score__score-decor" style="--decor-color: yellow;">
+										<div class="alc-event-box-score__score-decor" style="--decor-color: white;">
 											<img th:src="${item.away_tmLogoUrl}" alt="The Alchemists" class="alc-event-box-score__score-decor-img">
 										</div>
-										<div class="alc-event-box-score__score-decor" style="--decor-color: rgb(0, 0, 160)">
+										<div class="alc-event-box-score__score-decor" style="--decor-color: white">
 											<img th:src="${item.home_tmLogoUrl}" alt="Ocean Kings" class="alc-event-box-score__score-decor-img">
 										</div>
 									</div>
@@ -96,8 +102,6 @@
 												<th>7</th>
 												<th>8</th>
 												<th>9</th>
-												<th>10</th>
-												<th>11</th>
 												<th>R</th>
 												<th>H</th>
 												<th>E</th>
@@ -106,37 +110,17 @@
 										</thead>
 										<tbody>
 											<tr class="alc-team-winner">
-												<td class="alc-name"><strong>삼성</strong> 10 - 0 - 0 (1위)</td>
-												<td>2</td>
-												<td>3</td>
-												<td>2</td>
-												<td>7</td>
-												<td>2</td>
-												<td>3</td>
-												<td>2</td>
-												<td>7</td>
-												<td>2</td>
-												<td>3</td>
-												<td>2</td>
-												<td style="font-weight: bold; color: red;">7</td>
+												<td class="alc-name" style="font-weight: bolder;" th:text="${item.away_tmAbbreviation}"><strong></strong> 10 - 0 - 0 (1위)</td>
+												<td th:if="${item.gmSeq == inning.game_gmSeq}" class="alc-event-block__team-scoreboard-item " th:each="inning : ${inning}" th:text="${inning.giAwayScore}"></td>
+												<td style="font-weight: bold; color: red;" th:text="${item.glAwayRuns}"></td>
 												<td style="font-weight: bold;">2</td>
 												<td style="font-weight: bold;">3</td>
 												<td style="font-weight: bold;">2</td>
 											</tr>
 											<tr >
-												<td class="alc-name"><strong>롯데</strong>  0 - 0 - 10 (10위)</td>
-												<td>2</td>
-												<td>3</td>
-												<td>2</td>
-												<td>7</td>
-												<td>2</td>
-												<td>3</td>
-												<td>2</td>
-												<td>7</td>
-												<td>2</td>
-												<td>3</td>
-												<td>2</td>
-												<td style="font-weight: bold; color: red;">7</td>
+												<td class="alc-name" style="font-weight: bolder;" th:text="${item.home_tmAbbreviation}"><strong>롯데</strong>  0 - 0 - 10 (10위)</td>
+												<td  th:if="${item.gmSeq == inning.game_gmSeq}" class="alc-event-block__team-scoreboard-item " th:each="inning : ${inning}" th:text="${inning.giHomeScore}"></td>
+												<td style="font-weight: bold; color: red;" th:text="${item.glHomeRuns}"></td>
 												<td style="font-weight: bold;">2</td>
 												<td style="font-weight: bold;">3</td>
 												<td style="font-weight: bold;">2</td>

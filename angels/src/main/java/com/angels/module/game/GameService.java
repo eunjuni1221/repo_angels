@@ -42,7 +42,7 @@ public class GameService {
 	public List<GameDto> selectHofScoreList(GameDto gameDto) {
 		return gameDao.selectHofScoreList(gameDto);
 	}
-	public GameDto selectOneInningByGameSeq(GameDto gameDto) {
+	public List<GameDto> selectOneInningByGameSeq(GameDto gameDto) {
 		return gameDao.selectOneInningByGameSeq(gameDto);
 	}
 	public GameDto selectOneHofScore(GameDto gameDto) {
