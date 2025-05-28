@@ -48,5 +48,25 @@ public class GameService {
 	public GameDto selectOneHofScore(GameDto gameDto) {
 		return gameDao.selectOneHofScore(gameDto);
 	}
-	
+	public int insertBoxScore(GameDto gameDto) {
+		return gameDao.insertBoxScore(gameDto);
+	}
+	public int insertGameMeta(GameDto gameDto) {
+		return gameDao.insertGameMeta(gameDto);
+	}
+	public int insertPlayerBatting(GameDto gameDto) {
+		return gameDao.insertPlayerBatting(gameDto);
+	}
+	public int insertPlayerPitching(GameDto gameDto) {
+		return gameDao.insertPlayerPitching(gameDto);
+	}
+	public int insertPlayerDefense(GameDto gameDto) {
+		return gameDao.insertPlayerDefense(gameDto);
+	}
+	public int insertPitchingResult(GameDto gameDto) {
+		return gameDao.insertPitchingResult(gameDto);
+	}
+	public int insertPlayerSub(GameDto gameDto) {
+		return gameDao.insertPlayerSub(gameDto);
+	}
 }

@@ -344,6 +344,12 @@
 		
 		gl.glHomeRuns,
 	    gl.glAwayRuns,
+	    gl.glHomeHits,
+	    gl.glAwayHits,
+	    gl.glHomeErrors,
+	    gl.glAwayErrors,
+	    gl.glHomeLob,
+	    gl.glAwayLob,
 
 		hm.tmName AS home_tmName,
 		hm.tmClubName AS home_tmClubName,
@@ -387,6 +393,237 @@
     ORDER BY game_gmSeq DESC, giSeq ASC
     
 </select>
+
+<insert id="insertBoxScore" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO gameBoxscore (
+		
+		gbRuns,
+		gbHits,
+		gbErrors,
+		gbLob,
+		gbDp,
+		gbTrip,
+		gbAvg,
+		gbObp,
+		gbSlg,
+		gbOps,
+		gbSteal,
+		gbCauSteal,
+		gbSacBun,
+		gbSacFly,
+		gbRbi,
+		gbRegTime,
+		gbModTime,
+		game_gmSeq,
+		team_tmSeq
+		
+	) VALUES (
+	    #{gbRuns},
+	    #{gbHits},
+	    #{gbErrors},
+	    #{gbLob},
+	    #{gbDp},
+	    #{gbTrip},
+	    #{gbAvg},
+	    #{gbObp},
+	    #{gbSlg},
+	    #{gbOps},
+	    #{gbSteal},
+	    #{gbCauSteal},
+	    #{gbSacBun},
+	    #{gbSacFly},
+	    #{gbRbi},
+	    #{gbRegTime},
+	    #{gbModTime},
+	    #{game_gmSeq},
+	    #{team_tmSeq}
+	)
+</insert>
+
+<insert id="insertGameMeta" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO gameMeta (
+		
+		gtAttendance,
+		gtWeather,
+		gtWind,
+		gtUmpireHome,
+		gtUmpireFirst,
+		gtUmpireSecond,
+		gtUmpireThird,
+		gtUmpireLeft,
+		gtUmpireRight,
+		gtRegTime,
+		gtModTime,
+		game_gmSeq,
+		venue_stSeq
+		
+	) VALUES (
+	    #{gtAttendance},
+	    #{gtWeather},
+	    #{gtWind},
+	    #{gtUmpireHome},
+	    #{gtUmpireFirst},
+	    #{gtUmpireSecond},
+	    #{gtUmpireThird},
+	    #{gtUmpireLeft},
+	    #{gtUmpireRight},
+	    #{gtRegTime},
+	    #{gtModTime},
+	    #{game_gmSeq},
+	    #{venue_stSeq}
+	)
+</insert>
+
+<insert id="insertPlayerBatting" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO playerBatting (
+		
+		pbIsStarter,
+		pbBattingOrder,
+		pbAb,
+		pbRuns,
+		pbHits,
+		pbRbi,
+		pbBb,
+		pbSo,
+		pbHomerun,
+		pbDouble,
+		pbTriple,
+		pbSteal,
+		pbCauSteal,
+		pbSacBunt,
+		pbSacFly,
+		pbAvg,
+		pbRegTime,
+		pbModTime,
+		game_gmSeq,
+		team_tmSeq,
+		player_pySeq
+		
+	) VALUES (
+	    #{pbIsStarter},
+	    #{pbBattingOrder},
+	    #{pbAb},
+	    #{pbRuns},
+	    #{pbHits},
+	    #{pbRbi},
+	    #{pbBb},
+	    #{pbSo},
+	    #{pbHomerun},
+	    #{pbDouble},
+	    #{pbTriple},
+	    #{pbSteal},
+	    #{pbCauSteal},
+	    #{pbSacBunt},
+	    #{pbSacFly},
+		#{pbAvg},
+	    #{pbRegTime},
+	    #{pbModTime},
+	    #{game_gmSeq},
+	    #{team_tmSeq},
+	    #{player_pySeq}
+	)
+</insert>
+
+<insert id="insertPlayerPitching" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO playerPitching (
+		
+		ppIsStarter,
+		ppIp,
+		ppHit,
+		ppRun,
+		pbHits,
+		pbRbi,
+		pbBb,
+		pbSo,
+		pbHomerun,
+		pbDouble,
+		pbTriple,
+		pbSteal,
+		pbCauSteal,
+		pbSacBunt,
+		pbSacFly,
+		pbRegTime,
+		pbModTime,
+		game_gmSeq,
+		team_tmSeq,
+		player_pySeq
+		
+	) VALUES (
+	    #{pbIsStarter},
+	    #{pbBattingOrder},
+	    #{pbAb},
+	    #{pbRuns},
+	    #{pbHits},
+	    #{pbRbi},
+	    #{pbBb},
+	    #{pbSo},
+	    #{pbHomerun},
+	    #{pbDouble},
+	    #{pbTriple},
+	    #{pbSteal},
+	    #{pbCauSteal},
+	    #{pbSacBunt},
+	    #{pbSacFly},
+	    #{pbRegTime},
+	    #{pbModTime},
+	    #{game_gmSeq},
+	    #{team_tmSeq},
+	    #{player_pySeq}
+	)
+</insert>
+
+<insert id="insertPlayerDefense" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO playerDefense (
+				
+		pdPosition,
+		pdError
+
+		
+	) VALUES (
+	    #{pdPosition},
+	    #{pdError}
+	)
+</insert>
+
+<insert id="insertPitchingResult" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO pitchingResult (
+		
+		prResult,
+		prRegTime,
+		prModTime
+
+		
+	) VALUES (
+	    #{prResult},
+	    #{prRegTime},
+	    #{prModTime}
+	)
+</insert>
+
+<insert id="insertPlayerSub" parameterType="com.angels.module.game.GameDto">
+		INSERT INTO playerSub (
+		
+		psPosition,
+		psInning,
+		psBattingOrder,
+		psSubType,
+		psRegTime,
+		psModTime,
+		playerOut_pySeq,
+		playerIn_pySeq
+
+		
+	) VALUES (
+	    #{psPosition},
+	    #{psInning},
+	    #{psBattingOrder},
+	    #{psSubType},
+	    #{psRegTime},
+	    #{psModTime},
+	    #{playerOut_pySeq},
+	    #{playerIn_pySeq}
+	)
+</insert>
 
 
 </mapper>

@@ -105,7 +105,7 @@
 												<th>R</th>
 												<th>H</th>
 												<th>E</th>
-												<th>B</th>
+												<th>LOB</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -113,17 +113,17 @@
 												<td class="alc-name" style="font-weight: bolder;" th:text="${item.away_tmAbbreviation}"><strong></strong> 10 - 0 - 0 (1위)</td>
 												<td th:if="${item.gmSeq == inning.game_gmSeq}" class="alc-event-block__team-scoreboard-item " th:each="inning : ${inning}" th:text="${inning.giAwayScore}"></td>
 												<td style="font-weight: bold; color: red;" th:text="${item.glAwayRuns}"></td>
-												<td style="font-weight: bold;">2</td>
-												<td style="font-weight: bold;">3</td>
-												<td style="font-weight: bold;">2</td>
+												<td style="font-weight: bold;" th:text="${item.glAwayHits}">2</td>
+												<td style="font-weight: bold;" th:text="${item.glAwayErrors}">3</td>
+												<td style="font-weight: bold;" th:text="${item.glAwayLob}">2</td>
 											</tr>
 											<tr >
 												<td class="alc-name" style="font-weight: bolder;" th:text="${item.home_tmAbbreviation}"><strong>롯데</strong>  0 - 0 - 10 (10위)</td>
 												<td  th:if="${item.gmSeq == inning.game_gmSeq}" class="alc-event-block__team-scoreboard-item " th:each="inning : ${inning}" th:text="${inning.giHomeScore}"></td>
 												<td style="font-weight: bold; color: red;" th:text="${item.glHomeRuns}"></td>
-												<td style="font-weight: bold;">2</td>
-												<td style="font-weight: bold;">3</td>
-												<td style="font-weight: bold;">2</td>
+												<td style="font-weight: bold;" th:text="${item.glHomeHits}">2</td>
+												<td style="font-weight: bold;" th:text="${item.glHomeErrors}">3</td>
+												<td style="font-weight: bold;" th:text="${item.glHomeLob}">2</td>
 											</tr>
 										</tbody>
 									</table>

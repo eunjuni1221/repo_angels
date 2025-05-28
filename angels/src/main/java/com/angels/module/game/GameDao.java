@@ -15,4 +15,11 @@ public interface GameDao {
 	public List<GameDto> selectHofScoreList(GameDto gameDto);
 	public GameDto selectOneHofScore(GameDto gameDto);
 	public List<GameDto> selectOneInningByGameSeq(GameDto gameDto);
+	public int insertBoxScore(GameDto gameDto);
+	public int insertGameMeta (GameDto gameDto);
+	public int insertPlayerBatting (GameDto gameDto);
+	public int insertPlayerPitching (GameDto gameDto);
+	public int insertPlayerDefense (GameDto gameDto);
+	public int insertPitchingResult (GameDto gameDto);
+	public int insertPlayerSub (GameDto gameDto);
 }

@@ -72,6 +72,101 @@ public class GameDto {
 	
 	private List<GameDto> inningList;
 	
+	// gameBoxscore
+	private String gbSeq;
+	private Integer gbRuns;
+	private Integer gbHits;
+	private Integer gbErrors;
+	private Integer gbLob;
+	private Integer gbDp;
+	private Integer gbTrip;
+	private double gbAvg; 
+	private double gbObp;
+	private double gbSlg;
+	private double gbOps;
+	private Integer gbSteal;
+	private Integer gbCauSteal;
+	private Integer gbSacBun;
+	private Integer gbSacFly;
+	private Integer gbRbi;
+	private String gbRegTime;
+	private String gbModTime;
+	private String team_tmSeq;
+	
+	// gameMeta
+	private String gtSeq;
+	private Integer gtAttendance;
+	private String gtWeather;
+	private String gtWind;
+	private String gtUmpireHome;
+	private String gtUmpireFirst;
+	private String gtUmpireSecond;
+	private String gtUmpireThird;
+	private String gtUmpireLeft;
+	private String gtUmpireRight;
+	private String gtRegTime;
+	private String gtModTime;
+
+	//playerBatting
+	private String pbSeq;
+	private Integer pbIsStarter;
+	private Integer pbBattingOrder;
+	private Integer pbAb;
+	private Integer pbRuns;
+	private Integer pbHits;
+	private Integer pbRbi;
+	private Integer pbBb; 
+	private Integer pbSo;
+	private Integer pbHomerun;
+	private Integer pbDouble;
+	private Integer pbTriple;
+	private Integer pbSteal;
+	private Integer pbCauSteal;
+	private Integer pbSacBunt;
+	private Integer pbSacFly;
+	private double pbAvg;
+	private String pbRegTime;
+	private String pbModTime;
+	private String player_pySeq;
+	
+	// playerPitching
+	private String ppSeq;
+	private Integer ppIsStarter;
+	private double ppIp;
+	private Integer ppHit;
+	private Integer ppRun;
+	private Integer ppEaruns;
+	private Integer ppBb;
+	private Integer ppSo; 
+	private Integer ppHr;
+	private Integer ppPitchCount;
+	private Integer ppStrike;
+	private double ppEra;
+	private String ppRegTime;
+	private String ppModtime;
+	
+	// playerDefense
+	private String pdSeq;
+	private String pdPosition;
+	private Integer pdError;	
+
+	// pitchingResult
+	private String prSeq;
+	private String prResult;
+	private String prRegTime;
+	private String prModTime;
+	
+	// playerSub
+	private String psSeq;
+	private String psPosition;
+	private Integer psInning;
+	private Integer psBattingOrder;
+	private String psSubType;
+	private String psRegTime;
+	private String psModTime;
+	private String playerOut_pySeq;
+	private String playerIn_pySeq;
+
 	
 	public String getGmSeq() {
 		return gmSeq;
@@ -414,6 +509,492 @@ public class GameDto {
 	}
 	public void setInningList(List<GameDto> inningList) {
 		this.inningList = inningList;
+	}
+	public String getGbSeq() {
+		return gbSeq;
+	}
+	public void setGbSeq(String gbSeq) {
+		this.gbSeq = gbSeq;
+	}
+	public Integer getGbRuns() {
+		return gbRuns;
+	}
+	public void setGbRuns(Integer gbRuns) {
+		this.gbRuns = gbRuns;
+	}
+	public Integer getGbHits() {
+		return gbHits;
+	}
+	public void setGbHits(Integer gbHits) {
+		this.gbHits = gbHits;
+	}
+	public Integer getGbErrors() {
+		return gbErrors;
+	}
+	public void setGbErrors(Integer gbErrors) {
+		this.gbErrors = gbErrors;
+	}
+	public Integer getGbLob() {
+		return gbLob;
+	}
+	public void setGbLob(Integer gbLob) {
+		this.gbLob = gbLob;
+	}
+	public Integer getGbDp() {
+		return gbDp;
+	}
+	public void setGbDp(Integer gbDp) {
+		this.gbDp = gbDp;
+	}
+	public Integer getGbTrip() {
+		return gbTrip;
+	}
+	public void setGbTrip(Integer gbTrip) {
+		this.gbTrip = gbTrip;
+	}
+	public double getGbAvg() {
+		return gbAvg;
+	}
+	public void setGbAvg(double gbAvg) {
+		this.gbAvg = gbAvg;
+	}
+	public double getGbObp() {
+		return gbObp;
+	}
+	public void setGbObp(double gbObp) {
+		this.gbObp = gbObp;
+	}
+	public double getGbSlg() {
+		return gbSlg;
+	}
+	public void setGbSlg(double gbSlg) {
+		this.gbSlg = gbSlg;
+	}
+	public double getGbOps() {
+		return gbOps;
+	}
+	public void setGbOps(double gbOps) {
+		this.gbOps = gbOps;
+	}
+	public Integer getGbSteal() {
+		return gbSteal;
+	}
+	public void setGbSteal(Integer gbSteal) {
+		this.gbSteal = gbSteal;
+	}
+	public Integer getGbCauSteal() {
+		return gbCauSteal;
+	}
+	public void setGbCauSteal(Integer gbCauSteal) {
+		this.gbCauSteal = gbCauSteal;
+	}
+	public Integer getGbSacBun() {
+		return gbSacBun;
+	}
+	public void setGbSacBun(Integer gbSacBun) {
+		this.gbSacBun = gbSacBun;
+	}
+	public Integer getGbSacFly() {
+		return gbSacFly;
+	}
+	public void setGbSacFly(Integer gbSacFly) {
+		this.gbSacFly = gbSacFly;
+	}
+	public Integer getGbRbi() {
+		return gbRbi;
+	}
+	public void setGbRbi(Integer gbRbi) {
+		this.gbRbi = gbRbi;
+	}
+	public String getGbRegTime() {
+		return gbRegTime;
+	}
+	public void setGbRegTime(String gbRegTime) {
+		this.gbRegTime = gbRegTime;
+	}
+	public String getGbModTime() {
+		return gbModTime;
+	}
+	public void setGbModTime(String gbModTime) {
+		this.gbModTime = gbModTime;
+	}
+	public String getTeam_tmSeq() {
+		return team_tmSeq;
+	}
+	public void setTeam_tmSeq(String team_tmSeq) {
+		this.team_tmSeq = team_tmSeq;
+	}
+	public String getGtSeq() {
+		return gtSeq;
+	}
+	public void setGtSeq(String gtSeq) {
+		this.gtSeq = gtSeq;
+	}
+	public Integer getGtAttendance() {
+		return gtAttendance;
+	}
+	public void setGtAttendance(Integer gtAttendance) {
+		this.gtAttendance = gtAttendance;
+	}
+	public String getGtWeather() {
+		return gtWeather;
+	}
+	public void setGtWeather(String gtWeather) {
+		this.gtWeather = gtWeather;
+	}
+	public String getGtWind() {
+		return gtWind;
+	}
+	public void setGtWind(String gtWind) {
+		this.gtWind = gtWind;
+	}
+	public String getGtUmpireHome() {
+		return gtUmpireHome;
+	}
+	public void setGtUmpireHome(String gtUmpireHome) {
+		this.gtUmpireHome = gtUmpireHome;
+	}
+	public String getGtUmpireFirst() {
+		return gtUmpireFirst;
+	}
+	public void setGtUmpireFirst(String gtUmpireFirst) {
+		this.gtUmpireFirst = gtUmpireFirst;
+	}
+	public String getGtUmpireSecond() {
+		return gtUmpireSecond;
+	}
+	public void setGtUmpireSecond(String gtUmpireSecond) {
+		this.gtUmpireSecond = gtUmpireSecond;
+	}
+	public String getGtUmpireThird() {
+		return gtUmpireThird;
+	}
+	public void setGtUmpireThird(String gtUmpireThird) {
+		this.gtUmpireThird = gtUmpireThird;
+	}
+	public String getGtUmpireLeft() {
+		return gtUmpireLeft;
+	}
+	public void setGtUmpireLeft(String gtUmpireLeft) {
+		this.gtUmpireLeft = gtUmpireLeft;
+	}
+	public String getGtUmpireRight() {
+		return gtUmpireRight;
+	}
+	public void setGtUmpireRight(String gtUmpireRight) {
+		this.gtUmpireRight = gtUmpireRight;
+	}
+	public String getGtRegTime() {
+		return gtRegTime;
+	}
+	public void setGtRegTime(String gtRegTime) {
+		this.gtRegTime = gtRegTime;
+	}
+	public String getGtModTime() {
+		return gtModTime;
+	}
+	public void setGtModTime(String gtModTime) {
+		this.gtModTime = gtModTime;
+	}
+	public String getPbSeq() {
+		return pbSeq;
+	}
+	public void setPbSeq(String pbSeq) {
+		this.pbSeq = pbSeq;
+	}
+	public Integer getPbIsStarter() {
+		return pbIsStarter;
+	}
+	public void setPbIsStarter(Integer pbIsStarter) {
+		this.pbIsStarter = pbIsStarter;
+	}
+	public Integer getPbBattingOrder() {
+		return pbBattingOrder;
+	}
+	public void setPbBattingOrder(Integer pbBattingOrder) {
+		this.pbBattingOrder = pbBattingOrder;
+	}
+	public Integer getPbAb() {
+		return pbAb;
+	}
+	public void setPbAb(Integer pbAb) {
+		this.pbAb = pbAb;
+	}
+	public Integer getPbRuns() {
+		return pbRuns;
+	}
+	public void setPbRuns(Integer pbRuns) {
+		this.pbRuns = pbRuns;
+	}
+	public Integer getPbHits() {
+		return pbHits;
+	}
+	public void setPbHits(Integer pbHits) {
+		this.pbHits = pbHits;
+	}
+	public Integer getPbRbi() {
+		return pbRbi;
+	}
+	public void setPbRbi(Integer pbRbi) {
+		this.pbRbi = pbRbi;
+	}
+	public Integer getPbBb() {
+		return pbBb;
+	}
+	public void setPbBb(Integer pbBb) {
+		this.pbBb = pbBb;
+	}
+	public Integer getPbSo() {
+		return pbSo;
+	}
+	public void setPbSo(Integer pbSo) {
+		this.pbSo = pbSo;
+	}
+	public Integer getPbHomerun() {
+		return pbHomerun;
+	}
+	public void setPbHomerun(Integer pbHomerun) {
+		this.pbHomerun = pbHomerun;
+	}
+	public Integer getPbDouble() {
+		return pbDouble;
+	}
+	public void setPbDouble(Integer pbDouble) {
+		this.pbDouble = pbDouble;
+	}
+	public Integer getPbTriple() {
+		return pbTriple;
+	}
+	public void setPbTriple(Integer pbTriple) {
+		this.pbTriple = pbTriple;
+	}
+	public Integer getPbSteal() {
+		return pbSteal;
+	}
+	public void setPbSteal(Integer pbSteal) {
+		this.pbSteal = pbSteal;
+	}
+	public Integer getPbCauSteal() {
+		return pbCauSteal;
+	}
+	public void setPbCauSteal(Integer pbCauSteal) {
+		this.pbCauSteal = pbCauSteal;
+	}
+	public Integer getPbSacBunt() {
+		return pbSacBunt;
+	}
+	public void setPbSacBunt(Integer pbSacBunt) {
+		this.pbSacBunt = pbSacBunt;
+	}
+	public Integer getPbSacFly() {
+		return pbSacFly;
+	}
+	public void setPbSacFly(Integer pbSacFly) {
+		this.pbSacFly = pbSacFly;
+	}
+	public double getPbAvg() {
+		return pbAvg;
+	}
+	public void setPbAvg(double pbAvg) {
+		this.pbAvg = pbAvg;
+	}
+	public String getPbRegTime() {
+		return pbRegTime;
+	}
+	public void setPbRegTime(String pbRegTime) {
+		this.pbRegTime = pbRegTime;
+	}
+	public String getPbModTime() {
+		return pbModTime;
+	}
+	public void setPbModTime(String pbModTime) {
+		this.pbModTime = pbModTime;
+	}
+	public String getPlayer_pySeq() {
+		return player_pySeq;
+	}
+	public void setPlayer_pySeq(String player_pySeq) {
+		this.player_pySeq = player_pySeq;
+	}
+	public String getPpSeq() {
+		return ppSeq;
+	}
+	public void setPpSeq(String ppSeq) {
+		this.ppSeq = ppSeq;
+	}
+	public Integer getPpIsStarter() {
+		return ppIsStarter;
+	}
+	public void setPpIsStarter(Integer ppIsStarter) {
+		this.ppIsStarter = ppIsStarter;
+	}
+	public double getPpIp() {
+		return ppIp;
+	}
+	public void setPpIp(double ppIp) {
+		this.ppIp = ppIp;
+	}
+	public Integer getPpHit() {
+		return ppHit;
+	}
+	public void setPpHit(Integer ppHit) {
+		this.ppHit = ppHit;
+	}
+	public Integer getPpRun() {
+		return ppRun;
+	}
+	public void setPpRun(Integer ppRun) {
+		this.ppRun = ppRun;
+	}
+	public Integer getPpEaruns() {
+		return ppEaruns;
+	}
+	public void setPpEaruns(Integer ppEaruns) {
+		this.ppEaruns = ppEaruns;
+	}
+	public Integer getPpBb() {
+		return ppBb;
+	}
+	public void setPpBb(Integer ppBb) {
+		this.ppBb = ppBb;
+	}
+	public Integer getPpSo() {
+		return ppSo;
+	}
+	public void setPpSo(Integer ppSo) {
+		this.ppSo = ppSo;
+	}
+	public Integer getPpHr() {
+		return ppHr;
+	}
+	public void setPpHr(Integer ppHr) {
+		this.ppHr = ppHr;
+	}
+	public Integer getPpPitchCount() {
+		return ppPitchCount;
+	}
+	public void setPpPitchCount(Integer ppPitchCount) {
+		this.ppPitchCount = ppPitchCount;
+	}
+	public Integer getPpStrike() {
+		return ppStrike;
+	}
+	public void setPpStrike(Integer ppStrike) {
+		this.ppStrike = ppStrike;
+	}
+	public double getPpEra() {
+		return ppEra;
+	}
+	public void setPpEra(double ppEra) {
+		this.ppEra = ppEra;
+	}
+	public String getPpRegTime() {
+		return ppRegTime;
+	}
+	public void setPpRegTime(String ppRegTime) {
+		this.ppRegTime = ppRegTime;
+	}
+	public String getPpModtime() {
+		return ppModtime;
+	}
+	public void setPpModtime(String ppModtime) {
+		this.ppModtime = ppModtime;
+	}
+	public String getPdSeq() {
+		return pdSeq;
+	}
+	public void setPdSeq(String pdSeq) {
+		this.pdSeq = pdSeq;
+	}
+	public String getPdPosition() {
+		return pdPosition;
+	}
+	public void setPdPosition(String pdPosition) {
+		this.pdPosition = pdPosition;
+	}
+	public Integer getPdError() {
+		return pdError;
+	}
+	public void setPdError(Integer pdError) {
+		this.pdError = pdError;
+	}
+	public String getPrSeq() {
+		return prSeq;
+	}
+	public void setPrSeq(String prSeq) {
+		this.prSeq = prSeq;
+	}
+	public String getPrResult() {
+		return prResult;
+	}
+	public void setPrResult(String prResult) {
+		this.prResult = prResult;
+	}
+	public String getPrRegTime() {
+		return prRegTime;
+	}
+	public void setPrRegTime(String prRegTime) {
+		this.prRegTime = prRegTime;
+	}
+	public String getPrModTime() {
+		return prModTime;
+	}
+	public void setPrModTime(String prModTime) {
+		this.prModTime = prModTime;
+	}
+	public String getPsSeq() {
+		return psSeq;
+	}
+	public void setPsSeq(String psSeq) {
+		this.psSeq = psSeq;
+	}
+	public String getPsPosition() {
+		return psPosition;
+	}
+	public void setPsPosition(String psPosition) {
+		this.psPosition = psPosition;
+	}
+	public Integer getPsInning() {
+		return psInning;
+	}
+	public void setPsInning(Integer psInning) {
+		this.psInning = psInning;
+	}
+	public Integer getPsBattingOrder() {
+		return psBattingOrder;
+	}
+	public void setPsBattingOrder(Integer psBattingOrder) {
+		this.psBattingOrder = psBattingOrder;
+	}
+	public String getPsSubType() {
+		return psSubType;
+	}
+	public void setPsSubType(String psSubType) {
+		this.psSubType = psSubType;
+	}
+	public String getPsRegTime() {
+		return psRegTime;
+	}
+	public void setPsRegTime(String psRegTime) {
+		this.psRegTime = psRegTime;
+	}
+	public String getPsModTime() {
+		return psModTime;
+	}
+	public void setPsModTime(String psModTime) {
+		this.psModTime = psModTime;
+	}
+	public String getPlayerOut_pySeq() {
+		return playerOut_pySeq;
+	}
+	public void setPlayerOut_pySeq(String playerOut_pySeq) {
+		this.playerOut_pySeq = playerOut_pySeq;
+	}
+	public String getPlayerIn_pySeq() {
+		return playerIn_pySeq;
+	}
+	public void setPlayerIn_pySeq(String playerIn_pySeq) {
+		this.playerIn_pySeq = playerIn_pySeq;
 	}
 	
 }
