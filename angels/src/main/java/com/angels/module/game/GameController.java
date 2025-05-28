@@ -243,6 +243,178 @@ public class GameController extends BaseController{
 		model.addAttribute("inning", gameService.selectOneInningByGameSeq(dto));
 		return "hof/game/baseball_match-main";
 	}
+	
+	@RequestMapping("/game/GameBoxScoreInst")
+	public String gameBoxScoreInst(GameDto dto) throws Exception {
+	    System.out.println("=== [CALL] GameBoxScoreInst ===");
+
+	    List<GameDto> gameList = gameService.listInstForLineScore(dto);
+	    System.out.println("조회된 경기 수: " + gameList.size());
+
+	    int totalCount = 0;
+	    int successCount = 0;
+
+	    for (GameDto game : gameList) {
+	        totalCount++;
+	        String gamePk = game.getGmSeq();
+	        String apiUrl = "https://statsapi.mlb.com/api/v1/game/" + gamePk + "/boxscore";
+
+	        try {
+	            URL url = new URL(apiUrl);
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            conn.setRequestMethod("GET");
+
+	            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	            StringBuilder response = new StringBuilder();
+	            String line;
+	            while ((line = reader.readLine()) != null) {
+	                response.append(line);
+	            }
+	            reader.close();
+	            conn.disconnect();
+
+	            ObjectMapper mapper = new ObjectMapper();
+	            JsonNode root = mapper.readTree(response.toString());
+
+	            String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+	            // === 1. Game Meta 정보 insert ===
+	            JsonNode info = root.path("info");
+	            GameDto metaDto = new GameDto();
+	            metaDto.setGame_gmSeq(gamePk);
+	            metaDto.setGmRegTime(now);
+	            metaDto.setGmModTime(now);
+
+	            for (JsonNode infoItem : info) {
+	                String label = infoItem.path("label").asText();
+	                String value = infoItem.path("value").asText();
+
+	                switch (label) {
+	                    case "Venue":
+	                        metaDto.setGmVenueName(value);
+	                        break;
+	                    case "First pitch":
+	                        metaDto.setGmFirstPitch(value);
+	                        break;
+	                    case "Game Duration":
+	                        metaDto.setGmDuration(value);
+	                        break;
+	                    case "Attendance":
+	                        metaDto.setGmAttendance(value.replaceAll(",", ""));
+	                        break;
+	                    case "Weather":
+	                        metaDto.setGmWeather(value);
+	                        break;
+	                    // 필요한 경우 더 추가
+	                }
+	            }
+
+	            // === 2. 심판 정보 insert ===
+	            JsonNode officials = root.path("officials");
+	            for (JsonNode ump : officials) {
+	                GameDto umpDto = new GameDto();
+	                umpDto.setGame_gmSeq(gamePk);
+	                umpDto.setUmpireName(ump.path("official").path("fullName").asText());
+	                umpDto.setUmpirePosition(ump.path("officialType").asText());
+	                umpDto.setUmpRegTime(now);
+	                umpDto.setUmpModTime(now);
+	                gameService.insertGameMeta(umpDto);
+	            }
+
+	            gameService.insertGameMeta(metaDto); // 경기 메타정보 insert
+
+	            // === 3. 선수별 통계 정보 insert ===
+	            JsonNode teams = root.path("teams");
+
+	            for (String side : List.of("home", "away")) {
+	                JsonNode players = teams.path(side).path("players");
+	                for (Iterator<String> it = players.fieldNames(); it.hasNext(); ) {
+	                    String playerId = it.next();
+	                    JsonNode player = players.path(playerId);
+	                    String fullName = player.path("person").path("fullName").asText();
+	                    int jersey = player.path("jerseyNumber").asInt(0);
+	                    String position = player.path("position").path("abbreviation").asText();
+
+	                    // 3-1. 타격 기록
+	                    if (player.has("stats") && player.path("stats").has("batting")) {
+	                        GameDto batDto = new GameDto();
+	                        batDto.setGame_gmSeq(gamePk);
+	                        batDto.setPlayerName(fullName);
+	                        batDto.setPlayerJersey(jersey);
+	                        batDto.setPlayerPos(position);
+	                        batDto.setStatType("batting");
+	                        batDto.setRegTime(now);
+	                        batDto.setModTime(now);
+
+	                        JsonNode bat = player.path("stats").path("batting");
+	                        batDto.setBatAtBat(bat.path("atBats").asInt());
+	                        batDto.setBatHits(bat.path("hits").asInt());
+	                        batDto.setBatRuns(bat.path("runs").asInt());
+	                        batDto.setBatRbi(bat.path("rbi").asInt());
+	                        batDto.setBatHomeRuns(bat.path("homeRuns").asInt());
+	                        batDto.setBatWalks(bat.path("baseOnBalls").asInt());
+
+	                        gameService.insertPlayerBatting(batDto);
+	                    }
+
+	                    // 3-2. 투구 기록
+	                    if (player.has("stats") && player.path("stats").has("pitching")) {
+	                        GameDto pitDto = new GameDto();
+	                        pitDto.setGame_gmSeq(gamePk);
+	                        pitDto.setPlayerName(fullName);
+	                        pitDto.setPlayerJersey(jersey);
+	                        pitDto.setPlayerPos(position);
+	                        pitDto.setStatType("pitching");
+	                        pitDto.setRegTime(now);
+	                        pitDto.setModTime(now);
+
+	                        JsonNode pit = player.path("stats").path("pitching");
+	                        pitDto.setPitInnings(pit.path("inningsPitched").asText());
+	                        pitDto.setPitHits(pit.path("hits").asInt());
+	                        pitDto.setPitRuns(pit.path("runs").asInt());
+	                        pitDto.setPitEr(pit.path("earnedRuns").asInt());
+	                        pitDto.setPitBb(pit.path("baseOnBalls").asInt());
+	                        pitDto.setPitSo(pit.path("strikeOuts").asInt());
+	                        pitDto.setPitHr(pit.path("homeRuns").asInt());
+
+	                        gameService.insertPlayerPitching(pitDto);
+	                    }
+
+	                    // 3-3. 수비 기록
+	                    if (player.has("stats") && player.path("stats").has("fielding")) {
+	                        GameDto defDto = new GameDto();
+	                        defDto.setGame_gmSeq(gamePk);
+	                        defDto.setPlayerName(fullName);
+	                        defDto.setPlayerJersey(jersey);
+	                        defDto.setPlayerPos(position);
+	                        defDto.setStatType("defense");
+	                        defDto.setRegTime(now);
+	                        defDto.setModTime(now);
+
+	                        JsonNode def = player.path("stats").path("fielding");
+	                        defDto.setDefAssists(def.path("assists").asInt());
+	                        defDto.setDefErrors(def.path("errors").asInt());
+	                        defDto.setDefPutOuts(def.path("putOuts").asInt());
+
+	                        gameService.insertPlayerDefense(defDto);
+	                    }
+
+	                    // 필요하면 여기에 교체 정보 등도 추가 가능
+	                }
+	            }
+
+	            successCount++;
+
+	        } catch (Exception e) {
+	            System.err.println("Error inserting for gamePk: " + gamePk);
+	            e.printStackTrace();
+	        }
+	    }
+
+	    System.out.println("총 처리 경기 수: " + totalCount + ", 성공: " + successCount);
+	    return "redirect:/game/gameXdmList";
+	}
+
 
 }
 
