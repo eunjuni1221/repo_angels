@@ -254,203 +254,197 @@ public class GameController extends BaseController{
 	        String gamePk = game.getGame_gmSeq();
 	        String apiUrl = "https://statsapi.mlb.com/api/v1/game/" + gamePk + "/boxscore";
 
-	        URL url = new URL(apiUrl);
-	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-	        conn.setRequestMethod("GET");
+	        try {
+	            // API 요청
+	            URL url = new URL(apiUrl);
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            conn.setRequestMethod("GET");
 
-	        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-	        StringBuilder sb = new StringBuilder();
-	        String line;
-	        while ((line = br.readLine()) != null) {
-	            sb.append(line);
-	        }
-	        br.close();
-	        conn.disconnect();
-
-	        ObjectMapper mapper = new ObjectMapper();
-	        JsonNode root = mapper.readTree(sb.toString());
-
-	        String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-	        JsonNode teamsNode = root.path("teams");
-
-	        // 1) gameBoxscore (home, away)
-	        for (String side : List.of("home", "away")) {
-	            JsonNode teamNode = teamsNode.path(side);
-	            GameDto boxScoreDto = new GameDto();
-
-	            boxScoreDto.setGame_gmSeq(gamePk);
-	            boxScoreDto.setTeam_tmSeq(teamNode.path("team").path("id").asText());
-
-	            // DTO 필드에 정확히 맞춰서 데이터 넣기
-	            boxScoreDto.setGbRuns(teamNode.path("teamStats").path("batting").path("runs").asInt());
-	            boxScoreDto.setGbHits(teamNode.path("teamStats").path("batting").path("hits").asInt());
-	            boxScoreDto.setGbErrors(teamNode.path("teamStats").path("fielding").path("errors").asInt());
-	            boxScoreDto.setGbLob(teamNode.path("teamStats").path("batting").path("leftOnBase").asInt());
-	            boxScoreDto.setGbDp(teamNode.path("teamStats").path("batting").path("doublePlays").asInt());
-	            boxScoreDto.setGbTrip(teamNode.path("teamStats").path("batting").path("triples").asInt());
-	            boxScoreDto.setGbAvg(teamNode.path("teamStats").path("batting").path("avg").asDouble(0.0));
-	            boxScoreDto.setGbObp(teamNode.path("teamStats").path("batting").path("obp").asDouble(0.0));
-	            boxScoreDto.setGbSlg(teamNode.path("teamStats").path("batting").path("slg").asDouble(0.0));
-	            boxScoreDto.setGbOps(teamNode.path("teamStats").path("batting").path("ops").asDouble(0.0));
-	            boxScoreDto.setGbSteal(teamNode.path("teamStats").path("batting").path("stolenBases").asInt());
-	            boxScoreDto.setGbCauSteal(teamNode.path("teamStats").path("batting").path("caughtStealing").asInt());
-	            boxScoreDto.setGbSacBun(teamNode.path("teamStats").path("batting").path("sacrificeBunts").asInt());
-	            boxScoreDto.setGbSacFly(teamNode.path("teamStats").path("batting").path("sacrificeFlies").asInt());
-	            boxScoreDto.setGbRbi(teamNode.path("teamStats").path("batting").path("rbi").asInt());
-
-	            boxScoreDto.setGbRegTime(now);
-	            boxScoreDto.setGbModTime(now);
-
-	            gameService.insertBoxScore(boxScoreDto);
-	        }
-
-	        // 2) gameMeta
-	        GameDto metaDto = new GameDto();
-	        metaDto.setGame_gmSeq(gamePk);
-	        metaDto.setGtRegTime(now);
-	        metaDto.setGtModTime(now);
-
-	        for (JsonNode info : root.path("info")) {
-	            String label = info.path("label").asText();
-	            String value = info.path("value").asText();
-
-	            switch (label) {
-	                case "Attendance":
-	                    metaDto.setGtAttendance(value.isEmpty() ? null : Integer.parseInt(value.replace(",", "")));
-	                    break;
-	                case "Weather":
-	                    metaDto.setGtWeather(value);
-	                    break;
-	                case "Wind":
-	                    metaDto.setGtWind(value);
-	                    break;
+	            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	            StringBuilder sb = new StringBuilder();
+	            String line;
+	            while ((line = br.readLine()) != null) {
+	                sb.append(line);
 	            }
-	        }
+	            br.close();
+	            conn.disconnect();
 
-	        for (JsonNode ump : root.path("officials")) {
-	            String type = ump.path("officialType").asText();
-	            String name = ump.path("official").path("fullName").asText();
+	            ObjectMapper mapper = new ObjectMapper();
+	            JsonNode root = mapper.readTree(sb.toString());
 
-	            switch (type) {
-	                case "Home Plate":
-	                    metaDto.setGtUmpireHome(name);
-	                    break;
-	                case "First Base":
-	                    metaDto.setGtUmpireFirst(name);
-	                    break;
-	                case "Second Base":
-	                    metaDto.setGtUmpireSecond(name);
-	                    break;
-	                case "Third Base":
-	                    metaDto.setGtUmpireThird(name);
-	                    break;
-	                case "Left Field":
-	                    metaDto.setGtUmpireLeft(name);
-	                    break;
-	                case "Right Field":
-	                    metaDto.setGtUmpireRight(name);
-	                    break;
+	            String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+	            JsonNode teamsNode = root.path("teams");
+
+	            // ----------------------------
+	            // 1. gameBoxscore (home, away)
+	            // ----------------------------
+	            for (String side : List.of("home", "away")) {
+	                JsonNode teamNode = teamsNode.path(side);
+	                GameDto boxScoreDto = new GameDto();
+
+	                boxScoreDto.setGame_gmSeq(gamePk);
+	                boxScoreDto.setTeam_tmSeq(teamNode.path("team").path("id").asText());
+
+	                boxScoreDto.setGbRuns(teamNode.path("teamStats").path("batting").path("runs").asInt());
+	                boxScoreDto.setGbHits(teamNode.path("teamStats").path("batting").path("hits").asInt());
+	                boxScoreDto.setGbErrors(teamNode.path("teamStats").path("fielding").path("errors").asInt());
+	                boxScoreDto.setGbLob(teamNode.path("teamStats").path("batting").path("leftOnBase").asInt());
+	                boxScoreDto.setGbDp(teamNode.path("teamStats").path("batting").path("doublePlays").asInt());
+	                boxScoreDto.setGbTrip(teamNode.path("teamStats").path("batting").path("triples").asInt());
+	                boxScoreDto.setGbAvg(teamNode.path("teamStats").path("batting").path("avg").asDouble(0.0));
+	                boxScoreDto.setGbObp(teamNode.path("teamStats").path("batting").path("obp").asDouble(0.0));
+	                boxScoreDto.setGbSlg(teamNode.path("teamStats").path("batting").path("slg").asDouble(0.0));
+	                boxScoreDto.setGbOps(teamNode.path("teamStats").path("batting").path("ops").asDouble(0.0));
+	                boxScoreDto.setGbSteal(teamNode.path("teamStats").path("batting").path("stolenBases").asInt());
+	                boxScoreDto.setGbCauSteal(teamNode.path("teamStats").path("batting").path("caughtStealing").asInt());
+	                boxScoreDto.setGbSacBun(teamNode.path("teamStats").path("batting").path("sacrificeBunts").asInt());
+	                boxScoreDto.setGbSacFly(teamNode.path("teamStats").path("batting").path("sacrificeFlies").asInt());
+	                boxScoreDto.setGbRbi(teamNode.path("teamStats").path("batting").path("rbi").asInt());
+
+	                boxScoreDto.setGbRegTime(now);
+	                boxScoreDto.setGbModTime(now);
+
+	                gameService.insertBoxScore(boxScoreDto);
 	            }
-	        }
 
-	        gameService.insertGameMeta(metaDto);
+	            // ------------------------
+	            // 2. gameMeta (심판, 날씨)
+	            // ------------------------
+	            GameDto metaDto = new GameDto();
+	            metaDto.setGame_gmSeq(gamePk);
+	            metaDto.setGtRegTime(now);
+	            metaDto.setGtModTime(now);
 
-	        // 3) 선수 기록 (batting, pitching, defense)
-	        for (String side : List.of("home", "away")) {
-	            JsonNode players = teamsNode.path(side).path("players");
+	            for (JsonNode info : root.path("info")) {
+	                String label = info.path("label").asText();
+	                String value = info.path("value").asText();
 
-	            for (Iterator<String> it = players.fieldNames(); it.hasNext(); ) {
-	                String playerId = it.next();
-	                JsonNode player = players.path(playerId);
-
-	                // 선수 공통 정보
-	                String playerPySeq = playerId;
-	                int isStarter = player.path("isStarter").asInt(0);
-	                int battingOrder = player.path("battingOrder").asInt(0);
-
-	                // Batting
-	                if (player.has("stats") && player.path("stats").has("batting")) {
-	                    JsonNode bat = player.path("stats").path("batting");
-	                    GameDto batDto = new GameDto();
-
-	                    batDto.setGame_gmSeq(gamePk);
-	                    batDto.setPbSeq(playerId);
-	                    batDto.setPlayer_pySeq(playerPySeq);
-	                    batDto.setPbIsStarter(isStarter);
-	                    batDto.setPbBattingOrder(battingOrder);
-
-	                    batDto.setPbAb(bat.path("atBats").asInt());
-	                    batDto.setPbRuns(bat.path("runs").asInt());
-	                    batDto.setPbHits(bat.path("hits").asInt());
-	                    batDto.setPbRbi(bat.path("rbi").asInt());
-	                    batDto.setPbBb(bat.path("baseOnBalls").asInt());
-	                    batDto.setPbSo(bat.path("strikeOuts").asInt());
-	                    batDto.setPbHomerun(bat.path("homeRuns").asInt());
-	                    batDto.setPbDouble(bat.path("doubles").asInt());
-	                    batDto.setPbTriple(bat.path("triples").asInt());
-	                    batDto.setPbSteal(bat.path("stolenBases").asInt());
-	                    batDto.setPbCauSteal(bat.path("caughtStealing").asInt());
-	                    batDto.setPbSacBunt(bat.path("sacrificeBunts").asInt());
-	                    batDto.setPbSacFly(bat.path("sacrificeFlies").asInt());
-	                    batDto.setPbAvg(bat.path("avg").asDouble());
-
-	                    batDto.setPbRegTime(now);
-	                    batDto.setPbModTime(now);
-
-	                    gameService.insertPlayerBatting(batDto);
-	                }
-
-	                // Pitching
-	                if (player.has("stats") && player.path("stats").has("pitching")) {
-	                    JsonNode pit = player.path("stats").path("pitching");
-	                    GameDto pitDto = new GameDto();
-
-	                    pitDto.setGame_gmSeq(gamePk);
-	                    pitDto.setPpSeq(playerId);
-	                    pitDto.setPlayer_pySeq(playerPySeq);
-	                    pitDto.setPpIsStarter(isStarter);
-
-	                    pitDto.setPpIp(pit.path("inningsPitched").asDouble());
-	                    pitDto.setPpHit(pit.path("hits").asInt());
-	                    pitDto.setPpRun(pit.path("runs").asInt());
-	                    pitDto.setPpEaruns(pit.path("earnedRuns").asInt());
-	                    pitDto.setPpBb(pit.path("baseOnBalls").asInt());
-	                    pitDto.setPpSo(pit.path("strikeOuts").asInt());
-	                    pitDto.setPpHr(pit.path("homeRuns").asInt());
-	                    pitDto.setPpPitchCount(pit.path("numberOfPitches").asInt());
-
-	                    pitDto.setPpRegTime(now);
-	                    pitDto.setPpModTime(now);
-
-	                    gameService.insertPlayerPitching(pitDto);
-	                }
-
-	                // Defense
-	                if (player.has("stats") && player.path("stats").has("fielding")) {
-	                    JsonNode def = player.path("stats").path("fielding");
-	                    GameDto defDto = new GameDto();
-
-	                    defDto.setGame_gmSeq(gamePk);
-	                    defDto.setPdSeq(playerId);
-	                    defDto.setPlayer_pySeq(playerPySeq);
-
-	                    defDto.setPdGames(def.path("gamesPlayed").asInt());
-	                    defDto.setPdInnings(def.path("inningsPlayed").asDouble());
-	                    defDto.setPdPo(def.path("putOuts").asInt());
-	                    defDto.setPdA(def.path("assists").asInt());
-	                    defDto.setPdE(def.path("errors").asInt());
-
-	                    defDto.setPdRegTime(now);
-	                    defDto.setPdModTime(now);
-
-	                    gameService.insertPlayerDefense(defDto);
+	                switch (label) {
+	                    case "Attendance":
+	                        metaDto.setGtAttendance(value.isEmpty() ? null : Integer.parseInt(value.replace(",", "")));
+	                        break;
+	                    case "Weather":
+	                        metaDto.setGtWeather(value);
+	                        break;
+	                    case "Wind":
+	                        metaDto.setGtWind(value);
+	                        break;
 	                }
 	            }
+
+	            for (JsonNode ump : root.path("officials")) {
+	                String type = ump.path("officialType").asText();
+	                String name = ump.path("official").path("fullName").asText();
+
+	                switch (type) {
+	                    case "Home Plate":
+	                        metaDto.setGtUmpireHome(name);
+	                        break;
+	                    case "First Base":
+	                        metaDto.setGtUmpireFirst(name);
+	                        break;
+	                    case "Second Base":
+	                        metaDto.setGtUmpireSecond(name);
+	                        break;
+	                    case "Third Base":
+	                        metaDto.setGtUmpireThird(name);
+	                        break;
+	                    case "Left Field":
+	                        metaDto.setGtUmpireLeft(name);
+	                        break;
+	                    case "Right Field":
+	                        metaDto.setGtUmpireRight(name);
+	                        break;
+	                }
+	            }
+
+	            gameService.insertGameMeta(metaDto);
+
+	            // --------------------------
+	            // 3. 선수별 기록 (선택 구현)
+	            // --------------------------
+	            for (String side : List.of("home", "away")) {
+	                JsonNode players = teamsNode.path(side).path("players");
+
+	                Iterator<String> playerKeys = players.fieldNames();
+	                while (playerKeys.hasNext()) {
+	                    String playerKey = playerKeys.next();
+	                    JsonNode playerNode = players.path(playerKey);
+
+	                    String playerId = playerNode.path("person").path("id").asText();
+	                    String playerName = playerNode.path("person").path("fullName").asText();
+	                    String position = playerNode.path("position").path("abbreviation").asText();
+
+	                    JsonNode stats = playerNode.path("stats");
+
+	                    // Batting
+	                    if (stats.has("batting")) {
+	                        GameDto batDto = new GameDto();
+	                        batDto.setGame_gmSeq(gamePk);
+	                        batDto.setPlayer_id(playerId);
+	                        batDto.setGbPlayerName(playerName);
+	                        batDto.setGbPlayerPos(position);
+	                        batDto.setGbRegTime(now);
+	                        batDto.setGbModTime(now);
+
+	                        batDto.setGbAtBats(stats.path("batting").path("atBats").asInt());
+	                        batDto.setGbRuns(stats.path("batting").path("runs").asInt());
+	                        batDto.setGbHits(stats.path("batting").path("hits").asInt());
+	                        batDto.setGbHomeRuns(stats.path("batting").path("homeRuns").asInt());
+	                        batDto.setGbRbi(stats.path("batting").path("rbi").asInt());
+	                        batDto.setGbAvg(stats.path("batting").path("avg").asDouble(0.0));
+
+	                        gameService.insertPlayerBatting(batDto);
+	                    }
+
+	                    // Pitching
+	                    if (stats.has("pitching")) {
+	                        GameDto pitchDto = new GameDto();
+	                        pitchDto.setGame_gmSeq(gamePk);
+	                        pitchDto.setPlayer_id(playerId);
+	                        pitchDto.setGpPlayerName(playerName);
+	                        pitchDto.setGpPlayerPos(position);
+	                        pitchDto.setGpRegTime(now);
+	                        pitchDto.setGpModTime(now);
+
+	                        pitchDto.setGpInnings(stats.path("pitching").path("inningsPitched").asText());
+	                        pitchDto.setGpEra(stats.path("pitching").path("era").asDouble(0.0));
+	                        pitchDto.setGpStrikeOuts(stats.path("pitching").path("strikeOuts").asInt());
+	                        pitchDto.setGpHits(stats.path("pitching").path("hits").asInt());
+	                        pitchDto.setGpRuns(stats.path("pitching").path("runs").asInt());
+	                        pitchDto.setGpEarnedRuns(stats.path("pitching").path("earnedRuns").asInt());
+
+	                        gameService.insertPlayerPitching(pitchDto);
+	                    }
+
+	                    // Defense (선택 사항)
+	                    if (stats.has("fielding")) {
+	                        GameDto defDto = new GameDto();
+	                        defDto.setGame_gmSeq(gamePk);
+	                        defDto.setPlayer_id(playerId);
+	                        defDto.setGdPlayerName(playerName);
+	                        defDto.setGdPlayerPos(position);
+	                        defDto.setGdRegTime(now);
+	                        defDto.setGdModTime(now);
+
+	                        defDto.setGdAssists(stats.path("fielding").path("assists").asInt());
+	                        defDto.setGdErrors(stats.path("fielding").path("errors").asInt());
+	                        defDto.setGdPutOuts(stats.path("fielding").path("putOuts").asInt());
+
+	                        gameService.insertPlayerDefense(defDto);
+	                    }
+	                }
+	            }
+
+	        } catch (Exception e) {
+	            System.err.println(">> 오류 발생 - gamePk: " + gamePk);
+	            e.printStackTrace();
 	        }
 	    }
 
-	    return "redirect:/game/gameBoxScoreList";
+	    return "redirect:/game/gameXdmList";
 	}
+
 
 
 }
