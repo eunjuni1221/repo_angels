@@ -262,7 +262,7 @@ public class GameController extends BaseController{
 	 * StringBuilder(); String line; while ((line = br.readLine()) != null) {
 	 * sb.append(line); } br.close(); conn.disconnect();
 	 * 
-	 * ObjectMapper mapper = new ObjectMapper(); JsonNode root =
+	 * ObjectMapper mapper = new ObjectMapper(); JsonNode roots =
 	 * mapper.readTree(sb.toString());
 	 * 
 	 * String now =
