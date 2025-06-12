@@ -286,7 +286,7 @@ public class GameController extends BaseController{
 	 * boxScoreDto.setGbLob(teamNode.path("teamStats").path("batting").path(
 	 * "leftOnBase").asInt());
 	 * boxScoreDto.setGbDp(teamNode.path("teamStats").path("batting").path(
-	 * "doublePlays").asInt())
+	 * "doublePlays").asInt());
 	 * boxScoreDto.setGbTrip(teamNode.path("teamStats").path("batting").path(
 	 * "triples").asInt());
 	 * boxScoreDto.setGbAvg(teamNode.path("teamStats").path("batting").path("avg").
